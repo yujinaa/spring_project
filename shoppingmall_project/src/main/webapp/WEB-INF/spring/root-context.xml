@@ -23,5 +23,8 @@
       <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"/>
    </bean>
    <!-- 마이바티스 xml파일과 dao빈 연결  -->
-   <mybatis-spring:scan base-package="com.care.root.mybatis"/> <!-- 상위 폴더 mybatis만 적어준다. -->
+   <mybatis-spring:scan base-package="com.care.root.mybatis"/>     <!-- 상위 폴더 mybatis만 적어준다. -->
 </beans>
+
+
+
