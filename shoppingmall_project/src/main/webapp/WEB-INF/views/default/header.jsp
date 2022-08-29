@@ -89,7 +89,8 @@
 				</div>
 				<div class="rightMenu">
 				<ul>
-					<li><a href="${contextPath }/index">LOGIN</a></li>
+					<li><a href="${contextPath }/index">HOME</a></li>
+					<li><a href="${contextPath }/member/login">LOGIN</a></li>
 					<li><a href="${contextPath }/index">ACCOUNT</a></li>
 					<li><a href="${contextPath }/index">COMMUNITY</a></li>
 				</ul>
