@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.common.memberSessionName;
 import com.care.root.member.service.memberService;
 
 @Controller
 @RequestMapping("member") //시작경로가 member라 공통으로 쓰기
-public class memberController {
+public class memberController implements memberSessionName{ //편하게 쓰기 위해 상속받았다.
 	@Autowired memberService ms; //서비스로 넘기기위해 
 	@GetMapping("/login") //로그인페이지 맵핑
 	public String login() {
@@ -36,12 +37,12 @@ public class memberController {
 	}
 	@GetMapping("/successLogin") //로그인 성공시 
 	public String successLogin(@RequestParam String id, HttpSession session) {//넘어오는 id받기
-		session.setAttribute("loginSuccessUser", id);
+		session.setAttribute(LOGIN, id);
 		return "member/successLogin";
 	}
 	@GetMapping("logout")
 	public String logout(HttpSession session) { //로그인성공유저 세션을 가져와서
-		if(session.getAttribute("loginSuccessUser")!=null) //로그인세션값이 있다면
+		if(session.getAttribute(LOGIN)!=null) //로그인세션값이 있다면
 			session.invalidate();  //세션만료(로그아웃)
 		return "redirect:/index";//로그아웃하면 기본 index페이지로 이동
 								//(절대경로/붙이기 -> 그냥 index만쓰면 상대경로라 member의 index로 읽는다.이건 그냥 index)
