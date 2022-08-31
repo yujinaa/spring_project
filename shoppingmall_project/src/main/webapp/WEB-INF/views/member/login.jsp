@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<td ><input type="submit" value="로그인" style="width: 200px; height: 50px;"></td>
-					<td ><input type="button" value = "회원가입" style="width: 200px; height: 50px;"></td>
+					<td ><a href="join_form"><input type="button" value = "회원가입" style="width: 200px; height: 50px;"></a></td>
 				</tr>
 			</table>
 		</form>

@@ -47,6 +47,10 @@ public class memberController implements memberSessionName{ //편하게 쓰기 �
 		return "redirect:/index";//로그아웃하면 기본 index페이지로 이동
 								//(절대경로/붙이기 -> 그냥 index만쓰면 상대경로라 member의 index로 읽는다.이건 그냥 index)
 	}
+	@GetMapping("join_form")
+	public String registerForm() {
+		return "member/join_form";
+	}
 	
 //	@GetMapping("/register")
 //		public String account() {
