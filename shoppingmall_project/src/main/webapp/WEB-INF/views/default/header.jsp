@@ -24,6 +24,11 @@
 	width: 1200px;
 	background-color: white;
 }
+.header a{
+	text-decoration: none;
+	color: black;
+}
+
 .totalMenu {
 	background-color: white;
 	width: 1200px;
@@ -50,6 +55,7 @@
 	display: inline-block;
 	position : absolute;
 	right: 10px;
+	width: 400px;
 }
 .menuright li {
 	list-style: none;
@@ -86,7 +92,7 @@
 <body>
 	<div class="wrap">
 		<div class="header">
-			<h1 class="title">BLACKUP</h1>
+			<h1 class="title"><a href="${contextPath }/index">BLACKUP</a></h1>
 		</div>
 	
 			<nav class="totalMenu">
@@ -97,7 +103,6 @@
 					<li><a href="${contextPath }/index">BEST50</a></li>
 					</ul>
 					<ul class="menuright">
-					<li><a href="${contextPath }/index">HOME</a></li>
 					<li>
 						<c:choose>
 								<c:when test="${loginSuccessUser != null }"> <!-- 세션이 있다면 로그인한 사용자 -->

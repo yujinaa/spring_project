@@ -6,8 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
 .mainTable {
-	margin: auto;
+	margin:  auto;
+	margin-top: 70px;
 }
 
 .mainTable td {

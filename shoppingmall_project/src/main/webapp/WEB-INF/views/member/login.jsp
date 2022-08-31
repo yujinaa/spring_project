@@ -13,12 +13,11 @@
 }
 
 .loginForm{
-	margin-top : 100px;
+	padding-top : 100px;
 }
 .loginForm_bottom{
 	margin-top: 20px;
 	width: 300px;
-	height: 
 }
 </style>
 </head>
