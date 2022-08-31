@@ -27,21 +27,31 @@
 .totalMenu {
 	background-color: white;
 	width: 1200px;
-	display: flex;
+}
+.menu{
+	position: relative;
+	text-decoration: none;
+}
+.totalMenu ul li a{
+	text-decoration: none;
 }
 
-.leftMenu {
-	justify-content: flex-start;
+.menuleft {
+	display: inline-block;
+	position : absolute;
+	left: 1px;
 }
-.leftMenu li{
+.menuleft li {
 	list-style: none;
 	display: inline-flex;
 }
 
-.rightMenu {
-	justify-content: flex-end;
+.menuright {
+	display: inline-block;
+	position : absolute;
+	right: 10px;
 }
-.rightMenu li {
+.menuright li {
 	list-style: none;
 	display: inline-flex;
 }
@@ -50,7 +60,7 @@
 
 .totalMenu ul li a:hover {
 	color: black;
-	padding-bottom: 1px; /* a태그 밑줄과 글씨 간격*/
+	padding-bottom: 0.3px; /* a태그 밑줄과 글씨 간격*/
 	border-bottom: 1px solid black;
 }
 
@@ -80,18 +90,16 @@
 		</div>
 	
 			<nav class="totalMenu">
-				<div class="leftMenu">
-					<ul>
+				<div class="Menu">
+					<ul class="menuleft">
 					<li><a href="${contextPath }/index">SHOP</a></li>
 					<li><a href="${contextPath }/index">NEW</a></li>
 					<li><a href="${contextPath }/index">BEST50</a></li>
 					</ul>
-				</div>
-				<div class="rightMenu">
-				<ul>
+					<ul class="menuright">
 					<li><a href="${contextPath }/index">HOME</a></li>
 					<li><a href="${contextPath }/member/login">LOGIN</a></li>
-					<li><a href="${contextPath }/index">ACCOUNT</a></li>
+					<li><a href="${contextPath }/member/register">ACCOUNT</a></li>
 					<li><a href="${contextPath }/index">COMMUNITY</a></li>
 				</ul>
 				</div>

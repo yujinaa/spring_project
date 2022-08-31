@@ -10,5 +10,11 @@ public class memberController {
 		System.out.println("회원 로그인 연결");
 		return "member/login";
 	}
+	
+	@GetMapping("member/register")
+		public String account() {
+		System.out.println("회원 회원가입 연결");
+		return "member/account";
+	}
 
 }
