@@ -19,4 +19,9 @@ public class memberServiceImpl implements memberService{
 		}
 		return 1; //그렇지 않다면 로그인실패로 1 돌려주기
 	}
+	public int join(memberDTO dto) {
+		int result = 0;
+		result = mapper.join(dto);
+		return result;
+	}
 }

@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mybatis.member.MemberMapper">
+ 
   <select id="userCheck" resultMap="member"> <!-- 리턴타입을 resultmap으로 member형식에 맞춰 맵핑해라 -->
   	select * from member where id=#{id}   <!-- 해당 id와 같은 결과값(*)을 가져온다 -->
   </select>
@@ -17,6 +18,10 @@
   	<result property="pcode" column="pcode"/>
   	<result property="addr" column="addr"/>
   	<result property="daddr" column="daddr"/>
-  
   </resultMap>
+  
+  <!-- 회원가입 -->
+  <insert id="join">
+  	insert into member(id,pw,name,phone,email) values(#{id},#{pw},#{name},#{phone},#{email})
+  </insert>
 </mapper>

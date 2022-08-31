@@ -1,6 +1,5 @@
 package com.care.root.member.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.common.memberSessionName;
+import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
 
 @Controller
@@ -47,17 +47,15 @@ public class memberController implements memberSessionName{ //편하게 쓰기 �
 		return "redirect:/index";//로그아웃하면 기본 index페이지로 이동
 								//(절대경로/붙이기 -> 그냥 index만쓰면 상대경로라 member의 index로 읽는다.이건 그냥 index)
 	}
-	@GetMapping("join_form")
-	public String registerForm() {
-		return "member/join_form";
+	@GetMapping("join_form") //회원가입 페이지 보기
+	public String joinForm() {
+		return "member/join";
 	}
-	
-//	@GetMapping("/register")
-//		public String account() {
-//		System.out.println("회원 회원가입 연결");
-//		return "member/account";
-//	}
-	
-	
-
+	@PostMapping("join") //회원가입시 넘어온값 join으로 받기
+		public String join(memberDTO dto) {
+			int result = ms.join(dto);
+			if(result==1) 
+				return "redirect:login";
+			return "redirect:join_form";
+		}
 }
