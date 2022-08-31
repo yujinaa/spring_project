@@ -39,12 +39,19 @@ public class memberController {
 		session.setAttribute("loginSuccessUser", id);
 		return "member/successLogin";
 	}
-	
-	@GetMapping("/register")
-		public String account() {
-		System.out.println("회원 회원가입 연결");
-		return "member/account";
+	@GetMapping("logout")
+	public String logout(HttpSession session) { //로그인성공유저 세션을 가져와서
+		if(session.getAttribute("loginSuccessUser")!=null) //로그인세션값이 있다면
+			session.invalidate();  //세션만료(로그아웃)
+		return "redirect:/index";//로그아웃하면 기본 index페이지로 이동
+								//(절대경로/붙이기 -> 그냥 index만쓰면 상대경로라 member의 index로 읽는다.이건 그냥 index)
 	}
+	
+//	@GetMapping("/register")
+//		public String account() {
+//		System.out.println("회원 회원가입 연결");
+//		return "member/account";
+//	}
 	
 	
 

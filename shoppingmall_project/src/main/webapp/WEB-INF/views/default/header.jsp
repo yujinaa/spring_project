@@ -98,7 +98,18 @@
 					</ul>
 					<ul class="menuright">
 					<li><a href="${contextPath }/index">HOME</a></li>
-					<li><a href="${contextPath }/member/login">LOGIN</a></li>
+					<li>
+						<c:choose>
+								<c:when test="${loginSuccessUser != null }"> <!-- 세션이 있다면 로그인한 사용자 -->
+									<a href="${contextPath }/member/logout">LOGOUT</a>	<!-- 로그아웃이 뜨고 -->						
+								</c:when>
+								<c:otherwise> <!-- 그렇지 않은 사용자는 -->
+									<a href="${contextPath }/member/login">LOGIN</a> <!-- 로그인이 뜨드록 -->																
+								</c:otherwise>
+						</c:choose>
+					</li>
+					
+					
 					<li><a href="${contextPath }/member/register">ACCOUNT</a></li>
 					<li><a href="${contextPath }/index">COMMUNITY</a></li>
 				</ul>
