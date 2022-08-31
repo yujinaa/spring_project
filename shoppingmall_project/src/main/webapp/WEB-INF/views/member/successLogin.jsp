@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+*{
+margin: auto;
+}
+h2{
+	margin-top: 50px;
+	text-align: center;
+}
+
+</style>
 </head>
 <body>
 	<c:import url="../default/header.jsp" />

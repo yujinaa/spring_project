@@ -33,6 +33,9 @@
 	background-color: white;
 	width: 1200px;
 }
+.totalMenu a {
+	color: black;
+}
 .menu{
 	position: relative;
 	text-decoration: none;
@@ -62,10 +65,7 @@
 	display: inline-flex;
 }
 
-
-
 .totalMenu ul li a:hover {
-	color: black;
 	padding-bottom: 0.3px; /* a태그 밑줄과 글씨 간격*/
 	border-bottom: 1px solid black;
 }
