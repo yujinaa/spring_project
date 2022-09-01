@@ -27,6 +27,12 @@ h3{
 	color: white;
 	cursor: pointer;
 }
+.button a:hover input {
+	background:Silver;
+	transition: all 0.5s;
+	border: none;	
+	
+}
 
 </style>
 </head>
@@ -41,8 +47,8 @@ h3{
 					아래의 링크를 클릭하셔서 쿠폰팩을 확인해보세요!
 				</div>
 				<div class="button">
-						<input type="button" value="쿠폰 확인하기" style="width: 150px; height: 40px;">				
-						<a href="../index"><input type="button" value="홈으로 이동" style="width: 150px; height: 40px;"></a>			
+						<a href="#"><input type="button" value="쿠폰 확인하기" style="width: 180px; height: 50px;">	</a>			
+						<a href="../index"><input type="button" value="홈으로 이동" style="width: 180px; height: 50px;"></a>			
 				</div>
 		</div>
 	<c:import url="../default/footer.jsp"/>

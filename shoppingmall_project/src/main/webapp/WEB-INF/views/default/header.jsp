@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
 * {
 	margin: 0;
+	font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .wrap {
@@ -32,38 +33,40 @@
 .totalMenu {
 	background-color: white;
 	width: 1200px;
+	display: flex;
 }
-.totalMenu a {
-	color: black;
+.totalMenu > ul{
+	display: inline-block;
+	padding: 0 10px;
+	
 }
-.menu{
-	position: relative;
-	text-decoration: none;
-}
+.totalMenu > ul>li{
+float:left;
+	padding: 10px;
+list-style: none;
+} 
+
+
 .totalMenu ul li a{
 	text-decoration: none;
+	list-style: none;
+	color: black;
+}
+.totalMenu li{
+	position: relative;
+}
+.totalMenu ul ul{
+	display: none;
+	position: absolute;
+}
+.totalMenu li:hover > ul{
+	display: block;
+}
+.community_submenu li{
+	list-style: none;
+	text-align: center;
 }
 
-.menuleft {
-	display: inline-block;
-	position : absolute;
-	left: 1px;
-}
-.menuleft li {
-	list-style: none;
-	display: inline-flex;
-}
-
-.menuright {
-	display: inline-block;
-	position : absolute;
-	right: 10px;
-	width: 400px;
-}
-.menuright li {
-	list-style: none;
-	display: inline-flex;
-}
 
 .totalMenu ul li a:hover {
 	padding-bottom: 0.3px; /* a태그 밑줄과 글씨 간격*/
@@ -84,9 +87,7 @@
 
 }
 
-.content {
-	margin-top: 50px;
-}
+
 </style>
 </head>
 <body>
@@ -96,14 +97,13 @@
 		</div>
 	
 			<nav class="totalMenu">
-				<div class="Menu">
-					<ul class="menuleft">
-					<li><a href="${contextPath }/index">SHOP</a></li>
-					<li><a href="${contextPath }/index">NEW</a></li>
-					<li><a href="${contextPath }/index">BEST50</a></li>
+					<ul>
+						<li><a href="${contextPath }/index">SHOP</a></li>
+						<li><a href="${contextPath }/index">NEW</a></li>
+						<li><a href="${contextPath }/index">BEST50</a></li>
 					</ul>
-					<ul class="menuright">
-					<li>
+					<ul >
+					<li class="login_menu">
 						<c:choose>
 								<c:when test="${loginSuccessUser != null }"> <!-- 세션이 있다면 로그인한 사용자 -->
 									<a href="${contextPath }/member/logout">LOGOUT</a>	<!-- 로그아웃이 뜨고 -->						
@@ -116,9 +116,16 @@
 					
 					
 					<li><a href="${contextPath }/member/register">ACCOUNT</a></li>
-					<li><a href="${contextPath }/index">COMMUNITY</a></li>
+					<li>
+						<a href="#">COMMUNITY</a>
+						<ul class="community_submenu">
+							<li><a href="#">Q&A</a></li>
+							<li><a href="#">REVIEW</a></li>
+							<li><a href="#">공지사항</a></li>
+							<li><a href="#">입사지원</a></li>
+						</ul>
+					</li>
 				</ul>
-				</div>
 			</nav>
 		</div>
 </body>

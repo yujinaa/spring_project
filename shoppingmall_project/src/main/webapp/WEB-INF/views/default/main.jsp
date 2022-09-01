@@ -9,7 +9,7 @@
 
 .mainTable {
 	margin:  auto;
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 .mainTable td {
