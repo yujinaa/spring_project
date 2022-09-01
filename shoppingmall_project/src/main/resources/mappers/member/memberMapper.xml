@@ -22,6 +22,6 @@
   
   <!-- 회원가입 -->
   <insert id="join">
-  	insert into member(id,pw,name,phone,email) values(#{id},#{pw},#{name},#{phone},#{email})
+  	insert into member(id,pw,name,phone,email) values(#{id},#{pw},#{name},#{phone},#{email}) <!-- 주소는 주문할때 입력할거라 주소는 뺌 -->
   </insert>
 </mapper>

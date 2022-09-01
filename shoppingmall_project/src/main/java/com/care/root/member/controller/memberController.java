@@ -55,7 +55,11 @@ public class memberController implements memberSessionName{ //편하게 쓰기 �
 		public String join(memberDTO dto) {
 			int result = ms.join(dto);
 			if(result==1) 
-				return "redirect:login";
-			return "redirect:join_form";
+				return "redirect:successJoin"; //성공
+			return "redirect:join_form";   //실패
 		}
+	@GetMapping("successJoin")
+	public String successJoin() {
+		return "member/successJoin";
+	}	
 }
