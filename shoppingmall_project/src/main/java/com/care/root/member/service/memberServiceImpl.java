@@ -21,7 +21,11 @@ public class memberServiceImpl implements memberService{
 	}
 	public int join(memberDTO dto) {
 		int result = 0;
-		result = mapper.join(dto);
+		try { //동일 id로 회원가입시 발생하는 문제 처리하기
+			result = mapper.join(dto); //예외처리발생(프로그램 종료되지 말고 흘러가도록)
+		} catch (Exception e) {
+			e.printStackTrace(); //개발자만 볼수있게 프로그램 흐름을 깨지않도록 
+		}
 		return result;
 	}
 }
