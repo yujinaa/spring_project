@@ -37,13 +37,14 @@
 }
 .totalMenu > ul{
 	display: inline-block;
-	padding: 0 10px;
+	padding: 0 50px;
+	cursor: pointer;
 	
 }
 .totalMenu > ul>li{
-float:left;
-	padding: 10px;
-list-style: none;
+	float:left;
+	padding-right: 80px;
+	list-style: none;
 } 
 
 
@@ -98,7 +99,14 @@ list-style: none;
 	
 			<nav class="totalMenu">
 					<ul>
-						<li><a href="${contextPath }/index">SHOP</a></li>
+						<li>SHOP
+							<ul class="community_submenu">
+								<li><a href="${contextPath }/product/outer">아우터</a></li>
+								<li><a href="#">탑</a></li>
+								<li><a href="#">팬츠</a></li>
+								<li><a href="#">스커트 & 드레스</a></li>
+							</ul>
+						</li>
 						<li><a href="${contextPath }/index">NEW</a></li>
 						<li><a href="${contextPath }/index">BEST50</a></li>
 					</ul>

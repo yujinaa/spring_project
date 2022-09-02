@@ -62,4 +62,5 @@ public class memberController implements memberSessionName{ //편하게 쓰기 �
 	public String successJoin() {
 		return "member/successJoin";
 	}	
+	
 }
