@@ -89,8 +89,6 @@ nav {
 				<tr class="price">
 					<td>가격</td>
 				</tr>
-				
-				
 			</table>
 
 		</div>
