@@ -18,6 +18,7 @@
   	<result property="pcode" column="pcode"/>
   	<result property="addr" column="addr"/>
   	<result property="daddr" column="daddr"/>
+  	<result property="verify" column="verify"/>
   </resultMap>
   
   <!-- 회원가입 -->

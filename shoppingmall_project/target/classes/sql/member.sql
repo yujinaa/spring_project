@@ -6,6 +6,6 @@ create table member(
 	email	VARCHAR2(30)	NOT NULL,
 	pcode	VARCHAR2(30)	NULL,
 	addr	VARCHAR2(100)	NULL,
-	daddr	VARCHAR2(100)	NULL
+	daddr	VARCHAR2(100)	NULL,
 );
 
