@@ -41,6 +41,10 @@ public class adminController implements memberSessionName{
 			session.setAttribute(LOGIN, id);
 			return "admin/successAdmin";
 		}
+		@GetMapping("product/register")
+		public String productRegister() {
+			return "admin/product/register";
+		}
 		
 		
 	}
