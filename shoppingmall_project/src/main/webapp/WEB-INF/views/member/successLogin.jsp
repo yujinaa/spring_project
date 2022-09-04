@@ -19,7 +19,7 @@ h2{
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
-	<h2>${loginSuccessUser }님환영합니다</h2>
+	<h2>관리자${loginSuccessUser } 님환영합니다</h2>
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>

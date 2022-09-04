@@ -112,6 +112,7 @@
 					</ul>
 					<ul >
 					<li class="login_menu">
+						
 						<c:choose>
 								<c:when test="${loginSuccessUser != null }"> <!-- 세션이 있다면 로그인한 사용자 -->
 									<a href="${contextPath }/member/logout">LOGOUT</a>	<!-- 로그아웃이 뜨고 -->						
@@ -133,6 +134,8 @@
 							<li><a href="#">입사지원</a></li>
 						</ul>
 					</li>
+					
+					
 				</ul>
 			</nav>
 		</div>

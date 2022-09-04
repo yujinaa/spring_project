@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +29,13 @@
 	float : right;
 	text-align: right;
 }
+.adminstrator button{
+	width: 10px;
+	height: 40px;
+}
+.btn{
+	visibility: hidden;
+}
 </style>
 </head>
 <body>
@@ -39,11 +48,23 @@
 </div>
 <div class="footer_bottom">
 <div class="footer_left">
+	<div>
 	<ul>
 		<li>
 			도움말 | 배송 | 교환/반품/환불 | 인재채용 | 제휴문의
 		</li>
 	</ul>
+	</div>
+	<div>
+	<c:choose>
+		<c:when test="${loginSuccessUser != null }">
+			<button class="btn" >administrator</button>
+		</c:when>
+		<c:otherwise>
+			<button class="administrator" onclick="location='${contextPath}/admin/admin_login'">administrator</button>
+		</c:otherwise>
+	</c:choose>
+	</div>
 </div>
 
 <div class="footer_right">

@@ -24,6 +24,8 @@ input{
 </style>
 </head>
 <body>
+<c:import url="../default/header.jsp" />
+
 <div>
 	<div  class="admin_login_table" align="center" >
 	<h1>관리자 로그인</h1>
@@ -35,7 +37,7 @@ input{
 				</tr>
 				<tr>
 						<td>PASSWORD</td>
-					<td style="padding-left: 10px;"><input type="text" name="pw" placeholder="PW"></td>
+					<td style="padding-left: 10px;"><input type="text" name="pwd" placeholder="PW"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center" style="padding-top: 30px;">

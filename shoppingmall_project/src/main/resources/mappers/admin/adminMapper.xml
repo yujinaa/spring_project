@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mybatis.admin.AdminMapper">
 	<select id="adminCheck" resultMap="admin">
-		select * from admin where id =#{id} and pwd=#{pwd}
+		select * from admin where id =#{id}
 	</select>
 	
 	<!-- 관리자 로그인 -->
