@@ -17,6 +17,10 @@
  table {
 	padding-top: 50px;
 }
+input{
+	width: 200px;
+	height: 30px;
+}
 </style>
 </head>
 <body>
@@ -25,16 +29,17 @@
 	<h1>관리자 로그인</h1>
 		<form action="/root/admin/admin_check" method="post">
 			<table>
-				<tr style="width: 500px; height: 50px;">
-					<td><input type="text" name="id" placeholder="ID" ></td>
-				</tr>
-				<tr style="width: 500px;  height: 50px;">
-					<td><input type="text" name="pw" placeholder="PW"></td>
+				<tr>
+					<td>ID</td>
+					<td style="padding-left: 10px;"><input type="text" name="id" placeholder="ID" ></td>
 				</tr>
 				<tr>
-					<td >
+						<td>PASSWORD</td>
+					<td style="padding-left: 10px;"><input type="text" name="pw" placeholder="PW"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center" style="padding-top: 30px;">
 						<input type="submit" value="로그인" style="width: 200px; height: 50px;">
-					<a href="#"><input type="button" value = "회원가입" style="width: 200px; height: 50px;"></a>
 					</td>
 				</tr>
 			</table>
