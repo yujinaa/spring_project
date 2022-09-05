@@ -10,8 +10,16 @@ public class categoryDTO {
 	
 	private String cateCode;
 	private String cateName;
+	private String cateCodeRef;
+	private int level;
 	public String getCateCode() {
 		return cateCode;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	public void setCateCode(String cateCode) {
 		this.cateCode = cateCode;
@@ -28,6 +36,5 @@ public class categoryDTO {
 	public void setCateCodeRef(String cateCodeRef) {
 		this.cateCodeRef = cateCodeRef;
 	}
-	private String cateCodeRef;
 
 }

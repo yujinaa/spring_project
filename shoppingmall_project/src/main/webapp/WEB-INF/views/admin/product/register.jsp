@@ -94,7 +94,29 @@ aside ul li a{
 					<li><a href="#">유저 목록</a></li> <!-- 회원정보 확인 -->
 				</ul>
 			</aside>
-			<div class="container_box">본문</div>
+			<div class="container_box">
+	<table border="1">
+			<tr>
+				<th>상품번호</th>
+				<th>이름</th>
+				<th>상품코드</th>
+				<th>가격</th>
+				<th>상품정보</th>
+				<th>상품재고</th>
+				<th>이미지</th>
+			</tr>
+			<c:forEach var="dto" items="${productList }">
+				<tr>
+					<td>${dto.prodName }</td>
+					<td>${dto.cateCode }</td>
+					<td><a href="#">${dto.prodPrice }</a></td>
+					<td>${dto.info }</td>
+					<td>${dto.hit }</td>
+					<td>${dto.prodStock }</td>
+				</tr>
+			</c:forEach>
+</table>
+			</div>
 		</section>
 	</nav>
 </body>

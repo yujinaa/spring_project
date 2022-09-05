@@ -19,5 +19,9 @@ public class adminServiceImpl implements adminService{
 			}
 			return 1; //그렇지 않다면 로그인실패로 1 돌려주기
 		}
+	public void productList(Model model) {
+		
+		model.addAttribute("productList", mapper.productList());
+	}
 }
 

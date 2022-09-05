@@ -103,29 +103,26 @@ container_box table{
 			</aside>
 			<div class="container_box">
 				<table border="1">
-						<tr>
-							<th>상품번호</th>
-							<th>상품이름</th>
-							<th>카테고리</th>
-							<th>상품가격</th>
-							<th>상품정보</th>
-							<th>상품재고</th>
-							<th>상품이미지</th>
-						</tr>
-					<tbody>
-						<c:forEach items="${list}" var="list">
-							<tr>
-								<td>${list.prodNum}</td>
-								<td>${list.prodName}</td>
-								<td>${list.cateCode}</td>
-								<td>${list.prodPrice}</td>
-								<td>${list.prodInfo}</td>
-								<td>${list.prodStock}</td>
-								<td>${list.prodImg}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<tr>
+				<th>상품번호</th>
+				<th>이름</th>
+				<th>상품코드</th>
+				<th>가격</th>
+				<th>상품정보</th>
+				<th>상품재고</th>
+				<th>이미지</th>
+			</tr>
+			<c:forEach var="dto" items="${productList }">
+				<tr>
+					<td>${dto.prodName }</td>
+					<td>${dto.cateCode }</td>
+					<td>${dto.prodPrice }</td>
+					<td>${dto.info }</td>
+					<td>${dto.hit }</td>
+					<td>${dto.prodStock }</td>
+				</tr>
+			</c:forEach>
+</table>
 			</div>
 		</section>
 	</nav>

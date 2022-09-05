@@ -43,7 +43,8 @@ public class adminController implements memberSessionName{
 			return "admin/successAdmin";
 		}
 		@GetMapping("product/register")
-		public String productRegister() {
+		public String productRegister(Model model) {
+			as.productList(model);
 			return "admin/product/register";
 		}
 	
