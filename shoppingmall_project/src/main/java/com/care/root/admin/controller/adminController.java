@@ -32,6 +32,7 @@ public class adminController implements memberSessionName{
 			ra.addAttribute("id",id);
 			return "redirect:successAdmin";
 		}else {
+			
 			return "redirect:admin_login";
 		}
 	}
@@ -45,7 +46,7 @@ public class adminController implements memberSessionName{
 		public String productRegister() {
 			return "admin/product/register";
 		}
-		
+	
 		
 	}
 

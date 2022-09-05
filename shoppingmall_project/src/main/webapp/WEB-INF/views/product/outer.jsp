@@ -39,11 +39,8 @@ nav {
 }
 #product_list_box table{
 	border: 1px solid green;
-	width: 370px;
-}
-.image{
-	height: 500px;
-}
+
+
 
 
 
@@ -78,19 +75,21 @@ nav {
 <!-- 상품목록 -->
 	<section>
 		<div id="product_list_box">
-			<table border="1">
-				
-				<tr class="image">
-					<td><a href="#">사진</a></td>
-				</tr>
-				<tr class="name">
-					<td>이름</td>
-				</tr>
-				<tr class="price">
-					<td>가격</td>
-				</tr>
-			</table>
-
+				<table border="1">
+			
+							<tr>
+								<td>이미지</td>
+								<td>이름</td>
+								<td>가격</td>
+							</tr>
+						<c:forEach items="${list}" var="list">
+							<tr>
+								<td>${list.prodImg}</td>
+								<td>${list.prodName}</td>
+								<td>${list.prodPrice}</td>
+							</tr>
+						</c:forEach>
+				</table>
 		</div>
 	</section>
 	<div class="product_list_paging"></div>

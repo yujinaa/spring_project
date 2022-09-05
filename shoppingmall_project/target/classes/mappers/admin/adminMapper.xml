@@ -15,4 +15,10 @@
 		<result property="email" column="email"/>
 		<result property="phone" column="phone"/>
 	</resultMap>
+	
+	<!-- 카테고리 -->
+	<select id="category" resultType="com.care.root.product.dto.categoryDTO">
+		select level, catecode,catename,catecoderef from category 
+				start with catecoderef is null connect by prior catecode = catecoderef;
+	</select>
 </mapper>

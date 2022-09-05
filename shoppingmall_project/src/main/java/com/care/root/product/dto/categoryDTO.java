@@ -1,4 +1,4 @@
-package com.care.root.admin.dto;
+package com.care.root.product.dto;
 
 public class categoryDTO {
 	/*

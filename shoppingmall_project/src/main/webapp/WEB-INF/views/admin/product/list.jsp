@@ -32,13 +32,12 @@ ul {
 	list-style: nones;
 }
 
-
 nav .nav {
 	padding: 10px;
 	text-align: right;
 }
 
-nav# .nav ul li {
+nav # .nav ul li {
 	display: inline-block;
 	margin-left: 10px;
 }
@@ -69,17 +68,17 @@ aside ul li {
 	text-align: center;
 	margin-bottom: 10px;
 }
-aside ul li a{
+
+aside ul li a {
 	color: black;
 }
-
-
-
-
+container_box table{
+	align-content: center;
+}
 </style>
 </head>
 <body>
-	<c:import url="../default/header.jsp" />
+<c:import url="../../default/header.jsp" />
 	<div class="productplus">
 
 		<ul>
@@ -95,12 +94,39 @@ aside ul li a{
 			<aside>
 				<ul>
 					<li><a href="${contextPath }/admin/product/register">상품 등록</a></li>
-					<li><a href="${contextPath }/admin/product/list">상품 목록</a></li>   <!-- 등록상품 확인, 상품 수정,삭제 -->
+					<li><a href="${contextPath }/admin/product/list">상품 목록</a></li>
+					<!-- 등록상품 확인, 상품 수정,삭제 -->
 					<li><a href="#">상품 리뷰</a></li>
-					<li><a href="#">유저 목록</a></li> <!-- 회원정보 확인 -->
+					<li><a href="#">유저 목록</a></li>
+					<!-- 회원정보 확인 -->
 				</ul>
 			</aside>
-			<div class="container_box">본문</div>
+			<div class="container_box">
+				<table border="1">
+						<tr>
+							<th>상품번호</th>
+							<th>상품이름</th>
+							<th>카테고리</th>
+							<th>상품가격</th>
+							<th>상품정보</th>
+							<th>상품재고</th>
+							<th>상품이미지</th>
+						</tr>
+					<tbody>
+						<c:forEach items="${list}" var="list">
+							<tr>
+								<td>${list.prodNum}</td>
+								<td>${list.prodName}</td>
+								<td>${list.cateCode}</td>
+								<td>${list.prodPrice}</td>
+								<td>${list.prodInfo}</td>
+								<td>${list.prodStock}</td>
+								<td>${list.prodImg}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</section>
 	</nav>
 </body>

@@ -2,6 +2,7 @@ package com.care.root.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.admin.dto.adminDTO;
 import com.care.root.mybatis.admin.AdminMapper;
@@ -18,5 +19,5 @@ public class adminServiceImpl implements adminService{
 			}
 			return 1; //그렇지 않다면 로그인실패로 1 돌려주기
 		}
-	}
+}
 
