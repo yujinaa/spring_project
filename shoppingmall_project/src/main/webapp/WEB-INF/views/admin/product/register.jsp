@@ -8,7 +8,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+
 <style type="text/css">
+.inputArea{
+	text-align: center;
+}
+.inputArea label{
+	width: 100px;
+	height: 30px;
+}
+
 h2 {
 	text-align: center;
 }
@@ -32,13 +41,12 @@ ul {
 	list-style: nones;
 }
 
-
 nav .nav {
 	padding: 10px;
 	text-align: right;
 }
 
-nav# .nav ul li {
+nav # .nav ul li {
 	display: inline-block;
 	margin-left: 10px;
 }
@@ -69,19 +77,15 @@ aside ul li {
 	text-align: center;
 	margin-bottom: 10px;
 }
-aside ul li a{
+
+aside ul li a {
 	color: black;
 }
-
-
-
-
 </style>
 </head>
 <body>
 	<c:import url="../../default/header.jsp" />
-	<div class="productplus">
-	</div>
+	<div class="productplus"></div>
 	<h2>${loginSuccessUser }관리자님환영합니다</h2>
 	<nav class="nav">
 		<div class="nav_box"></div>
@@ -89,35 +93,58 @@ aside ul li a{
 			<aside>
 				<ul>
 					<li><a href="${contextPath }/admin/product/register">상품 등록</a></li>
-					<li><a href="${contextPath }/admin/product/list">상품 목록</a></li>   <!-- 등록상품 확인, 상품 수정,삭제 -->
+					<li><a href="${contextPath }/admin/product/list">상품 목록</a></li>
+					<!-- 등록상품 확인, 상품 수정,삭제 -->
 					<li><a href="#">상품 리뷰</a></li>
-					<li><a href="#">유저 목록</a></li> <!-- 회원정보 확인 -->
+					<li><a href="#">유저 목록</a></li>
+					<!-- 회원정보 확인 -->
 				</ul>
 			</aside>
-			<div class="container_box">
-	<table border="1">
-			<tr>
-				<th>상품번호</th>
-				<th>이름</th>
-				<th>상품코드</th>
-				<th>가격</th>
-				<th>상품정보</th>
-				<th>상품재고</th>
-				<th>이미지</th>
-			</tr>
-			<c:forEach var="dto" items="${productList }">
-				<tr>
-					<td>${dto.prodName }</td>
-					<td>${dto.cateCode }</td>
-					<td><a href="#">${dto.prodPrice }</a></td>
-					<td>${dto.info }</td>
-					<td>${dto.hit }</td>
-					<td>${dto.prodStock }</td>
-				</tr>
-			</c:forEach>
-</table>
-			</div>
 		</section>
+		<form method="post" action="${contextPath}/product/productSave">
+			<div class="inputArea">
+				<label>1차 분류</label>
+				 <select class="category1">
+					<option value="">전체</option>
+				</select> 
+				<label>2차 분류</label> 
+				<select class="category2" name="cateCode">
+					<option value="">전체</option>
+				</select>
+			</div>
+
+			<div class="inputArea">
+				<label for="productNum">상품번호</label> <input type="text" id="productNum"
+					name="productNum" />
+			</div>
+
+			<div class="inputArea">
+				<label for="productName">상품이름</label> <input type="text" id="productName"
+					name="productName" />
+			</div>
+
+			<div class="inputArea">
+				<label for="cateCode">카테고리번호</label> <input type="text" id="cateCode"
+					name="cateCode" />
+			</div>
+			<div class="inputArea">
+				<label for="productPrice">상품가격</label> <input type="text" id="productPrice"
+					name="productPrice" />
+			</div>
+			<div class="inputArea">
+				<label for="info">상품정보</label> 
+				<textarea rows="5" cols="50" id="info" name="info"></textarea>
+			</div>
+			<div class="inputArea">
+				<label for="productStodck">상품재고</label> <input type="text" id="productStodck"
+					name="productStodck" />
+			</div>
+
+			<div class="inputArea">
+				<input type="submit" value="등록" />	
+			</div>
+
+		</form>
 	</nav>
 </body>
 </html>

@@ -42,9 +42,13 @@ public class adminController implements memberSessionName{
 			session.setAttribute(LOGIN, id);
 			return "admin/successAdmin";
 		}
-		@GetMapping("product/register")
-		public String productRegister(Model model) {
+		@GetMapping("product/list")
+		public String producList(Model model) {
 			as.productList(model);
+			return "admin/product/list";
+		}
+		@GetMapping("product/register")
+		public String prodRegister() {
 			return "admin/product/register";
 		}
 	
