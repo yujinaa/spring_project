@@ -49,7 +49,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Talk Talk Board</a>
+				<a class="navbar-brand" href="${contextPath }/list">Talk Talk Board</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -147,13 +147,12 @@
 				
 			<!-- 로그인페이지이동 -->			
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="#"><i class="fa fa-user fa-fw"></i> User
-								Profile</a></li>
+						<li><a href="${contextPath }/member/login"><i class="fa fa-user fa-fw"></i> 회원 로그인</a></li>
 						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 						</li>
 						<li class="divider"></li>
-						<li><a href="${contextPath }/member/login"><i class="fa fa-sign-out fa-fw"></i>
-								Login</a></li>
+						<li><a href="#"><i class="fa fa-sign-out fa-fw"></i>
+								로그아웃</a></li>
 					</ul> <!-- /.dropdown-user --></li>
 				<!-- /.dropdown -->
 			</ul>
