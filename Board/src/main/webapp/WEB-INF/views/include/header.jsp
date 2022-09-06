@@ -147,8 +147,15 @@
 				
 			<!-- 로그인페이지이동 -->			
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="${contextPath }/member/login"><i class="fa fa-user fa-fw"></i> 회원 로그인</a></li>
-						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+						<c:choose>
+							<c:when test="${userId !=null}">
+								<li><a href="#"><i class="fa fa-user fa-fw"></i>${userId }</a></li>	
+							</c:when>
+							<c:otherwise>
+								<li><a href="${contextPath }/member/login"><i class="fa fa-user fa-fw"></i>로그인</a></li>
+							</c:otherwise>
+						</c:choose>
+						<li><a href="#"><i class="fa fa-gear fa-fw"></i> 회원가입</a>
 						</li>
 						<li class="divider"></li>
 						<li><a href="#"><i class="fa fa-sign-out fa-fw"></i>
