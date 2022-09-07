@@ -43,7 +43,7 @@ body {
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">Sign Up</h4>
-        <form class="validation-form" novalidate>
+        <form class="validation-form" action="signUp" method="post" novalidate>
             <div class="mb-3">
               <label for="name">아이디</label>
               <input type="text" class="form-control" name="id" placeholder="ID" value="" required>
