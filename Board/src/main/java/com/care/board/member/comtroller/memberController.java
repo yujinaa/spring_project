@@ -45,11 +45,6 @@ public class memberController implements loginSessionName{
 		return "index";
 	
 }
-	//회원가입 페이지이동
-	@GetMapping("signUp_form")
-		public String signUp() {
-			return "member/signUp";
-		}
 	//로그아웃
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
@@ -57,6 +52,11 @@ public class memberController implements loginSessionName{
 			session.invalidate(); //세션 종료
 		System.out.println("로그아웃성공");
 		return "redirect:/index";
+	}
+	//회원가입 페이지이동
+	@GetMapping("signUp")
+	public String signUp() {
+		return "member/signUp";
 	}
 }
 
