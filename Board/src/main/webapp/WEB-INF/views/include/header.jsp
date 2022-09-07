@@ -45,19 +45,17 @@
 				<a class="navbar-brand" href="${contextPath }/index">Talk Talk 게시판</a>
 			</div>
 					<ul class="login-user" style="margin-left:90px;  list-style: none; display: inline-block; font-size: 20px;" >
-						<c:choose>
-							<c:when test="${successUser !=null }">
-								<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i> Logout</a></li>	
-							</c:when>
-							<c:otherwise>
 								<li><a href="${contextPath }/member/login" ><i class="fa fa-user fa-fw"></i> Login</a></li>								
-							</c:otherwise>							
-						</c:choose>
 					</ul>
+					
+									
 					<ul class="signup-user" style="list-style: none; display: inline-block;font-size: 20px;">
 						<li><a href="${contextPath }/member/signUp"><i class="fa fa-gear fa-fw"></i> SignUp</a></li>
 					</ul> 
-			<!-- 로그인페이지이동 -->			
+					<ul class="logou-user" style="list-style: none; display: inline-block; font-size: 20px;">
+						<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i>${successUser }Logout</a></li>	
+					</ul>
+			<!-- 로그인페이지이동 -->	
 				<!-- /.dropdown -->
 			<!-- /.navbar-top-links -->
 
