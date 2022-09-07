@@ -49,7 +49,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${contextPath }/list">Talk Talk Board</a>
+				<a class="navbar-brand" href="${contextPath }/index">Talk Talk Board</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -149,10 +149,10 @@
 					<ul class="dropdown-menu dropdown-user">
 						<c:choose>
 							<c:when test="${userId !=null}">
-								<li><a href="#"><i class="fa fa-user fa-fw"></i>${userId }</a></li>	
+								<li><a href="#"><i class="fa fa-user fa-fw"></i> ${userId}</li>	
 							</c:when>
 							<c:otherwise>
-								<li><a href="${contextPath }/member/login"><i class="fa fa-user fa-fw"></i>로그인</a></li>
+								<li><a href="${contextPath }/member/login"><i class="fa fa-user fa-fw"></i> 로그인</a></li>
 							</c:otherwise>
 						</c:choose>
 						<li><a href="#"><i class="fa fa-gear fa-fw"></i> 회원가입</a>

@@ -2,10 +2,9 @@ package com.care.board.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class boardController {
+public class boardController {	
 	@GetMapping("/list")
 	public String board() {
 		return "board/list";
