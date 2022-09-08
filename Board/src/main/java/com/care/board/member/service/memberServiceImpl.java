@@ -20,7 +20,11 @@ public class memberServiceImpl implements memberService{
 		}
 	public int signUp(memberDTO dto) {
 		int result = 0;
-		result = mapper.signUp(dto);
+		try {//동일 id로 가입시 프로그램은 계속되도록
+			result = mapper.signUp(dto);			
+		} catch (Exception e) {
+			e.printStackTrace(); //콘솔메시지 띄우기
+		}
 		return result;
 	}
 }
