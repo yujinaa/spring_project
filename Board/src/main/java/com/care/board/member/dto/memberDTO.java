@@ -37,6 +37,5 @@ public class memberDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-
-
-}
+}	
+	

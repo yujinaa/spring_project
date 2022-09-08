@@ -12,8 +12,12 @@
 	</resultMap>
 
 	<select id="userCheck" resultMap="member"> <!-- xml userCheck가 호출되면 여기로 넘어온다 -->
-		select * from talk_board_member where user_id = #{user_id}
+		select * from talk_board_member where user_id = #{userId}
 	</select>
+	
+	<insert id="signUp">
+		insert into talk_board_member values (#{userId},#{userPwd},#{userName},#{userEmail})
+	</insert>
 	
 
 </mapper>

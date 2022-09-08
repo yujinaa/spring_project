@@ -44,9 +44,19 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="${contextPath }/index">Talk Talk 게시판</a>
 			</div>
+			
+			<c:choose>
+				<c:when test="${LOGIN !=null }">
+					<ul class="logou-user" style="list-style: none; display: inline-block; font-size: 20px;">
+						<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i>Logout</a></li>	
+					</ul>
+				</c:when>
+				<c:otherwise>
 					<ul class="login-user" style="margin-left:90px;  list-style: none; display: inline-block; font-size: 20px;" >
 								<li><a href="${contextPath }/member/login" ><i class="fa fa-user fa-fw"></i> Login</a></li>								
-					</ul>
+					</ul>				
+				</c:otherwise>
+			</c:choose>
 					
 									
 					<ul class="signup-user" style="list-style: none; display: inline-block;font-size: 20px;">

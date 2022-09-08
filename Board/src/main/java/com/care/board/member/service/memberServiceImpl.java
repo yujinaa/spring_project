@@ -18,5 +18,10 @@ public class memberServiceImpl implements memberService{
 		}
 			return 1; //실패
 		}
+	public int signUp(memberDTO dto) {
+		int result = 0;
+		result = mapper.signUp(dto);
+		return result;
 	}
+}
 

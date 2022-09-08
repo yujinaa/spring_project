@@ -46,15 +46,15 @@ body {
         <form class="validation-form" action="signUp" method="post" novalidate>
             <div class="mb-3">
               <label for="name">아이디</label>
-              <input type="text" class="form-control" name="id" placeholder="ID" value="" required>
+              <input type="text" class="form-control" name="userId" placeholder="ID" required>
               <div class="invalid-feedback">
                 아이디는 필수 입력입니다!
               </div>
             </div>
             <div class="mb-3">
               <label for="pwd">비밀번호</label>
-              <input type="password" class="form-control" name="pwd"
-								placeholder="PASSWORD" value="" required>
+              <input type="password" class="form-control" name="userPwd"
+								placeholder="PASSWORD" required>
               <div class="invalid-feedback">
                 비밀번호는 필수 입력입니다!
               </div>
@@ -62,7 +62,7 @@ body {
 
           <div class="mb-3">
             <label for="name">이름</label>
-            <input type="text" class="form-control" name="name"
+            <input type="text" class="form-control" name="userName"
 							placeholder="NAME" required>
             <div class="invalid-feedback">
               주소는 필수 입력입니다!
@@ -70,7 +70,7 @@ body {
           </div>
           <div class="mb-3">
             <label for="email">이메일</label>
-            <input type="email" class="form-control" name="email"
+            <input type="email" class="form-control" name="userEmail"
 							placeholder="my@example.com" required>
             <div class="invalid-feedback">
               이메일은 필수 입력입니다!

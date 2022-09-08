@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.board.commonSession.loginSessionName;
+import com.care.board.member.dto.memberDTO;
 import com.care.board.member.service.memberService;
+
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("member")
@@ -57,6 +60,17 @@ public class memberController implements loginSessionName{
 	@GetMapping("signUp")
 	public String signUp() {
 		return "member/signUp";
+	}
+	//회원가입
+	@PostMapping("signUp")
+	public String signUp(memberDTO dto) {
+		int result = ms.signUp(dto);
+		if(result==1) {
+			//회원가입 성공
+			return "redirect:login";
+		}else {
+			return "redirect:signUp";
+		}
 	}
 }
 
