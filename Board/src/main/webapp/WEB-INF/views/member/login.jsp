@@ -8,6 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+</style>
 </head>
 <body>
     <!-- Bootstrap Core CSS -->
@@ -48,6 +51,8 @@
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                             </fieldset>
                         </form>
+                        <a href="${contextPath }/member/signUp"><input class="btn btn-lg btn-success btn-block" type="button" value="SignUp"></a>
+                                
                     </div>
                 </div>
             </div>
