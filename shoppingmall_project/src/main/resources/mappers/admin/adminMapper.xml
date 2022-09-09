@@ -17,15 +17,22 @@
 		<result property="phone" column="phone" />
 	</resultMap>
 
+	<!-- 등록 -->
 	<resultMap type="com.care.root.product.dto.productDTO" id="product">
-			<id property="prodName" column="prodname"/>
 			<id property="prodNum" column="prodnum"/>
+			<id property="prodName" column="prodname"/>
 			<result property="cateCode" column=" catecode"/>
 			<result property="prodPrice" column="prodprice"/>
 			<result property="info" column="prodinfo"/>
 			<result property="prodStock" column="prodstock"/>
 			<result property="prodImg" column="prodimg"/>
 	</resultMap>
+	
+	<insert id="register">
+		insert into product (prodnum, prodname,catecode,prodprice, prodinfo,prodstock,prodimg) 
+		    values(mall_product_seq.nextval,#{prodname},#{catecode},#{prodprice}, #{prodinfo},#{prodstock},#{prodimg})
+</insert>
+	
 
 	<select id="productList" resultMap="product">>
 		select * from product

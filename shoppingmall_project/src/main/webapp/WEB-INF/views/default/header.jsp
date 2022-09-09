@@ -114,7 +114,7 @@
 					<li class="login_menu">
 						
 						<c:choose>
-								<c:when test="${loginSuccessUser != null }"> <!-- 세션이 있다면 로그인한 사용자 -->
+								<c:when test="${userId != null }"> <!-- 세션이 있다면 로그인한 사용자 -->
 									<a href="${contextPath }/member/logout">LOGOUT</a>	<!-- 로그아웃이 뜨고 -->						
 								</c:when>
 								<c:otherwise> <!-- 그렇지 않은 사용자는 -->

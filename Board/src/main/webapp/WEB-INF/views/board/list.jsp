@@ -6,7 +6,10 @@
 <%@ include file="../include/header.jsp" %>
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="page-header">${sessionScope.successUser }게시판</h2>
+					<h2 class="page-header">게시판</h2>  
+						<c:if test="${successUser != null}">
+							${successUser}님이 접속중입니다
+						</c:if>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>

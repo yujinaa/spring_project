@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.admin.service.adminService;
 import com.care.root.common.memberSessionName;
+import com.care.root.product.dto.productDTO;
 
 @Controller
 @RequestMapping("admin")
@@ -51,7 +52,12 @@ public class adminController implements memberSessionName{
 		public String prodRegister() {
 			return "admin/product/register";
 		}
-	
+		@PostMapping("product/productSave")
+		public String productSave(productDTO dto) {
+			as.productSave(dto);
+			return "redirect:/admin/success_login";
+		}
+		
 		
 	}
 

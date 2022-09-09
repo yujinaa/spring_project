@@ -22,7 +22,17 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.care.board" />
-	
-	
-	
+		
+		<beans:bean id ="memberInterceptor" class="com.care.board.member.interceptor.memberInterceptor"/> 
+		
+		<!-- 인터셉터 설정 -->
+		<interceptors>
+			<interceptor>
+				<mapping path="/index"/>
+				<beans:ref bean = "memberInterceptor"/>
+			</interceptor>
+		</interceptors>
+
 </beans:beans>
+		
+		

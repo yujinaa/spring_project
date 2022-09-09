@@ -34,15 +34,15 @@ public class memberController implements loginSessionName{
 		int result = ms.userCheck(userId,userPwd);
 		if(result==0) { //성공
 			rs.addAttribute("userId", userId); //controller까지만 연결하기위해 model사용, jsp까지 보내려면 redirectAttributes
-			return "redirect:/index";
+			return "redirect:loginSuccess";
 		}else {//실패
 			return "redirect:login";
 		}
 		}
 	
 	//로그인 성공시 이동 페이지
-	@GetMapping("index")
-	public String index(@RequestParam String userId, HttpSession session) {//세션
+	@GetMapping("loginSuccess")
+	public String loginSuccess(@RequestParam String userId, HttpSession session) {//세션
 		System.out.println("로그인성공");
 		session.setAttribute(LOGIN, userId);
 		return "index";

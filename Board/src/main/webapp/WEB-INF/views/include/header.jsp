@@ -14,7 +14,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title></title>
-
+<style type="text/css">
+.login-user {
+	margin-top: 10px;
+}
+</style>
 <!-- Bootstrap Core CSS -->
 <link href="/board/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,25 +50,23 @@
 			</div>
 			
 			<c:choose>
-				<c:when test="${LOGIN !=null }">
-					<ul class="logou-user" style="list-style: none; display: inline-block; font-size: 20px;">
-						<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i>Logout</a></li>	
+				<c:when test="${successUser !=null }">
+					<ul class="login-user" style="list-style: none; display: inline-block; font-size: 18px;">
+						<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i> Logout</a></li>	
 					</ul>
 				</c:when>
 				<c:otherwise>
-					<ul class="login-user" style="margin-left:90px;  list-style: none; display: inline-block; font-size: 20px;" >
+					<ul class="login-user" style="margin-left:90px;  list-style: none; display: inline-block; font-size: 18px;" >
 								<li><a href="${contextPath }/member/login" ><i class="fa fa-user fa-fw"></i> Login</a></li>								
 					</ul>				
 				</c:otherwise>
 			</c:choose>
-					
+					<c:if test="${successUser == null }">
+						<ul class="signup-user" style="list-style: none; display: inline-block;font-size: 18px;">
+							<li><a href="${contextPath }/member/signUp"><i class="fa fa-gear fa-fw"></i> SignUp</a></li>
+						</ul> 					
+					</c:if>
 									
-					<ul class="signup-user" style="list-style: none; display: inline-block;font-size: 20px;">
-						<li><a href="${contextPath }/member/signUp"><i class="fa fa-gear fa-fw"></i> SignUp</a></li>
-					</ul> 
-					<ul class="logou-user" style="list-style: none; display: inline-block; font-size: 20px;">
-						<li><a href="${contextPath }/member/logout" ><i class="fa fa-user fa-fw"></i>${successUser }Logout</a></li>	
-					</ul>
 			<!-- 로그인페이지이동 -->	
 				<!-- /.dropdown -->
 			<!-- /.navbar-top-links -->
@@ -82,7 +84,7 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
+						<li><a href="${contextPath }/board/list"><i class="fa fa-dashboard fa-fw"></i>
 								Dashboard</a></li>
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								Charts<span class="fa arrow"></span></a>
@@ -116,12 +118,6 @@
 										<li><a href="#">Third Level Item</a></li>
 										<li><a href="#">Third Level Item</a></li>
 									</ul> <!-- /.nav-third-level --></li>
-							</ul> <!-- /.nav-second-level --></li>
-						<li><a href="#"><i class="fa fa-files-o fa-fw"></i>
-								Sample Pages<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="blank.html">Blank Page</a></li>
-								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 					</ul>
 				</div>
