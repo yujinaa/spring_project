@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">게시글</div>
+						<div class="panel-heading" >게시글</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<table width="100%"
@@ -45,6 +45,7 @@
 							</table>
 							<!-- /.table-responsive -->
 						</div>
+							<button id ="regBtn" type="button" class="btn btn-xs pull-right"  style=" font-size: 17px; ">글쓰기</button>
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->

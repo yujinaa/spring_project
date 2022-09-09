@@ -26,8 +26,6 @@ public class memberInterceptor extends HandlerInterceptorAdapter implements logi
 					+  "location.href ='"+request.getContextPath() +"/member/login';</script>"); 
 			return false; //false는 사용자가 요청한 경로로 가지 않고, true면 사용자가 요청한 경로로 연결
 		}
-		
-		
 		System.out.println("index컨트롤러 실행 전 실행");
 		return true;
 	}

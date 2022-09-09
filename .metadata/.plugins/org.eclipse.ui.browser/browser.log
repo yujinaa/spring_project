@@ -300,3 +300,4 @@
 9월 10, 2022 01:36:09.828 [8600:8884:0910/013609.827:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 9월 10, 2022 01:51:07.429 [17688:3956:0910/015107.428:ERROR:device_event_log_impl.cc(214)] [01:51:07.428] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 9월 10, 2022 01:51:07.508 [17688:3956:0910/015107.508:ERROR:device_event_log_impl.cc(214)] [01:51:07.508] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+9월 10, 2022 01:52:04.769 [17688:2424:0910/015204.768:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
