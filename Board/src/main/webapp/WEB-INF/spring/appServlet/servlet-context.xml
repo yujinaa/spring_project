@@ -28,7 +28,7 @@
 		<!-- 인터셉터 설정 -->
 		<interceptors>
 			<interceptor>
-				<mapping path="/index"/>
+				<mapping path="/board/list"/>
 				<beans:ref bean = "memberInterceptor"/>
 			</interceptor>
 		</interceptors>
