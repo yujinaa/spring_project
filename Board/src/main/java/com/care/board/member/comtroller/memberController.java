@@ -32,10 +32,12 @@ public class memberController implements loginSessionName{
 	
 	//로그인 체크
 	@PostMapping("user_check")   
-	public String userCheck(@RequestParam String userId, @RequestParam String userPwd, RedirectAttributes rs) {
+	public String userCheck(@RequestParam String userId, @RequestParam String userPwd, @RequestParam(required = false) String autoLogin, RedirectAttributes rs) {
 		int result = ms.userCheck(userId,userPwd);
+		System.out.println("autoLogin : " + autoLogin );
 		if(result==0) { //성공
 			rs.addAttribute("userId", userId); //controller까지만 연결하기위해 model사용, jsp까지 보내려면 redirectAttributes
+			rs.addAttribute("autoLogin", autoLogin);
 			return "redirect:loginSuccess";
 		}else {//실패
 			return "redirect:login";
@@ -44,8 +46,9 @@ public class memberController implements loginSessionName{
 	
 	//로그인 성공시 이동 페이지
 	@GetMapping("loginSuccess")
-	public String loginSuccess(@RequestParam String userId, HttpSession session) {//세션
-		System.out.println("로그인성공");
+	public String loginSuccess(@RequestParam String userId, @RequestParam(required = false) String autoLogin,HttpSession session) {//세션
+		System.out.println("id : " + userId);
+		System.out.println("autoLogin : " + autoLogin);
 		session.setAttribute(LOGIN, userId);
 		return "index";
 	

@@ -34,7 +34,7 @@
                         <h3 class="panel-title" style="text-align: center;">Login</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="user_check" method="post">
+                        <form action="<%= request.getContextPath() %>/member/user_check" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Id" name="userId" type="text" autofocus>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">로그인 저장
+                                        <input name="autoLogin" type="checkbox" >로그인 저장
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->

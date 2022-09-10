@@ -25,7 +25,7 @@
 		
 		<beans:bean id ="memberInterceptor" class="com.care.board.member.interceptor.memberInterceptor"/> 
 		
-		<!-- 인터셉터 설정 -->
+		<!-- 인터셉터 설정 : 내용이 같다면 같이 써도 되지만 다른 내용이라면 인터셉터를 여러개 만들어도 된다. -->
 		<interceptors>
 			<interceptor>
 				<mapping path="/board/list"/>
