@@ -2,6 +2,8 @@ package com.care.board.member.comtroller;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +48,18 @@ public class memberController implements loginSessionName{
 	
 	//로그인 성공시 이동 페이지
 	@GetMapping("loginSuccess")
-	public String loginSuccess(@RequestParam String userId, @RequestParam(required = false) String autoLogin,HttpSession session) {//세션
+	public String loginSuccess(@RequestParam String userId, @RequestParam(required = false) String autoLogin,
+							HttpSession session, HttpServletResponse response) {//세션, response로 쿠키 전달
 		System.out.println("id : " + userId);
 		System.out.println("autoLogin : " + autoLogin);
 		session.setAttribute(LOGIN, userId);
+		if(autoLogin != null) {  //자동로그인이 체크되있다면
+			int limitTime = 60*60*24*90; //90일
+			Cookie loginCookie = new Cookie("loginCookie", session.getId());//세션으로 id가져오기
+			loginCookie.setPath("/");
+			loginCookie.setMaxAge(limitTime);
+			response.addCookie(loginCookie);
+		}
 		return "index";
 	
 }
