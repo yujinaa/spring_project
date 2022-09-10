@@ -8,6 +8,8 @@
 		<result property="userPwd" column="user_pwd"/>
 		<result property="userName" column="user_name"/>
 		<result property="userEmail" column="user_email"/>
+		<result property="limitTime" column="limit_time"/>
+		<result property="sessionId" column="session_id"/>
 		
 	</resultMap>
 
@@ -15,9 +17,16 @@
 		select * from talk_board_member where user_id = #{userId}
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="signUp">
 		insert into talk_board_member values (#{userId},#{userPwd},#{userName},#{userEmail})
 	</insert>
+	
+	<!-- 로그인유지 -->
+	<update id="keepLogin">
+		update talk_board_member set session_id=#{sessionId}, limit_time = #{limitDate} where user_id=#{userId}
+	
+	</update>
 	
 
 </mapper>

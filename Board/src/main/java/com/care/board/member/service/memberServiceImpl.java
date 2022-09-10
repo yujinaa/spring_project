@@ -1,5 +1,9 @@
 package com.care.board.member.service;
 
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -40,6 +44,13 @@ public class memberServiceImpl implements memberService{
 			e.printStackTrace(); //콘솔메시지 띄우기
 		}
 		return result;
+	}
+	public void keepLogin(String sessionId, Date limitDate,String userId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sessionId", sessionId);
+		map.put("limitDate", limitDate);
+		map.put("userId", userId);
+		mapper.keepLogin(map);
 	}
 }
 
