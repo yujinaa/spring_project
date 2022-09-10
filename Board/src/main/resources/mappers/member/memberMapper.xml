@@ -19,12 +19,13 @@
 	
 	<!-- 회원가입 -->
 	<insert id="signUp">
-		insert into talk_board_member values (#{userId},#{userPwd},#{userName},#{userEmail})
+		insert into talk_board_member(user_id,user_pwd,user_name,user_email) values (#{userId},#{userPwd},#{userName},#{userEmail})
 	</insert>
 	
-	<!-- 로그인유지 -->
+	<!-- 자동로그인 -->
 	<update id="keepLogin">
-		update talk_board_member set session_id=#{sessionId}, limit_time = #{limitDate} where user_id=#{userId}
+		update talk_board_member set session_id=
+		#{sessionId}, limit_time = #{limitDate} where user_id=#{userId}
 	
 	</update>
 	
