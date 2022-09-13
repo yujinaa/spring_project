@@ -83,7 +83,7 @@ public class memberController implements loginSessionName{
 		if(session.getAttribute(LOGIN)!=null) {//세션이 있으면
 			if(loginCookie != null) {
 				
-				loginCookie.setPath("/");
+				loginCookie.setPath("/"); //쿠키 삭제 경로를 최상위인 board로 잡아야 전체 쿠키가 삭제된다.
 				loginCookie.setMaxAge(0);
 				response.addCookie(loginCookie); //사용자에게 보내기
 				ms.keepLogin("nan", new java.sql.Date(System.currentTimeMillis()) ,(String)session.getAttribute(LOGIN)); //쿠키값 다시 nan으로바꾸고, 시간, 비교아이디
