@@ -3,11 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.board.mybatis.board.BoardMapper">
-	<select id="boardList">
+	<select id="boardList" resultMap="boardAllList">
 		select * from talk_board
 	</select>
-	<resultMap type="com.care.board.board.dto.boardDTO" id="board">
-	
+	<resultMap type="com.care.board.board.dto.boardDTO" id="boardAllList">
+		<id property="writer" column="writer"/>
+		<result property="writeNum" column="write_num"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="regDate" column="regDate"/>
+		<result property="hitNum" column="hit"/>
+		<result property="imgFile" column="img_file"/>
 	</resultMap>
 
 </mapper>

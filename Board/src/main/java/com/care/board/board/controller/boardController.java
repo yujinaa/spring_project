@@ -18,8 +18,8 @@ public class boardController implements loginSessionName{
 	
 	@GetMapping("list")
 	public String board(HttpSession session, Model model) { //db에 저장된 모든 값 가져오기
+		bs.boardList(model);
 		if(session.getAttribute(LOGIN) != null) {
-			bs.boardList(model);
 			return "board/list";			
 		}
 		return "member/login";

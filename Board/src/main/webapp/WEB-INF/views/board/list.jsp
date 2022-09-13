@@ -32,11 +32,13 @@
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="">
+								<c:forEach items="${boardList}" var="dto">
 									<tr class="odd gradeX">
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>Win 95+</td>
+										<td>${dto.writeNum }</td>
+										<td>${dto.content }</td>
+										<td>${dto.writer }</td>
+										<td>${dto.hitNum }</td>
+										<td>${dto.regDate }</td>
 										<td class="center">4</td>
 										<td class="center">X</td>
 									</tr>
