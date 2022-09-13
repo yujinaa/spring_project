@@ -32,6 +32,7 @@
 									</tr>
 								</thead>
 								<tbody>
+								
 								<c:forEach items="${boardList}" var="dto">
 									<tr class="odd gradeX">
 										<td>${dto.writeNum }</td>
@@ -47,7 +48,8 @@
 							</table>
 							<!-- /.table-responsive -->
 						</div>
-							<button id ="regBtn" type="button" class="btn btn-xs pull-right"  style=" font-size: 17px; ">글쓰기</button>
+							<a href="${contextPath }/board/write">
+							<input type="button" value="글쓰기" class="btn btn-xs pull-right"  style= "font-size: 17px; "></a>
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->

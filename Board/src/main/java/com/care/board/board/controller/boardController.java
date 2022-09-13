@@ -24,4 +24,8 @@ public class boardController implements loginSessionName{
 		}
 		return "member/login";
 	}
+	@GetMapping("write")
+	public String writeFrom() {
+		return "board/write";
+	}
 }

@@ -341,3 +341,10 @@
 9월 13, 2022 16:55:41.937 [20432:24800:0913/165541.936:ERROR:device_event_log_impl.cc(214)] [16:55:41.936] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
 9월 13, 2022 16:56:39.47 [20432:18236:0913/165639.046:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 9월 13, 2022 19:07:14.448 [20432:24800:0913/190714.446:ERROR:device_event_log_impl.cc(214)] [19:07:14.443] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+9월 13, 2022 19:19:12.56 [10772:17412:0913/191912.056:ERROR:device_event_log_impl.cc(214)] [19:19:12.056] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 13, 2022 19:19:12.108 [10772:17412:0913/191912.107:ERROR:device_event_log_impl.cc(214)] [19:19:12.108] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+9월 13, 2022 19:20:02.892 [10772:26172:0913/192002.891:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 13, 2022 19:33:42.714 [26160:22340:0913/193342.713:ERROR:device_event_log_impl.cc(214)] [19:33:42.712] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 13, 2022 19:33:42.792 [26160:22340:0913/193342.792:ERROR:device_event_log_impl.cc(214)] [19:33:42.791] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+9월 13, 2022 19:34:36.750 [26160:25092:0913/193436.749:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 13, 2022 21:00:22.734 [26160:22340:0913/210022.733:ERROR:device_event_log_impl.cc(214)] [21:00:22.727] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
