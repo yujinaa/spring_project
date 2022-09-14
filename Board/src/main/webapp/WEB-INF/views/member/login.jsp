@@ -12,7 +12,6 @@
 
 </style>
 </head>
-<body>
     <!-- Bootstrap Core CSS -->
     <link href="/board/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,6 +23,7 @@
 
     <!-- Custom Fonts -->
     <link href="/board/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<body>
 </head>
 <body>
     <div class="container">

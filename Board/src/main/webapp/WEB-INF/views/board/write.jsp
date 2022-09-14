@@ -14,7 +14,7 @@
          var reader = new FileReader();
          reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
          reader.onload = function (e) { // 파일 로드한 값을 표현한다
-          //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
+          //e : 이벤트 안에 result값이 파일의 정보(위치)를 가지고 있다.
 	     console.log(e.target)
 		console.log(e.target.result)
            $('#preview').attr('src', e.target.result);
@@ -57,13 +57,15 @@
 
 						<div class="form-group">
 							<label>내용</label>
-							<textarea class="form-control" rows="3"></textarea>
+							<textarea class="form-control" rows="3" name="content"></textarea>
 						</div>
-						<div class="form-group" style="height: 150px; width: 150px;">
+						
+					
+						<div class="form-group" style="height: 150px; width: 200px;">
 							<label>이미지 파일 첨부</label> <input type="file" name="imgFile" onchange="readURL(this);"/>
-							 <img id="preview" src="#" width=150 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
+							 <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
 						</div>
-
+				
 						<input type="submit" class="btn btn-default" value="글 등록하기" style="margin-top: 50px;">
 						<input type="button" class="btn btn-default" value="목록보기" 
 								onClick="location.href='${contextPath}/board/list'" style="margin-top: 50px;">
