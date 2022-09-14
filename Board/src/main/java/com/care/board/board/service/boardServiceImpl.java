@@ -29,10 +29,10 @@ public class boardServiceImpl implements boardService {
 //		HttpSession session = request.getSession(); //사용자 session을 얻어와서 
 //		dto.setWriter((String)session.getAttribute(loginSessionName.LOGIN));//세션을 통해 사용자 id가져오기
 
-		MultipartFile file = multi.getFile("img_file");
+		MultipartFile file = multi.getFile("imgFile");
 		boardFileService bfs = new boardFileServiceImpl();
 		if(file.getSize() != 0) {
-	
+			dto.setImgFile(bfs.saveFile(file));
 		}
 		else{
 			dto.setImgFile("nan"); //파일이 없다면 nan값으로 dto에 저장

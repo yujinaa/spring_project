@@ -46,7 +46,7 @@
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="${contextPath }/index">Talk Talk 게시판</a>
+				<a class="navbar-brand" href="#">Talk Talk 게시판</a>
 			</div>
 			
 			<c:choose>

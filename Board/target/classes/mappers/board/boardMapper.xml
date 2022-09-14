@@ -8,18 +8,18 @@
 	</select>
 	<resultMap type="com.care.board.board.dto.boardDTO" id="boardAllList">
 		<id property="writeNum" column="write_num"/>
-		<result property="writer" column="writer"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="regDate" column="regDate"/>
 		<result property="hitNum" column="hit"/>
 		<result property="imgFile" column="img_file"/>
+		<result property="writer" column="writer"/>
 	</resultMap>
 	
 	<!-- 글쓰기 추가 -->
 	<insert id="writeSave">
-		insert into talk_board(write_num,writer,title,content,img_file) 
-		values(talk_board_seq.nextval,#{writer},#{title}, #{content},${imgFile} )
+		insert into talk_board(write_num,title,writer,content,img_file) 
+		values(talk_board_seq.nextval,#{title},#{writer}, #{content},#{imgFile} )
 	</insert>
 
 </mapper>

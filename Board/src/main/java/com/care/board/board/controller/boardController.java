@@ -43,7 +43,7 @@ public class boardController implements loginSessionName{
 							HttpServletRequest request) throws IOException{                    //request는 경로 설정
 		System.out.println("read:" +multi.getParameter("writer"));
 		System.out.println("저장하기 실행");
-		String message =bs.writeSave(multi, request);//multi는 사용자 모든정보, request는 세션이나 절대경로시
+		String message =bs.writeSave(multi, request);//multi는 사용자 모든정보, request는 세션이나 절대경로
 		PrintWriter out= null;
 		response.setContentType("text/html; charset = utf-8");
 		out = response.getWriter();
