@@ -36,7 +36,7 @@
 								<c:forEach items="${boardList}" var="dto">
 									<tr class="odd gradeX">
 										<td>${dto.writeNum }</td>
-										<td>${dto.title }</td>
+										<td><a href="#"> ${dto.title }</a></td>
 										<td>${dto.writer }</td>
 										<td>${dto.hitNum }</td>
 										<td>${dto.regDate }</td>

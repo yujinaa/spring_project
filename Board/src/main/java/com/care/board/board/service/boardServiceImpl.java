@@ -17,6 +17,7 @@ import com.care.board.mybatis.board.BoardMapper;
 @Service
 public class boardServiceImpl implements boardService {
 	@Autowired BoardMapper mapper;
+//	@Autowired boardFileService bfs;
 	public void boardList(Model model) {
 		model.addAttribute("boardList", mapper.boardList());
 	}
@@ -30,7 +31,7 @@ public class boardServiceImpl implements boardService {
 //		dto.setWriter((String)session.getAttribute(loginSessionName.LOGIN));//세션을 통해 사용자 id가져오기
 
 		MultipartFile file = multi.getFile("imgFile");
-		boardFileService bfs = new boardFileServiceImpl();
+		boardFileService bfs = new boardFileServiceImpl();   //service어노테이션을 넣고 auwired로 주입하면 안써도됨
 		if(file.getSize() != 0) {
 			dto.setImgFile(bfs.saveFile(file));
 		}
