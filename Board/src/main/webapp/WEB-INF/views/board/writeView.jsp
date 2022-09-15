@@ -52,6 +52,7 @@
 					</div>
 
 					<div class="form-group">
+					<!-- 이미지 등록 유무에 따라 불러오기 처리 -->
 					<c:choose>
 						<c:when test="${ detailWriteData.imgFile == 'nan' }">
 							<b>이미지가 없습니다</b>
@@ -63,12 +64,21 @@
 						</c:otherwise>
 					</c:choose>
 					</div>
-					<input type="button" class="btn btn-default" value="수정하기">
-					<input type="button" class="btn btn-default" value="목록보기"
-						onClick="location.href='${contextPath}/board/list'">
-
+					<!-- 로그인 유무에 따른 버튼변경 -->
+					<c:choose>
+						<c:when test="${successUser == detailWriteData.writer  }">
+							<input type="button" class="btn btn-default" onclick="" value="수정하기">
+							<input type="button" class="btn btn-default" onclick="" value="삭제하기">
+							<input type="button" class="btn btn-default" value="목록보기"
+								onClick="location.href='${contextPath}/board/list'">
+						</c:when>
+						<c:otherwise>
+							<input type="button" class="btn btn-default" value="댓글작성">
+							<input type="button" class="btn btn-default" value="목록보기"
+								onClick="location.href='${contextPath}/board/list'">
+						</c:otherwise>
+					</c:choose>
 				</div>
-
 			</div>
 			<!-- /.col-lg-6 (nested) -->
 		</div>
