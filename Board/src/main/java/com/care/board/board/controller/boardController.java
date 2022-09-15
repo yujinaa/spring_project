@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.board.board.service.boardService;
@@ -48,5 +49,11 @@ public class boardController implements loginSessionName{
 		response.setContentType("text/html; charset = utf-8");
 		out = response.getWriter();
 		out.println(message);
+	}
+	//게시글 조회페이지
+	@GetMapping("writeView")
+	public String writeView(@RequestParam int writeNum, Model model) { //게시글번호, 내용담기 위한 model
+		bs.writeView(writeNum,model);
+		return "board/writeView";
 	}
 }

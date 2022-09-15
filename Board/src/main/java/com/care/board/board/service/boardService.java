@@ -9,5 +9,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public interface boardService {
 	public void boardList(Model model);
 	public String writeSave(MultipartHttpServletRequest multi, HttpServletRequest request);
+	public void writeView(int writeNum, Model model);
 
 }

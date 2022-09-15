@@ -21,5 +21,10 @@
 		insert into talk_board(write_num,title,writer,content,img_file) 
 		values(talk_board_seq.nextval,#{title},#{writer}, #{content},#{imgFile} )
 	</insert>
+	
+	<!-- 특정게시글 조회하기 -->
+	<select id="writeView" resultMap="boardAllList">
+			select * from talk_board where write_num = #{writeNum}
+	</select>
 
 </mapper>
