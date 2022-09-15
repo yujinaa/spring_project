@@ -30,36 +30,42 @@
 				style="margin-top: 30px; height: 650px;">
 				<div class="panel-heading">게시글 조회하기</div>
 				<div class="panel-body">
-						
-						<div class="form-group">
-							<label>글번호</label> <input class="form-control" name="writeNum"
-								value="${detailWriteData.writeNum  }" readonly>
-						</div>
-						
-						<div class="form-group">
-							<label>작성자</label> <input class="form-control" name="writer"
-								value="${detailWriteData.writer  }" readonly>
-						</div>
-						<div class="form-group">
-							<label>제목</label> <input class="form-control" name="title"
-							  value="${detailWriteData.title }" readonly>
-						</div>
 
-						<div class="form-group">
-							<label>내용</label>
-							<textarea class="form-control" rows="3" name="content" readonly="readonly">${detailWriteData.content }</textarea>
-						</div>
-						
-						<div class="form-group">
-							<img name="imgFile" width="200px" height="200px" style="display: block; margin: 0 auto;" 
-							src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">							  
-						</div>
+					<div class="form-group">
+						<label>글번호</label> <input class="form-control" name="writeNum"
+							value="${detailWriteData.writeNum  }" readonly>
+					</div>
 
+					<div class="form-group">
+						<label>작성자</label> <input class="form-control" name="writer"
+							value="${detailWriteData.writer  }" readonly>
+					</div>
+					<div class="form-group">
+						<label>제목</label> <input class="form-control" name="title"
+							value="${detailWriteData.title }" readonly>
+					</div>
 
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="3" name="content"
+							readonly="readonly">${detailWriteData.content }</textarea>
+					</div>
 
-						<input type="button" class="btn btn-default" value="수정하기" > 
-						<input type="button" class="btn btn-default" value="목록보기" 
-							onClick="location.href='${contextPath}/board/list'">
+					<div class="form-group">
+					<c:choose>
+						<c:when test="${ detailWriteData.imgFile == 'nan' }">
+							<b>이미지가 없습니다</b>
+						</c:when>
+						<c:otherwise>
+							<img name="imgFile" width="200px" height="200px"
+								style="display: block; margin: 0 auto;"
+								src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">
+						</c:otherwise>
+					</c:choose>
+					</div>
+					<input type="button" class="btn btn-default" value="수정하기">
+					<input type="button" class="btn btn-default" value="목록보기"
+						onClick="location.href='${contextPath}/board/list'">
 
 				</div>
 
