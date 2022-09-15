@@ -25,9 +25,9 @@
 	</div>
 	<!-- /.row -->
 	<div class="row">
-		<div class="col-lg-12" style="height: 650px;">
+		<div class="col-lg-12" style="height: 690px;">
 			<div class="panel panel-default"
-				style="margin-top: 30px; height: 600px;">
+				style="margin-top: 30px; height: 650px;">
 				<div class="panel-heading">게시글 조회하기</div>
 				<div class="panel-body">
 						
@@ -51,16 +51,15 @@
 						</div>
 						
 						<div class="form-group">
-							<img width="200px" height="200px" style="display: block; margin: 0 auto;">${detailWriteData.imgFile }							  
+							<img name="imgFile" width="200px" height="200px" style="display: block; margin: 0 auto;" 
+							src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">							  
 						</div>
 
 
 
-						<input type="button" class="btn btn-default" value="수정하기"
-							> 
-						<input type="button" class="btn btn-default" value="목록보기"
-							onClick="location.href='${contextPath}/board/list'"
-							>
+						<input type="button" class="btn btn-default" value="수정하기" > 
+						<input type="button" class="btn btn-default" value="목록보기" 
+							onClick="location.href='${contextPath}/board/list'">
 
 				</div>
 

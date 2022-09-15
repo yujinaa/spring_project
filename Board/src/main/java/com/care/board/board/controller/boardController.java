@@ -1,5 +1,7 @@
 package com.care.board.board.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -10,12 +12,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.board.board.service.boardFileService;
 import com.care.board.board.service.boardService;
 import com.care.board.commonSession.loginSessionName;
 
@@ -56,4 +60,15 @@ public class boardController implements loginSessionName{
 		bs.writeView(writeNum,model);
 		return "board/writeView";
 	}
+	//게시글 조회- 이미지 불러오기
+	@GetMapping("imageView")
+	public void imgView(@RequestParam("imgFile") String imgFile,
+		HttpServletResponse response) throws IOException {
+	    response.addHeader(
+		"Content-disposition","attachment;fileName="+imgFile);
+	    File file = new File(boardFileService.IMAGE_REPO+"/"+imgFile);
+	    FileInputStream in = new FileInputStream(file);
+	    FileCopyUtils.copy(in, response.getOutputStream());
+	    in.close();
+}
 }
