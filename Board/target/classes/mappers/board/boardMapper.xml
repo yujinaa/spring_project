@@ -31,5 +31,10 @@
 	<update id="upHit">
 		update talk_board set hit=hit+1 where write_num = #{writeNum}
 	</update>
+	
+	<!-- 게시글 삭제하기 -->
+	<delete id="delete">
+		delete from talk_board where write_num = #{writeNum}
+	</delete>
 
 </mapper>

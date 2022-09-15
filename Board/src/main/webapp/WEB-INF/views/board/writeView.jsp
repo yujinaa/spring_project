@@ -68,7 +68,9 @@
 					<c:choose>
 						<c:when test="${successUser == detailWriteData.writer  }">
 							<input type="button" class="btn btn-default" onclick="" value="수정하기">
-							<input type="button" class="btn btn-default" onclick="" value="삭제하기">
+							<input type="button" class="btn btn-default" 
+							onclick="location.href='${contextPath }/board/delete?writeNum=${detailWriteData.writeNum }&imgFile=${detailWriteData.imgFile}'" 
+							value="삭제하기">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
 						</c:when>

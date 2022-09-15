@@ -1,6 +1,8 @@
 package com.care.board.board.service;
 
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -51,8 +53,22 @@ public class boardServiceImpl implements boardService {
 		model.addAttribute("detailWriteData", mapper.writeView(writeNum));
 		upHit(writeNum); //조회수 증가
 	}
+	//조회수 증가
 	private void upHit(int writeNum) {//내부에서만 쓰기 때문에 오버라이딩(외부에서쓸때) 안해도됨
 		mapper.upHit(writeNum);
+	}
+	//게시글 삭제하기
+	public String writeDelete(int writeNum,String imgFile, HttpServletRequest request) {
+			boardFileService bfs = new boardFileServiceImpl();
+			int result = mapper.delete(writeNum);
+			String message=null;
+			if(result == 1) { //result==1이면 성공으로 이미지 삭제
+				bfs.deleteImg(imgFile); 
+				message = bfs.getMessage(request, "삭제 되었습니다", "/board/list" );
+			}else{
+				message = bfs.getMessage(request, "삭제할 수 없습니다","/board/writeView" );
+			}
+			return message;
 	}
 }
 

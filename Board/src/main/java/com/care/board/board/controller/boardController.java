@@ -71,4 +71,19 @@ public class boardController implements loginSessionName{
 	    FileCopyUtils.copy(in, response.getOutputStream());
 	    in.close();
 }
+	//게시글 삭제하기
+	@GetMapping("delete")
+	public void writeDelete(@RequestParam("writeNum") int write_num,
+		@RequestParam("imgFile") String imgFile,
+		HttpServletResponse response, 
+		HttpServletRequest request) throws IOException {
+		
+		String message = bs.writeDelete(write_num,imgFile,request);
+		
+		PrintWriter out=null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+		out.println(message);
+	}
+
 }
