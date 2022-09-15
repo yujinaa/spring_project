@@ -26,5 +26,10 @@
 	<select id="writeView" resultMap="boardAllList">
 			select * from talk_board where write_num = #{writeNum}
 	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="upHit">
+		update talk_board set hit=hit+1 where write_num = #{writeNum}
+	</update>
 
 </mapper>

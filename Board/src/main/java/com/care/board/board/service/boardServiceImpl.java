@@ -46,8 +46,13 @@ public class boardServiceImpl implements boardService {
 		}
 		return bfs.getMessage(result, request); //저장된 dto를 mapper로 전달
 	}
+	//게시글 조회하기
 	public void writeView(int writeNum, Model model) {//db로 요청
 		model.addAttribute("detailWriteData", mapper.writeView(writeNum));
+		upHit(writeNum); //조회수 증가
+	}
+	private void upHit(int writeNum) {//내부에서만 쓰기 때문에 오버라이딩(외부에서쓸때) 안해도됨
+		mapper.upHit(writeNum);
 	}
 }
 

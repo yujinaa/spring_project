@@ -64,7 +64,7 @@
 						</c:otherwise>
 					</c:choose>
 					</div>
-					<!-- 로그인 유무에 따른 버튼변경 -->
+					<!-- 본인 작성글에서만 수정,삭제하기 버튼 뜨고 본인 글이 아니라면 댓글작성만 뜨기 -->
 					<c:choose>
 						<c:when test="${successUser == detailWriteData.writer  }">
 							<input type="button" class="btn btn-default" onclick="" value="수정하기">

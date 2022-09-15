@@ -65,7 +65,7 @@ public class boardController implements loginSessionName{
 	public void imgView(@RequestParam("imgFile") String imgFile,
 		HttpServletResponse response) throws IOException {
 	    response.addHeader(
-		"Content-disposition","attachment;fileName="+imgFile);
+		"Content-disposition","attachment;fileName="+imgFile); //파일을 다운받고, 브라우저로 표현하고, 다운될 파일이름
 	    File file = new File(boardFileService.IMAGE_REPO+"/"+imgFile);
 	    FileInputStream in = new FileInputStream(file);
 	    FileCopyUtils.copy(in, response.getOutputStream());
