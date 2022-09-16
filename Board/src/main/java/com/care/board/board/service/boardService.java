@@ -12,5 +12,6 @@ public interface boardService {
 	public void writeView(int writeNum, Model model);
 	public String writeDelete(int writeNum,String imgFile, HttpServletRequest request);
 	public void getData(int writeNum, Model model);
+	public String modify(MultipartHttpServletRequest multi, HttpServletRequest request);
 
 }

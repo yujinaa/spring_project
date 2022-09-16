@@ -89,7 +89,17 @@ public class boardController implements loginSessionName{
 	@GetMapping("modify_form")
 	public String modify_form(@RequestParam int writeNum, Model model) {
 		bs.getData(writeNum, model);
-		return "board/modify";
+		return "board/modify_form";
 	}
+	@PostMapping("modify")
+	public void modify(MultipartHttpServletRequest multi,
+	         HttpServletResponse response,
+	         HttpServletRequest request) throws IOException {
+	   String message = bs.modify(multi, request);
+	   PrintWriter out=null;
+	   response.setContentType("text/html; charset=utf-8");
+	   out = response.getWriter();
+	   out.println(message);
+}
 
 }

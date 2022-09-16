@@ -29,8 +29,6 @@ public class boardServiceImpl implements boardService {
 		dto.setTitle( multi.getParameter("title") );
 		dto.setContent( multi.getParameter("content") );
 		dto.setWriter(multi.getParameter("writer"));
-//		HttpSession session = request.getSession(); //사용자 session을 얻어와서 
-//		dto.setWriter((String)session.getAttribute(loginSessionName.LOGIN));//세션을 통해 사용자 id가져오기
 
 		MultipartFile file = multi.getFile("imgFile");
 		boardFileService bfs = new boardFileServiceImpl();   //service어노테이션을 넣고 auwired로 주입하면 안써도됨
@@ -74,5 +72,33 @@ public class boardServiceImpl implements boardService {
 	public void getData(int writeNum, Model model) {
 		model.addAttribute("detailWriteData", mapper.writeView(writeNum));//글작성과 같은 코드를 쓰지만 조회수증가 코드때문에 따로 적었다.
 	}
+	//수정한 데이터 저장하기
+	public String modify(MultipartHttpServletRequest multi, HttpServletRequest request) {
+		boardDTO dto = new boardDTO();
+		boardFileService bfs = new boardFileServiceImpl();
+		dto.setWriteNum( Integer.parseInt(multi.getParameter("writeNum")) ); //문자열로 들어오는데 num은 int라 int형으로 형변환을 해주었다.
+		dto.setTitle(multi.getParameter("title"));
+		dto.setContent(multi.getParameter("content"));
+
+	MultipartFile file = multi.getFile("imgFile");
+	if(file.getSize() != 0 ) {
+		//이미지 변경시 원래 이미지 삭제후 새로운 이미지로 변경하기
+		
+	}else {//이미지 변경없을땐
+		dto.setImgFile(multi.getParameter("originFileName"));//이미지 원본 넣기
+	}
+	int result = mapper.modify(dto);
+	String msg, url;
+	if(result == 1) {
+		msg = "성공적으로 수정되었습니다";
+		url = "/board/list";
+	}else {
+		msg = "수정 중 문제가 발생하였습니다";
+		url = "/board/modify_form";
+	}
+	String message = bfs.getMessage(request, msg, url);
+	return message;
+	}
+
 }
 

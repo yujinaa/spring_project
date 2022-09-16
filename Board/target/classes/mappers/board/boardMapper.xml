@@ -6,35 +6,45 @@
 	<select id="boardList" resultMap="boardAllList">
 		select * from talk_board
 	</select>
-	<resultMap type="com.care.board.board.dto.boardDTO" id="boardAllList">
-		<id property="writeNum" column="write_num"/>
-		<result property="title" column="title"/>
-		<result property="content" column="content"/>
-		<result property="regDate" column="regDate"/>
-		<result property="hitNum" column="hit"/>
-		<result property="imgFile" column="img_file"/>
-		<result property="writer" column="writer"/>
+	<resultMap type="com.care.board.board.dto.boardDTO"
+		id="boardAllList">
+		<id property="writeNum" column="write_num" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="regDate" column="regDate" />
+		<result property="hitNum" column="hit" />
+		<result property="imgFile" column="img_file" />
+		<result property="writer" column="writer" />
 	</resultMap>
-	
+
 	<!-- 글쓰기 추가 -->
 	<insert id="writeSave">
-		insert into talk_board(write_num,title,writer,content,img_file) 
-		values(talk_board_seq.nextval,#{title},#{writer}, #{content},#{imgFile} )
+		insert into
+		talk_board(write_num,title,writer,content,img_file)
+		values(talk_board_seq.nextval,#{title},#{writer},
+		#{content},#{imgFile} )
 	</insert>
-	
+
 	<!-- 특정게시글 조회하기 -->
 	<select id="writeView" resultMap="boardAllList">
-			select * from talk_board where write_num = #{writeNum}
+		select * from talk_board where write_num = #{writeNum}
 	</select>
-	
+
 	<!-- 조회수 증가 -->
 	<update id="upHit">
-		update talk_board set hit=hit+1 where write_num = #{writeNum}
+		update talk_board set hit=hit+1 where write_num =
+		#{writeNum}
 	</update>
-	
+
 	<!-- 게시글 삭제하기 -->
 	<delete id="delete">
 		delete from talk_board where write_num = #{writeNum}
 	</delete>
+
+	<!-- 이미지 변경 없을때 수정하기 -->
+	<update id="modify">
+		update talk_board set title=#{title}, content=#{content},
+		img_file=#{imgFile} where write_num=#{writeNum}
+	</update>
 
 </mapper>

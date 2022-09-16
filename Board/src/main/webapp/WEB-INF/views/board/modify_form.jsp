@@ -45,6 +45,7 @@
 				<div class="panel-body">
 
 				<form action="${contextPath}/board/modify" enctype="multipart/form-data" method="post" >
+				  <input type="hidden" name="originFileName" value="${detailWriteData.imgFile}">
 					<div class="form-group">
 						<label>글번호</label> <input class="form-control" name="writeNum"
 							value="${detailWriteData.writeNum  }" readonly>
