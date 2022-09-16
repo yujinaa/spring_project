@@ -85,5 +85,11 @@ public class boardController implements loginSessionName{
 		out = response.getWriter();
 		out.println(message);
 	}
+	//게시글 수정하기
+	@GetMapping("modify_form")
+	public String modify_form(@RequestParam int writeNum, Model model) {
+		bs.getData(writeNum, model);
+		return "board/modify";
+	}
 
 }

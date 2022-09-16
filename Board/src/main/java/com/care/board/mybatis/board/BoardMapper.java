@@ -1,6 +1,7 @@
 package com.care.board.mybatis.board;
 
-import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
 
 import com.care.board.board.dto.boardDTO;
 
@@ -10,5 +11,6 @@ public interface BoardMapper {
 	public boardDTO writeView(int writeNum);
 	public void upHit(int writeNum);
 	public int delete(int writeNum);
+	public void getData(int writeNum, Model model);
 
 }

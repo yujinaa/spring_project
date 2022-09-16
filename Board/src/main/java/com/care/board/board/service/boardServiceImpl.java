@@ -70,5 +70,9 @@ public class boardServiceImpl implements boardService {
 			}
 			return message;
 	}
+	//수정을 위한 데이터 불러오기
+	public void getData(int writeNum, Model model) {
+		model.addAttribute("detailWriteData", mapper.writeView(writeNum));//글작성과 같은 코드를 쓰지만 조회수증가 코드때문에 따로 적었다.
+	}
 }
 

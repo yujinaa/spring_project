@@ -5,7 +5,20 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <%@ include file="../include/header.jsp"%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<script type="text/javascript">
+   function readURL(input) {
+      var file = input.files[0] //파일에 대한 정보
+      console.log(file)
+      if (file != '') {
+         var reader = new FileReader();
+         reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
+         reader.onload = function (e) { // 파일 로드한 값을 표현한다
+          //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
+           $('#preview').attr('src', e.target.result);
+          }
+      }
+  }  
+   </script>
 <!-- Bootstrap Core CSS -->
 <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,9 +41,10 @@
 		<div class="col-lg-12" style="height: 690px;">
 			<div class="panel panel-default"
 				style="margin-top: 30px; height: 650px;">
-				<div class="panel-heading">게시글 조회하기</div>
+				<div class="panel-heading">게시글 수정하기</div>
 				<div class="panel-body">
 
+				<form action="${contextPath}/board/modify" enctype="multipart/form-data" method="post" >
 					<div class="form-group">
 						<label>글번호</label> <input class="form-control" name="writeNum"
 							value="${detailWriteData.writeNum  }" readonly>
@@ -42,45 +56,28 @@
 					</div>
 					<div class="form-group">
 						<label>제목</label> <input class="form-control" name="title"
-							value="${detailWriteData.title }" readonly>
+							value="${detailWriteData.title }" >
 					</div>
 
 					<div class="form-group">
 						<label>내용</label>
-						<textarea class="form-control" rows="3" name="content"
-							readonly="readonly">${detailWriteData.content }</textarea>
+						<textarea class="form-control" rows="3" name="content">${detailWriteData.content }</textarea>
 					</div>
-
 					<div class="form-group">
-					<!-- 이미지 등록 유무에 따라 불러오기 처리 -->
-					<c:choose>
-						<c:when test="${ detailWriteData.imgFile == 'nan' }">
-							<b>이미지가 없습니다</b>
-						</c:when>
-						<c:otherwise>
-							<img name="imgFile" width="200px" height="200px"
-								style="display: block; margin: 0 auto;"
+						<input type="file" name="imgFile" onchange="readURL(this)">
+						<c:if test="${ detailWriteData.imgFile != 'nan' }">
+							<img name="imgFile" width=200px; height=200px; id="preview" style="display: block; margin: 0 auto;"
 								src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">
-						</c:otherwise>
-					</c:choose>
+						</c:if>
 					</div>
 					<!-- 본인 작성글에서만 수정,삭제하기 버튼 뜨고 본인 글이 아니라면 댓글작성만 뜨기 -->
-					<c:choose>
-						<c:when test="${successUser == detailWriteData.writer  }">
-							<input type="button" class="btn btn-default" 
-							onclick="location.href='${contextPath }/board/modify_form?writeNum=${detailWriteData.writeNum }'" value="수정하기">
-							<input type="button" class="btn btn-default" 
-							onclick="location.href='${contextPath }/board/delete?writeNum=${detailWriteData.writeNum }&imgFile=${detailWriteData.imgFile}'" 
-							value="삭제하기">
+						<c:if test="${successUser == detailWriteData.writer  }">
+							<input type="submit" class="btn btn-default" value="수정하기">
+							<input type="submit" class="btn btn-default" value="삭제하기">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
-						</c:when>
-						<c:otherwise>
-							<input type="button" class="btn btn-default" value="댓글작성">
-							<input type="button" class="btn btn-default" value="목록보기"
-								onClick="location.href='${contextPath}/board/list'">
-						</c:otherwise>
-					</c:choose>
+						</c:if>
+				</form>
 				</div>
 			</div>
 			<!-- /.col-lg-6 (nested) -->
