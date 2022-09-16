@@ -83,14 +83,15 @@ public class boardServiceImpl implements boardService {
 	MultipartFile file = multi.getFile("imgFile");
 	if(file.getSize() != 0 ) {
 		//이미지 변경시 원래 이미지 삭제후 새로운 이미지로 변경하기
-		
+		dto.setImgFile(bfs.saveFile(file));//새로운파일명으로 변경
+		bfs.deleteImg(multi.getParameter("originFileName")); //기존이미지 삭제
 	}else {//이미지 변경없을땐
 		dto.setImgFile(multi.getParameter("originFileName"));//이미지 원본 넣기
 	}
 	int result = mapper.modify(dto);
 	String msg, url;
 	if(result == 1) {
-		msg = "성공적으로 수정되었습니다";
+		msg = "수정되었습니다";
 		url = "/board/list";
 	}else {
 		msg = "수정 중 문제가 발생하였습니다";
