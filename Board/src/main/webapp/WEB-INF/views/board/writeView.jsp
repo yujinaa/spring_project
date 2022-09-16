@@ -38,8 +38,8 @@
 					<b>내용</b><br>
 					<textarea name="replyContent" id="content" rows="9" cols="30"></textarea>
 					<hr>
-					<button type="button" onclick="reply()">댓글달기</button>
-					<button type="button" onclick="slide_hide()">취소</button>
+					<button type="button" class="reply_btn" style="background: white; border-radius: 4px; border-color: white; height: 30px; " onclick="reply()">댓글달기</button>
+					<button type="button" class="reply_btn" style="background: white; border-radius: 4px; border-color: white; height: 30px;" onclick="slide_hide()">취소</button>
 				</form>
 			</div>
 		</div>
