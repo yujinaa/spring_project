@@ -14,9 +14,9 @@ reply_date date default sysdate,
 
 	private String replyer;
 	private String title;
-	private String reply_content;
-	private int reply_group;
-	private Timestamp reply_date;
+	private String replyContent;
+	private int replyGroup;
+	private Timestamp replyDate;
 	public String getReplyer() {
 		return replyer;
 	}
@@ -29,22 +29,23 @@ reply_date date default sysdate,
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getReply_content() {
-		return reply_content;
+	public String getReplyContent() {
+		return replyContent;
 	}
-	public void setReply_content(String reply_content) {
-		this.reply_content = reply_content;
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
 	}
-	public int getReply_group() {
-		return reply_group;
+	public int getReplyGroup() {
+		return replyGroup;
 	}
-	public void setReply_group(int reply_group) {
-		this.reply_group = reply_group;
+	public void setReplyGroup(int replyGroup) {
+		this.replyGroup = replyGroup;
 	}
-	public Timestamp getReply_date() {
-		return reply_date;
+	public Timestamp getReplyDate() {
+		return replyDate;
 	}
-	public void setReply_date(Timestamp reply_date) {
-		this.reply_date = reply_date;
+	public void setReplyDate(Timestamp replyDate) {
+		this.replyDate = replyDate;
 	}
 }
+	

@@ -7,18 +7,45 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- Bootstrap Core CSS -->
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+<link href="../resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+<link href="../resources/dist/css/sb-admin-2.css" rel="stylesheet">
+
 
 <!-- Custom Fonts -->
-<link href="../vendor/font-awesome/css/font-awesome.min.css"
+<link href="../resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+	
+<!-- modal -->
+<link href="../resources/vendor/replyModal/modal.css" rel="stylesheet" type="text/css">
 <body>
+	<div id="modal_wrap">     <!-- 모달 추가 -->
+		<div id="first">
+			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
+				<form id="frm">
+					<input type="hidden" name="write_num"
+						value="${detailWriteData.writeNum}"> <b>댓글달기</b>
+					<hr>
+					<b>작성자 : ${successUser}</b>
+					<hr>
+					<b>제목</b><br>
+					<input type="text" id="title" size="30" name="title">
+					<hr>
+					<b>내용</b><br>
+					<textarea name="replyContent" id="content" rows="9" cols="30"></textarea>
+					<hr>
+					<button type="button" onclick="reply()">댓글달기</button>
+					<button type="button" onclick="slide_hide()">취소</button>
+				</form>
+			</div>
+		</div>
+</div>
+
+
 	<div class="row">
 		<div class="col-lg-12"></div>
 		<!-- /.col-lg-12 -->
@@ -76,7 +103,7 @@
 								onClick="location.href='${contextPath}/board/list'">
 						</c:when>
 						<c:otherwise>
-							<input type="button" class="btn btn-default" value="댓글작성">
+							<input type="button"  onclick="slideClick()" class="btn btn-default" value="댓글작성">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
 						</c:otherwise>
@@ -91,15 +118,17 @@
 
 
 	<!-- jQuery -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../resources/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+	<script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script src="../dist/js/sb-admin-2.js"></script>
+	<script src="../resources/dist/js/sb-admin-2.js"></script>
+	<!-- 모달js -->
+	<script src="../resources/dist/js/modal.js"></script>
 </body>
 </html>
