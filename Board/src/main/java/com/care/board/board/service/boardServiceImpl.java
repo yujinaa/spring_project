@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.board.board.dto.boardDTO;
+import com.care.board.board.dto.boardReplyDTO;
 import com.care.board.commonSession.loginSessionName;
 import com.care.board.mybatis.board.BoardMapper;
 
@@ -99,6 +100,16 @@ public class boardServiceImpl implements boardService {
 	}
 	String message = bfs.getMessage(request, msg, url);
 	return message;
+	}
+	public String addReply(boardReplyDTO dto) {
+		int result = mapper.addReply(dto);//매퍼로 넘기기
+		String msg= null;
+		if(result==1) {
+			msg = "{\"result\" : true}";
+		}else {
+			msg = "{\"result\" : false}";
+		}
+		return msg;
 	}
 
 }

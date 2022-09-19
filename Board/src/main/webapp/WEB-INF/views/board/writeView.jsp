@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <%@ include file="../include/header.jsp"%>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- Bootstrap Core CSS -->
 <link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,9 +18,30 @@
 <!-- Custom Fonts -->
 <link href="../resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-	
+
 <!-- modal -->
 <link href="../resources/vendor/replyModal/modal.css" rel="stylesheet" type="text/css">
+<!-- 
+
+	<script src="../resources/vendor/jquery/jquery.min.js"></script>
+ -->
+<script src="../resources/js/jquery-3.6.0.min.js"></script>
+	
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- jQuery 
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Metis Menu Plugin JavaScript -->
+
+	<script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="../resources/dist/js/sb-admin-2.js"></script>
+	<!-- 모달js -->
+	<script src="../resources/js/modal.js"></script>
 <body>
 	<div id="modal_wrap">     <!-- 모달 추가 -->
 		<div id="first">
@@ -38,8 +58,8 @@
 					<b>내용</b><br>
 					<textarea name="replyContent" id="content" rows="9" cols="30"></textarea>
 					<hr>
-					<button type="button" class="reply_btn" style="background: white; border-radius: 4px; border-color: white; height: 30px; " onclick="reply()">댓글달기</button>
-					<button type="button" class="reply_btn" style="background: white; border-radius: 4px; border-color: white; height: 30px;" onclick="slide_hide()">취소</button>
+					<button type="button"  style="background: white; border-radius: 4px; border-color: white; height: 30px; " onclick="reply()">댓글달기</button>
+					<button type="button" style="background: white; border-radius: 4px; border-color: white; height: 30px;" onclick="slide_hide()">취소</button>
 				</form>
 			</div>
 		</div>
@@ -106,6 +126,7 @@
 							<input type="button"  onclick="slideClick()" class="btn btn-default" value="댓글작성">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
+								<div id="reply"></div>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -115,20 +136,6 @@
 		<!-- /.row (nested) -->
 	</div>
 	<!-- /.panel-body -->
-
-
-	<!-- jQuery -->
-	<script src="../resources/vendor/jquery/jquery.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="../resources/dist/js/sb-admin-2.js"></script>
-	<!-- 모달js -->
-	<script src="../resources/dist/js/modal.js"></script>
+	
 </body>
 </html>

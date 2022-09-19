@@ -5,6 +5,7 @@ package com.care.board.mybatis.board;
 import org.springframework.ui.Model;
 
 import com.care.board.board.dto.boardDTO;
+import com.care.board.board.dto.boardReplyDTO;
 
 public interface BoardMapper {
 	public java.util.List<boardDTO> boardList();
@@ -14,5 +15,6 @@ public interface BoardMapper {
 	public int delete(int writeNum);
 	public void getData(int writeNum, Model model);
 	public int modify(boardDTO dto);
+	public int addReply(boardReplyDTO dto);
 
 }

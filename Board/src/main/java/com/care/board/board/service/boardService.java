@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.board.board.dto.boardReplyDTO;
+
 public interface boardService {
 	public void boardList(Model model);
 	public String writeSave(MultipartHttpServletRequest multi, HttpServletRequest request);
@@ -13,5 +15,6 @@ public interface boardService {
 	public String writeDelete(int writeNum,String imgFile, HttpServletRequest request);
 	public void getData(int writeNum, Model model);
 	public String modify(MultipartHttpServletRequest multi, HttpServletRequest request);
+	public String addReply(boardReplyDTO dto);
 
 }

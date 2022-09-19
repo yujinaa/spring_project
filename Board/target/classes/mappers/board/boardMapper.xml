@@ -27,7 +27,8 @@
 
 	<!-- 특정게시글 조회하기 -->
 	<select id="writeView" resultMap="boardAllList">
-		select * from talk_board where write_num = #{writeNum}
+		select * from talk_board where
+		write_num = #{writeNum}
 	</select>
 
 	<!-- 조회수 증가 -->
@@ -43,8 +44,15 @@
 
 	<!-- 이미지 변경 없을때 수정하기 -->
 	<update id="modify">
-		update talk_board set title=#{title}, content=#{content},
+		update talk_board set title=#{title},
+		content=#{content},
 		img_file=#{imgFile} where write_num=#{writeNum}
 	</update>
+	
+	<!-- 댓글달기 -->
+	<insert id="addReply">
+		insert into talk_board_reply(replyer,title,reply_content,reply_group)
+		values(#{replyer},#{title},#{replyContent},#{replyGroup})
+	</insert>
 
 </mapper>
