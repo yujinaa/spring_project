@@ -6,10 +6,12 @@
 <%@ include file="../include/header.jsp"%>
 
 <!-- Bootstrap Core CSS -->
-<link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="../resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+<link href="../resources/vendor/metisMenu/metisMenu.min.css"
+	rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="../resources/dist/css/sb-admin-2.css" rel="stylesheet">
@@ -20,30 +22,32 @@
 	rel="stylesheet" type="text/css">
 
 <!-- modal -->
-<link href="../resources/vendor/replyModal/modal.css" rel="stylesheet" type="text/css">
+<link href="../resources/vendor/replyModal/modal.css" rel="stylesheet"
+	type="text/css">
 <!-- 
 
 	<script src="../resources/vendor/jquery/jquery.min.js"></script>
  -->
 <script src="../resources/js/jquery-3.6.0.min.js"></script>
-	
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- jQuery 
 	
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-	<!-- Metis Menu Plugin JavaScript -->
+<!-- Metis Menu Plugin JavaScript -->
 
-	<script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
+<script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
 
-	<!-- Custom Theme JavaScript -->
-	<script src="../resources/dist/js/sb-admin-2.js"></script>
-	<!-- 모달js -->
-	<script src="../resources/js/modal.js"></script>
-<body>
-	<div id="modal_wrap">     <!-- 모달 추가 -->
+<!-- Custom Theme JavaScript -->
+<script src="../resources/dist/js/sb-admin-2.js"></script>
+<!-- 모달js -->
+<script src="../resources/js/modal.js"></script>
+<body onload="replyData()">
+	<div id="modal_wrap">
+		<!-- 모달 추가 -->
 		<div id="first">
 			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
 				<form id="frm">
@@ -52,18 +56,22 @@
 					<hr>
 					<b>작성자 : ${successUser}</b>
 					<hr>
-					<b>제목</b><br>
-					<input type="text" id="title" size="30" name="title">
+					<b>제목</b><br> <input type="text" id="title" size="30"
+						name="title">
 					<hr>
 					<b>내용</b><br>
 					<textarea name="replyContent" id="content" rows="9" cols="30"></textarea>
 					<hr>
-					<button type="button"  style="background: white; border-radius: 4px; border-color: white; height: 30px; " onclick="reply()">댓글달기</button>
-					<button type="button" style="background: white; border-radius: 4px; border-color: white; height: 30px;" onclick="slide_hide()">취소</button>
+					<button type="button"
+						style="background: white; border-radius: 4px; border-color: white; height: 30px;"
+						onclick="reply()">댓글달기</button>
+					<button type="button"
+						style="background: white; border-radius: 4px; border-color: white; height: 30px;"
+						onclick="slide_hide()">취소</button>
 				</form>
 			</div>
 		</div>
-</div>
+	</div>
 
 
 	<div class="row">
@@ -99,34 +107,34 @@
 					</div>
 
 					<div class="form-group">
-					<!-- 이미지 등록 유무에 따라 불러오기 처리 -->
-					<c:choose>
-						<c:when test="${ detailWriteData.imgFile == 'nan' }">
-							<b>이미지가 없습니다</b>
-						</c:when>
-						<c:otherwise>
-							<img name="imgFile" width="200px" height="200px"
-								style="display: block; margin: 0 auto;"
-								src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">
-						</c:otherwise>
-					</c:choose>
+						<!-- 이미지 등록 유무에 따라 불러오기 처리 -->
+						<c:choose>
+							<c:when test="${ detailWriteData.imgFile == 'nan' }">
+								<b>이미지가 없습니다</b>
+							</c:when>
+							<c:otherwise>
+								<img name="imgFile" width="200px" height="200px"
+									style="display: block; margin: 0 auto;"
+									src="${contextPath}/board/imageView?imgFile=${detailWriteData.imgFile}">
+							</c:otherwise>
+						</c:choose>
 					</div>
 					<!-- 본인 작성글에서만 수정,삭제하기 버튼 뜨고 본인 글이 아니라면 댓글작성만 뜨기 -->
 					<c:choose>
 						<c:when test="${successUser == detailWriteData.writer  }">
-							<input type="button" class="btn btn-default" 
-							onclick="location.href='${contextPath }/board/modify_form?writeNum=${detailWriteData.writeNum }'" value="수정하기">
-							<input type="button" class="btn btn-default" 
-							onclick="location.href='${contextPath }/board/delete?writeNum=${detailWriteData.writeNum }&imgFile=${detailWriteData.imgFile}'" 
-							value="삭제하기">
+							<input type="button" class="btn btn-default"
+								onclick="location.href='${contextPath }/board/modify_form?writeNum=${detailWriteData.writeNum }'"
+								value="수정하기">
+							<input type="button" class="btn btn-default"
+								onclick="location.href='${contextPath }/board/delete?writeNum=${detailWriteData.writeNum }&imgFile=${detailWriteData.imgFile}'"
+								value="삭제하기">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
 						</c:when>
 						<c:otherwise>
-							<input type="button"  onclick="slideClick()" class="btn btn-default" value="댓글작성">
+							<input type="button" onclick="slideClick()" class="btn btn-default" value="댓글작성">
 							<input type="button" class="btn btn-default" value="목록보기"
 								onClick="location.href='${contextPath}/board/list'">
-								<div id="reply"></div>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -135,7 +143,22 @@
 		</div>
 		<!-- /.row (nested) -->
 	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12" style="height: 690px;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-comments fa-fw"></i>댓글
+				</div>
+				<div class="panel-body">
+			</div>
+					<div id="replyGet"></div>
+		</div>
+	</div>
+</div>
+
+
 	<!-- /.panel-body -->
-	
+
 </body>
 </html>

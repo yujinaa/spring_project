@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 function slideClick() {
 	$("#first").slideDown('slow');
 	$("#modal_wrap").show();
@@ -10,7 +11,7 @@ function slide_hide() {
 	$("#modal_wrap").hide();
 }
 function reply() {
-	let replyList = {};
+	let replyList = {}
 	let arr = $("#frm").serializeArray()
 	console.log(arr)
 	for (i = 0; i < arr.length; i++) {
@@ -21,39 +22,41 @@ function reply() {
 		type : "POST",
 		dataType : "json",
 		data : JSON.stringify(replyList),
-		contentType : "application/json;charset=utf-8",
+		contentType : "application/json; charset=utf-8",
 		success : function(list) {
 			alert("댓글이 등록되었습니다.");
 			slide_hide();
-			//replyData();
+			replyData();
 		},
 		error : function() {
 			alert("댓글을 등록할 수 없습니다.");
 		}
-		});
+		})
 }
+ 
+//db로부터 댓글 가져오기
 
-/*
 function replyData(){
     $.ajax({
-       url:"replyData/"+${detailWriteData.writeNum}, type:"GET", 
-       dataType:"json",
-       success: function(reply){
+       url : "replyData/"+ ${detailWriteData.writeNum}, 
+		type : "GET", 
+       dataType : "json",
+       success : function(reply){
           let html = ""
-          rep.forEach(function(data){
-             let date = new Date(data.reply_date)
+          reply.forEach(function(data){
+             let date = new Date(data.replyDate)
              let replyDate = date.getFullYear()+"년"+(date.getMonth()+1)+"월"
              replyDate += date.getDate()+"일"+date.getHours()+"시"
              replyDate += date.getMinutes()+"분"+date.getSeconds()+"초"
-             html += "<div align='left'><b>아이디 : </b>"+data.replyer+"님 / ";
+             html += "<div align='left'><b>작성자 : </b>"+data.replyer+"님 / ";
              html += "<b>작성일</b> : "+replyDate+"<br>"
              html += "<b>제목</b> : "+data.title+"<br>"
              html += "<b>내용</b> : "+data.replyContent+"<hr></div>"
           })
-          $("#reply").html(html)
-       },error:function(){
+          $("#replyGet").html(html)
+       },
+		error : function(){
           alert('데이터를 가져올 수 없습니다')
        }
-    })
+    }) 
  }
- */

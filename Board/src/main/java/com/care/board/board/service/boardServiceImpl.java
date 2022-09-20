@@ -2,6 +2,7 @@ package com.care.board.board.service;
 
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -110,6 +111,9 @@ public class boardServiceImpl implements boardService {
 			msg = "{\"result\" : false}";
 		}
 		return msg;
+	}
+	public List<boardReplyDTO> getReplyList( int replyGroup){
+		return mapper.getReplyList(replyGroup);
 	}
 
 }

@@ -48,11 +48,26 @@
 		content=#{content},
 		img_file=#{imgFile} where write_num=#{writeNum}
 	</update>
-	
+
 	<!-- 댓글달기 -->
 	<insert id="addReply">
-		insert into talk_board_reply(replyer,title,reply_content,reply_group)
+		insert into
+		talk_board_reply(replyer,title,reply_content,reply_group)
 		values(#{replyer},#{title},#{replyContent},#{replyGroup})
 	</insert>
+
+
+	<resultMap id="replyGet" type="com.care.board.board.dto.boardReplyDTO">
+		<result property="replyer" column="replyer" />
+		<result property="title" column="title" />
+		<result property="replycontent" column="reply_content" />
+		<result property="replyGroup" column="reply_group" />
+		<result property="replyDate" column="reply_date" />
+	</resultMap>
+
+<!-- 댓글 가져오기 -->
+	<select id="getReplyList" resultMap="replyGet">
+		select * from talk_board_reply where reply_group=#{replyGroup} order by reply_date desc
+	</select>
 
 </mapper>
