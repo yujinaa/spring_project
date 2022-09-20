@@ -56,10 +56,10 @@ function replyData(){
              let replyDate = date.getFullYear()+"년 "+(date.getMonth()+1)+"월 ";
              replyDate += date.getDate()+"일 "+date.getHours()+"시 "
              replyDate += date.getMinutes()+"분 "+date.getSeconds()+"초 "
-             html += "<div align='left'><b>작성자</b> | "+data.replyer+"/"
+             html += "<div align='left'><b>작성자</b> | "+data.replyer+"<br>"
              html += "<b>작성일</b> | "+replyDate+"<br>"
-             html += "<b>제목</b>  | "+data.title+"<br>"
-             html += "<b>내용</b> | "+data.replyContent+"<hr></div>"
+             html += "<b>제목</b>   | "+data.title+"<br>"
+             html += "<b>내용</b>  | "+data.replyContent+"<hr></div>"
           })
           $("#replyGet").html(html);
        },
@@ -162,10 +162,10 @@ function replyData(){
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="width: 700px; margin: auto;" >
 		<div class="col-lg-12" style="height: 690px;">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading" style="background:  rgb(218, 233, 254);">
 					<i class="fa fa-comments fa-fw"></i>댓글
 				</div>
 				<div class="panel-body">
