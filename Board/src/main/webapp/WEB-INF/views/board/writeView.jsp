@@ -24,13 +24,11 @@
 <!-- modal -->
 <link href="../resources/vendor/replyModal/modal.css" rel="stylesheet"
 	type="text/css">
-<!-- 
-
+	
 	<script src="../resources/vendor/jquery/jquery.min.js"></script>
- -->
+	
 <script src="../resources/js/jquery-3.6.0.min.js"></script>
 
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- jQuery 
 	
@@ -45,6 +43,33 @@
 <script src="../resources/dist/js/sb-admin-2.js"></script>
 <!-- 모달js -->
 <script src="../resources/js/modal.js"></script>
+<script type="text/javascript">
+//db로부터 댓글 가져오기
+function replyData(){
+    $.ajax({
+       url : "replyData/" + ${detailWriteData.writeNum}, type : "GET", 
+       dataType : "json",
+       success : function(reply){
+          let html = "";
+          reply.forEach(function(data){
+             let date = new Date(data.replyDate);
+             let replyDate = date.getFullYear()+"년 "+(date.getMonth()+1)+"월 ";
+             replyDate += date.getDate()+"일 "+date.getHours()+"시 "
+             replyDate += date.getMinutes()+"분 "+date.getSeconds()+"초 "
+             html += "<div align='left'><b>작성자</b> | "+data.replyer+"/"
+             html += "<b>작성일</b> | "+replyDate+"<br>"
+             html += "<b>제목</b>  | "+data.title+"<br>"
+             html += "<b>내용</b> | "+data.replyContent+"<hr></div>"
+          })
+          $("#replyGet").html(html);
+       },
+		error : function(){
+          alert('댓글을 가져올 수 없습니다');
+       }
+    }) 
+ }
+ 
+</script>
 <body onload="replyData()">
 	<div id="modal_wrap">
 		<!-- 모달 추가 -->
@@ -72,13 +97,9 @@
 			</div>
 		</div>
 	</div>
-
-
 	<div class="row">
 		<div class="col-lg-12"></div>
-		<!-- /.col-lg-12 -->
 	</div>
-	<!-- /.row -->
 	<div class="row">
 		<div class="col-lg-12" style="height: 690px;">
 			<div class="panel panel-default"
@@ -139,11 +160,8 @@
 					</c:choose>
 				</div>
 			</div>
-			<!-- /.col-lg-6 (nested) -->
 		</div>
-		<!-- /.row (nested) -->
 	</div>
-	<!-- /.row -->
 	<div class="row">
 		<div class="col-lg-12" style="height: 690px;">
 			<div class="panel panel-default">
@@ -156,9 +174,5 @@
 		</div>
 	</div>
 </div>
-
-
-	<!-- /.panel-body -->
-
 </body>
 </html>

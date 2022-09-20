@@ -60,7 +60,7 @@
 	<resultMap id="replyGet" type="com.care.board.board.dto.boardReplyDTO">
 		<result property="replyer" column="replyer" />
 		<result property="title" column="title" />
-		<result property="replycontent" column="reply_content" />
+		<result property="replyContent" column="reply_content" />
 		<result property="replyGroup" column="reply_group" />
 		<result property="replyDate" column="reply_date" />
 	</resultMap>
