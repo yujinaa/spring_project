@@ -11,7 +11,6 @@
 							${successUser}님이 접속중입니다.
 						</c:if></h4>
 				</div>
-				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
@@ -44,22 +43,14 @@
 								</c:forEach>
 								</tbody>
 							</table>
-							<!-- /.table-responsive -->
-						</div>
-						<div align="center">
+						<div align="center" style="font-size: 17px;">
 							<c:forEach var = "num" begin="1" end="${repeat }">
 								<a href="list?num=${num }">[${num }]</a>
 							</c:forEach>
 						</div>
 							<a href="${contextPath }/board/write">
 							<input type="button" value="글쓰기" class="btn btn-xs pull-right"  style= "font-size: 17px; "></a>
-						<!-- /.panel-body -->
 					</div>
-					<!-- /.panel -->
 				</div>
-				<!-- /.col-lg-12 -->
 			</div>
-			<!-- /.row -->
-
-			
 <%@ include file="../include/footer.jsp" %>
