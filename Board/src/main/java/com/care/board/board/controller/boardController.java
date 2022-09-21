@@ -30,8 +30,8 @@ public class boardController implements loginSessionName{
 	
 	//게시판 목록
 	@GetMapping("list")
-	public String board(HttpSession session, Model model) { //db에 저장된 모든 값 가져오기
-		bs.boardList(model);
+	public String board(HttpSession session, Model model, @RequestParam(required = false,defaultValue="1")int num) { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기
+		bs.boardList(model, num);
 		if(session.getAttribute(LOGIN) != null) {
 			return "board/list";			
 		}

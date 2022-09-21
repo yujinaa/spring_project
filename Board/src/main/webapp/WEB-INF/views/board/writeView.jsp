@@ -169,10 +169,12 @@ function replyData(){
 					<i class="fa fa-comments fa-fw"></i>댓글
 				</div>
 				<div class="panel-body">
-					<div id="replyGet"></div>		
-			</div>
-		</div>
+						<div id="replyGet">
+						</div>
+							<small class="pull-right text-musted"></small>					
+				</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

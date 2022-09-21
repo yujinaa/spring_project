@@ -46,6 +46,11 @@
 							</table>
 							<!-- /.table-responsive -->
 						</div>
+						<div>
+							<c:forEach var = "num" begin="1" end="${repeat }">
+								<a href="boardList?num=${num }">[${num }]</a>
+							</c:forEach>
+						</div>
 							<a href="${contextPath }/board/write">
 							<input type="button" value="글쓰기" class="btn btn-xs pull-right"  style= "font-size: 17px; "></a>
 						<!-- /.panel-body -->

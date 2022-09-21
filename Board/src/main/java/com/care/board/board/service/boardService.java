@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.care.board.board.dto.boardReplyDTO;
 
 public interface boardService {
-	public void boardList(Model model);
+	public void boardList(Model model, int num);
 	public String writeSave(MultipartHttpServletRequest multi, HttpServletRequest request);
 	public void writeView(int writeNum, Model model);
 	public String writeDelete(int writeNum,String imgFile, HttpServletRequest request);

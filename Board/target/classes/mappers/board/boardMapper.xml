@@ -3,8 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.board.mybatis.board.BoardMapper">
+	<!-- 	
 	<select id="boardList" resultMap="boardAllList">
 		select * from talk_board
+	</select>
+	 -->
+	<select id="boardList" resultMap="boardAllList" >
+	select B.* from(select rownum rn, A.* from
+	(select * from talk_board order by write_num desc)A)B where rn between #{s} and #{e}
 	</select>
 	<resultMap type="com.care.board.board.dto.boardDTO"
 		id="boardAllList">
@@ -68,6 +74,12 @@
 <!-- 댓글 가져오기 -->
 	<select id="getReplyList" resultMap="replyGet">
 		select * from talk_board_reply where reply_group=#{replyGroup} order by reply_date desc
+	</select>
+	
+	<!-- 페이징 	-->
+	
+	<select id="selectBoardCount" resultMap="Integer">
+		select count(*) from talk_board
 	</select>
 
 </mapper>
