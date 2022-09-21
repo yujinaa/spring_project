@@ -19,6 +19,6 @@ public interface BoardMapper {
 	public void getData(int writeNum, Model model);
 	public int modify(boardDTO dto);
 	public int addReply(boardReplyDTO dto);
-	public List<boardReplyDTO> getReplyList( int repltGroup);
+	public List<boardReplyDTO> getReplyList( int replyGroup);
 	public int selectBoardCount();
 }

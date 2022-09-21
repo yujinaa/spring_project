@@ -46,9 +46,9 @@
 							</table>
 							<!-- /.table-responsive -->
 						</div>
-						<div>
+						<div align="center">
 							<c:forEach var = "num" begin="1" end="${repeat }">
-								<a href="boardList?num=${num }">[${num }]</a>
+								<a href="list?num=${num }">[${num }]</a>
 							</c:forEach>
 						</div>
 							<a href="${contextPath }/board/write">
