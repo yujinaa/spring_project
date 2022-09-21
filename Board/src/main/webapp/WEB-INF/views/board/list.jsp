@@ -45,7 +45,7 @@
 							</table>
 						<div align="center" style="font-size: 17px;">
 							<c:forEach var = "num" begin="1" end="${repeat }">
-								<a href="list?num=${num }">[${num }]</a>
+								<a class="page-link" href="list?num=${num }">[${num }]</a>
 							</c:forEach>
 						</div>
 							<a href="${contextPath }/board/write">
