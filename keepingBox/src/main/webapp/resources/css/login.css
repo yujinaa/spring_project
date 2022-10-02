@@ -1,0 +1,186 @@
+@charset "utf-8";
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@700&display=swap');
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.en {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: bold;
+}
+body, a {
+    color: #3D3B3B;
+}
+.font-bold {
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    position: fixed; top: 0; right: 0;
+    z-index: 10000;
+    box-shadow: 0px 10px 20px -15px rgb(210, 210, 210);
+}
+.head-wrap {
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+}
+h1 {
+    display: flex;
+    align-items: center;
+}
+h1 img {
+    width: 6.5rem;
+}
+nav {
+    position: absolute; top: 1.5rem;
+    right: 0;
+    display: flex;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    padding: 0 3rem;
+}
+nav ul li a {
+    color: #3D3B3B;
+}
+nav li a:hover {
+    color: #3781E3;
+    font-weight: bold;
+}
+
+/* 로그인 창 */
+main {
+    margin-top: 13rem;
+}
+.login-box {
+    margin: 0 auto;
+    width: 400px;
+    padding: 80px 40px;
+    background: #fafafa;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+.login-box h2 {
+    margin: 0 0 30px;
+    color: #3781E3;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.user-box {
+    position: relative;
+}
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #3D3B3B;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #AFAFAF;
+    outline: none;
+    background: transparent;
+}
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #afafaf;
+    pointer-events: none;
+    transition: .5s;
+}
+.user-margin {
+    margin-bottom: 15px !important;
+}
+input:focus ~ label,
+input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #3781E3;
+    font-size: 12px;
+}
+.save-find {
+    font-size: 0.85rem;
+}
+.find {
+    float: right;
+}
+.find li {
+    display: inline-block;
+    margin-left: 0.7rem;
+}
+button {
+    width: 320px;
+    height: 45px;
+    margin: 1.5rem 0 0.5rem;
+    background: #3781E3;
+    color: #fafafa;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.member-join {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* footer 부분 */
+footer {
+    width: 100%;
+    height: 40vh;
+    background: #494B57;
+    margin-top: 13rem;
+}
+footer div {
+    width: 80%;
+    height: 40vh;
+    margin: 0 auto;
+}
+footer ul {
+    margin-top: 4rem;
+}
+footer span {
+    font-size: 1.5rem;
+    color: #AFAFAF;
+}
+footer li, footer a {
+    color: #AFAFAF;
+}
+.footer-left {
+    float: left;
+}
+.footer-left li {
+    font-size: 0.8rem;
+}
+.footer-left li:nth-child(2) {
+    margin-top: 2rem;
+}
+.footer-left li:not(:nth-child(2)) {
+    margin-top: 0.3rem;
+}
+.footer-right {
+    float: right;
+}
+.footer-right li:first-child {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+.footer-right li:last-child {
+    font-size: 1rem;
+}
