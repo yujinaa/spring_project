@@ -2,6 +2,8 @@ package com.care.root.member.controller;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.member.common.memberLoginSession;
@@ -106,6 +110,15 @@ public class memberController implements memberLoginSession{
 				return "redirect:login";//성공하면 login 페이지로
 			}
 			return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
+		}
+		@PostMapping(value="idCheck",produces = "application/json; charset=utf8")
+		@ResponseBody
+		public Map<Object, Object> idCheck(@RequestBody String id){
+			int count=0;
+			Map<Object, Object> map = new HashMap<Object, Object>();
+			count = ms.idCheck(id);
+			map.put("cnt", count);
+			return map;
 		}
 
 }

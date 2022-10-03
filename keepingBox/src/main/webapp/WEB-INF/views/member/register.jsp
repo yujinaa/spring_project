@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 var idChk = 0;
 function checkId(){
-var id = $('#inputId').val(); //id값이 "inputId"인 입력란의 값을 저장
+var id = $('#id').val(); //id값이 "inputId"인 입력란의 값을 저장
 $.ajax({
     url:"idCheck", //Controller에서 요청 받을 주소
     type:"post", //POST 방식으로 전달
@@ -21,19 +22,19 @@ $.ajax({
     success:function(data){ //컨트롤러에서 넘어온 cnt값을 받는다 
         if(data.cnt > 0){ 
         	alert("아이디가 존재합니다. 다른 아이디를 입력해 주세요");
-            $('#idChkBtn').addClass("has-error"); 
-            $('#idChkBtn').removeClass("has-success");
-            $("#inputId").focus();
+            $('.chk-btn').addClass("has-error"); 
+            $('.chk-btn').removeClass("has-success");
+            $("#id").focus();
         } else {
         	alert("사용가능한 아이디입니다");
-        	 $('#idChkBtn').addClass("has-success"); 
-             $('#idChkBtn').removeClass("has-error");
+        	 $('.chk-btn').addClass("has-success"); 
+             $('.chk-btn').removeClass("has-error");
              $("#inputPwd").focus();
              idChk=1;
         }
     },
     error:function(error){
-        alert("에러입니다");
+        alert("아이디를 다시 입력해 주세요");
     }
 });
 };
@@ -82,11 +83,10 @@ $.ajax({
 					<label for="pwd">비밀번호</label> <input type="password" name="pwd"
 						id="pwd" class="user-margin" placeholder="4~12자의 영문 대소문자와 숫자만 입력">
 
-					<label for="pwdchk">비밀번호 확인</label> <input type="password"
-						name="pwdchk" id="pwdchk"> <label for="name">이름</label> <input
-						type="text" name="name" id="name"> <label for="phone">휴대폰
-						번호 (-없이)</label> <input type="tel" name="phone" id="phone"> <label
-						for="email">이메일</label> <input type="email" name="email"
+					<label for="pwdchk">비밀번호 확인</label> <input type="password" name="pwdchk" id="pwdchk"> 
+					<label for="name">이름</label> <input type="text" name="name" id="name"> 
+					<label for="phone">휴대폰 번호 (-없이)</label> <input type="tel" name="phone" id="phone"> 
+					<label for="email">이메일</label> <input type="email" name="email"
 						id="email" placeholder="example@gmail.com">
 					<button type="button" class="chk-btn">전송하기</button>
 
@@ -111,7 +111,7 @@ $.ajax({
 			</ul>
 		</div>
 	</footer>
-
+	
 	<script src="../resources/js/join.js"></script>
 </body>
 </html>

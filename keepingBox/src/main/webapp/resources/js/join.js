@@ -18,6 +18,7 @@ function register() {
         id.focus();
         return false;
     }
+
     if(!RegExp.test(id.value)) {
         alert('아이디는 4~12자의 영문 대소문자와 숫자로만 입력해 주세요.');
         return false;
@@ -82,5 +83,4 @@ function register() {
     }
 
     alert('회원가입이 완료되었습니다.');
-    // register.submit();
 }
