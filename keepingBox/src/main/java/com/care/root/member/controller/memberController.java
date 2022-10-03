@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.member.common.memberLoginSession;
+import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
 
 @Controller
@@ -92,6 +93,19 @@ public class memberController implements memberLoginSession{
 			}
 				session.invalidate();           //세션종료                 
 			return "redirect:/index";  
+		}
+		//회원가입 페이지 연결
+		@GetMapping("register_form")
+		public String register() {
+			return "member/register";
+		}
+		@PostMapping("register")
+		public String register(memberDTO dto) {  //dto로 받기
+			int result = ms.register(dto);
+			if(result==1) {
+				return "redirect:login";//성공하면 login 페이지로
+			}
+			return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
 		}
 
 }

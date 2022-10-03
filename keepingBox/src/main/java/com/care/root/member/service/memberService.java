@@ -8,5 +8,6 @@ public interface memberService {
 	public int userCheck(String id, String pwd);
 	public void keepLogin(String sessionId, Date limitDate, String id);
 	public memberDTO getUserSessionId(String sessionId);
+	public int register(memberDTO dto);
 
 }

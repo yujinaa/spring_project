@@ -23,4 +23,10 @@
 	<select id="getUserSessionId"  resultMap="member">
 		select * from box_member where session_id = #{sessionId}
 	</select>
+	
+	<insert id="register">
+		insert into
+		box_member(buser_id,buser_pwd,buser_name,buser_phone,buser_email)
+		values(#{id}, #{pwd}, #{name},#{phone},#{email})
+	</insert>
 </mapper>
