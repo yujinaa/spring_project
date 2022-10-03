@@ -22,17 +22,13 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.care.root" />
-	<!-- 빈만들기 class= "자료형" id = "변수명" -->
-	<!-- 	
+	<!-- 빈만들기 class= "자료형" id = "변수명" -->	
 	<beans:bean id="autoLogin" class="com.care.root.member.interceptor.autoLoginInterceptor" />
-	 -->
 	<!-- 인터셉터 설정 -->
-	<!--<interceptors>
+	<interceptors>
 		<interceptor>
-			<mapping path="/index" />  경로설정 
+			<mapping path="/index" />  <!-- 경로설정 --> 
 			<beans:ref bean="autoLogin" />
 		</interceptor>
 	</interceptors>
-	-->
-	
 </beans:beans>
