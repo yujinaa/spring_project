@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/resources/css/login.css">
+   <link rel="stylesheet" href="../resources/css/login.css">
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>로그인</title>
@@ -25,7 +25,14 @@
                 <ul>
                     <li><a href="booking.html">예약하기</a></li>
                     <li><a href="#">이용후기</a></li>
-                    <li><a href="${contextPath }/member/login">로그인</a></li>
+                    <c:choose>
+                    	<c:when test="${successLoginUser !=null}">
+                    		<li><a href="#">마이페이지</a></li>       
+                    	</c:when>
+                    	<c:otherwise>
+		                    <li><a href="${contextPath }/member/login">로그인</a></li>                    	
+                    	</c:otherwise>
+                    </c:choose>
                 </ul>
             </nav>
         </div>
@@ -75,6 +82,6 @@
             </ul>
         </div>
     </footer>
-<script src="/resources/js/main.js"></script>
+<script src="../resources/js/login.js"></script>
 </body>
 </html>
