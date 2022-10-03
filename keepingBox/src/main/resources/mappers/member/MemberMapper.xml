@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.mybatis.member.memberMapper">
+	<select id="userCheck" resultMap="member">
+		select * from box_member where buser_id=#{id}  <!-- 해당하는 아이디와 같은 결과값을 가져온다 -->
+	</select>
+	<resultMap id="member" type="com.care.root.member.dto.memberDTO">
+		<id property="id" column="buser_id" />
+		<result property="pwd" column="buser_pwd" />
+		<result property="name" column="buser_name" />
+		<result property="phone" column="buser_phone" />
+		<result property="email" column="buser_email" />
+		<result property="sessionId" column="session_id" />
+		<result property="limitTime" column="limit_time" />
+	</resultMap>
+</mapper>

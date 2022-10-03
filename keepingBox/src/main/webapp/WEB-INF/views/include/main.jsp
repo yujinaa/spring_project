@@ -21,7 +21,7 @@
 	<header>
 		<div class="head-wrap">
 			<h1>
-				<a href="main.html"><img src="/resources/img/logo.png" alt="logo"></a>
+				<a href="${contextPath }/member/login"><img src="/resources/img/logo.png" alt="logo"></a>
 			</h1>
 			<nav>
 				<ul>
