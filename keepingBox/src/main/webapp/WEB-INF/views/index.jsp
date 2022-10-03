@@ -29,7 +29,7 @@
 					<li><a href="#">이용후기</a></li>
 					<c:choose>
                     	<c:when test="${successLoginUser !=null}">
-                    		<li><a href="#">로그아웃</a></li>       
+                    		<li><a href="${contextPath }/member/logout">로그아웃</a></li>       
                     	</c:when>
                     	<c:otherwise>
 		                    <li><a href="${contextPath }/member/login">로그인</a></li>                    	

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,5 +75,23 @@ public class memberController implements memberLoginSession{
 
 		return "index";
 	}
+	//로그아웃시 세션종료후 메인index로 이동
+		@GetMapping("logout")
+		public String logout(HttpSession session, 
+								HttpServletResponse response,
+								@CookieValue(value="loginCookie",required=false) Cookie loginCookie) //자동로그아웃(쿠키종료)위해 쿠키 받아오기
+		{
+			if(session.getAttribute(LOGIN) != null) {
+				if(loginCookie != null) {
+					loginCookie.setPath("/"); //경로명시를 해야 쿠키종료, 최상위로 잡기
+					loginCookie.setMaxAge(0);//쿠키값 0으로 설정
+					response.addCookie(loginCookie); //사용자에게 보내기
+					ms.keepLogin("nan",new java.sql.Date(System.currentTimeMillis()), //db도 변경(업데이트 keepLogin호출), 들어온 쿠키값은 다시 nan으로 처리//현재시간으로 변경
+									(String)session.getAttribute(LOGIN)); //login비교할 아이디
+				}
+			}
+				session.invalidate();           //세션종료                 
+			return "redirect:/index";  
+		}
 
 }
