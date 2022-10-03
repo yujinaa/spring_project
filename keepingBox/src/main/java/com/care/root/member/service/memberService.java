@@ -9,5 +9,6 @@ public interface memberService {
 	public void keepLogin(String sessionId, Date limitDate, String id);
 	public memberDTO getUserSessionId(String sessionId);
 	public int register(memberDTO dto);
+	public int idCheck(String inputId);
 
 }

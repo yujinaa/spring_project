@@ -58,5 +58,10 @@ public class memberServiceImpl implements memberService{
 		}
 		return result;
 	}
+	public int idCheck(String inputId) {
+		int count = memberMapper.idCheck(inputId);
+		return count;
+	}
+
 
 }

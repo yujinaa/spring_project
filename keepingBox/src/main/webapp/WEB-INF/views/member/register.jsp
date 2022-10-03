@@ -6,6 +6,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+var idChk = 0;
+function checkId(){
+var id = $('#inputId').val(); //id값이 "inputId"인 입력란의 값을 저장
+$.ajax({
+    url:"idCheck", //Controller에서 요청 받을 주소
+    type:"post", //POST 방식으로 전달
+    data:id,
+	dataType : "json", //서버로 돌려받는 값의 타입 지정
+	//서버로 보낼 데이터 설정
+	contentType : "application/json; charset=utf-8",
+
+    success:function(data){ //컨트롤러에서 넘어온 cnt값을 받는다 
+        if(data.cnt > 0){ 
+        	alert("아이디가 존재합니다. 다른 아이디를 입력해 주세요");
+            $('#idChkBtn').addClass("has-error"); 
+            $('#idChkBtn').removeClass("has-success");
+            $("#inputId").focus();
+        } else {
+        	alert("사용가능한 아이디입니다");
+        	 $('#idChkBtn').addClass("has-success"); 
+             $('#idChkBtn').removeClass("has-error");
+             $("#inputPwd").focus();
+             idChk=1;
+        }
+    },
+    error:function(error){
+        alert("에러입니다");
+    }
+});
+};
+</script> 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
