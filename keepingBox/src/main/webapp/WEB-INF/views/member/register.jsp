@@ -49,7 +49,7 @@ $.ajax({
 		<a href="#container">본문 바로 가기</a>
 	</div>
 
-	<c:import url="include/header.jsp"/>
+	<c:import url="../include/header.jsp"/>
 
 	<main id="container">
 		<div class="login-box">
@@ -76,7 +76,7 @@ $.ajax({
 			</div>
 		</div>
 	</main>
-	<c:import url="include/footer.jsp"/>
+	<c:import url="../include/footer.jsp"/>
 	<script src="../resources/js/join.js"></script>
 </body>
 </html>

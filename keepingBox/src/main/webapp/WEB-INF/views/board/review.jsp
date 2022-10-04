@@ -54,12 +54,12 @@
                         <option value="">한달</option>
                         <option value="">전체</option>
                     </select> -->
-					<button type="submit" id="review-btn" onclick="reviewWrite();">리뷰쓰기</button>
+                    
+					<a href="${contextPath }/board/reviewWrite"><button type="submit" id="review-btn">리뷰쓰기</button></a>
 				</div>
 			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-	<script src="../resources/js/login.js"></script>
 </body>
 </html>
