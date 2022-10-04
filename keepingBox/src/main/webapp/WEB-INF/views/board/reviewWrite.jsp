@@ -6,6 +6,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			var result = "<c:out value='${result}'/>";
+			console.log(result);
+
+			//if(!(result==''))
+			//alert("게시물이 등록되었습니다!");
+			
+			checkAlert(result);
+			function checkAlert(result) {
+				if (result === '') {
+					return;
+				}
+				if (result === "success") {
+					alert("글이 등록되었습니다.");
+				}
+			}
+			});
+		
+<!--
+
+-->
+	</script>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,22 +37,6 @@
 <link rel="stylesheet" href="../resources/css/review-write.css">
 </head>
 <body>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-		var result = '<c:out value="${result}"/>';
-			 if(!(result==''))
-		            alert("게시물이 등록되었습니다!");
-			//if (result === "") {
-				//alert("글을 작성해주세요.");
-				//return;
-			//}
-			//else (result === "success") {
-			//	alert("글이 등록되었습니다.");
-			//}
-		}
-	});
-</script>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
@@ -49,12 +57,13 @@ $(document).ready(function(){
 						name="title" id="title" placeholder="제목 입력">
 					<textarea name="content" cols="30" rows="10" placeholder="내용 입력"></textarea>
 					<button type="reset" id="cancel-btn">취소</button>
-					<button type="submit" id="regist-btn">등록하기</button>
+					<button type="submit" id="regist-btn" onclick="reviewReg">등록하기</button>
 				</div>
 			</form>
 
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
+
 </body>
 </html>
