@@ -17,27 +17,7 @@
     <div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
-
-    <header>
-        <div class="head-wrap">
-            <h1><a href="${contextPath }/index"><img src="/resources/img/logo.png" alt="logo"></a></h1>
-            <nav>
-                <ul>
-                    <li><a href="booking.html">예약하기</a></li>
-                    <li><a href="#">이용후기</a></li>
-                    <c:choose>
-                    	<c:when test="${successLoginUser !=null}">
-                    		<li><a href="${contextPath }/member/logout">로그아웃</a></li>       
-                    	</c:when>
-                    	<c:otherwise>
-		                    <li><a href="${contextPath }/member/login">로그인</a></li>                    	
-                    	</c:otherwise>
-                    </c:choose>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    <c:import url="../include/header.jsp"/>
     <main id="container">
         <div class="login-box">
           <h2>로그인</h2>
@@ -68,20 +48,7 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="cf">
-            <ul class="footer-left">
-                <li><span class="en">Keeping<br>Box</span></li>
-                <li>(주)Keeping Box | 사업자등록번호: 123-45-67899 | 대표이사: 김김김</li>
-                <li>주소: 서울특별시 마포구 아현동 백범로</li>
-                <li>COPYRIGHTⓒ 2022 KEEPINGBOX KOREA INC. ALL RIGHTS RESERVED</li>
-            </ul>
-            <ul class="footer-right">
-                <li>고객센터 1111-1111</li>
-                <li>월~금 9:00~18:00 (공휴일 · 주말 휴무)</li>
-            </ul>
-        </div>
-    </footer>
+  <c:import url="../include/footer.jsp"/>
 <script src="../resources/js/login.js"></script>
 </body>
 </html>

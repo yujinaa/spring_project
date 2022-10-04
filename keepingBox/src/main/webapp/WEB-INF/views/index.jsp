@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keeping Box</title>
-<link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/root/resources/css/main.css">
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <body>
@@ -18,36 +18,16 @@
 		<a href="#container">본문 바로 가기</a>
 	</div>
 
-	<header>
-		<div class="head-wrap">
-			<h1>
-				<a href="${contextPath }/index"><img src="/resources/img/logo.png" alt="logo"></a>
-			</h1>
-			<nav>
-				<ul>
-					<li><a href="booking.html">예약하기</a></li>
-					<li><a href="#">이용후기</a></li>
-					<c:choose>
-                    	<c:when test="${successLoginUser !=null}">
-                    		<li><a href="${contextPath }/member/logout">로그아웃</a></li>       
-                    	</c:when>
-                    	<c:otherwise>
-		                    <li><a href="${contextPath }/member/login">로그인</a></li>                    	
-                    	</c:otherwise>
-                    </c:choose>
-				</ul>
-			</nav>
-		</div>
-	</header>
+<c:import url="include/header.jsp"/>
 
 	<main id="container">
 		<div class="banner">
-			<img src="/resources/img/banner.jpg" alt="banner">
+			<img src="/root/resources/img/banner.jpg" alt="banner">
 			<ul>
 				<li>내 주변 짐 보관 서비스</li>
 				<li>하루 단위로 언제든지 당신의 짐을 보관할 수 있는<br>맞춤형 서비스입니다
 				</li>
-				<li><a href="#" class="button">예약하기</a></li>
+				<li><a href="${contextPath }/member/booking" class="button">예약하기</a></li>
 			</ul>
 		</div>
 		<!-- 이용안내 부분 -->
@@ -57,21 +37,21 @@
 				<ul class="all-step">
 					<li class="step1 ani ani-up">
 						<ul class="steps">
-							<li><img src="/resources/img/lock.png" alt="join"></li>
+							<li><img src="/root/resources/img/lock.png" alt="join"></li>
 							<li>회원가입/로그인</li>
 						</ul>
 					</li>
-					<i class="xi-play"></i>
+					<li><i class="xi-play"></i></li>
 					<li class="step2 ani ani-up">
 						<ul class="steps">
-							<li><img src="/resources/img/calendar.png" alt="calendar"></li>
+							<li><img src="/root/resources/img/calendar.png" alt="calendar"></li>
 							<li>사이즈, 장소, 날짜 선택</li>
 						</ul>
 					</li>
 					<i class="xi-play"></i>
 					<li class="step3 ani ani-up">
 						<ul class="steps">
-							<li><img src="/resources/img/check-mark.png" alt="checkmark"></li>
+							<li><img src="/root/resources/img/check-mark.png" alt="checkmark"></li>
 							<li>결제 후 예약 완료</li>
 						</ul>
 					</li>
@@ -92,7 +72,7 @@
 					<ul class="all-size">
 						<li class="small-box">
 							<ul>
-								<li><img src="/resources/img/box.png" alt="smallbox"></li>
+								<li><img src="/root/resources/img/box.png" alt="smallbox"></li>
 								<li class="box-font">소</li>
 								<li class="font-bold">20&#215;20&#215;45(cm) 이내</li>
 								<li class="price font-bold">5000원</li>
@@ -100,7 +80,7 @@
 						</li>
 						<li class="middle-box">
 							<ul>
-								<li><img src="/resources/img/box.png" alt="middlebox"></li>
+								<li><img src="/root/resources/img/box.png" alt="middlebox"></li>
 								<li class="box-font">중</li>
 								<li class="font-bold">30&#215;30&#215;60(cm) 이내</li>
 								<li class="price font-bold">6000원</li>
@@ -108,7 +88,7 @@
 						</li>
 						<li class="big-box">
 							<ul>
-								<li><img src="/resources/img/box.png" alt="bigbox"></li>
+								<li><img src="/root/resources/img/box.png" alt="bigbox"></li>
 								<li class="box-font">대</li>
 								<li class="font-bold">50&#215;50&#215;80(cm) 이내</li>
 								<li class="price font-bold">7000원</li>
@@ -123,7 +103,7 @@
 			<h3>지점안내</h3>
 			<div class="all-place cf">
 				<p>
-					<img src="/resources/img/place1.jpg" alt="place1">
+					<img src="/root/resources/img/place1.jpg" alt="place1">
 				</p>
 				<ul>
 					<li>서울 광화문점</li>
@@ -134,7 +114,7 @@
 			</div>
 			<div class="all-place cf">
 				<p>
-					<img src="/resources/img/place2.jpg" alt="place2">
+					<img src="/root/resources/img/place2.jpg" alt="place2">
 				</p>
 				<ul>
 					<li>분당 판교점</li>
@@ -145,7 +125,7 @@
 			</div>
 			<div class="all-place cf">
 				<p>
-					<img src="/resources/img/place3.jpg" alt="place3">
+					<img src="/root/resources/img/place3.jpg" alt="place3">
 				</p>
 				<ul>
 					<li>부천 소사점</li>
@@ -156,21 +136,7 @@
 			</div>
 		</section>
 	</main>
-	<footer>
-		<div class="cf">
-			<ul class="footer-left">
-				<li><span class="en">Keeping<br>Box
-				</span></li>
-				<li>(주)Keeping Box | 사업자등록번호: 123-45-67899 | 대표이사: 김김김</li>
-				<li>주소: 서울특별시 마포구 아현동 백범로</li>
-				<li>COPYRIGHTⓒ 2022 KEEPINGBOX KOREA INC. ALL RIGHTS RESERVED</li>
-			</ul>
-			<ul class="footer-right">
-				<li>고객센터 1111-1111</li>
-				<li>월~금 9:00~18:00 (공휴일 · 주말 휴무)</li>
-			</ul>
-		</div>
-	</footer>
-<script src="/resources/js/main.js"></script>
+<c:import url="include/footer.jsp"/>
+<script src="/root/resources/js/main.js"></script>
 </body>
 </html>
