@@ -41,7 +41,7 @@
 							<li>회원가입/로그인</li>
 						</ul>
 					</li>
-					<li><i class="xi-play"></i></li>
+					<i class="xi-play"></i>
 					<li class="step2 ani ani-up">
 						<ul class="steps">
 							<li><img src="/root/resources/img/calendar.png" alt="calendar"></li>

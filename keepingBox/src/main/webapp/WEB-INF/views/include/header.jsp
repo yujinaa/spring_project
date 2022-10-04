@@ -19,7 +19,7 @@
 			<nav>
 				<ul>
 					<li><a href="${contextPath }/member/booking">예약하기</a></li>
-					<li><a href="#">이용후기</a></li>
+					<li><a href="${contextPath }/board/review">이용후기</a></li>
 					<c:choose>
 						<c:when test="${successLoginUser !=null}">
 							<li><a href="${contextPath }/member/logout">로그아웃</a></li>
