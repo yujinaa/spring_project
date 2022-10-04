@@ -16,5 +16,11 @@
 	<select id="boardList" resultMap="board">
 		select * from box_board
 	</select>
+	
+	<!-- 글쓰기 등록 -->
+	<insert id="writeSave">
+		insert into box_board(list_num,writer,title,content)
+		values(box_board_seq.nextval,#{writer},#{title},#{content})
+	</insert>
 
 </mapper>

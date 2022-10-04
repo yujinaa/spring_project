@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.board.dto.boardDTO;
 import com.care.root.board.service.boardService;
 
 
@@ -38,15 +40,12 @@ public class boardController{
 		return "board/reviewWrite";
 	}
 	//글저장하기
-//	@PostMapping("writeSave")
-//	public void writeSave(HttpServletResponse response,  //out 객체를 만들어 사용자에게 전달
-//			HttpServletRequest request) throws IOException{                    //request는 경로 설정
-//		System.out.println("저장하기 실행");
-//		String message =bs.writeSave(request);//request는 세션이나 절대경로
-//		PrintWriter out= null;
-//		response.setContentType("text/html; charset = utf-8");
-//		out = response.getWriter();
-//		out.println(message);
-//	}
+	@PostMapping("writeSave")
+	public String writeSave(boardDTO dto, RedirectAttributes rs){                   
 
+			System.out.println("저장하기 실행");
+			bs.writeSave(dto);
+			rs.addFlashAttribute("result", "success");		
+			return "redirect:review";
+	}
 }

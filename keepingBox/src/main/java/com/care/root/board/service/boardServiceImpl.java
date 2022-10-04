@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.care.root.board.dto.boardDTO;
 import com.care.root.mybatis.board.boardMapper;
 
 
@@ -12,5 +13,9 @@ public class boardServiceImpl implements boardService{
 	@Autowired boardMapper mapper;
 	public void boardList( Model model) {//db로 요청
 		model.addAttribute("boardList", mapper.boardList());
+	}
+	//글저장
+	public void writeSave(boardDTO dto)  {
+		mapper.writeSave(dto);
 	}
 }
