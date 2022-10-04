@@ -7,34 +7,35 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>후기작성</title>
+<link rel="stylesheet" href="../resources/css/review-write.css">
+<script>
+
+
 		$(document).ready(function() {
 			var result = "<c:out value='${result}'/>";
-			console.log(result);
 
 			//if(!(result==''))
 			//alert("게시물이 등록되었습니다!");
 			
 			checkAlert(result);
 			function checkAlert(result) {
-				if (result === '') {
+				if (result == '') {
 					return;
 				}
-				if (result === "success") {
+				if (result == "success") {
 					alert("글이 등록되었습니다.");
 				}
 			}
 			});
-		
-<!--
-
--->
-	</script>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>후기작성</title>
-<link rel="stylesheet" href="../resources/css/review-write.css">
+</script>
 </head>
 <body>
 	<div class="skip">
