@@ -26,7 +26,13 @@ public class boardServiceImpl implements boardService{
 			e.printStackTrace();
 		}
 	}	
+	//글 상세보기
 	public void reviewDetail(int reviewNum, Model model) {
 		model.addAttribute("detailReview", mapper.reviewDetail(reviewNum) );
-	}	
-}		
+		hitNum(reviewNum);
+	}
+	//조회수증가
+	private void hitNum(int reviewNum) {
+		mapper.hitNum(reviewNum);
+	}
+}	

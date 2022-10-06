@@ -23,7 +23,13 @@
 		values(box_board_seq.nextval,#{writer},#{title},#{content})
 	</insert>
 
+	<!-- 글 상세보기 -->
 	<select id="reviewDetail" resultMap="board">
 		select * from box_board where list_num = #{reviewNum} <!-- 한명에 대한 정보 -->
 	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="hitNum">
+		update box_board set hitNum=hitNum+1 where list_num=#{reviewNum}
+	</update>
 </mapper>
