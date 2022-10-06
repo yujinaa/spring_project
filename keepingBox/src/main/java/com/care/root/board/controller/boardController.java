@@ -1,5 +1,11 @@
 package com.care.root.board.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,16 +41,23 @@ public class boardController{
 	//글저장하기
 	@PostMapping("writeSave")
 	public String writeSave(boardDTO dto, RedirectAttributes rs) {                   
-			
-			System.out.println("저장하기 실행");
-			bs.writeSave(dto);
-			rs.addFlashAttribute("result", "success");		
-			return "redirect:review";
+
+		System.out.println("저장하기 실행");
+		bs.writeSave(dto);
+		rs.addFlashAttribute("result", "savesuccess");		
+		return "redirect:review";
 	}
+	//글 상세보기
 	@GetMapping("reviewDetail")
 	public String reviewDetail(@RequestParam int reviewNum, Model model) {
 		bs.reviewDetail(reviewNum, model);
 		return "board/reviewDetail";
 	}
-
+	//삭제
+	@GetMapping("delete")
+	public String delete(int reviewNum, RedirectAttributes rs){
+		bs.delete(reviewNum);
+		rs.addFlashAttribute("result","delsuccess");
+		return "redirect:review";
+	}
 }

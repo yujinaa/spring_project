@@ -10,6 +10,7 @@ public interface boardMapper {
 	public void writeSave(boardDTO dto) ;
 	public boardDTO reviewDetail(int reviewNum);
 	public void hitNum(int reviewNum);
+	public int delete(int reviewNum);
 
 
 
