@@ -142,7 +142,10 @@ table {
     margin-top: 2rem;
     cursor: pointer;
 }
-
+.paging{
+	text-align: center;
+	
+}
 /* footer 부분 */
 footer {
     width: 100%;

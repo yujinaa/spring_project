@@ -35,34 +35,36 @@
 					readonly="readonly">${detailReview.content }</textarea>
 				<button type="button" id="List-btn"
 					onClick="location.href='${contextPath}/board/review'">목록</button>
+				<input type="button" id="modify_btn" onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'"
+					value="수정">
 				<button type="button" id="delete_btn"
-					onclick= "location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+					onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
 			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-<script type="text/javascript">
-$("#delete_btn").on("click", function(e){
-	alert('삭제하시겠습니까?');
-});
-</script>
-<script>
-$(document).ready(function(){
-    
-    let result = '<c:out value="${result}"/>';
-    checkAlert(result);
-    function checkAlert(result){
-        if(result === ''){
-            return;
-        }
-        if(result === "savesuccess"){
-            alert("등록이 완료되었습니다.");
-        }
-        if(result === "delsuccess"){
-            alert("삭제가 완료되었습니다.");
-        }
-    }    
-});
-</script>
+	<script type="text/javascript">
+		$("#delete_btn").on("click", function(e) {
+			alert('삭제하시겠습니까?');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+
+			let result = '<c:out value="${result}"/>';
+			checkAlert(result);
+			function checkAlert(result) {
+				if (result === '') {
+					return;
+				}
+				if (result === "savesuccess") {
+					alert("등록이 완료되었습니다.");
+				}
+				if (result === "delsuccess") {
+					alert("삭제가 완료되었습니다.");
+				}
+			}
+		});
+	</script>
 </body>
 </html>

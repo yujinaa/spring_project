@@ -16,7 +16,7 @@
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
-<%@ include file="../include/header.jsp"%>
+	<%@ include file="../include/header.jsp"%>
 	<main id="container">
 		<section class="review">
 			<div class="page-title">
@@ -39,15 +39,16 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${boardList}" var="dto">
-							<tr>
-								<td>${dto.reviewNum }</td>
-								<th><a href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></th>
-								<td>${dto.writer }</td>
-								<td>${dto.regDate }</td>
-								<td>${dto.hitNum }</td>
-							</tr>
-						</c:forEach>	
+							<c:forEach items="${boardList}" var="dto">
+								<tr>
+									<td>${dto.reviewNum }</td>
+									<th><a
+										href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></th>
+									<td>${dto.writer }</td>
+									<td>${dto.regDate }</td>
+									<td>${dto.hitNum }</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<!-- <select name="period" id="period">
@@ -55,7 +56,13 @@
                         <option value="">한달</option>
                         <option value="">전체</option>
                     </select> -->
-					<a href="${contextPath }/board/reviewWrite"><button type="submit" id="review-btn">리뷰쓰기</button></a>
+					<a href="${contextPath }/board/reviewWrite"><button
+							type="submit" id="review-btn">리뷰쓰기</button></a>
+					<div class="paging">
+						<c:forEach var="num" begin="1" end="${repeat }">
+							<a href="review?num=${num }">${num }</a>
+						</c:forEach>
+					</div>
 				</div>
 			</div>
 		</section>

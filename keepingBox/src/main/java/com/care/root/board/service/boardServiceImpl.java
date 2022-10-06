@@ -15,8 +15,18 @@ import com.care.root.mybatis.board.boardMapper;
 @Service
 public class boardServiceImpl implements boardService{
 	@Autowired boardMapper mapper;
-	public void boardList( Model model) {//db로 요청
-		model.addAttribute("boardList", mapper.boardList());
+	public void boardList( Model model,int num) {//db로 요청
+		int pageLetter = 10;//한 페이지에 10개씩
+		int allCount = mapper.selectPageCount(); //총 글에 대한 갯수 얻어오기
+		int repeat = allCount / pageLetter;//총 페이지수 구하기
+		if(allCount % pageLetter != 0) {
+			repeat += 1;
+		}
+		int end = num * pageLetter;
+		int start = end + 1 -pageLetter;
+
+		model.addAttribute("repeat", repeat);
+		model.addAttribute("boardList", mapper.boardList(start,end));
 	}
 	//글저장
 	public void writeSave(boardDTO dto)  {

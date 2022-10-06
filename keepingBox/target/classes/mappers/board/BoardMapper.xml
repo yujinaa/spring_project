@@ -13,10 +13,14 @@
 		<result property="writer" column="writer" />
 	</resultMap>
 
-	<select id="boardList" resultMap="board">
-		select * from box_board
-	</select>
+	<!-- <select id="boardList" resultMap="board"> 
+		select * from box_board </select> -->
 
+	<!-- 페이징처리로 코드 변경 -->
+	<select id="boardList" resultMap="board">
+		select B.* from(select rownum rn, A.* from
+		(select * from box_board order by list_num desc)A)B where rn between #{s} and #{e}
+	</select>
 	<!-- 글쓰기 등록 -->
 	<insert id="writeSave">
 		insert into box_board(list_num,writer,title,content)
@@ -31,10 +35,17 @@
 	<!-- 조회수 증가 -->
 	<update id="hitNum">
 		update box_board set hit=hit+1 where
-		list_num = #{reviewNum}
+		list_num =
+		#{reviewNum}
 	</update>
 	<!-- 삭제하기 -->
 	<delete id="delete">
 		delete from box_board where list_num = #{reviewNum}
 	</delete>
+
+	<!-- 페이징 -->
+	<select id="selectPageCount" resultType="Integer">
+		select count(*) from box_board
+	</select>
+
 </mapper>

@@ -1,10 +1,5 @@
 package com.care.root.board.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +21,8 @@ public class boardController{
 
 	//이용후기 게시판 목록
 	@GetMapping("review")
-	public String review(Model model) { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기) {
-		bs.boardList(model);
+	public String review(Model model,@RequestParam(required = false, defaultValue = "1")int num) { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기) {
+		bs.boardList(model,num);
 		//if(session.getAttribute(LOGIN) != null) {
 		return "board/review";			
 		//}
