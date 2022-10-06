@@ -1,6 +1,8 @@
 package com.care.root.board.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.service.boardService;
+import com.care.root.member.common.memberLoginSession;
 
 
 @Controller
 @RequestMapping("board")
-public class boardController{
+public class boardController implements memberLoginSession{
 	@Autowired boardService bs;
 
 	//이용후기 게시판 목록
@@ -30,9 +33,9 @@ public class boardController{
 	}
 	//글쓰기
 	@GetMapping("reviewWrite")
-	public String reviewWrite() {
-		return "board/reviewWrite";
-	}
+	public String reviewWrite(HttpSession session) {
+			return "board/reviewWrite";
+		}
 	//글저장하기
 	@PostMapping("writeSave")
 	public String writeSave(boardDTO dto, RedirectAttributes rs) {                   

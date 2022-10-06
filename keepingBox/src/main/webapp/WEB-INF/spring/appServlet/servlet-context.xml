@@ -31,12 +31,16 @@
 	<!-- 빈만들기 class= "자료형" id = "변수명" -->
 	<beans:bean id="autoLogin"
 		class="com.care.root.member.interceptor.autoLoginInterceptor" />
+	<beans:bean id ="memberInterceptor" class="com.care.root.member.interceptor.memberInterceptor"/>
 	<!-- 인터셉터 설정 -->
 	<interceptors>
 		<interceptor>
 			<mapping path="/index" />  <!-- 경로설정 -->
+			<mapping path="/member/reviewWrite" />
+			<mapping path="/member/booking" />
 			<beans:ref bean="autoLogin" />
 		</interceptor>
 	</interceptors>
+	
 
 </beans:beans>
