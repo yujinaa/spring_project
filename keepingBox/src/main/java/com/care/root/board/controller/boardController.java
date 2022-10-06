@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
@@ -34,10 +35,16 @@ public class boardController{
 	//글저장하기
 	@PostMapping("writeSave")
 	public String writeSave(boardDTO dto, RedirectAttributes rs) {                   
-
+			
 			System.out.println("저장하기 실행");
 			bs.writeSave(dto);
 			rs.addFlashAttribute("result", "success");		
 			return "redirect:review";
 	}
+	@GetMapping("reviewDetail")
+	public String reviewDetail(@RequestParam int reviewNum, Model model) {
+		bs.reviewDetail(reviewNum, model);
+		return "board/reviewDetail";
+	}
+
 }

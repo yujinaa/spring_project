@@ -41,7 +41,7 @@
 						<c:forEach items="${boardList}" var="dto">
 							<tr>
 								<td>${dto.reviewNum }</td>
-								<th><a href="#">${dto.content }</a></th>
+								<th><a href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></th>
 								<td>${dto.writer }</td>
 								<td>${dto.regDate }</td>
 								<td>${dto.hitNum }</td>
@@ -54,7 +54,6 @@
                         <option value="">한달</option>
                         <option value="">전체</option>
                     </select> -->
-                    
 					<a href="${contextPath }/board/reviewWrite"><button type="submit" id="review-btn">리뷰쓰기</button></a>
 				</div>
 			</div>

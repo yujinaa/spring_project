@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mybatis.board.boardMapper">
 	<resultMap type="com.care.root.board.dto.boardDTO" id="board">
-	
+
 		<id property="reviewNum" column="list_num" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
@@ -16,11 +16,14 @@
 	<select id="boardList" resultMap="board">
 		select * from box_board
 	</select>
-	
+
 	<!-- 글쓰기 등록 -->
 	<insert id="writeSave">
 		insert into box_board(list_num,writer,title,content)
 		values(box_board_seq.nextval,#{writer},#{title},#{content})
 	</insert>
 
+	<select id="reviewDetail" resultMap="board">
+		select * from box_board where list_num = #{reviewNum} <!-- 한명에 대한 정보 -->
+	</select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.care.root.board.service;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -16,6 +18,15 @@ public class boardServiceImpl implements boardService{
 	}
 	//글저장
 	public void writeSave(boardDTO dto)  {
-		mapper.writeSave(dto);
-	}
-}
+		try {
+			mapper.writeSave(dto);
+			String msg = "<script>alert('새글을 추가하였습니다.');";
+		} catch (Exception e) {
+			String msg = "<script>alert('글을 등록할 수 없습니다.');";
+			e.printStackTrace();
+		}
+	}	
+	public void reviewDetail(int reviewNum, Model model) {
+		model.addAttribute("detailReview", mapper.reviewDetail(reviewNum) );
+	}	
+}		
