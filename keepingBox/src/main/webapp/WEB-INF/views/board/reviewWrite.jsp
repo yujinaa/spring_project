@@ -21,18 +21,6 @@
 		<a href="#container">본문 바로 가기</a>
 	</div>
 	<c:import url="../include/header.jsp" />
-<div class="modal fade" id="sampleModalPopup" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-dialog-width1000 modal-dialog-height800">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-            <button type="button"class="btn btn-color2" data-dismiss="modal" >닫기</button>
-        </div>
-    </div>
-</div>
 	<main id="container">
 		<section class="review-write">
 			<div class="page-title">
@@ -54,20 +42,14 @@
 
 		</section>
 	</main>
-<script>
-		$(document).ready(function() {
-				        var result = '<c:out value ="${result}"/>';
-				        checkModal(result);
-				
-						function checkModal(result) {
-							if(result===''){
-						return;
-							}
-							else{
-				            $("#sampleModalPopup").modal("show"); 
-								
-							}}
-				        });
+<script type="text/javascript">
+$("#regist-btn").on("click", function(e){
+	if("#regist-btn".value===''){
+		alert("내용을 입력해 주세요.");
+	}else{
+		alert('새로운 글이 등록되었습니다.');
+	}
+});
 </script>
 	<c:import url="../include/footer.jsp" />
 </body>

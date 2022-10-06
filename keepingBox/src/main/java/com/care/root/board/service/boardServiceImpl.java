@@ -22,9 +22,7 @@ public class boardServiceImpl implements boardService{
 	public void writeSave(boardDTO dto)  {
 		try {
 			mapper.writeSave(dto);
-			String msg = "<script>alert('새글을 추가하였습니다.');";
 		} catch (Exception e) {
-			String msg = "<script>alert('글을 등록할 수 없습니다.');";
 			e.printStackTrace();
 		}
 	}	

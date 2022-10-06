@@ -117,7 +117,21 @@ main {
     margin-top: 2rem;
     cursor: pointer;
 }
+#delete_btn{
+	width: 5rem;
+    height: 35px;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
 #List-btn {
+    float: right;
+    background: #3781E3;
+    color: #fafafa;
+}
+#delete_btn {
     float: right;
     background: #3781E3;
     color: #fafafa;

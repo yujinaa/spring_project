@@ -12,32 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이용후기</title>
 <link rel="stylesheet" href="../resources/css/review-detail.css">
-<script>
-$(document).ready(function(){
-    
-    let result = '<c:out value="${result}"/>';
-    checkAlert(result);
-    function checkAlert(result){
-        if(result === ''){
-            return;
-        }
-        if(result === "savesuccess"){
-            alert("등록이 완료되었습니다.");
-        }
-        if(result === "delsuccess"){
-            alert("삭제가 완료되었습니다.");
-        }
-    }    
-});
-</script>
-<script type="text/javascript">
-$("#delete_btn").on("click", function(e){
-    form.attr("action", "/board/delete");
-    form.attr("method", "post");
-    form.submit();
-});
-
-</script>
 <body>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
@@ -62,10 +36,33 @@ $("#delete_btn").on("click", function(e){
 				<button type="button" id="List-btn"
 					onClick="location.href='${contextPath}/board/review'">목록</button>
 				<button type="button" id="delete_btn"
-					onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+					onclick= "location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
 			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
+<script type="text/javascript">
+$("#delete_btn").on("click", function(e){
+	alert('삭제하시겠습니까?');
+});
+</script>
+<script>
+$(document).ready(function(){
+    
+    let result = '<c:out value="${result}"/>';
+    checkAlert(result);
+    function checkAlert(result){
+        if(result === ''){
+            return;
+        }
+        if(result === "savesuccess"){
+            alert("등록이 완료되었습니다.");
+        }
+        if(result === "delsuccess"){
+            alert("삭제가 완료되었습니다.");
+        }
+    }    
+});
+</script>
 </body>
 </html>
