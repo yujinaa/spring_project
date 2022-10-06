@@ -1,6 +1,5 @@
 package com.care.root.board.dto;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class boardDTO {
@@ -10,9 +9,6 @@ public class boardDTO {
 	private String regDate;
 	private int hitNum;
 	private String writer;
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
 	public int getReviewNum() {
 		return reviewNum;
 	}
@@ -34,10 +30,11 @@ public class boardDTO {
 	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(java.sql.Timestamp regDate) {
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		this.regDate = format.format(regDate);
 	}
+	
 	public int getHitNum() {
 		return hitNum;
 	}
