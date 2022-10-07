@@ -40,23 +40,43 @@ h1 img {
     width: 6.5rem;
 }
 nav {
-    position: absolute; top: 1.5rem;
-    right: 0;
-    display: flex;
-}
-nav ul {
-    display: flex;
-    align-items: center;
+    position: absolute; right: 0;
+    width: 50%;
+    text-align: center;
 }
 nav ul li {
-    padding: 0 3rem;
+    width: 33.33%;
+    height: 80px;
+    line-height: 80px;
+    float: left;
 }
 nav ul li a {
     color: #3D3B3B;
+    display: block;
 }
 nav li a:hover {
     color: #3781E3;
     font-weight: bold;
+}
+.mypage {
+    position: relative;
+}
+.mypage-sub {
+    display: none;
+}
+.mypage-sub li {
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    background: #fafafa;
+}
+.mypage-sub li a {
+    display: block;
+}
+.mypage:hover ul {
+    display: block;
 }
 
 /* 예약하기 창 */

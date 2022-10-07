@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keeping Box</title>
-<link rel="stylesheet" href="/root/resources/css/main.css">
+<link rel="stylesheet" href="/root/resources/css/main-after-login.css">
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <body>

@@ -15,9 +15,7 @@
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
-
-	 <c:import url="../include/header.jsp"/>
-
+	 <%@ include file="../include/header.jsp"%>
 	<main id="container">
 		<div class="booking-box">
 			<h2>예약하기</h2>
