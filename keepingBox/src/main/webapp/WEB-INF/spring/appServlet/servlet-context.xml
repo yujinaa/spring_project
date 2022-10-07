@@ -36,9 +36,13 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/index" />  <!-- 경로설정 -->
-			<mapping path="/member/reviewWrite" />
-			<mapping path="/member/booking" />
 			<beans:ref bean="autoLogin" />
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/board/reviewWrite" />
+			<mapping path="/member/booking" />
+			<beans:ref bean="memberInterceptor" />
 		</interceptor>
 	</interceptors>
 	
