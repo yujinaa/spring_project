@@ -13,6 +13,8 @@ public interface boardMapper {
 	public void hitNum(int reviewNum);
 	public int delete(int reviewNum);
 	public int selectPageCount();
+	public int modify(boardDTO dto);
+
 
 
 

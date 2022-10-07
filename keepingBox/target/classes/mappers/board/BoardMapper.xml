@@ -13,13 +13,14 @@
 		<result property="writer" column="writer" />
 	</resultMap>
 
-	<!-- <select id="boardList" resultMap="board"> 
-		select * from box_board </select> -->
+	<!-- <select id="boardList" resultMap="board"> select * from box_board </select> -->
 
 	<!-- 페이징처리로 코드 변경 -->
 	<select id="boardList" resultMap="board">
-		select B.* from(select rownum rn, A.* from
-		(select * from box_board order by list_num desc)A)B where rn between #{s} and #{e}
+		select B.* from(select rownum
+		rn, A.* from
+		(select * from box_board order by list_num desc)A)B where
+		rn between #{s} and #{e}
 	</select>
 	<!-- 글쓰기 등록 -->
 	<insert id="writeSave">
@@ -45,7 +46,14 @@
 
 	<!-- 페이징 -->
 	<select id="selectPageCount" resultType="Integer">
-		select count(*) from box_board
+		select count(*) from
+		box_board
 	</select>
+	
+	<!-- 수정하기 -->
+	<update id="modify">
+		update box_board set title=#{title}, content=#{content}
+		where list_num=#{reviewNum}
+	</update>
 
 </mapper>

@@ -1,6 +1,11 @@
 package com.care.root.board.controller;
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
@@ -34,8 +40,8 @@ public class boardController implements memberLoginSession{
 	//글쓰기
 	@GetMapping("reviewWrite")
 	public String reviewWrite(HttpSession session) {
-			return "board/reviewWrite";
-		}
+		return "board/reviewWrite";
+	}
 	//글저장하기
 	@PostMapping("writeSave")
 	public String writeSave(boardDTO dto, RedirectAttributes rs) {                   
@@ -63,5 +69,12 @@ public class boardController implements memberLoginSession{
 	public String modify_form(@RequestParam int reviewNum, Model model) {
 		bs.getuserData(reviewNum, model);
 		return "board/modify_form";
-}
+	}
+	//수정하기 저장
+	@PostMapping("modify")
+	public String modify(boardDTO dto, RedirectAttributes rs){
+		bs.modify(dto);
+		rs.addFlashAttribute("result","modify success");
+		return "redirect:review";
+	}
 }

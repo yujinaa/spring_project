@@ -28,24 +28,23 @@
 				<form action="${contextPath}/board/modify" method="post">
 					<div class="form-group">
 						<label>글번호</label> <input class="form-control" name="reviewNum"
-							value="${userData.reviewNum  }" readonly>
+							value="${detailReview.reviewNum  }" readonly>
 					</div>
 
 					<div class="form-group">
 						<label>작성자</label> <input class="form-control" name="writer"
-							value="${userData.writer  }" readonly>
+							value="${detailReview.writer  }" readonly>
 					</div>
 					<div class="form-group">
 						<label>제목</label> <input class="form-control" name="title"
-							value="${userData.title }">
+							value="${detailReview.title }">
 					</div>
-
 					<div class="form-group">
 						<label>내용</label>
-						<textarea class="form-control" rows="3" name="content">${userData.content }</textarea>
+						<textarea class="form-control" rows="3" name="content">${detailReview.content }</textarea>
 					</div>
 					<!-- 본인 작성글에서만 수정,삭제하기 버튼 뜨고 본인 글이 아니라면 댓글작성만 뜨기 -->
-					<c:if test="${successLoginUser == userData.writer  }">
+					<c:if test="${successLoginUser == detailReview.writer  }">
 						<input type="submit" id="modify_btn" value="수정">
 						<input type="submit" id="delete_btn" value="삭제">
 						<input type="button" id="List-btn" value="목록"
@@ -57,9 +56,16 @@
 	</main>
 	<c:import url="../include/footer.jsp" />
 	<script type="text/javascript">
-		$("#").on("click", function(e) {
-			alert('수정되었습니다.');
+		$("#delete_btn").on("click", function(e) {
+			alert('삭제하시겠습니까?');
 		});
+	</script>
+	<script type="text/javascript">
+		$("#modify_btn").on("click", function(e) {
+		if(e.value != "0"){
+				alert("수정되었습니다.");
+		}
+		}); 
 	</script>
 </body>
 </html>
