@@ -15,7 +15,7 @@
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
-	 <%@ include file="../include/header.jsp"%>
+	<%@ include file="../include/header.jsp"%>
 	<main id="container">
 		<div class="booking-box">
 			<h2>예약하기</h2>
@@ -24,11 +24,13 @@
 					<div id="date-group">
 						<div id="start-date">
 							<label for="start-day">시작일자</label> <input type="date"
-								name="start-day" id="start-day" class="start-date">
+								name="start-day" id="start-day" class="start-date"
+								onchange="checkPrice()">
 						</div>
 						<div id="end-date">
 							<label for="end-day">종료일자</label> <input type="date"
-								name="end-day" id="end-day" class="end-date">
+								name="end-day" id="end-day" class="end-date"
+								onchange="checkPrice()">
 						</div>
 					</div>
 
@@ -39,7 +41,7 @@
 						<option value="bundang">분당 판교점</option>
 						<option value="bucheon">부천 소사점</option>
 					</select> <label for="stringsize">사이즈</label> <select name="stringsize"
-						id="stringsize">
+						id="stringsize" onchange="checkPrice()">
 						<option value="0">선택하세요</option>
 						<option value="5000">소 ( 20 x 20 x 45(cm) 이내 )</option>
 						<option value="6000">중 (30 x 30 x 60(cm) 이내)</option>
@@ -52,8 +54,7 @@
 			</div>
 		</div>
 	</main>
-	 <c:import url="../include/footer.jsp"/>
-
 	<script src="../resources/js/booking.js"></script>
+	<c:import url="../include/footer.jsp" />
 </body>
 </html>

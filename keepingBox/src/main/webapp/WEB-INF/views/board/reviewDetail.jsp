@@ -53,6 +53,8 @@
 			alert('삭제하시겠습니까?');
 		});
 	</script>
+	<!-- 
+	
 	<script>
 		$(document).ready(function() {
 
@@ -71,5 +73,6 @@
 			}
 		});
 	</script>
+	 -->
 </body>
 </html>

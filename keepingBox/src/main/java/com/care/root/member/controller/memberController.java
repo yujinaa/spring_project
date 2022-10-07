@@ -124,5 +124,10 @@ public class memberController implements memberLoginSession{
 		public String booking() {
 			return "member/booking";
 		}
+		
+		@GetMapping("bookingCheck")
+		public String bookingCheck() {
+			return "member/bookingCheck";
+		}
 
 }
