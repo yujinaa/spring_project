@@ -12,6 +12,7 @@ public interface boardService {
 	public void writeSave(boardDTO dto) ;
 	public void reviewDetail(int reviewNum, Model model);
 	public int delete(int reviewNum);
+	public void getuserData(int reviewNum, Model model);
 
 
 

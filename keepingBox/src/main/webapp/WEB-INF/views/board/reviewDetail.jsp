@@ -35,8 +35,7 @@
 					readonly="readonly">${detailReview.content }</textarea>
 				<button type="button" id="List-btn"
 					onClick="location.href='${contextPath}/board/review'">목록</button>
-				<input type="button" id="modify_btn" onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'"
-					value="수정">
+				<button type="button" id="modify_btn" onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
 				<button type="button" id="delete_btn"
 					onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
 			</div>

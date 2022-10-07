@@ -1,9 +1,5 @@
 package com.care.root.board.service;
 
-
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -48,5 +44,10 @@ public class boardServiceImpl implements boardService{
 	//삭제
 	public int delete(int reviewNum) {
 		return mapper.delete(reviewNum);
+	}
+	//수정하기
+	public void getuserData(int reviewNum, Model model) {
+		model.addAttribute("userData", mapper.reviewDetail(reviewNum) );
+
 	}
 }	

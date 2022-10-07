@@ -58,4 +58,10 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","delsuccess");
 		return "redirect:review";
 	}
+	//수정하기
+	@GetMapping("modify_form")
+	public String modify_form(@RequestParam int reviewNum, Model model) {
+		bs.getuserData(reviewNum, model);
+		return "board/modify_form";
+}
 }
