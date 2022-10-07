@@ -35,9 +35,15 @@
 					readonly="readonly">${detailReview.content }</textarea>
 				<button type="button" id="List-btn"
 					onClick="location.href='${contextPath}/board/review'">목록</button>
-				<button type="button" id="modify_btn" onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
-				<button type="button" id="delete_btn"
-					onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+				<c:choose>
+					<c:when test="${successLoginUser == detailReview.writer  }">
+						<button type="button" id="modify_btn"
+							onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
+						<button type="button" id="delete_btn"
+							onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+					</c:when>
+					
+				</c:choose>
 			</div>
 		</section>
 	</main>
