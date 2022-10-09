@@ -16,11 +16,18 @@ primary key(booking_id),
 	 */
 private String bookingId;
 private String userId;
-private Date bookDateS;
-private Date bookDateE;
+private String bookDateS;
+private String bookDateE;
 private String name;
+private String city;
 private String size;
 private int price;
+public String getCity() {
+	return city;
+}
+public void setCity(String city) {
+	this.city = city;
+}
 
 public String getBookingId() {
 	return bookingId;
@@ -34,16 +41,17 @@ public String getUserId() {
 public void setUserId(String userId) {
 	this.userId = userId;
 }
-public Date getBookDateS() {
+
+public String getBookDateS() {
 	return bookDateS;
 }
-public void setBookDateS(Date bookDateS) {
+public void setBookDateS(String bookDateS) {
 	this.bookDateS = bookDateS;
 }
-public Date getBookDateE() {
+public String getBookDateE() {
 	return bookDateE;
 }
-public void setBookDateE(Date bookDateE) {
+public void setBookDateE(String bookDateE) {
 	this.bookDateE = bookDateE;
 }
 public String getName() {
