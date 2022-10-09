@@ -25,25 +25,31 @@
 				</div>
 			</div>
 			<div class="review-space cf">
-				<label>글번호</label> <input class="form-control" name="reviewNum"
-					value="${detailReview.reviewNum  }" readonly> <label>작성자</label>
-				<input class="form-control" name="writer"
-					value="${detailReview.writer  }" readonly> <label>제목</label>
-				<input class="form-control" name="title"
-					value="${detailReview.title }" readonly> <label>내용</label>
-				<textarea class="form-control" rows="3" name="content"
-					readonly="readonly">${detailReview.content }</textarea>
-				<button type="button" id="List-btn"
-					onClick="location.href='${contextPath}/board/review'">목록</button>
-				<c:choose>
-					<c:when test="${successLoginUser == detailReview.writer  }">
-						<button type="button" id="modify_btn"
-							onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
-						<button type="button" id="delete_btn"
-							onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
-					</c:when>
-					
-				</c:choose>
+				<div id="review-form">
+					<div class="num-writer">
+						<label for="">글번호</label> <input type="text" name="reviewNum"
+							value="${detailReview.reviewNum  }" readonly> <label
+							for="">작성자</label> <input type="text" name="writer"
+							value="${detailReview.writer  }" readonly>
+					</div>
+					<div class="title-content">
+						<label for="">제목</label> <input type="text" name="title"
+							value="${detailReview.title }"> <label for="">내용</label>
+						<textarea id="" name="content" readonly="readonly" cols="30"
+							rows="10">${detailReview.content }</textarea>
+					</div>
+					<button type="button" id="List-btn"
+						onClick="location.href='${contextPath}/board/review'">목록</button>
+					<c:choose>
+						<c:when test="${successLoginUser == detailReview.writer  }">
+							<button type="button" id="modify_btn"
+								onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
+							<button type="button" id="delete_btn"
+								onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+						</c:when>
+
+					</c:choose>
+				</div>
 			</div>
 		</section>
 	</main>

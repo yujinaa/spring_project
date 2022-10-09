@@ -42,7 +42,7 @@
 		<interceptor>
 			<mapping path="/board/reviewWrite" />
 			<mapping path="/board/reviewDetail" />
-			<mapping path="/member/booking" />
+			<mapping path="/booking/booking" />
 			<beans:ref bean="memberInterceptor" />
 		</interceptor>
 	</interceptors>

@@ -18,14 +18,14 @@
 			</h1>
 			<nav>
 				<ul>
-					<li><a href="${contextPath }/member/booking">예약하기</a></li>
+					<li><a href="${contextPath }/booking/booking">예약하기</a></li>
 					<li><a href="${contextPath }/board/review">이용후기</a></li>
 					<c:choose>
 						<c:when test="${successLoginUser !=null}">
 							<li class="mypage"><a href="#">마이페이지</a>
 								<ul class="mypage-sub">
 									<li><a href="#">공지사항</a></li>
-									<li><a href="${contextPath }/member/bookingCheck">예약확인</a></li>
+									<li><a href="${contextPath }/booking/bookingCheck">예약확인</a></li>
 									<li><a href="${contextPath }/member/logout">로그아웃</a></li>
 								</ul>
 							</li>

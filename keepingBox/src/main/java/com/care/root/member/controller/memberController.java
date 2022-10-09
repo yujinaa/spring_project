@@ -120,14 +120,4 @@ public class memberController implements memberLoginSession{
 			map.put("cnt", count);
 			return map;
 		}
-		@GetMapping("booking")
-		public String booking() {
-			return "member/booking";
-		}
-		
-		@GetMapping("bookingCheck")
-		public String bookingCheck() {
-			return "member/bookingCheck";
-		}
-
 }

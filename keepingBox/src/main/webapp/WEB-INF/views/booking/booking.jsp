@@ -33,6 +33,9 @@
 								onchange="checkPrice()">
 						</div>
 					</div>
+					<label for="bookingName">예약자</label>
+					<input type="text"
+								name="Name" id="book-name">
 
 					<label for="stringcity">지점명</label> <select name="stringcity"
 						id="stringcity">

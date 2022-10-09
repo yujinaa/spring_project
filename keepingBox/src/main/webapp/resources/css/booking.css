@@ -101,7 +101,7 @@ main {
     font-size: 0.9rem;
     font-weight: bold;
 }
-#date-group input, select, #intmoney {
+#date-group input, select, #book-name, #intmoney {
     height: 40px;
     margin-bottom: 1rem;
     outline: none;
@@ -120,8 +120,9 @@ main {
 #end-date {
     margin-left: 1rem;
 }
-select , #intmoney {
+select , #book-name, #intmoney {
     width: 320px;
+    
 }
 #next-btn {
     width: 10rem;

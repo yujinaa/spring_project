@@ -152,8 +152,12 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
-
-      <Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\shoppingmall_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:shoppingmall_project"/><Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Board" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:Board"/></Host>
+<!-- 
+      <Context docBase="shoppingmall_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:shoppingmall_project"/>
+ -->
+      <Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Board" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:Board"/>
+      
+      <Context docBase="C:\spring_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\keepingBox" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:keepingBox"/></Host>
     </Engine>
   </Service>
 </Server>

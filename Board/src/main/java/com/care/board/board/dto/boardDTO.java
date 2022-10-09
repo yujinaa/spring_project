@@ -38,7 +38,7 @@ public class boardDTO {
 //	}
 	
 	//.이 없는 시간으로 변경
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(java.sql.Timestamp regDate) {
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		this.regDate = format.format(regDate);
 	}
