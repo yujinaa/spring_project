@@ -48,9 +48,14 @@ public class bookingController implements memberLoginSession{
 
 	//마이페이지-내예약정보
 	@GetMapping("bookingInfo")
-	public String bookingInfo(@RequestParam (defaultValue = "1",value = "bookingId",required =false) int bookingId, Model model){
+	public String bookingInfo(@RequestParam (value="bookingId",required = false,defaultValue = "1") int bookingId, Model model
+						,HttpSession session
+						){
 		System.out.println("예약정보확인");
+		String userId = (String)session.getAttribute(LOGIN);
 		bs.info(bookingId,model);
+		System.out.println("bookingId :" + bookingId);
+		System.out.println("userId :" + userId ) ;
 		return "booking/bookingInfo";
 	}
 }

@@ -21,11 +21,12 @@
 		<div class="booking-box">
 			<h2>예약하기</h2>
 			<div>
-				<form action="${contextPath}/booking/bookingDo" method="post"
+				<form action="${contextPath }/booking/bookingDo" method="post"
 					class="cf">
 					<!-- 나중에 type:hidden으로 바꾸기 -->
 					<input type="text" name="userId" id="userId"
 						value="${successLoginUser  }">
+						
 					<div id="date-group">
 						<div id="start-date">
 							<label for="start-day">시작일자</label> <input type="date"

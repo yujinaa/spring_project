@@ -18,26 +18,31 @@
 	</div>
 	<c:import url="../include/header.jsp" />
 	<main id="container">
-			<div>
+		<div>
 			<table>
-					<tr>
+				<tr>
 
-						<td>${userBookingCheck.bookingId }아이디</td>
-						<td>${userBookingCheck.name }dddddd</td>
-						<td>${userBookingCheck.bookDateS}</td>
-						<td>${userBookingCheck.bookDateE}</td>
-						<td>${userBookingCheck.city }</td>
-						<td>${userBookingCheck.size }</td>
-						<td>${userBookingCheck.price }</td>
-					</tr>
+					<td>${userBookingCheck.bookingId }</td>
+					<td>${userBookingCheck.name }</td>
+					<td>${userBookingCheck.bookDateS}</td>
+					<td>${userBookingCheck.bookDateE}</td>
+					<td>${userBookingCheck.city }</td>
+					<td>${userBookingCheck.size }</td>
+					<td>${userBookingCheck.price }</td>
+				</tr>
 			</table>
-			</div>
+		</div>
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
 			<div>
-				<input type="text" value="${userBookingCheck.bookingId  }" 
-					readonly="readonly">아이디
+				<input type="hidden" value="${userBookingCheck.bookingId  }"
+					readonly="readonly">
 			</div>
+			<!-- 
+			<c:if test="${successLoginUser == userBookingCheck.userId  }">
+			</c:if>
+			
+			 -->
 			<div>
 				<input type="text" value="${successLoginUser }" readonly="readonly">
 			</div>
@@ -45,7 +50,7 @@
 				<table class="booking-check">
 					<tr>
 						<th scope="row">예약자</th>
-						<td>${name }</td>
+						<td>${userBookingCheck.name }</td>
 					</tr>
 					<tr>
 						<th scope="row">예약일자</th>
@@ -68,6 +73,17 @@
 						<td>${userBookingCheck.price }</td>
 					</tr>
 				</table>
+				<c:choose>
+					<c:when test="${successLoginUser == userBookingCheck.userId  }">
+						<button type="button" id="delete-btn"
+							onclick="location.href='${contextPath }/booking/delete?bookingId=${userBookingCheck.bookingId }'">취소하기</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" id="List-btn"
+							onClick="location.href='${contextPath}/index'">메인으로</button>
+					</c:otherwise>
+
+				</c:choose>
 			</div>
 		</div>
 	</main>

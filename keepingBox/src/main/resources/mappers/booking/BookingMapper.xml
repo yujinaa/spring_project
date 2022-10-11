@@ -16,17 +16,17 @@
 
 
 	<!-- 예약하기 -->
-	<insert id="bookingDo">
+	<insert id="bookingDo" >
 		insert into box_booking(
-		booking_id,booking_date_start, booking_date_end,
+		booking_id,buser_id,booking_date_start, booking_date_end,
 		booking_name,
 		booking_city,booking_size,booking_price)
-		values(box_booking_seq.nextval,#{bookDateS}, #{bookDateE},
+		values(box_booking_seq.nextval,#{userId},#{bookDateS}, #{bookDateE},
 		#{name},#{city},#{size},#{price})
 	</insert>
 	
 	<!-- 예약정보확인 -->
-	<select id="info" resultMap="booking" >
+	<select id="info" resultMap="booking" parameterType="int" >
 		select * from box_booking where booking_id = #{bookingId} 
 	</select>
 
