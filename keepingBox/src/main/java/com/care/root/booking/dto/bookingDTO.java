@@ -3,25 +3,15 @@ package com.care.root.booking.dto;
 import java.util.Date;
 
 public class bookingDTO {
-	/*
-	 booking_id varchar2(20) not null,
-buser_id varchar2(20) not null,
-booking_date_start date default sysdate,
-booking_date_end  date default sysdate,
-booking_name varchar2(20) not null,
-booking_city varchar2(40) not null,
-booking_size varchar2(20) not null,
-booking_price number not null,
-primary key(booking_id),
-	 */
-private String bookingId;
+	
+private int bookingId;
 private String userId;
 private String bookDateS;
 private String bookDateE;
 private String name;
 private String city;
 private String size;
-private int price;
+private String price;
 public String getCity() {
 	return city;
 }
@@ -29,10 +19,11 @@ public void setCity(String city) {
 	this.city = city;
 }
 
-public String getBookingId() {
+
+public int getBookingId() {
 	return bookingId;
 }
-public void setBookingId(String bookingId) {
+public void setBookingId(int bookingId) {
 	this.bookingId = bookingId;
 }
 public String getUserId() {
@@ -66,10 +57,11 @@ public String getSize() {
 public void setSize(String size) {
 	this.size = size;
 }
-public int getPrice() {
+public String getPrice() {
 	return price;
 }
-public void setPrice(int price) {
+public void setPrice(String price) {
 	this.price = price;
 }
+
 }

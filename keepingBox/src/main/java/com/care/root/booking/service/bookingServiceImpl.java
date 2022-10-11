@@ -11,8 +11,5 @@ public class bookingServiceImpl implements bookingService{
 	@Autowired bookingMapper bMapper;
 	public void bookingDo(bookingDTO bookingDto ) {
 		bMapper.bookingDo(bookingDto);
-		
 	}
-
-
 }

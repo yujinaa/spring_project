@@ -11,6 +11,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예약하기</title>
 <link rel="stylesheet" href="../resources/css/booking.css">
+<!-- 
+
+<script type="text/javascript">
+	function insertOpt() {
+		var selectSDay = document.getElementById('start-day').value;
+		var selectEDay = document.getElementById('end-day').value;
+		var selectName = document.getElementById('book-name').value;
+		var selectCity = document.getElementById('stringcity').value;
+		var selectSize = document.getElementById('stringsize').value;
+		var price = document.getElementById('intmoney').value;
+		}
+</script>
+ -->
 <body>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
@@ -20,7 +33,10 @@
 		<div class="booking-box">
 			<h2>예약하기</h2>
 			<div>
-				<form action="/root/booking/bookingDo" method="post" class="cf">
+				<form action="bookingDo" method="post" class="cf">
+				<!-- 나중에 type:hidden으로 바꾸기 -->
+				<input type="hidden" name="userId" id="userId"  
+						value="${successLoginUser  }" > 				
 					<div id="date-group">
 						<div id="start-date">
 							<label for="start-day">시작일자</label> <input type="date"
@@ -35,7 +51,7 @@
 					</div>
 					<label for="bookingName">예약자</label>
 					<input type="text"
-								name="name" id="book-name">
+								name="name" id="book-name" required="required">
 
 					<label for="stringcity">지점명</label> <select name="city"
 						id="stringcity">
@@ -52,7 +68,7 @@
 					</select> <label for="intmoney">이용요금</label> <input type="text"
 						name="price" id="intmoney" readonly>
 
-					<button type="submit" id="next-btn">다음</button>
+					<button type="submit" id="next-btn" >예약하기</button>
 				</form>
 			</div>
 		</div>

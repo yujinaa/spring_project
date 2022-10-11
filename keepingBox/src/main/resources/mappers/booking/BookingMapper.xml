@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mybatis.booking.bookingMapper">
 
-	<resultMap type="com.care.root.booking.dto.bookingDTO" id="booking">
+	<resultMap type="com.care.root.booking.dto.bookingDTO"
+		id="booking">
 		<id property="bookingId" column="booking_id" />
 		<result property="userId" column=" buser_id" />
 		<result property="bookDateS" column="booking_date_start" />
@@ -15,11 +16,12 @@
 
 
 	<!-- 예약하기 -->
-	<insert id="bookingDo" >
+	<insert id="bookingDo">
 		insert into box_booking(
-		booking_date_start, booking_date_end, booking_name,
+		booking_id,buser_id,booking_date_start, booking_date_end,
+		booking_name,
 		booking_city,booking_size,booking_price)
-		values(#{bookDateS}, #{bookDateE},
+		values(box_booking_seq.nextval,#{userId},#{bookDateS}, #{bookDateE},
 		#{name},#{city},#{size},#{price})
 	</insert>
 
