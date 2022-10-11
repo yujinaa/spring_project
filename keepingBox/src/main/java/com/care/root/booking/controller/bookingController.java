@@ -21,7 +21,7 @@ import com.care.root.member.dto.memberDTO;
 public class bookingController implements memberLoginSession{
 	@Autowired bookingService bs;
 
-		//예약페이지 연결
+	//예약페이지 연결
 	@GetMapping("booking")
 	public String booking() {
 		return "booking/booking";
@@ -31,25 +31,26 @@ public class bookingController implements memberLoginSession{
 	public String bookingDo( HttpSession session, bookingDTO bookingDto, RedirectAttributes rs) {
 		//memberDTO mDto = (memberDTO)session.getAttribute(LOGIN);
 		//bookingDto.setUserId(mDto.getId());
-//		String userId = (String)session.getAttribute(LOGIN);
-//		bookingDto.setUserId(userId);;
+		//		String userId = (String)session.getAttribute(LOGIN);
+		//		bookingDto.setUserId(userId);;
 		bs.bookingDo(bookingDto);
 		rs.addFlashAttribute("msg","넘어가기");
-		return "redirect:bookingCheck";
+		return "redirect:/index";
 	}
-//	String userId = (String)session.getAttribute(LOGIN);
+	//	String userId = (String)session.getAttribute(LOGIN);
 
-	@GetMapping("bookingCheck")
-	public String bookingCheck() {
-		return "booking/bookingCheck";
-	}
-	
+	//	@GetMapping("bookingCheck")
+	//	public String bookCheck( @RequestParam(defaultValue = "1") int bookingId,Model model) {
+	//		bs.bookCheck(bookingId, model);
+	//		System.out.println("bookingId :" + bookingId);
+	//		return "booking/bookingCheck";
+	//	}
+
 	//마이페이지-내예약정보
 	@GetMapping("bookingInfo")
-	public String bookingInfo() {//@RequestParam String userId, Model model
-		//bs.info(model, userId);
+	public String bookingInfo(@RequestParam (defaultValue = "1",value = "bookingId",required =false) int bookingId, Model model){
+		System.out.println("예약정보확인");
+		bs.info(bookingId,model);
 		return "booking/bookingInfo";
 	}
-
 }
-

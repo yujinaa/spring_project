@@ -11,8 +11,10 @@ function checkPrice() {
   const dateDiff = Math.abs((da2 - da1) / (24 * 60 * 60 * 1000));
 
   if(startDay && endDay) {
-    intMoney.value = (dateDiff * stringSize.value).toLocaleString() +'원';
+    intMoney.value = ((dateDiff * 2) * stringSize.value).toLocaleString() +'원';
   }
+  if(startDay && endDay && dateDiff == 0) {
+  	intMoney.value = (stringSize.value).toLocaleString() +'원';
 }
 // 시작일자에서 오늘 이전으로 선택 안되게
 let nowUtc = Date.now(); // 현재까지의 밀리초 (Number 형으로)
@@ -28,3 +30,4 @@ document.getElementById("end-day").setAttribute("min", today);
  */
 
 // 사이즈, 날짜별 요금 계산
+}
