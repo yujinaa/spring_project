@@ -14,6 +14,9 @@
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <body>
+<%
+String userId = (String) session.getAttribute("userId");
+%>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>

@@ -134,17 +134,19 @@ public class memberController implements memberLoginSession{
 	}
 
 	//마이페이지- 회원정보확인
-//		@GetMapping("myInfo")
-//		public String myInfo(HttpSession session, Model model) {
-//			System.out.println("회원정보 페이지 연결");
-//			//세션 객체 안에 있는 ID정보 저장
-//			String memberId = (String) session.getAttribute("memberId");
-//			//서비스안의 회원정보보기 메서드 호출
-//			memberDTO dto = ms.memberInfo(memberId);
-//			//정보저장 후 페이지 이동
-//			model.addAttribute("info", dto);
-//			return "member/myInfo";
-//		}
+		@GetMapping("myInfo")
+		public String myInfo(HttpSession session, Model model, String id) {
+			System.out.println("회원정보 페이지 연결");
+			//세션 객체 안에 있는 ID정보 저장
+			String memberId = (String) session.getAttribute("memberId");
+			System.out.println("getid :  "+memberId);
+			//서비스안의 회원정보보기 메서드 호출
+			memberDTO dto = ms.memberInfo(memberId);
+			//정보저장 후 페이지 이동
+			model.addAttribute("info", dto);
+			System.out.println("get dto :" +dto);
+			return "member/myInfo";
+		}
 //		AccountContext ac = (AccountContext) authentication.getPrincipal();
 //	    model.addAttribute("info", ac.getUsername());
 //	@GetMapping("myInfo")
@@ -154,10 +156,12 @@ public class memberController implements memberLoginSession{
 //	        modelMap.addAttribute("info", dto);
 //	        return "member/myInfo";
 //	}
-	@GetMapping("myInfo")
-	public String myInfo(String id, Model model, HttpSession session){
-		model.addAttribute("info", ms.memberInfo(id));
-		return "member/myInfo";
-	}
+	
+	
+//	@GetMapping("myInfo")
+//	public String myInfo(String id, Model model, HttpSession session){
+//		model.addAttribute("info", ms.memberInfo(id));
+//		return "member/myInfo";
+//	}
 	
 }

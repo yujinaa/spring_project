@@ -38,8 +38,9 @@
 	</select>
 	
 
-	<select id="memberInfo" resultMap="member" >
-		select * from box_member 
+	<select id="info" resultMap="member" >
+		select * from box_member(buser_id,buser_name,buser_phone,buser_email)
+		values(#{id},#{name},#{phone},#{email})
 		where buser_id=#{id}
 	</select>
 	 

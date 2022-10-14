@@ -12,5 +12,5 @@ public interface memberMapper {
 	public int idCheck(String id);
 	
 	//회원정보조회
-	public memberDTO memberInfo(String id) ;
+	public memberDTO memberInfo(String id);
 }
