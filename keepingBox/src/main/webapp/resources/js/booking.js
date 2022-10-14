@@ -29,5 +29,6 @@ document.getElementById("end-day").setAttribute("min", today);
  * new Date(nowUtc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
  */
 
+
 // 사이즈, 날짜별 요금 계산
 }

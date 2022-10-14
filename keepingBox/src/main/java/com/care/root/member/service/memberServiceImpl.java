@@ -4,9 +4,12 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.member.memberMapper;
@@ -58,10 +61,14 @@ public class memberServiceImpl implements memberService{
 		}
 		return result;
 	}
+	//아이디 중복 조회
 	public int idCheck(String id) {
 		int count = memberMapper.idCheck(id);
 		return count;
 	}
 
-
-}
+	//회원정보조회
+	public memberDTO memberInfo(String id){
+			return  memberMapper.memberInfo(id);
+		}
+	}

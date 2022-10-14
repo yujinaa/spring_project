@@ -10,4 +10,7 @@ public interface memberMapper {
 	public memberDTO getUserSessionId(String sessionId) ;
 	public int register(memberDTO dto);
 	public int idCheck(String id);
+	
+	//회원정보조회
+	public memberDTO memberInfo(String id) ;
 }

@@ -11,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예약하기</title>
 <link rel="stylesheet" href="../resources/css/booking.css">
-
 <body>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
@@ -22,11 +21,11 @@
 			<h2>예약하기</h2>
 			<div>
 				<form action="${contextPath }/booking/bookingDo" method="post"
-					class="cf">
+					class="cf" name="select">
 					<!-- 나중에 type:hidden으로 바꾸기 -->
 					<input type="text" name="userId" id="userId"
 						value="${successLoginUser  }">
-						
+
 					<div id="date-group">
 						<div id="start-date">
 							<label for="start-day">시작일자</label> <input type="date"
@@ -55,7 +54,7 @@
 					</select> <label for="intmoney">이용요금</label> <input type="text" name="price"
 						id="intmoney" readonly>
 
-					<button type="submit" id="next-btn">예약하기</button>
+					<button type="submit" id="next-btn" onclick="insertOpt()">예약하기</button>
 				</form>
 			</div>
 		</div>
@@ -80,5 +79,71 @@
 	}
 </script>
 	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+//$(document).ready(function){
+	//var bookDateS = $('#start-day').val();
+	//var bookDateE = $('#end-day').val();
+	//var name = $('#book-name').val();
+	//var size = $('#stringsize').val();
+	//var price = $('#intmoney').val();
+	//var city = $('#stringcity').val();
+	//$('#next-btn').on('click', function(){
+	//	location.href = 'bookingConfirmForm?bookDateS=' + bookDateS + '&bookDateE='+bookDateE+
+	//			'&name=' + name +'&size=' + size + '&price='+price +'&city=' + city;
+//	});
+//});
+//function insertOpt(){
+	//var result = confirm('정말 예약하시겠습니까?');
+	//if(result) { 
+		  //$('input[name=count]').attr('value', count);
+		//$("form:first").submit();
+	//location.href="bookingConfirmForm";
+	//}else{
+		//location.replace("booking"); 	
+	//}
+		//var result = sel.select;
+		//if(sel.options[result].value != ''){
+	//	confirm('정말 예약하시겠습니까?'); 
+	//		fm.getTxt.value = fm.size.options[fm.size.selectIndex].text;
+	
+//	var stringSize = document.getElementByName("size").value;
+ //var intMoney = document.getElementById("price").value;
+//var inputName = document.getElemebtById("name").value;
+//var inputcity = document.getElemebtById("city").value;
+ // var startDay = document.getElementById("bookDateS").value;
+ // var endDay = document.getElementById("bookDateE").value;
+  
+ // location.href = "${contextPath }/booking/bookingConfirmForm?stringSize="
+	//	+ selectSDay + "&intMoney=" + intMoney + &"startDay=" + startDay + "&endDay=" +endDay
+	//	+"&inputName=" +inputName;
+ 
+ // $("select[name=city]").val();
+ // location.href="bookingConfirmForm"
+ // }
+
+//		location.href="booking";
+	
+	
+		//  if(sel.options[result].value != ''){
+			//  confirm('정말 예약하시겠습니까?'); 
+			//fm.getTxt.value = fm.size.options[fm.size.selectIndex].text;
+			//  this.location = "bookingConfirmForm";
+			
+		 // if(result) { 
+			  //$('input[name=count]').attr('value', count);
+		//	$("form:first").submit();
+			 //alert($('input[name=maxT]').val());
+		//  } else { 
+		//	  location.replace("bookingConfirmForm"); 			  
+		 // }
+		 
+		  
+		//  $(document).ready(function () {
+		//	  fruit_val = $('select.fruit').attr('data-type');
+		//	  $('select.fruit option[value=' + fruit_val + ']').attr('selected', 'selected');
+		//	});
+
+</script>
 </body>
 </html>

@@ -26,7 +26,7 @@
 	</insert>
 	
 	<!-- 예약정보확인 -->
-	<select id="info" resultMap="booking" parameterType="int" >
+	<select id="info" resultType="com.care.root.booking.dto.bookingDTO" >
 		select * from box_booking where booking_id = #{bookingId} 
 	</select>
 

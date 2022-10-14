@@ -729,3 +729,95 @@
 10월 09, 2022 14:47:10.462 [20948:19752:1009/144710.461:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 10월 09, 2022 20:33:27.47 [20948:3028:1009/203327.046:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 10월 09, 2022 20:34:45.870 [20948:7792:1009/203445.869:ERROR:device_event_log_impl.cc(214)] [20:34:45.867] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 10, 2022 01:33:12.367 [20948:7136:1010/013312.364:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 10, 2022 01:36:43.890 [20948:7792:1010/013643.890:ERROR:device_event_log_impl.cc(214)] [01:36:43.890] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+10월 10, 2022 19:13:57.628 NEW SESSION
+10월 10, 2022 19:13:57.628 [12124:16108:1010/191357.626:ERROR:device_event_log_impl.cc(214)] [19:13:57.625] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 19:13:57.675 [12124:16108:1010/191357.674:ERROR:device_event_log_impl.cc(214)] [19:13:57.674] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 10, 2022 19:14:54.555 [12124:18320:1010/191454.554:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 10, 2022 20:13:09.590 NEW SESSION
+10월 10, 2022 20:13:09.591 [18020:18284:1010/201309.587:ERROR:device_event_log_impl.cc(214)] [20:13:09.587] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 20:13:09.682 [18020:18284:1010/201309.682:ERROR:device_event_log_impl.cc(214)] [20:13:09.682] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 10, 2022 20:14:05.756 [18020:4908:1010/201405.755:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 10, 2022 20:53:52.845 [18020:18284:1010/205352.845:ERROR:device_event_log_impl.cc(214)] [20:53:52.845] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 11, 2022 01:14:05.785 [18020:7788:1011/011405.778:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 01:20:32.04 [11996:15412:1011/012032.003:ERROR:device_event_log_impl.cc(214)] [01:20:32.003] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 01:20:32.56 [11996:15412:1011/012032.056:ERROR:device_event_log_impl.cc(214)] [01:20:32.056] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 01:21:28.754 [11996:15680:1011/012128.754:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 01:43:48.308 [19064:8244:1011/014348.307:ERROR:device_event_log_impl.cc(214)] [01:43:48.306] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 01:43:48.383 [19064:8244:1011/014348.383:ERROR:device_event_log_impl.cc(214)] [01:43:48.382] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 01:44:44.992 [19064:19868:1011/014444.991:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 02:22:57.329 [21972:21532:1011/022257.328:ERROR:device_event_log_impl.cc(214)] [02:22:57.328] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 02:22:57.373 [21972:21532:1011/022257.373:ERROR:device_event_log_impl.cc(214)] [02:22:57.373] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 02:23:53.685 [21972:18804:1011/022353.684:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 11, 2022 12:29:44.720 NEW SESSION
+10월 11, 2022 12:29:44.720 [1176:1680:1011/122944.718:ERROR:device_event_log_impl.cc(214)] [12:29:44.718] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 12:29:44.764 [1176:1680:1011/122944.764:ERROR:device_event_log_impl.cc(214)] [12:29:44.764] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 12:30:41.752 [1176:19232:1011/123041.751:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 13:15:42.468 [18660:16856:1011/131542.467:ERROR:device_event_log_impl.cc(214)] [13:15:42.467] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 13:15:42.556 [18660:16856:1011/131542.554:ERROR:device_event_log_impl.cc(214)] [13:15:42.555] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 13:16:37.694 [18660:3720:1011/131637.694:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 11, 2022 13:40:08.544 NEW SESSION
+10월 11, 2022 13:40:08.544 [11124:11916:1011/134008.542:ERROR:device_event_log_impl.cc(214)] [13:40:08.541] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 13:40:08.601 [11124:11916:1011/134008.600:ERROR:device_event_log_impl.cc(214)] [13:40:08.600] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 13:40:38.176 [11124:18176:1011/134038.175:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 14:03:01.403 [11124:11916:1011/140301.402:ERROR:device_event_log_impl.cc(214)] [14:03:01.402] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 11, 2022 17:13:31.154 [10944:19700:1011/171331.153:ERROR:device_event_log_impl.cc(214)] [17:13:31.153] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 17:13:31.207 [10944:19700:1011/171331.207:ERROR:device_event_log_impl.cc(214)] [17:13:31.207] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 17:14:28.17 [10944:15616:1011/171428.016:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 21:10:33.228 [10944:19700:1011/211033.227:ERROR:device_event_log_impl.cc(214)] [21:10:33.227] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 11, 2022 21:44:20.363 [3016:23696:1011/214420.363:ERROR:device_event_log_impl.cc(214)] [21:44:20.363] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 21:44:20.443 [3016:23696:1011/214420.443:ERROR:device_event_log_impl.cc(214)] [21:44:20.443] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 11, 2022 21:45:17.80 [3016:25160:1011/214517.078:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 22:36:56.854 [3016:23696:1011/223656.852:ERROR:device_event_log_impl.cc(214)] [22:36:56.652] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 12, 2022 24:21:00.415 [20600:3852:1012/002100.415:ERROR:device_event_log_impl.cc(214)] [00:21:00.415] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 24:21:00.461 [20600:3852:1012/002100.460:ERROR:device_event_log_impl.cc(214)] [00:21:00.461] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 24:21:57.15 [20600:148:1012/002157.014:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 01:04:28.761 [18996:16484:1012/010428.760:ERROR:device_event_log_impl.cc(214)] [01:04:28.761] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 01:04:28.800 [18996:16484:1012/010428.800:ERROR:device_event_log_impl.cc(214)] [01:04:28.801] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 01:05:25.608 [18996:2828:1012/010525.608:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 01:45:51.953 [24224:212:1012/014551.953:ERROR:device_event_log_impl.cc(214)] [01:45:51.953] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 01:45:51.994 [24224:212:1012/014551.994:ERROR:device_event_log_impl.cc(214)] [01:45:51.994] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 01:46:47.90 [24224:19812:1012/014647.090:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 02:17:13.887 [24224:212:1012/021713.886:ERROR:device_event_log_impl.cc(214)] [02:17:13.882] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+10월 12, 2022 13:57:05.826 NEW SESSION
+10월 12, 2022 13:57:05.826 [4704:5004:1012/135705.824:ERROR:device_event_log_impl.cc(214)] [13:57:05.823] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 13:57:05.876 [4704:5004:1012/135705.876:ERROR:device_event_log_impl.cc(214)] [13:57:05.875] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 13:58:01.710 [4704:5920:1012/135801.709:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 14:06:22.389 [4704:5004:1012/140622.388:ERROR:device_event_log_impl.cc(214)] [14:06:22.385] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 12, 2022 15:13:47.395 [13120:7036:1012/151347.394:ERROR:device_event_log_impl.cc(214)] [15:13:47.395] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 15:13:47.450 [13120:7036:1012/151347.450:ERROR:device_event_log_impl.cc(214)] [15:13:47.450] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 15:14:48.622 [13120:20884:1012/151448.622:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 15:18:37.748 [21672:20404:1012/151837.747:ERROR:device_event_log_impl.cc(214)] [15:18:37.747] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 12, 2022 15:18:37.789 [21672:20404:1012/151837.788:ERROR:device_event_log_impl.cc(214)] [15:18:37.788] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 12, 2022 15:18:38.647 [21672:21140:1012/151838.646:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 12, 2022 23:07:37.710 [21672:20404:1012/230737.705:ERROR:device_event_log_impl.cc(214)] [23:07:37.133] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 12, 2022 23:07:54.815 [21672:17488:1012/230754.508:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 13, 2022 15:10:24.319 NEW SESSION
+10월 13, 2022 15:10:24.319 [18688:14488:1013/151024.317:ERROR:device_event_log_impl.cc(214)] [15:10:24.318] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 13, 2022 15:10:24.364 [18688:14488:1013/151024.363:ERROR:device_event_log_impl.cc(214)] [15:10:24.364] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 13, 2022 15:11:21.274 [18688:19760:1013/151121.273:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 13, 2022 18:20:35.546 [18688:14488:1013/182035.545:ERROR:device_event_log_impl.cc(214)] [18:20:35.540] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 13, 2022 20:41:07.916 [18688:17456:1013/204107.915:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 14, 2022 14:50:05.538 NEW SESSION
+10월 14, 2022 14:50:05.539 [16308:10228:1014/145005.534:ERROR:device_event_log_impl.cc(214)] [14:50:05.534] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 14, 2022 14:50:05.610 [16308:10228:1014/145005.610:ERROR:device_event_log_impl.cc(214)] [14:50:05.610] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 14, 2022 14:51:02.638 [16308:12304:1014/145102.637:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 14, 2022 15:37:30.18 [19540:1712:1014/153730.017:ERROR:device_event_log_impl.cc(214)] [15:37:30.018] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 14, 2022 15:37:30.75 [19540:1712:1014/153730.075:ERROR:device_event_log_impl.cc(214)] [15:37:30.074] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 14, 2022 15:38:26.547 [19540:3208:1014/153826.547:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 14, 2022 15:40:03.784 [19540:1712:1014/154003.783:ERROR:device_event_log_impl.cc(214)] [15:40:03.777] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 14, 2022 20:38:26.585 [19540:3208:1014/203826.579:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 14, 2022 21:13:28.454 [7768:7772:1014/211328.453:ERROR:device_event_log_impl.cc(214)] [21:13:28.453] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 14, 2022 21:13:28.501 [7768:7772:1014/211328.501:ERROR:device_event_log_impl.cc(214)] [21:13:28.500] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 14, 2022 21:14:23.233 [7768:3108:1014/211423.232:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 14, 2022 21:43:34.479 [11736:4656:1014/214334.479:ERROR:device_event_log_impl.cc(214)] [21:43:34.479] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 14, 2022 21:43:34.521 [11736:4656:1014/214334.520:ERROR:device_event_log_impl.cc(214)] [21:43:34.520] Bluetooth: bluetooth_adapter_winrt.cc:1164 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.
+10월 14, 2022 21:44:31.233 [11736:16868:1014/214431.233:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

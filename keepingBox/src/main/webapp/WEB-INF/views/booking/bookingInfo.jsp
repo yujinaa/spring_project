@@ -45,6 +45,7 @@
 			 -->
 			<div>
 				<input type="text" value="${successLoginUser }" readonly="readonly">
+				<input type="text" name="getTxt" value="${name}">
 			</div>
 			<div>
 				<table class="booking-check">

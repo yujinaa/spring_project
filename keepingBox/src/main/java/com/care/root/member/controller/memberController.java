@@ -1,16 +1,21 @@
 package com.care.root.member.controller;
 
+import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +33,13 @@ import com.care.root.member.service.memberService;
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
+	private final memberService members;
+
+	    public memberController(memberService members){
+	        this.members = members;
+	    }
+	
+	
 	//로그인클릭
 	@GetMapping("login")
 	public String login() {
@@ -37,11 +49,11 @@ public class memberController implements memberLoginSession{
 	//로그인시 확인
 	@PostMapping("user_check")
 	public String userCheck(@RequestParam  String id, @RequestParam  String pwd,
-							@RequestParam(required = false) String autoLogin, //자동로그인
-							RedirectAttributes rs) {  //id, pwd 받아줄것
+			@RequestParam(required = false) String autoLogin, //자동로그인
+			RedirectAttributes rs) {  //id, pwd 받아줄것
 		int result = ms.userCheck(id,pwd); //서비스로 id,pwd넘기기
 		System.out.println("result : " +result); //result확인
-				System.out.println("autoLogin : " + autoLogin);
+		System.out.println("autoLogin : " + autoLogin);
 
 		//result=0이면 성공(rs로 id, autoLogin넘기기)
 		if(result == 0) {
@@ -81,43 +93,71 @@ public class memberController implements memberLoginSession{
 		return "index";
 	}
 	//로그아웃시 세션종료후 메인index로 이동
-		@GetMapping("logout")
-		public String logout(HttpSession session, 
-								HttpServletResponse response,
-								@CookieValue(value="loginCookie",required=false) Cookie loginCookie) //자동로그아웃(쿠키종료)위해 쿠키 받아오기
-		{
-			if(session.getAttribute(LOGIN) != null) {
-				if(loginCookie != null) {
-					loginCookie.setPath("/"); //경로명시를 해야 쿠키종료, 최상위로 잡기
-					loginCookie.setMaxAge(0);//쿠키값 0으로 설정
-					response.addCookie(loginCookie); //사용자에게 보내기
-					ms.keepLogin("nan",new java.sql.Date(System.currentTimeMillis()), //db도 변경(업데이트 keepLogin호출), 들어온 쿠키값은 다시 nan으로 처리//현재시간으로 변경
-									(String)session.getAttribute(LOGIN)); //login비교할 아이디
-				}
+	@GetMapping("logout")
+	public String logout(HttpSession session, 
+			HttpServletResponse response,
+			@CookieValue(value="loginCookie",required=false) Cookie loginCookie) //자동로그아웃(쿠키종료)위해 쿠키 받아오기
+	{
+		if(session.getAttribute(LOGIN) != null) {
+			if(loginCookie != null) {
+				loginCookie.setPath("/"); //경로명시를 해야 쿠키종료, 최상위로 잡기
+				loginCookie.setMaxAge(0);//쿠키값 0으로 설정
+				response.addCookie(loginCookie); //사용자에게 보내기
+				ms.keepLogin("nan",new java.sql.Date(System.currentTimeMillis()), //db도 변경(업데이트 keepLogin호출), 들어온 쿠키값은 다시 nan으로 처리//현재시간으로 변경
+						(String)session.getAttribute(LOGIN)); //login비교할 아이디
 			}
-				session.invalidate();           //세션종료                 
-			return "redirect:/index";  
 		}
-		//회원가입 페이지 연결
-		@GetMapping("register_form")
-		public String register() {
-			return "member/register";
+		session.invalidate();           //세션종료                 
+		return "redirect:/index";  
+	}
+	//회원가입 페이지 연결
+	@GetMapping("register_form")
+	public String register() {
+		return "member/register";
+	}
+	@PostMapping("register")
+	public String register(memberDTO dto) {  //dto로 받기
+		int result = ms.register(dto);
+		if(result==1) {
+			return "redirect:login";//성공하면 login 페이지로
 		}
-		@PostMapping("register")
-		public String register(memberDTO dto) {  //dto로 받기
-			int result = ms.register(dto);
-			if(result==1) {
-				return "redirect:login";//성공하면 login 페이지로
-			}
-			return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
-		}
-		@PostMapping(value="idCheck",produces = "application/json; charset=utf8")
-		@ResponseBody
-		public Map<Object, Object> idCheck(@RequestBody String id){
-			int count=0;
-			Map<Object, Object> map = new HashMap<Object, Object>();
-			count = ms.idCheck(id);
-			map.put("cnt", count);
-			return map;
-		}
+		return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
+	}
+	@PostMapping(value="idCheck",produces = "application/json; charset=utf8")
+	@ResponseBody
+	public Map<Object, Object> idCheck(@RequestBody String id){
+		int count=0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		count = ms.idCheck(id);
+		map.put("cnt", count);
+		return map;
+	}
+
+	//마이페이지- 회원정보확인
+//		@GetMapping("myInfo")
+//		public String myInfo(HttpSession session, Model model) {
+//			System.out.println("회원정보 페이지 연결");
+//			//세션 객체 안에 있는 ID정보 저장
+//			String memberId = (String) session.getAttribute("memberId");
+//			//서비스안의 회원정보보기 메서드 호출
+//			memberDTO dto = ms.memberInfo(memberId);
+//			//정보저장 후 페이지 이동
+//			model.addAttribute("info", dto);
+//			return "member/myInfo";
+//		}
+//		AccountContext ac = (AccountContext) authentication.getPrincipal();
+//	    model.addAttribute("info", ac.getUsername());
+//	@GetMapping("myInfo")
+//		public String myInfo(Principal principal, ModelMap modelMap){
+//	        String loginId = principal.getName();
+//	        memberDTO dto = ms.getUserSessionId(loginId);
+//	        modelMap.addAttribute("info", dto);
+//	        return "member/myInfo";
+//	}
+	@GetMapping("myInfo")
+	public String myInfo(String id, Model model, HttpSession session){
+		model.addAttribute("info", ms.memberInfo(id));
+		return "member/myInfo";
+	}
+	
 }

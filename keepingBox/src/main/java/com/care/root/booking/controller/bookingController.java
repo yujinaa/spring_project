@@ -35,7 +35,11 @@ public class bookingController implements memberLoginSession{
 		//		bookingDto.setUserId(userId);;
 		bs.bookingDo(bookingDto);
 		rs.addFlashAttribute("msg","넘어가기");
-		return "redirect:/index";
+		return "redirect:bookingConfirmForm";
+	}
+	@GetMapping("bookingConfirmForm")
+	public String bookingConfirm() {
+		return "booking/bookingConfirmForm";
 	}
 	//	String userId = (String)session.getAttribute(LOGIN);
 
@@ -52,10 +56,21 @@ public class bookingController implements memberLoginSession{
 						,HttpSession session
 						){
 		System.out.println("예약정보확인");
-		String userId = (String)session.getAttribute(LOGIN);
+//		String userId = (String)session.getAttribute("userId");
+//		memberDTO dto = bs.info(userId);
 		bs.info(bookingId,model);
 		System.out.println("bookingId :" + bookingId);
-		System.out.println("userId :" + userId ) ;
+//		System.out.println("userId :" + userId ) ;
 		return "booking/bookingInfo";
 	}
+//	//세션 객체 안에 있는 ID정보 저장
+//		String id = (String) session.getAttribute("id");
+//		l.info("C: 회원정보보기 GET의 아이디 "+id);
+//
+//		//서비스안의 회원정보보기 메서드 호출
+//		MemberVO vo = service.readMember(id);
+//
+//		//정보저장 후 페이지 이동
+//		model.addAttribute("memVO", vo);
+//		l.info("C: 회원정보보기 GET의 VO "+ vo);
 }
