@@ -116,5 +116,12 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify save");
 		return "redirect:notice";
 	}
+	//삭제
+	@GetMapping("noticeDelete")
+	public String noticeDelete(int noticeNum, RedirectAttributes rs){
+		bs.noticeDelete(noticeNum);
+		rs.addFlashAttribute("result","noticeDelsuccess");
+		return "redirect:notice";
+	}
 
 }

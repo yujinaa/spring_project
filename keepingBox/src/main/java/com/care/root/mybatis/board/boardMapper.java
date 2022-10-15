@@ -21,6 +21,7 @@ public interface boardMapper {
 	public void noticeSave(noticeDTO notice) ;
 	public noticeDTO noticeDetail(int noticeNum);
 	public int modifySave(noticeDTO notice);
+	public int noticeDelete(int noticeNum);
 
 
 

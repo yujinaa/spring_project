@@ -90,4 +90,9 @@
 		content=#{content}
 		where notice_num=#{noticeNum}
 	</update>
+
+	<!-- 삭제하기 -->
+	<delete id="noticeDelete">
+		delete from box_notice where notice_num = #{noticeNum}
+	</delete>
 </mapper>

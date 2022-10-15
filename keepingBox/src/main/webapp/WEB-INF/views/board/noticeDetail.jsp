@@ -45,7 +45,7 @@
 							<button type="button" id="modify_btn"
 								onclick="location.href='${contextPath }/board/noticeModify?noticeNum=${detailNotice.noticeNum }'">수정</button>
 							<button type="button" id="delete_btn"
-								onclick="location.href='${contextPath }/board/noticedelete?noticeNum=${detailNotice.noticeNum }'">삭제</button>
+								onclick="location.href='${contextPath }/board/noticeDelete?noticeNum=${detailNotice.noticeNum }'">삭제</button>
 						</c:when>
 
 					</c:choose>

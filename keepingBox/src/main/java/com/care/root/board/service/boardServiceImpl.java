@@ -82,4 +82,8 @@ public class boardServiceImpl implements boardService{
 	public int modifySave(noticeDTO notice) {
 		return mapper.modifySave(notice);
 	}
+	//삭제
+	public int noticeDelete(int noticeNum) {
+		return mapper.noticeDelete(noticeNum);
+	}
 }
