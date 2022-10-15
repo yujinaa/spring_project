@@ -3,6 +3,7 @@ package com.care.root.board.service;
 import org.springframework.ui.Model;
 
 import com.care.root.board.dto.boardDTO;
+import com.care.root.board.dto.noticeDTO;
 
 public interface boardService {
 	public void boardList(Model model,int num);
@@ -14,6 +15,7 @@ public interface boardService {
 	
 	//공지사항
 	public void noticeList(Model model);
+	public void noticeSave(noticeDTO notice) ;
 
 
 

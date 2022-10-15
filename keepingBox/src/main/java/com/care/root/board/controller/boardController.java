@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
+import com.care.root.board.dto.noticeDTO;
 import com.care.root.board.service.boardService;
 import com.care.root.member.common.memberLoginSession;
 
@@ -70,11 +71,29 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify success");
 		return "redirect:review";
 	}
-	//공지사항
+
+	//공지사항 부분
+	//공지사항 목록
 	@GetMapping("notice")
 	public String noticeList(Model model) { 
 		bs.noticeList(model);
 		System.out.println("공지사항 페이지 연결");
 		return "board/notice";
+	}
+
+	//글쓰기
+	@GetMapping("noticeWrite")
+	public String noticeWrite(HttpSession session) {
+		return "board/noticeWrite";
+	}
+
+	//글저장하기
+	@PostMapping("noticeSave")
+	public String noticeSave(noticeDTO notice, RedirectAttributes rs) {                   
+
+		System.out.println("저장하기 실행");
+		bs.noticeSave(notice);
+		rs.addFlashAttribute("result", "success");		
+		return "redirect:notice";
 	}
 }

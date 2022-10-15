@@ -1,5 +1,7 @@
 package com.care.root.board.dto;
 
+import java.text.SimpleDateFormat;
+
 public class noticeDTO {
 	private int noticeNum;
 	private String title;
@@ -27,8 +29,9 @@ public class noticeDTO {
 	public String getSaveDate() {
 		return saveDate;
 	}
-	public void setSaveDate(String saveDate) {
-		this.saveDate = saveDate;
+	public void setSaveDate(java.sql.Timestamp saveDate) {//sql date는 시간이 안나옴
+		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd");
+		this.saveDate = fo.format(saveDate);
 	}
 	public String getWriter() {
 		return writer;

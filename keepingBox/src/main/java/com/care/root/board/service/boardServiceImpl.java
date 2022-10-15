@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.care.root.board.dto.boardDTO;
+import com.care.root.board.dto.noticeDTO;
 import com.care.root.mybatis.board.boardMapper;
 
 
@@ -54,8 +55,18 @@ public class boardServiceImpl implements boardService{
 		return mapper.modify(dto);
 	}
 
+	//공지사항 부분
 	//공지사항
 	public void noticeList(Model model) {
 		model.addAttribute("noticeList", mapper.noticeList());
 	}
+
+	//글저장
+	public void noticeSave(noticeDTO notice)  {
+		try {
+			mapper.noticeSave(notice);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
 }

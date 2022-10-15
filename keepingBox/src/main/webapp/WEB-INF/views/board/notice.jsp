@@ -46,13 +46,10 @@
 									<td>${notice.saveDate }</td>
 								</tr>
 							</c:forEach>
-							<tr>
-								<td>3</td>
-								<th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-								<td>2022.09.10</td>
-							</tr>
 						</tbody>
 					</table>
+					<a href="${contextPath }/board/noticeWrite"><button
+							type="submit" id="review-btn">리뷰쓰기</button></a>
 				</div>
 			</div>
 		</section>

@@ -57,6 +57,7 @@
 		where list_num=#{reviewNum}
 	</update>
 
+	<!-- 공지사항 -->
 	<resultMap type="com.care.root.board.dto.noticeDTO"
 		id="notice">
 		<id property="noticeNum" column="notice_num" />
@@ -65,8 +66,15 @@
 		<result property="saveDate" column="save_date" />
 		<result property="writer" column="writer" />
 	</resultMap>
-
+	
+	<!-- 공지사항 목록 -->
 	<select id="noticeList" resultMap="notice">
 		select * from box_notice
 	</select>
+
+	<!-- 글쓰기 등록 -->
+	<insert id="noticeSave">
+		insert into box_notice(notice_num,writer,title,content)
+		values(box_notice_seq.nextval,#{writer},#{title},#{content})
+	</insert>
 </mapper>
