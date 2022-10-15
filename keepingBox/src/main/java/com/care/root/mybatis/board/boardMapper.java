@@ -19,6 +19,7 @@ public interface boardMapper {
 	//공지사항
 	public List<noticeDTO> noticeList();
 	public void noticeSave(noticeDTO notice) ;
+	public noticeDTO noticeDetail(int noticeNum);
 
 
 

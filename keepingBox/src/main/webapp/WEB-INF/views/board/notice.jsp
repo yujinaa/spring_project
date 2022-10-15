@@ -41,7 +41,7 @@
 								<tr>
 									<td>${notice.noticeNum }</td>
 									<th><a
-										href="${contextPath }/board/noticeDetail?reviewNum=${dto.noticeNum}">${notice.title }</a></th>
+										href="${contextPath }/board/noticeDetail?noticeNum=${notice.noticeNum}">${notice.title }</a></th>
 									<td>${notice.writer }</td>
 									<td>${notice.saveDate }</td>
 								</tr>
@@ -49,7 +49,7 @@
 						</tbody>
 					</table>
 					<a href="${contextPath }/board/noticeWrite"><button
-							type="submit" id="review-btn">리뷰쓰기</button></a>
+							type="submit" id="review-btn">작성하기</button></a>
 				</div>
 			</div>
 		</section>

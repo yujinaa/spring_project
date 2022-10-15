@@ -96,4 +96,10 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result", "success");		
 		return "redirect:notice";
 	}
+	//상세보기
+		@GetMapping("noticeDetail")
+		public String noticeDetail(@RequestParam int noticeNum, Model model) {
+			bs.noticeDetail(noticeNum, model);
+			return "board/noticeDetail";
+		}
 }

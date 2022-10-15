@@ -68,5 +68,10 @@ public class boardServiceImpl implements boardService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}	
+	}
+	//글 상세보기
+	public void noticeDetail(int noticeNum, Model model) {
+		model.addAttribute("detailNotice", mapper.noticeDetail(noticeNum) );
+		hitNum(noticeNum);
+	}
 }

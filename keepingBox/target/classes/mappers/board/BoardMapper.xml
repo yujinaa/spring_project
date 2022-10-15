@@ -66,7 +66,7 @@
 		<result property="saveDate" column="save_date" />
 		<result property="writer" column="writer" />
 	</resultMap>
-	
+
 	<!-- 공지사항 목록 -->
 	<select id="noticeList" resultMap="notice">
 		select * from box_notice
@@ -74,7 +74,13 @@
 
 	<!-- 글쓰기 등록 -->
 	<insert id="noticeSave">
-		insert into box_notice(notice_num,writer,title,content)
+		insert into
+		box_notice(notice_num,writer,title,content)
 		values(box_notice_seq.nextval,#{writer},#{title},#{content})
 	</insert>
+
+	<!-- 상세보기 -->
+	<select id="noticeDetail" resultMap="notice">
+		select * from box_notice where notice_num = #{noticeNum} <!-- 관리자 정보 -->
+	</select>
 </mapper>

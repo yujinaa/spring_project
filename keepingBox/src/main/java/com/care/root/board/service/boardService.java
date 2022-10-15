@@ -16,6 +16,7 @@ public interface boardService {
 	//공지사항
 	public void noticeList(Model model);
 	public void noticeSave(noticeDTO notice) ;
+	public void noticeDetail(int noticeNum, Model model);
 
 
 

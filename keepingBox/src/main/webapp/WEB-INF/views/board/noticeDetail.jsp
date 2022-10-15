@@ -27,25 +27,25 @@
 			<div class="review-space cf">
 				<div id="review-form">
 					<div class="num-writer">
-						<label for="">글번호</label> <input type="text" name="reviewNum"
-							value="$noticeReview.noticeNum  }" readonly> <label
+						<label for="">글번호</label> <input type="text" name="noticeNum"
+							value="${detailNotice.noticeNum  }" readonly> <label
 							for="">작성자</label> <input type="text" name="writer"
-							value="${detailnotice.writer  }" readonly>
+							value="${detailNotice.writer  }" readonly>
 					</div>
 					<div class="title-content">
 						<label for="">제목</label> <input type="text" name="title"
-							value="${detailnotice.title }"> <label for="">내용</label>
+							value="${detailNotice.title }"> <label for="">내용</label>
 						<textarea id="" name="content" readonly="readonly" cols="30"
-							rows="10">${detailnotice.content }</textarea>
+							rows="10">${detailNotice.content }</textarea>
 					</div>
 					<button type="button" id="List-btn"
-						onClick="location.href='${contextPath}/board/review'">목록</button>
+						onClick="location.href='${contextPath}/board/notice'">목록</button>
 					<c:choose>
-						<c:when test="${successLoginUser == detailReview.writer  }">
+						<c:when test="${successLoginUser == detailNotice.writer  }">
 							<button type="button" id="modify_btn"
-								onclick="location.href='${contextPath }/board/modify_form?reviewNum=${detailReview.reviewNum }'">수정</button>
+								onclick="location.href='${contextPath }/board/noticeModify?noticeNum=${detailNotice.noticeNum }'">수정</button>
 							<button type="button" id="delete_btn"
-								onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
+								onclick="location.href='${contextPath }/board/noticedelete?noticeNum=${detailNotice.noticeNum }'">삭제</button>
 						</c:when>
 
 					</c:choose>
