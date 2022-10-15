@@ -1,11 +1,5 @@
 package com.care.root.board.controller;
 
-
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
@@ -77,4 +70,10 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify success");
 		return "redirect:review";
 	}
+		//공지사항
+			@GetMapping("notice")
+			public String noticeList() {
+				System.out.println("공지사항 페이지 연결");
+				return "board/notice";
+			}
 }

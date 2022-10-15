@@ -24,7 +24,7 @@
 						<c:when test="${successLoginUser !=null}">
 							<li class="mypage"><a href="#">마이페이지</a>
 								<ul class="mypage-sub">
-									<li><a href="#">공지사항</a></li>
+									<li><a href="${contextPath }/board/notice">공지사항</a></li>
 									<li><a href="${contextPath }/booking/bookingInfo">예약확인</a></li>
 									<li><a href="${contextPath }/member/myInfo">회원정보</a></li>
 									<li><a href="${contextPath }/member/logout">로그아웃</a></li>

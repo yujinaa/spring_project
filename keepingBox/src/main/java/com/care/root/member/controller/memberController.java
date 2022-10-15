@@ -147,6 +147,7 @@ public class memberController implements memberLoginSession{
 			System.out.println("get dto :" +dto);
 			return "member/myInfo";
 		}
+		
 //		AccountContext ac = (AccountContext) authentication.getPrincipal();
 //	    model.addAttribute("info", ac.getUsername());
 //	@GetMapping("myInfo")
