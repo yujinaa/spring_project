@@ -34,9 +34,9 @@
 					</div>
 					<div class="title-content">
 						<label for="">제목</label> <input type="text" name="title"
-							value="${detailNotice.title }"> <label for="">내용</label>
-						<textarea id="" name="content" readonly="readonly" cols="30"
-							rows="10">${detailNotice.content }</textarea>
+							value="${detailNotice.title }" readonly> <label for="">내용</label>
+						<textarea id="" name="content" cols="30"
+							rows="10" readonly>${detailNotice.content }</textarea>
 					</div>
 					<button type="button" id="List-btn"
 						onClick="location.href='${contextPath}/board/notice'">목록</button>

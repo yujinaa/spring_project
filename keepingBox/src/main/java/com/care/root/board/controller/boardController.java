@@ -97,9 +97,24 @@ public class boardController implements memberLoginSession{
 		return "redirect:notice";
 	}
 	//상세보기
-		@GetMapping("noticeDetail")
-		public String noticeDetail(@RequestParam int noticeNum, Model model) {
-			bs.noticeDetail(noticeNum, model);
-			return "board/noticeDetail";
-		}
+	@GetMapping("noticeDetail")
+	public String noticeDetail(@RequestParam int noticeNum, Model model) {
+		bs.noticeDetail(noticeNum, model);
+		return "board/noticeDetail";
+	}
+
+	//수정하기
+	@GetMapping("noticeModify")
+	public String noticeModify(@RequestParam int noticeNum, Model model) {
+		bs.getdata(noticeNum, model);
+		return "board/noticeModify";
+	}
+	//수정하기 저장
+	@PostMapping("modifySave")
+	public String modify(noticeDTO notice, RedirectAttributes rs){
+		bs.modifySave(notice);
+		rs.addFlashAttribute("result","modify save");
+		return "redirect:notice";
+	}
+
 }

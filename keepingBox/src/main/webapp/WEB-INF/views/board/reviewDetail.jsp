@@ -34,7 +34,7 @@
 					</div>
 					<div class="title-content">
 						<label for="">제목</label> <input type="text" name="title"
-							value="${detailReview.title }"> <label for="">내용</label>
+							value="${detailReview.title }" readonly> <label for="">내용</label>
 						<textarea id="" name="content" readonly="readonly" cols="30"
 							rows="10">${detailReview.content }</textarea>
 					</div>

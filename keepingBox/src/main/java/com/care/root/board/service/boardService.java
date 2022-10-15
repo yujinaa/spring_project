@@ -17,6 +17,8 @@ public interface boardService {
 	public void noticeList(Model model);
 	public void noticeSave(noticeDTO notice) ;
 	public void noticeDetail(int noticeNum, Model model);
+	public void getdata(int noticeNum, Model model);
+	public int modifySave(noticeDTO notice);
 
 
 

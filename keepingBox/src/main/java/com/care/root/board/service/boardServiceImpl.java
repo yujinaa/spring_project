@@ -69,9 +69,17 @@ public class boardServiceImpl implements boardService{
 			e.printStackTrace();
 		}
 	}
-	//글 상세보기
+	//상세보기
 	public void noticeDetail(int noticeNum, Model model) {
 		model.addAttribute("detailNotice", mapper.noticeDetail(noticeNum) );
 		hitNum(noticeNum);
+	}
+	//수정하기
+	public void getdata(int noticeNum, Model model) {
+		model.addAttribute("detailNotice", mapper.noticeDetail(noticeNum) );
+	}
+	//수정한 글 저장하기
+	public int modifySave(noticeDTO notice) {
+		return mapper.modifySave(notice);
 	}
 }

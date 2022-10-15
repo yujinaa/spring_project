@@ -83,4 +83,11 @@
 	<select id="noticeDetail" resultMap="notice">
 		select * from box_notice where notice_num = #{noticeNum} <!-- 관리자 정보 -->
 	</select>
+
+	<!-- 수정하기 -->
+	<update id="modifySave">
+		update box_notice set title=#{title},
+		content=#{content}
+		where notice_num=#{noticeNum}
+	</update>
 </mapper>

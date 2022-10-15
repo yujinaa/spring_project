@@ -20,6 +20,7 @@ public interface boardMapper {
 	public List<noticeDTO> noticeList();
 	public void noticeSave(noticeDTO notice) ;
 	public noticeDTO noticeDetail(int noticeNum);
+	public int modifySave(noticeDTO notice);
 
 
 
