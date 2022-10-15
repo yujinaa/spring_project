@@ -49,11 +49,24 @@
 		select count(*) from
 		box_board
 	</select>
-	
+
 	<!-- 수정하기 -->
 	<update id="modify">
-		update box_board set title=#{title}, content=#{content}
+		update box_board set title=#{title},
+		content=#{content}
 		where list_num=#{reviewNum}
 	</update>
 
+	<resultMap type="com.care.root.board.dto.noticeDTO"
+		id="notice">
+		<id property="noticeNum" column="notice_num" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="saveDate" column="save_date" />
+		<result property="writer" column="writer" />
+	</resultMap>
+
+	<select id="noticeList" resultMap="notice">
+		select * from box_notice
+	</select>
 </mapper>

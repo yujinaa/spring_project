@@ -70,10 +70,11 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify success");
 		return "redirect:review";
 	}
-		//공지사항
-			@GetMapping("notice")
-			public String noticeList() {
-				System.out.println("공지사항 페이지 연결");
-				return "board/notice";
-			}
+	//공지사항
+	@GetMapping("notice")
+	public String noticeList(Model model) { 
+		bs.noticeList(model);
+		System.out.println("공지사항 페이지 연결");
+		return "board/notice";
+	}
 }

@@ -1,11 +1,5 @@
 package com.care.root.board.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -58,5 +52,10 @@ public class boardServiceImpl implements boardService{
 	//수정한 글 저장하기
 	public int modify(boardDTO dto) {
 		return mapper.modify(dto);
+	}
+
+	//공지사항
+	public void noticeList(Model model) {
+		model.addAttribute("noticeList", mapper.noticeList());
 	}
 }

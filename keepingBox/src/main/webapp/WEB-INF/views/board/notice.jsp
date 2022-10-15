@@ -32,26 +32,24 @@
 							<tr>
 								<th scope="col" class="th-num">번호</th>
 								<th scope="col" class="th-title">제목</th>
+								<th scope="col" class="th-title">글쓴이</th>
 								<th scope="col" class="th-date">등록일</th>
 							</tr>
 						</thead>
 						<tbody>
+							<c:forEach items="${noticeList}" var="notice">
+								<tr>
+									<td>${notice.noticeNum }</td>
+									<th><a
+										href="${contextPath }/board/noticeDetail?reviewNum=${dto.noticeNum}">${notice.title }</a></th>
+									<td>${notice.writer }</td>
+									<td>${notice.saveDate }</td>
+								</tr>
+							</c:forEach>
 							<tr>
 								<td>3</td>
 								<th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
 								<td>2022.09.10</td>
-							</tr>
-
-							<tr>
-								<td>2</td>
-								<th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-								<td>2022.06.15</td>
-							</tr>
-
-							<tr>
-								<td>1</td>
-								<th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-								<td>2022.04.20</td>
 							</tr>
 						</tbody>
 					</table>
