@@ -97,14 +97,31 @@ public class memberServiceImpl implements memberService{
 
 		model.addAttribute("memberList", memberMapper.memberInfoList(start, end));
 	}
-	
+
 	//회원한명에 대한 정보
 	public void detailInfo(Model model, String id) {
 		model.addAttribute("detailInfo", memberMapper.userCheck(id));
 	}
-	
+
 	//회원삭제
 	public void detailInfoDel(String id) {
 		memberMapper.detailInfoDel(id);
+	}
+
+	//검색
+	@Override
+	public void searchId(Model model, String userId, int num) {
+		int pageLetter = 5;
+		int allCount = memberMapper.selectSearchIdCount(userId);
+		int repeat = allCount / pageLetter;
+		if(allCount % pageLetter != 0) {
+			repeat += 1;
+		}
+		int end = num * pageLetter;
+		int start = end + 1 - pageLetter;
+
+		model.addAttribute("repeat", repeat);
+
+		model.addAttribute("memberList", memberMapper.searchId(userId, start, end));
 	}
 }

@@ -23,6 +23,7 @@ public interface memberService{
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);
 	public void detailInfoDel(String id);
+	public void searchId(Model model, String userId, int num);
 
 
 }

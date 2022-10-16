@@ -52,7 +52,8 @@
 		<!-- select buser_id AS id, buser_pwd AS pwd, buser_name AS name ,buser_phone 
 			AS phone,buser_email AS email from box_member where buser_id = #{id} -->
 		select B.* from(select rownum rn, A.* from
-		(select * from box_member order by buser_id desc)A)B where rn between #{s} and
+		(select * from box_member
+		order by buser_id desc)A)B where rn between #{s} and
 		#{e}
 
 	</select>
@@ -61,10 +62,25 @@
 		select count(*) from
 		box_member
 	</select>
-	
+
 	<!-- 회원정보 삭제하기 -->
 	<delete id="detailInfoDel">
 		delete from box_member where buser_id = #{id}
 	</delete>
-	
+
+	<!-- 검색 -->
+	<select id="searchId" resultMap="member">
+		select B.* from(select rownum
+		rn, A.* from
+		(select * from box_member where buser_id like
+		'%'||#{userId}||'%'
+		order by buser_id asc)A)B where rn between #{s} and
+		#{e}
+	</select>
+
+	<select id="selectSearchIdCount" resultType="Integer">
+		select count(*) from
+		box_member where buser_id like '%'||#{userId}||'%'
+	</select>
+
 </mapper>

@@ -49,11 +49,22 @@
 							</c:forEach>
 						</tbody>
 					</table>
-						<div align="center">
-							<c:forEach var="num" begin="1" end="${repeat }">
-								<a href="memberList?num=${num }">[${num }]</a>
-							</c:forEach>
-						</div>
+					<div align="center">
+						<c:forEach var="num" begin="1" end="${repeat }">
+							<a href="memberList?num=${num }">[${num }]</a>
+						</c:forEach>
+					</div>
+					
+					<!-- 검색 -->
+					<div class="search" align="center" style="margin-top: 40px;">
+						<form action="${contextPath }/member/memberList" method="get">
+							<input class="inputId" type="text" name="id" value="${param.id }"
+								placeholder="찾을 아이디 입력"> <input class="submitBtn"
+								type="submit" value="아이디 검색">
+						</form>
+					</div>
+
+
 				</div>
 			</div>
 		</section>
