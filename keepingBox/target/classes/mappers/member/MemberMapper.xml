@@ -4,7 +4,8 @@
 	<select id="userCheck" resultMap="member">
 		select * from box_member where buser_id=#{id}  <!-- 해당하는 아이디와 같은 결과값을 가져온다 -->
 	</select>
-	<resultMap id="member" type="com.care.root.member.dto.memberDTO">
+	<resultMap id="member"
+		type="com.care.root.member.dto.memberDTO">
 		<id property="id" column="buser_id" />
 		<result property="pwd" column="buser_pwd" />
 		<result property="name" column="buser_name" />
@@ -13,37 +14,43 @@
 		<result property="sessionId" column="session_id" />
 		<result property="limitTime" column="limit_time" />
 	</resultMap>
-	
+
 	<!-- 로그인유지 -->
 	<update id="keepLogin">  <!-- 사용자가 들어온 값이니 기존의 값에서 업데이트 하기 -->
 		update box_member set session_id=#{sessionId}, limit_time=#{limitDate}
 		where buser_id=#{id}
 	</update>
-	
-	<!-- 결과값 가져오기위해 select이용. resultMap은 리턴값 어떻게 저장할건지 처리-->
-	<select id="getUserSessionId"  resultMap="member">
-		select * from box_member where session_id = #{sessionId}
+
+	<!-- 결과값 가져오기위해 select이용. resultMap은 리턴값 어떻게 저장할건지 처리 -->
+	<select id="getUserSessionId" resultMap="member">
+		select * from box_member
+		where session_id = #{sessionId}
 	</select>
-	
+
 	<!-- 회원가입 -->
 	<insert id="register">
 		insert into
 		box_member(buser_id,buser_pwd,buser_name,buser_phone,buser_email)
 		values(#{id}, #{pwd}, #{name},#{phone},#{email})
 	</insert>
-	
+
 	<!-- 아이디 중복체크 -->
 	<select id="idCheck" parameterType="String" resultType="Integer">
-		select count(*) from box_member where buser_id = #{userId}
+		select
+		count(*) from box_member where buser_id = #{userId}
 	</select>
-	
 
-	<select id="info" resultMap="member" >
-		select * from box_member(buser_id,buser_name,buser_phone,buser_email)
-		values(#{id},#{name},#{phone},#{email})
-		where buser_id=#{id}
+	<!-- 회원개인정보 -->
+	<select id="info" resultMap="member">
+		select * from box_member where
+		buser_id = #{id}
 	</select>
-	 
-	
-	
+
+
+	<!-- 관리자 회원정보목록 -->
+	<select id="memberInfoList" resultMap="member">
+		select * from box_member
+	</select>
+
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.care.root.mybatis.member;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.care.root.member.dto.memberDTO;
@@ -13,4 +14,7 @@ public interface memberMapper {
 	
 	//회원정보조회
 	public memberDTO memberInfo(String id);
+	
+	//관리자 - 회원목록
+	public ArrayList<memberDTO> memberInfoList();
 }

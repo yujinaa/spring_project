@@ -18,7 +18,14 @@
 			</h1>
 			<nav>
 				<ul>
-					<li><a href="${contextPath }/booking/booking">예약하기</a></li>
+					<c:choose>
+						<c:when test="${successLoginUser =='admin01'}">
+							<li><a href="${contextPath }/member/memberList">회원목록</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${contextPath }/booking/booking">예약하기</a></li>
+						</c:otherwise>
+					</c:choose>
 					<li><a href="${contextPath }/board/review">이용후기</a></li>
 					<c:choose>
 						<c:when test="${successLoginUser !=null}">
@@ -28,8 +35,7 @@
 									<li><a href="${contextPath }/booking/bookingInfo">예약확인</a></li>
 									<li><a href="${contextPath }/member/myInfo">회원정보</a></li>
 									<li><a href="${contextPath }/member/logout">로그아웃</a></li>
-								</ul>
-							</li>
+								</ul></li>
 						</c:when>
 						<c:otherwise>
 							<li><a href="${contextPath }/member/login">로그인</a></li>

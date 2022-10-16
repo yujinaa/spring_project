@@ -81,4 +81,8 @@ public class memberServiceImpl implements memberService{
 		}
 		return  dto;
 	}
+	
+	public void memberInfoList(Model model) {
+		model.addAttribute("memberList", memberMapper.memberInfoList());
+	}
 	}
