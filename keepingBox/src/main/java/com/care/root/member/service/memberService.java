@@ -20,6 +20,6 @@ public interface memberService{
 	
 	
 	//관리자- 회원목록
-	public void memberInfoList(Model model);
+	public void memberInfoList(Model model,int num);
 
 }

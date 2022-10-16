@@ -32,7 +32,6 @@
 						<thead>
 							<tr>
 								<th scope="col" class="th-title">아이디</th>
-								<th scope="col" class="th-title">비밀번호</th>
 								<th scope="col" class="th-writer">이름</th>
 								<th scope="col" class="th-date">연락처</th>
 								<th scope="col" class="th-view">이메일</th>
@@ -43,7 +42,6 @@
 								<tr>
 									<th><a
 										href="${contextPath }/member/memberListDetail?id=${list.id}">${list.id }</a></th>
-									<td>${list.pwd }</td>
 									<td>${list.name }</td>
 									<td>${list.phone }</td>
 									<td>${list.email }</td>
@@ -51,6 +49,11 @@
 							</c:forEach>
 						</tbody>
 					</table>
+						<div align="center">
+							<c:forEach var="num" begin="1" end="${repeat }">
+								<a href="memberList?num=${num }">[${num }]</a>
+							</c:forEach>
+						</div>
 				</div>
 			</div>
 		</section>

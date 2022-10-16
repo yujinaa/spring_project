@@ -49,8 +49,17 @@
 
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">
-		select * from box_member
+		<!-- select buser_id AS id, buser_pwd AS pwd, buser_name AS name ,buser_phone 
+			AS phone,buser_email AS email from box_member where buser_id = #{id} -->
+		select B.* from(select rownum rn, A.* from
+		(select * from box_member order by buser_id desc)A)B where rn between #{s} and
+		#{e}
+
 	</select>
 
-
+	<select id="selectMemberCount" resultType="Integer">
+		select count(*) from
+		box_member
+	</select>
+	
 </mapper>

@@ -68,10 +68,10 @@ public class memberServiceImpl implements memberService{
 	}
 
 	//회원정보조회
-//	public memberDTO memberInfo(String id){
-//			return  memberMapper.memberInfo(id);
-//		}
-	
+	//	public memberDTO memberInfo(String id){
+	//			return  memberMapper.memberInfo(id);
+	//		}
+
 	public memberDTO memberInfo(String userId){
 		memberDTO dto = null;
 		try {
@@ -81,8 +81,19 @@ public class memberServiceImpl implements memberService{
 		}
 		return  dto;
 	}
-	
-	public void memberInfoList(Model model) {
-		model.addAttribute("memberList", memberMapper.memberInfoList());
+
+	public void memberInfoList(Model model,int num) {
+		int pageLetter = 10;
+		int allCount = memberMapper.selectMemberCount();
+		int repeat = allCount / pageLetter;
+		if(allCount % pageLetter != 0) {
+			repeat += 1;
+		}
+		int end = num * pageLetter;
+		int start = end + 1 -pageLetter;
+
+		model.addAttribute("repeat", repeat);
+
+		model.addAttribute("memberList", memberMapper.memberInfoList(start, end));
 	}
-	}
+}

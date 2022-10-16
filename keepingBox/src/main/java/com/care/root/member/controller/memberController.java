@@ -149,8 +149,9 @@ public class memberController implements memberLoginSession{
 	}
 	//관리자 - 회원목록
 	@GetMapping("memberList")
-	public String memberList(Model model,@RequestParam(value="id", required=false) String id, HttpSession session) {
-		ms.memberInfoList(model);
+	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 
+								HttpSession session,@RequestParam(required = false, defaultValue = "1" ) int num) {
+		ms.memberInfoList(model,num);
 		return "member/memberList";
 	}
 

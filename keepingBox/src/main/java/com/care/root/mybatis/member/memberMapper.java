@@ -3,6 +3,8 @@ package com.care.root.mybatis.member;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.care.root.member.dto.memberDTO;
 
 public interface memberMapper {
@@ -16,5 +18,7 @@ public interface memberMapper {
 	public memberDTO memberInfo(String id);
 	
 	//관리자 - 회원목록
-	public ArrayList<memberDTO> memberInfoList();
+	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
+	public int selectMemberCount();
+
 }
