@@ -154,6 +154,20 @@ public class memberController implements memberLoginSession{
 		ms.memberInfoList(model,num);
 		return "member/memberList";
 	}
+	//관리자 - 회원상세정보
+	@GetMapping("memberListDetail")
+	public String memberDetail(@RequestParam String id, Model model) {
+		ms.detailInfo(model, id);
+		return "member/memberListDetail";
+	}
+	
+	//관리자 -회원삭제
+	@GetMapping("detailInfoDel")
+	public String detailInfoDel(memberDTO dto, RedirectAttributes rs){
+		ms.detailInfoDel(dto.getId());
+		rs.addFlashAttribute("result","detailInfoDelsuccess");
+		return "redirect:memberList";
+	}
 
 
 	//		AccountContext ac = (AccountContext) authentication.getPrincipal();

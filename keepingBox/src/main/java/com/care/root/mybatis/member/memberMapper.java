@@ -20,5 +20,7 @@ public interface memberMapper {
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();
+	//관리자-회원삭제
+	public void detailInfoDel(String id);
 
 }

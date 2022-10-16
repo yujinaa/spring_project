@@ -82,6 +82,7 @@ public class memberServiceImpl implements memberService{
 		return  dto;
 	}
 
+	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
 		int pageLetter = 10;
 		int allCount = memberMapper.selectMemberCount();
@@ -95,5 +96,15 @@ public class memberServiceImpl implements memberService{
 		model.addAttribute("repeat", repeat);
 
 		model.addAttribute("memberList", memberMapper.memberInfoList(start, end));
+	}
+	
+	//회원한명에 대한 정보
+	public void detailInfo(Model model, String id) {
+		model.addAttribute("detailInfo", memberMapper.userCheck(id));
+	}
+	
+	//회원삭제
+	public void detailInfoDel(String id) {
+		memberMapper.detailInfoDel(id);
 	}
 }
