@@ -41,7 +41,7 @@
 					<button type="button" id="List-btn"
 						onClick="location.href='${contextPath}/board/notice'">목록</button>
 					<c:choose>
-						<c:when test="${successLoginUser == detailNotice.writer  }">
+						<c:when test="${successLoginUser == 'admin01'  }">
 							<button type="button" id="modify_btn"
 								onclick="location.href='${contextPath }/board/noticeModify?noticeNum=${detailNotice.noticeNum }'">수정</button>
 							<button type="button" id="delete_btn"
