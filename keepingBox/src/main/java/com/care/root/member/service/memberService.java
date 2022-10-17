@@ -16,8 +16,10 @@ public interface memberService{
 	//회원정보조회
 //	public int memberInfo(Model model, String sessionId);
 //	public memberDTO memberInfo(String id); 
-	public memberDTO memberInfo(String userId); 
+	public memberDTO memberInfo(String memberId); 
 	
+//	public void memberInfo(Model model, String id); 
+//	public memberDTO memberInfo( String id);
 	
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);

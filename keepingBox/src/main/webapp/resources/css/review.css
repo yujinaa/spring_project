@@ -143,12 +143,6 @@ table {
 .board-table a:hover {
     text-decoration: underline;
 }
-/* #period {
-    margin-top: 1rem;
-    outline: none;
-    font-size: 0.8rem;
-    padding: 0.3rem;
-} */
 #review-btn {
     float: right;
     width: 5rem;
@@ -164,7 +158,9 @@ table {
 .paging{
 	text-align: center;
 	padding-top: 15px;
-	
+}
+.paging:last-child{
+	margin-left: 1rem; 
 }
 /* footer 부분 */
 footer {

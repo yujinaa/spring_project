@@ -33,12 +33,6 @@ import com.care.root.member.service.memberService;
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
-	private final memberService members;
-
-	public memberController(memberService members){
-		this.members = members;
-	}
-
 
 	//로그인클릭
 	@GetMapping("login")
@@ -147,6 +141,20 @@ public class memberController implements memberLoginSession{
 		System.out.println("get dto :" +dto);
 		return "member/myInfo";
 	}
+	
+//		@GetMapping("myInfo")
+//		public String myInfo( @RequestParam(value="id", required=false) String id, Model model, HttpSession session){
+//			model.addAttribute("info", ms.memberInfo(id));
+//			return "member/myInfo";
+//		}
+	
+//	@GetMapping("myInfo")
+//	public String myInfo(@RequestParam(value="id", required=false)  String id, Model model, HttpSession session){
+////		  model.addAttribute("info", ms.memberInfo(id));
+//		  System.out.println("클릭한 아이디 : "+id);
+//		ms.memberInfo(model,id);
+//		return "member/myInfo";
+//	}
 	//관리자 - 회원목록
 	@GetMapping("memberList")
 	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 
@@ -185,10 +193,5 @@ public class memberController implements memberLoginSession{
 	//	}
 
 
-	//	@GetMapping("myInfo")
-	//	public String myInfo(String id, Model model, HttpSession session){
-	//		model.addAttribute("info", ms.memberInfo(id));
-	//		return "member/myInfo";
-	//	}
 
 }

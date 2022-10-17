@@ -51,11 +51,6 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<!-- <select name="period" id="period">
-                        <option value="">일주일</option>
-                        <option value="">한달</option>
-                        <option value="">전체</option>
-                    </select> -->
 					<a href="${contextPath }/board/reviewWrite"><button
 							type="submit" id="review-btn">리뷰쓰기</button></a>
 					<div class="paging">

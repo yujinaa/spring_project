@@ -68,20 +68,24 @@ public class memberServiceImpl implements memberService{
 	}
 
 	//회원정보조회
+//	public String memberInfo(Model model, String userId){
+//		model.addAttribute("info", memberMapper.memberInfo(id));
+//	}
 	//	public memberDTO memberInfo(String id){
-	//			return  memberMapper.memberInfo(id);
-	//		}
+	//		return memberMapper.memberInfo(id);
+	//	}
 
-	public memberDTO memberInfo(String userId){
-		memberDTO dto = null;
-		try {
-			dto = memberMapper.memberInfo(userId);
-		} catch (Exception e) {
-			e.printStackTrace();
+
+		public memberDTO memberInfo(String memberId){
+			memberDTO dto = null;
+			try {
+				dto = memberMapper.memberInfo(memberId);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return  dto;
 		}
-		return  dto;
-	}
-
+	
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
 		int pageLetter = 10;
