@@ -1,6 +1,5 @@
 package com.care.root.member.controller;
 
-import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.member.common.memberLoginSession;
@@ -129,18 +130,26 @@ public class memberController implements memberLoginSession{
 
 	//마이페이지- 회원정보확인
 	@GetMapping("myInfo")
-	public String myInfo(HttpSession session, Model model, String id) {
+	public String myInfo(HttpSession session, Model model, String id)throws Exception {
 		System.out.println("회원정보 페이지 연결");
 		//세션 객체 안에 있는 ID정보 저장
-		String memberId = (String) session.getAttribute("memberId");
-		System.out.println("getid :  "+memberId);
+//		String id = (String) session.getAttribute("id");
+//		System.out.println("getid :  "+id);
 		//서비스안의 회원정보보기 메서드 호출
-		memberDTO dto = ms.memberInfo(memberId);
-		//정보저장 후 페이지 이동
-		model.addAttribute("info", dto);
-		System.out.println("get dto :" +dto);
+//		memberDTO dto = ms.memberInfo(id);
+		 //정보저장 후 페이지 이동
+//		model.addAttribute("info", dto);
+		model.addAttribute("info", ms.memberInfo(id));
+//		System.out.println("get dto :" +dto);
 		return "member/myInfo";
 	}
+	
+//	@GetMapping("myInfo")
+//	public ModelAndView myInfo(@RequestParam (required=false) String id, HttpSession session){
+//		String memberId = (String) session.getAttribute("memberId");
+//		ModelAndView mav = new ModelAndView(memberId);
+//		memberDTO = 
+//	}
 	
 //		@GetMapping("myInfo")
 //		public String myInfo( @RequestParam(value="id", required=false) String id, Model model, HttpSession session){

@@ -42,9 +42,9 @@
 
 
 	<!-- 회원개인정보-->
-	<select id="info" resultMap="member">
+	<select id="memberInfo" resultMap="member">
 		select * from box_member where
-		buser_id = #{memberId}
+		buser_id = #{id}
 	</select>
 
 	<!-- <select id="info" resultMap="member"> select buser_id AS id, buser_pwd 

@@ -76,14 +76,14 @@ public class memberServiceImpl implements memberService{
 	//	}
 
 
-		public memberDTO memberInfo(String memberId){
-			memberDTO dto = null;
-			try {
-				dto = memberMapper.memberInfo(memberId);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return  dto;
+		public memberDTO memberInfo(String id){
+//			memberDTO dto = null;
+//			try {
+//				dto = memberMapper.memberInfo(id);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			return memberMapper.memberInfo(id);
 		}
 	
 	//회원목록,페이징

@@ -3,7 +3,10 @@ package com.care.root.mybatis.member;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.SqlSession;
 
 import com.care.root.member.dto.memberDTO;
 
@@ -13,11 +16,12 @@ public interface memberMapper {
 	public memberDTO getUserSessionId(String sessionId) ;
 	public int register(memberDTO dto);
 	public int idCheck(String id);
-	
+
 	//회원정보조회
-	public memberDTO memberInfo(String memberId);
-//	 public memberDTO memberInfo(String id);
-	
+	//	public memberDTO memberInfo(String memberId);
+	public memberDTO memberInfo(String id) ;
+
+
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();
