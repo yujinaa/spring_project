@@ -15,16 +15,9 @@
 	<input type="text" name="getTxt">
 	<input type="text" name="userId" id="userId"
 		value="${successLoginUser  }">
-<%=request.getAttribute("bookDateS")%>
-<%=request.getParameter("bookDateS") %>
-<%=request.getParameter("bookDateE") %>
-<% String name = request.getParameter("name"); %>
-<%=request.getParameter("size") %>
-<%=request.getParameter("city") %>
-<%=request.getParameter("price") %>
 
 
-<%=name %>
+
 <script type="text/javascript">
 //		  $("#start-day").load("booking.jsp bookDateS"); 
 </script>		

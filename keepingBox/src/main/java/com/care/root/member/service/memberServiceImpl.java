@@ -70,21 +70,39 @@ public class memberServiceImpl implements memberService{
 	//회원정보조회
 //	public String memberInfo(Model model, String userId){
 //		model.addAttribute("info", memberMapper.memberInfo(id));
+////	}
+//		public memberDTO memberInfo(String id){
+//			return memberMapper.memberInfo(id);
+//		}
+//	@Override
+//	public MemberVO readMember(String id) {
+//		System.out.println("S : readMember()실행");
+//		MemberVO vo = null;
+//		
+//		try {
+//			vo = mdao.readMember(id);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return vo;
 //	}
-	//	public memberDTO memberInfo(String id){
-	//		return memberMapper.memberInfo(id);
-	//	}
 
-
+	//사이트1
 		public memberDTO memberInfo(String id){
-//			memberDTO dto = null;
-//			try {
-//				dto = memberMapper.memberInfo(id);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-			return memberMapper.memberInfo(id);
+			memberDTO dto = null;
+			try {
+				dto = memberMapper.memberInfo(id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return dto;
 		}
+	
+	//유툽코드
+//	public memberDTO memberInfo(String id){
+//			return memberMapper.memberInfo(id);
+//	}
 	
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {

@@ -41,15 +41,14 @@
 	</select>
 
 
-	<!-- 회원개인정보-->
+	<!-- 회원개인정보 -->
 	<select id="memberInfo" resultMap="member">
 		select * from box_member where
 		buser_id = #{id}
 	</select>
-
-	<!-- <select id="info" resultMap="member"> select buser_id AS id, buser_pwd 
-		AS pwd, buser_name AS name, buser_email AS email, from box_member where buser_id 
-		= #{id} </select> -->
+	<!-- <select id="memberInfo" resultMap="member"> select buser_id AS id,buser_name 
+		AS name, buser_phone AS phone,buser_email AS email from box_member where 
+		buser_id = #{id} </select> -->
 
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">

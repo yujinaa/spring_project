@@ -129,41 +129,56 @@ public class memberController implements memberLoginSession{
 	}
 
 	//마이페이지- 회원정보확인
+
+	//사이트1
 	@GetMapping("myInfo")
-	public String myInfo(HttpSession session, Model model, String id)throws Exception {
+	public String myInfo(HttpSession session, Model model)throws Exception {
 		System.out.println("회원정보 페이지 연결");
 		//세션 객체 안에 있는 ID정보 저장
-//		String id = (String) session.getAttribute("id");
-//		System.out.println("getid :  "+id);
+		String id = (String) session.getAttribute(LOGIN);
+		System.out.println("getid :  "+id);
 		//서비스안의 회원정보보기 메서드 호출
-//		memberDTO dto = ms.memberInfo(id);
-		 //정보저장 후 페이지 이동
-//		model.addAttribute("info", dto);
+		//정보저장 후 페이지 이동
+		//		model.addAttribute("info", dto);
 		model.addAttribute("info", ms.memberInfo(id));
-//		System.out.println("get dto :" +dto);
+		//		System.out.println("get dto :" +dto);
 		return "member/myInfo";
 	}
+
+
+	//		@GetMapping("myInfo")
+	//		public String myInfo( Model model, HttpSession session){
+	//			model.addAttribute("info", ms.memberInfo(LOGIN));
+	//			System.out.println("id :" + LOGIN);
+	//			return "member/myInfo";
+	//		}
+
 	
-//	@GetMapping("myInfo")
-//	public ModelAndView myInfo(@RequestParam (required=false) String id, HttpSession session){
-//		String memberId = (String) session.getAttribute("memberId");
-//		ModelAndView mav = new ModelAndView(memberId);
-//		memberDTO = 
-//	}
-	
-//		@GetMapping("myInfo")
-//		public String myInfo( @RequestParam(value="id", required=false) String id, Model model, HttpSession session){
-//			model.addAttribute("info", ms.memberInfo(id));
-//			return "member/myInfo";
-//		}
-	
-//	@GetMapping("myInfo")
-//	public String myInfo(@RequestParam(value="id", required=false)  String id, Model model, HttpSession session){
-////		  model.addAttribute("info", ms.memberInfo(id));
-//		  System.out.println("클릭한 아이디 : "+id);
-//		ms.memberInfo(model,id);
-//		return "member/myInfo";
-//	}
+	//	@GetMapping("myInfo")
+	//	public String myInfo(String id, Model model, HttpSession session){
+	//		model.addAttribute("info", ms.memberInfo(id));
+	//		System.out.println("id :" + id);
+	//		return "member/myInfo";
+	//	}
+
+	//	@GetMapping("myInfo")
+	//	public String myInfo(@RequestParam(value="id", required=false)  String id, Model model, HttpSession session){
+	////		  model.addAttribute("info", ms.memberInfo(id));
+	//		  System.out.println("클릭한 아이디 : "+id);
+	//		ms.memberInfo(model,id);
+	//		return "member/myInfo";
+	//	}
+	//	@GetMapping("myInfo")
+	//	public String myInfo(HttpSession session, Model model) {
+	//		String id = (String) session.getAttribute(LOGIN);
+	//		System.out.println("getid :  "+id);
+	//		memberDTO dto = ms.memberInfo(id);
+	//		if (id != null) {
+	//		model.addAttribute("info",dto);
+	//		}
+	//		return "member/myInfo";
+	//      }
+
 	//관리자 - 회원목록
 	@GetMapping("memberList")
 	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 

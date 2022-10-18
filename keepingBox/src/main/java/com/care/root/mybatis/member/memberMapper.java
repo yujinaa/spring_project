@@ -18,10 +18,11 @@ public interface memberMapper {
 	public int idCheck(String id);
 
 	//회원정보조회
-	//	public memberDTO memberInfo(String memberId);
-	public memberDTO memberInfo(String id) ;
+	public memberDTO memberInfo(String memberId);
 
-
+	//	public memberDTO memberInfo(String id) ;
+	//	public String memberInfo(String id) ;
+	
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();
