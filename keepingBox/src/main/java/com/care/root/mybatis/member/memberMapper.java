@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
 
 import com.care.root.member.dto.memberDTO;
 
@@ -19,10 +20,11 @@ public interface memberMapper {
 
 	//회원정보조회
 	public memberDTO memberInfo(String memberId);
-
 	//	public memberDTO memberInfo(String id) ;
 	//	public String memberInfo(String id) ;
 	
+	//회원정보수정
+	public void modifySave(memberDTO dto);
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

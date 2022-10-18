@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.common.memberLoginSession;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
@@ -129,8 +130,6 @@ public class memberController implements memberLoginSession{
 	}
 
 	//마이페이지- 회원정보확인
-
-	//사이트1
 	@GetMapping("myInfo")
 	public String myInfo(HttpSession session, Model model)throws Exception {
 		System.out.println("회원정보 페이지 연결");
@@ -145,7 +144,6 @@ public class memberController implements memberLoginSession{
 		return "member/myInfo";
 	}
 
-
 	//		@GetMapping("myInfo")
 	//		public String myInfo( Model model, HttpSession session){
 	//			model.addAttribute("info", ms.memberInfo(LOGIN));
@@ -153,7 +151,7 @@ public class memberController implements memberLoginSession{
 	//			return "member/myInfo";
 	//		}
 
-	
+
 	//	@GetMapping("myInfo")
 	//	public String myInfo(String id, Model model, HttpSession session){
 	//		model.addAttribute("info", ms.memberInfo(id));
@@ -178,6 +176,19 @@ public class memberController implements memberLoginSession{
 	//		}
 	//		return "member/myInfo";
 	//      }
+	//회원정보수정페이지 연결
+	@GetMapping("myInfoModify")
+	public String myInfoModify(HttpSession session, Model model) {
+		model.addAttribute("info", ms.memberInfo((String)session.getAttribute(LOGIN))); //마이페이지와 같은 코드이고 한줄로 줄임
+		return "member/myInfoModify";
+	}
+	//수정하기 저장
+	@PostMapping("modifySave")
+	public String modify(memberDTO dto){
+		ms.modifySave(dto);
+		return "redirect:/index";
+	}
+
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")

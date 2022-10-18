@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import org.springframework.ui.Model;
 
+import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.dto.memberDTO;
 
 public interface memberService{
@@ -21,6 +22,10 @@ public interface memberService{
 //	public void memberInfo(Model model, String id); 
 //	public String memberInfo( String id);
 	
+	//회원정보수정
+	//회원정보가져오기
+	public void updateMember(String id, Model model);
+	public void modifySave(memberDTO dto);
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);

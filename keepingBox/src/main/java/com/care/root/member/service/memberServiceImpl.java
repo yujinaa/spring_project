@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.member.memberMapper;
 
@@ -68,41 +69,53 @@ public class memberServiceImpl implements memberService{
 	}
 
 	//회원정보조회
-//	public String memberInfo(Model model, String userId){
-//		model.addAttribute("info", memberMapper.memberInfo(id));
-////	}
-//		public memberDTO memberInfo(String id){
-//			return memberMapper.memberInfo(id);
-//		}
-//	@Override
-//	public MemberVO readMember(String id) {
-//		System.out.println("S : readMember()실행");
-//		MemberVO vo = null;
-//		
-//		try {
-//			vo = mdao.readMember(id);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return vo;
-//	}
-
-	//사이트1
-		public memberDTO memberInfo(String id){
-			memberDTO dto = null;
-			try {
-				dto = memberMapper.memberInfo(id);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return dto;
-		}
+	//	public String memberInfo(Model model, String userId){
+	//		model.addAttribute("info", memberMapper.memberInfo(id));
+	////	}
+	//		public memberDTO memberInfo(String id){
+	//			return memberMapper.memberInfo(id);
+	//		}
+	//	@Override
+	//	public MemberVO readMember(String id) {
+	//		System.out.println("S : readMember()실행");
+	//		MemberVO vo = null;
+	//		
+	//		try {
+	//			vo = mdao.readMember(id);
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//		}
+	//		
+	//		return vo;
+	//	}
 	
-	//유툽코드
-//	public memberDTO memberInfo(String id){
-//			return memberMapper.memberInfo(id);
-//	}
+	//회원정보조회
+	public memberDTO memberInfo(String id){
+		memberDTO dto = null;
+		try {
+			dto = memberMapper.memberInfo(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
+	//	public memberDTO memberInfo(String id){
+	//			return memberMapper.memberInfo(id);
+	//	}
+	
+	//회원정보수정
+	public void updateMember(String id, Model model) {
+		model.addAttribute("modifyInfo", memberMapper.memberInfo(id) );
+	}
+	//회원수정저장
+	public void modifySave(memberDTO dto) {
+		try {
+			memberMapper.modifySave(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
