@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.care.root.booking.dto.bookingDTO;
+import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.booking.bookingMapper;
 
 @Service
@@ -17,7 +18,14 @@ public class bookingServiceImpl implements bookingService{
 			e.printStackTrace();
 		}
 	}
-	public void info(int bookingId,Model model) {
-		model.addAttribute("userBookingCheck", bMapper.info(bookingId) );
+	
+	public bookingDTO bookingInfo(String userId, int bookingId){
+			bookingDTO dto = null;
+			try {
+				dto = bMapper.bookingInfo(userId,bookingId);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return dto;
+		}
 	}
-}

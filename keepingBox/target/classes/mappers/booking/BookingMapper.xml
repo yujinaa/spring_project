@@ -25,9 +25,10 @@
 		#{name},#{city},#{size},#{price})
 	</insert>
 	
-	<!-- 예약정보확인 -->
-	<select id="info" resultType="com.care.root.booking.dto.bookingDTO" >
-		select * from box_booking where booking_id = #{bookingId} 
+	
+	<select id="bookingInfo" resultMap="booking">
+		select * from box_booking where
+		buser_id=#{userId} 
 	</select>
 
 </mapper>

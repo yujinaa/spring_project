@@ -18,20 +18,6 @@
 	</div>
 	<c:import url="../include/header.jsp" />
 	<main id="container">
-		<div>
-			<table>
-				<tr>
-
-					<td>${userBookingCheck.bookingId }</td>
-					<td>${userBookingCheck.name }</td>
-					<td>${userBookingCheck.bookDateS}</td>
-					<td>${userBookingCheck.bookDateE}</td>
-					<td>${userBookingCheck.city }</td>
-					<td>${userBookingCheck.size }</td>
-					<td>${userBookingCheck.price }</td>
-				</tr>
-			</table>
-		</div>
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
 			<div>
@@ -45,39 +31,38 @@
 			 -->
 			<div>
 				<input type="text" value="${successLoginUser }" readonly="readonly">
-				<input type="text" name="getTxt" value="${name}">
 			</div>
 			<div>
 				<table class="booking-check">
 					<tr>
 						<th scope="row">예약자</th>
-						<td>${userBookingCheck.name }</td>
+						<td>${booking.name }</td>
 					</tr>
 					<tr>
 						<th scope="row">예약일자</th>
-						<td>${userBookingCheck.bookDateS }</td>
+						<td>${booking.bookDateS }</td>
 					</tr>
 					<tr>
 						<th scope="row">예약일자</th>
-						<td>${userBookingCheck.bookDateE }</td>
+						<td>${booking.bookDateE }</td>
 					</tr>
 					<tr>
 						<th scope="row">지점명</th>
-						<td>${userBookingCheck.city }</td>
+						<td>${booking.city }</td>
 					</tr>
 					<tr>
 						<th scope="row">사이즈</th>
-						<td>${userBookingCheck.size }</td>
+						<td>${booking.size }</td>
 					</tr>
 					<tr>
 						<th scope="row">이용요금</th>
-						<td>${userBookingCheck.price }</td>
+						<td>${booking.price }</td>
 					</tr>
 				</table>
 				<c:choose>
-					<c:when test="${successLoginUser == userBookingCheck.userId  }">
+					<c:when test="${successLoginUser == booking.userId  }">
 						<button type="button" id="delete-btn"
-							onclick="location.href='${contextPath }/booking/delete?bookingId=${userBookingCheck.bookingId }'">취소하기</button>
+							onclick="location.href='${contextPath }/booking/delete?bookingId=${booking.bookingId }'">취소하기</button>
 					</c:when>
 					<c:otherwise>
 						<button type="button" id="List-btn"

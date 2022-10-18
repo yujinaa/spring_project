@@ -7,4 +7,6 @@ public interface bookingMapper {
 	public void bookingDo(bookingDTO bookingDto );
 	public bookingDTO info(int bookingId);
 
+	public bookingDTO bookingInfo(String userId,int bookingId);
+
 }

@@ -18,21 +18,18 @@
 	<c:import url="../include/header.jsp" />
 	<main id="container">
 		<div class="booking-box">
-			<h2>예약정보확인</h2>
+			<h2>예약확인</h2>
 			<table>
-			
-			<c:forEach items="${bookCheck}" var="userBookingCheck">
+
 				<tr class="odd gradeX">
-				
-					<td>${userBookingCheck.bookingId }</td>
-					<td>
-							${userBookingCheck.name }</td>
-					<td>${userBookingCheck.bookDateS}</td>
-					<td>${userBookingCheck.city }</td>
-					<td>${userBookingCheck.size }</td>
-					<td>${userBookingCheck.price }</td>
+<c:set var="str" value="${param.userId }"/>
+					<td>${booking.bookingId }ddd</td>
+					<td>${booking.name }</td>
+					<td>${booking.bookDateS}</td>
+					<td>${booking.city }</td>
+					<td>${booking.size }</td>
+					<td>${booking.price }</td>
 				</tr>
-			</c:forEach>
 			</table>
 			<!-- 
 			
