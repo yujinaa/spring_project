@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/myInfoModify.css">
 </head>
+  <c:import url="../include/header.jsp"/>
 <main id="container">
 	<div class="modify">
 		<h2>회원정보수정</h2>
@@ -19,16 +20,22 @@
 				<label for="id">아이디</label> <input type="text" name="id" id="id"
 					value="${info.id }" readonly> <label for="pwd">비밀번호</label>
 				<input type="password" name="pwd" id="pwd" class="user-margin"
-					placeholder="4~12자의 영문 대소문자와 숫자만 입력"><label
-					for="name">이름</label> <input type="text" name="name" id="name">
-				<label for="phone">휴대폰 번호 (-없이)</label> <input type="tel"
-					name="phone" id="phone"> <label for="email">이메일</label> <input
-					type="email" name="email" id="email">
+					placeholder="4~12자의 영문 대소문자와 숫자만 입력"><label for="name">이름</label>
+				<input type="text" name="name" id="name"> <label for="phone">휴대폰
+					번호 (-없이)</label> <input type="tel" name="phone" id="phone"> <label
+					for="email">이메일</label> <input type="email" name="email" id="email">
 				<button type="submit" onclick="save();" id="save-btn">변경 내용
 					저장</button>
 			</form>
 		</div>
 	</div>
 </main>
+  <c:import url="../include/footer.jsp"/>
+<script type="text/javascript">
+		$("#save-btn").on("click", function(e) {
+			alert("정보가 수정되었습니다.");
+			}
+		});
+	</script>
 </body>
 </html>
