@@ -43,9 +43,9 @@
 						id="book-name" required="required"> <label
 						for="stringcity">지점명</label> <select name="city" id="stringcity">
 						<option value="">선택하세요</option>
-						<option value="seoul">서울 광화문점</option>
-						<option value="bundang">분당 판교점</option>
-						<option value="bucheon">부천 소사점</option>
+						<option value="서울">서울 광화문점</option>
+						<option value="분당">분당 판교점</option>
+						<option value="부천">부천 소사점</option>
 					</select> <label for="stringsize">사이즈</label> <select name="size"
 						id="stringsize" onchange="checkPrice()">
 						<option value="0">선택하세요</option>

@@ -1,5 +1,8 @@
 package com.care.root.booking.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,7 @@ public class bookingController implements memberLoginSession{
 		//bookingDto.setUserId(mDto.getId());
 		//		String userId = (String)session.getAttribute(LOGIN);
 		//		bookingDto.setUserId(userId);;
+		
 		bs.bookingDo(bookingDto);
 		return "redirect:bookingInfo";
 	}
