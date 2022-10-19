@@ -36,38 +36,39 @@
   								예약 정보가 없습니다.
   							  							</c:when>
 						<c:otherwise>
-								<tr>
-									<th scope="row">예약자</th>
-									<td>${booking.name }</td>
-								</tr>
-								<tr>
-									<th scope="row">예약일자</th>
-									<td>${booking.bookDateS }-${booking.bookDateE }</td>
-								</tr>
-								<tr>
-									<th scope="row">예약일자</th>
-									<td>${booking.bookDateE }</td>
-								</tr>
-								<tr>
-									<th scope="row">지점명</th>
-									<td>${booking.city }</td>
-								</tr>
-								<tr>
-									<th scope="row">사이즈</th>
-									<td>${booking.size }</td>
-								</tr>
-								<tr>
-									<th scope="row">이용요금</th>
-									<td>${booking.price }</td>
-								</tr>
+							<tr>
+								<th scope="row">예약자</th>
+								<td>${booking.name }</td>
+							</tr>
+							<tr>
+								<th scope="row">예약시작날짜</th>
+								<td>${booking.bookDateS }</td>
+							</tr>
+							<tr>
+								<th scope="row">예약종료일자</th>
+								<td>${booking.bookDateE }</td>
+							</tr>
+							<tr>
+								<th scope="row">지점명</th>
+								<td>${booking.city }</td>
+							</tr>
+							<tr>
+								<th scope="row">사이즈</th>
+								<td>${booking.size }</td>
+							</tr>
+							<tr>
+								<th scope="row">이용요금</th>
+								<td>${booking.price }</td>
+							</tr>
 						</c:otherwise>
 					</c:choose>
 				</table>
-				<button type="button" id="delete-btn"
-					onclick="location.href='${contextPath }/booking/bookDelete?bookingId=${booking.bookingId }'">취소하기</button>
-				<button type="button" id="List-btn"
-					onClick="location.href='${contextPath}/index'">메인으로</button>
-
+				<c:if test="${booking.bookingId !=null }">
+					<button type="button" id="delete-btn"
+						onclick="location.href='${contextPath }/booking/bookDelete?bookingId=${booking.bookingId }'">취소하기</button>
+				</c:if>
+					<button type="button" id="List-btn"
+						onClick="location.href='${contextPath}/index'">메인으로</button>
 			</div>
 		</div>
 	</main>

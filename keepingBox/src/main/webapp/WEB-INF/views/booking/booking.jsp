@@ -26,7 +26,6 @@
 					<!-- 나중에 type:hidden으로 바꾸기 -->
 					<input type="hidden" name="userId" id="userId"
 						value="${successLoginUser  }">
-
 					<div id="date-group">
 						<div id="start-date">
 							<label for="start-day">시작일자</label> <input type="date"
@@ -80,6 +79,7 @@
 	}
 </script>
 	 -->
+	 
 	<script type="text/javascript">
 		$("#next-btn").on("click", function(e) {
 			if (confirm("예약하시겠습니까?")) {
