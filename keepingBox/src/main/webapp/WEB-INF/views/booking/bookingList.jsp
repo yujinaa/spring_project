@@ -11,6 +11,7 @@
 </head>
 <body>
 	<table border="1" class="table" style="width: 1100px;">
+	
 		<caption>
 			<font size="5">예약목록</font>
 		</caption>
@@ -38,7 +39,7 @@
 						<td>${booking.id }</td>
 						<td>${booking.email }</td>
 						<th style="width: 80px;"><input type="button" value="예약취소"
-							name="cancel" onclick="bookingCancel('${booking.lockerId}')"></th>
+							name="cancel" onclick="bookingCancel()"></th>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

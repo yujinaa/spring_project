@@ -18,8 +18,6 @@ public String getCity() {
 public void setCity(String city) {
 	this.city = city;
 }
-
-
 public int getBookingId() {
 	return bookingId;
 }

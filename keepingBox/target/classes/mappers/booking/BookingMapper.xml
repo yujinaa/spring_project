@@ -16,7 +16,7 @@
 
 
 	<!-- 예약하기 -->
-	<insert id="bookingDo" >
+	<insert id="bookingDo">
 		insert into box_booking(
 		booking_id,buser_id,booking_date_start, booking_date_end,
 		booking_name,
@@ -24,11 +24,23 @@
 		values(box_booking_seq.nextval,#{userId},#{bookDateS}, #{bookDateE},
 		#{name},#{city},#{size},#{price})
 	</insert>
-	
-	
-	<select id="bookingInfo" resultMap="booking">
-		select * from box_booking where
-		buser_id=#{userId} 
+
+	<select id="bookChkList" resultMap="booking">
+		select * from box_booking
+		where
+		booking_id=#{bookingId}
 	</select>
+
+	<!-- 예약정보 -->
+	<select id="bookingInfo" resultMap="booking">
+		select * from box_booking
+		where
+		buser_id=#{userId}
+	</select>
+
+	<!-- 삭제하기 -->
+	<delete id="bookDelete">
+		delete from box_booking where booking_id= #{bookingId}
+	</delete>
 
 </mapper>

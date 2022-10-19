@@ -19,56 +19,24 @@
 	<main id="container">
 		<div class="booking-box">
 			<h2>예약확인</h2>
+			<input type="hidden" value="${bookList.bookingId}">
 			<table>
-
-				<tr class="odd gradeX">
-<c:set var="str" value="${param.userId }"/>
-					<td>${booking.bookingId }ddd</td>
-					<td>${booking.name }</td>
-					<td>${booking.bookDateS}</td>
-					<td>${booking.city }</td>
-					<td>${booking.size }</td>
-					<td>${booking.price }</td>
-				</tr>
+				<c:if test="${bookList.size() == 0 }">
+					<tr>
+						<td>저장 데이터 없음</td>
+					</tr>
+				</c:if>
+					<tr class="odd gradeX">
+						<td>${dto.userId }ddd</td>
+						<td>${dto.name }</td>
+						<td>${dto.bookDateS}</td>
+						<td>${dto.city }</td>
+						<td>${dto.size }</td>
+						<td>${dto.price }</td>
+					</tr>
 			</table>
-			<!-- 
-			
-			<div>
-				<input type="text" value="${userBookingCheck.bookingId  }"
-					readonly="readonly">
-			</div>
-			<div>
-				<input type="text" value="${ successLoginUser }" readonly="readonly">
-			</div>
-
-			<div>
-				<table class="booking-check">
-					<tr>
-						<th scope="row">예약자</th>
-						<td>${userBookingCheck.name }</td>
-					</tr>
-					<tr>
-						<th scope="row">예약일자</th>
-						<td>${userBookingCheck.bookDateS }</td>
-					</tr>
-					<tr>
-						<th scope="row">지점명</th>
-						<td>${userBookingCheck.city }</td>
-					</tr>
-					<tr>
-						<th scope="row">사이즈</th>
-						<td>${userBookingCheck.size }</td>
-					</tr>
-					<tr>
-						<th scope="row">이용요금</th>
-						<td>${userBookingCheck.price }</td>
-					</tr>
-				</table>
-
-				<button type="button" id="booking-btn"
-					onClick="location.href='${contextPath}/index'">확인</button>
-			</div>
-			 -->
+			<table>
+			</table>
 		</div>
 	</main>
 </body>

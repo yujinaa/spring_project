@@ -21,7 +21,7 @@
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
 			<div>
-				<input type="hidden" value="${userBookingCheck.bookingId  }"
+				<input type="hidden" value="${booking.bookingId  }"
 					readonly="readonly">
 			</div>
 			<!-- 
@@ -30,49 +30,58 @@
 			
 			 -->
 			<div>
-				<input type="text" value="${successLoginUser }" readonly="readonly">
-			</div>
-			<div>
 				<table class="booking-check">
-					<tr>
-						<th scope="row">예약자</th>
-						<td>${booking.name }</td>
-					</tr>
-					<tr>
-						<th scope="row">예약일자</th>
-						<td>${booking.bookDateS }</td>
-					</tr>
-					<tr>
-						<th scope="row">예약일자</th>
-						<td>${booking.bookDateE }</td>
-					</tr>
-					<tr>
-						<th scope="row">지점명</th>
-						<td>${booking.city }</td>
-					</tr>
-					<tr>
-						<th scope="row">사이즈</th>
-						<td>${booking.size }</td>
-					</tr>
-					<tr>
-						<th scope="row">이용요금</th>
-						<td>${booking.price }</td>
-					</tr>
+					<c:choose>
+						<c:when test="${empty booking }">
+  								예약 정보가 없습니다.
+  							  							</c:when>
+						<c:otherwise>
+								<tr>
+									<th scope="row">예약자</th>
+									<td>${booking.name }</td>
+								</tr>
+								<tr>
+									<th scope="row">예약일자</th>
+									<td>${booking.bookDateS }-${booking.bookDateE }</td>
+								</tr>
+								<tr>
+									<th scope="row">예약일자</th>
+									<td>${booking.bookDateE }</td>
+								</tr>
+								<tr>
+									<th scope="row">지점명</th>
+									<td>${booking.city }</td>
+								</tr>
+								<tr>
+									<th scope="row">사이즈</th>
+									<td>${booking.size }</td>
+								</tr>
+								<tr>
+									<th scope="row">이용요금</th>
+									<td>${booking.price }</td>
+								</tr>
+						</c:otherwise>
+					</c:choose>
 				</table>
-				<c:choose>
-					<c:when test="${successLoginUser == booking.userId  }">
-						<button type="button" id="delete-btn"
-							onclick="location.href='${contextPath }/booking/delete?bookingId=${booking.bookingId }'">취소하기</button>
-					</c:when>
-					<c:otherwise>
-						<button type="button" id="List-btn"
-							onClick="location.href='${contextPath}/index'">메인으로</button>
-					</c:otherwise>
+				<button type="button" id="delete-btn"
+					onclick="location.href='${contextPath }/booking/bookDelete?bookingId=${booking.bookingId }'">취소하기</button>
+				<button type="button" id="List-btn"
+					onClick="location.href='${contextPath}/index'">메인으로</button>
 
-				</c:choose>
 			</div>
 		</div>
 	</main>
+	<script type="text/javascript">
+		$("#delete-btn").on("click", function(e) {
+			if (confirm("예약을 취소하시겠습니까?")) {
+				alert('예약이 취소되었습니다.');
+				return true;
+			} else {
+				alert('예약을 취소할 수 없습니다.');
+				return false;
+			}
+		});
+	</script>
 </body>
 <c:import url="../include/footer.jsp" />
 </html>

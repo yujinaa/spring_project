@@ -18,14 +18,23 @@ public class bookingServiceImpl implements bookingService{
 			e.printStackTrace();
 		}
 	}
-	
-	public bookingDTO bookingInfo(String userId, int bookingId){
-			bookingDTO dto = null;
-			try {
-				dto = bMapper.bookingInfo(userId,bookingId);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return dto;
+//	public void bookChkList(int bookingId, Model model){
+//		model.addAttribute("bookList",bMapper.bookChkList(bookingId));
+//	}
+
+	//예약정보
+	public bookingDTO bookingInfo(String userId){
+		bookingDTO dto = null;
+		try {
+			dto = bMapper.bookingInfo(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return dto;
 	}
+
+	//삭제
+	public int bookDelete(int bookingId) {
+		return bMapper.bookDelete(bookingId);
+	}
+}
