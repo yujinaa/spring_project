@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,7 +18,7 @@
 		</div>
 		<div class="form-group">
 			<input type="email" class="form-control form-control-user"
-				id="me_tel" name="email" placeholder="Enter phon email...">
+				id="me_tel" name="email" placeholder="Enter email...">
 		</div>
 		<button type="submit" onclick="fnSubmit(); return false;"
 			class="btn btn-primary btn-user btn-block">아이디 찾기</button>

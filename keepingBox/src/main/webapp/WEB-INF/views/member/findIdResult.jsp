@@ -11,20 +11,20 @@
 </head>
 <body>
 	<div class="text-center">
-		<h1 class="h4 text-gray-900 mb-2">Please check your ID</h1>
+		<h1 class="h4 text-gray-900 mb-2">회원님의 아이디를 확인해 주세요</h1>
 		<br> <br>
 		<c:choose>
 			<c:when test="${empty findId}">
 				<p class="mb-4">조회결과가 없습니다.</p>
 			</c:when>
 			<c:otherwise>
-				<p class="mb-4">${findId.searchId}</p>
+				<p class="mb-4">${findId.id}</p>
 			</c:otherwise>
 		</c:choose>
 	</div>
 	<hr>
 	<div class="text-center">
-		<a class="small" href="${contextPath }/member/findPwd">Forgot Your ID?</a>
+		<a class="small" href="${contextPath }/member/findPwd">비밀번호 찾기</a>
 	</div>
 </body>
 </html>

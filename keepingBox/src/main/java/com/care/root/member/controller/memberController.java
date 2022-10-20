@@ -195,25 +195,25 @@ public class memberController implements memberLoginSession{
 	//아이디찾기
 	@GetMapping("findId")
 	public String findId() {
+		System.out.println("아이디찾기페이지 연결");
 		return "member/findId";
 	}
 	
 	@PostMapping("findIdCheck")
-	public String searchId(HttpServletRequest request, Model model,memberDTO findDto,
+	public String searchId(HttpServletRequest request, Model model,memberDTO dto,
 			@RequestParam String name, 
 			@RequestParam String email) {
 		try {
-			findDto.setName(name);
-			findDto.setEmail(email);
-			memberDTO searchId = ms.findMemberId(findDto);
+			dto.setName(name);
+			dto.setEmail(email);
+			memberDTO id = ms.findMemberId(dto);
 
-			model.addAttribute("findId", searchId);
+			model.addAttribute("findId", id);
 
 		} catch (Exception e) {
-			System.out.println(e.toString());
 			model.addAttribute("msg", "오류가 발생되었습니다.");
 		}
-		return "member/findId";
+		return "member/findIdResult";
 	}
 	@GetMapping("findIdResult")
 	public String findIdResult() {

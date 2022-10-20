@@ -26,7 +26,8 @@ public interface memberService{
 	//회원정보가져오기
 	public void updateMember(String id, Model model);
 	public int modifySave(memberDTO dto);
-	public memberDTO findMemberId(memberDTO findDto);
+	//아이디찾기
+	public memberDTO findMemberId(memberDTO dto);
 	
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
