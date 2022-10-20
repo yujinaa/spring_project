@@ -24,7 +24,7 @@ public interface memberMapper {
 	//	public String memberInfo(String id) ;
 	
 	//회원정보수정
-	public void modifySave(memberDTO dto);
+	public int modifySave(memberDTO dto);
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

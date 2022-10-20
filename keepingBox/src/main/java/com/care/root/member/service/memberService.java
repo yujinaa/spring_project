@@ -25,7 +25,7 @@ public interface memberService{
 	//회원정보수정
 	//회원정보가져오기
 	public void updateMember(String id, Model model);
-	public void modifySave(memberDTO dto);
+	public int modifySave(memberDTO dto);
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);

@@ -82,6 +82,8 @@
 				return false;
 			}
 		});
+		
+		
 	</script>
 </body>
 <c:import url="../include/footer.jsp" />

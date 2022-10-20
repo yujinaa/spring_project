@@ -185,10 +185,12 @@ public class memberController implements memberLoginSession{
 	//수정하기 저장
 	@PostMapping("modifySave")
 	public String modify(memberDTO dto){
-		ms.modifySave(dto);
-		return "redirect:/index";
+		int result = ms.modifySave(dto);
+		if(result==1) {
+			return "redirect:myInfo";
+		}
+		return "redirect:myInfoModify";
 	}
-
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")

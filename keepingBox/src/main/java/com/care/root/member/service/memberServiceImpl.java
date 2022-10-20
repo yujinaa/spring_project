@@ -109,14 +109,29 @@ public class memberServiceImpl implements memberService{
 		model.addAttribute("modifyInfo", memberMapper.memberInfo(id) );
 	}
 	//회원수정저장
-	public void modifySave(memberDTO dto) {
-		try {
-			memberMapper.modifySave(dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public int modifySave(memberDTO dto) {
+		
+//		try {
+//			memberMapper.modifySave(dto);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
+	System.out.println("비번 변경 전 : " + dto.getPwd());
+	String modifyPwd = pwEncoder.encode(dto.getPwd());
+	System.out.println("비번 변경 후 : " + modifyPwd);
+	dto.setPwd(modifyPwd); 
+
+	int result = 0;          
+	try { //동일 아이디로 가입시 오류나는 것을 예외로 처리
+		result = memberMapper.modifySave(dto);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return result;
+}
+
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
 		int pageLetter = 10;

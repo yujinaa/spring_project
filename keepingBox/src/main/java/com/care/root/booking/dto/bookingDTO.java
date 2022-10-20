@@ -1,6 +1,5 @@
 package com.care.root.booking.dto;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class bookingDTO {
@@ -36,16 +35,14 @@ public void setUserId(String userId) {
 public String getBookDateS() {
 	return bookDateS;
 }
-public void setBookDateS(java.sql.Timestamp bookDateS) {//sql date는 시간이 안나옴
-	SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd");
-	this.bookDateS = fo.format(bookDateS);
+public void setBookDateS(String bookDateS) {
+	this.bookDateS = bookDateS;
 }
 public String getBookDateE() {
 	return bookDateE;
 }
-public void setBookDateE(java.sql.Timestamp bookDateE) {//sql date는 시간이 안나옴
-	SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd");
-	this.bookDateE = fo.format(bookDateE);
+public void setBookDateE(String bookDateE) {
+	this.bookDateE = bookDateE;
 }
 public String getName() {
 	return name;
