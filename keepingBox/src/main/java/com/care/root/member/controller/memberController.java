@@ -31,6 +31,8 @@ import com.care.root.member.common.memberLoginSession;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
 
+import oracle.jdbc.proxy.annotation.Post;
+
 @Controller
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
@@ -223,6 +225,10 @@ public class memberController implements memberLoginSession{
 	@GetMapping("findPwd")
 	public String searchPwd(HttpServletRequest request, Model model,memberDTO findDto) {
 		return "member/findPwd";
+	}
+	@PostMapping("findPwdCheck")
+	public String findPwd() {
+		return "member/findPwdCheck";
 	}
 
 

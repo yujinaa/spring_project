@@ -11,14 +11,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form id="createForm" action="findIdCheck" method="post">
+<h1>아이디찾기</h1>
+	<form id="createForm" action="${contextPath }/member/findIdCheck" method="post">
 		<div class="form-group">
 			<input type="text" class="form-control form-control-user"
-				id="me_name" name="name" placeholder="Enter name...">
+				id="me_name" name="name" placeholder="이름">
 		</div>
 		<div class="form-group">
 			<input type="email" class="form-control form-control-user"
-				id="me_tel" name="email" placeholder="Enter email...">
+				id="me_tel" name="email" placeholder="이메일">
 		</div>
 		<button type="submit" onclick="fnSubmit(); return false;"
 			class="btn btn-primary btn-user btn-block">아이디 찾기</button>
