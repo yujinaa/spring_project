@@ -192,6 +192,40 @@ public class memberController implements memberLoginSession{
 		return "redirect:myInfoModify";
 	}
 
+	//아이디찾기
+	@GetMapping("findId")
+	public String findId() {
+		return "member/findId";
+	}
+	
+	@PostMapping("findIdCheck")
+	public String searchId(HttpServletRequest request, Model model,memberDTO findDto,
+			@RequestParam String name, 
+			@RequestParam String email) {
+		try {
+			findDto.setName(name);
+			findDto.setEmail(email);
+			memberDTO searchId = ms.findMemberId(findDto);
+
+			model.addAttribute("findId", searchId);
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			model.addAttribute("msg", "오류가 발생되었습니다.");
+		}
+		return "member/findId";
+	}
+	@GetMapping("findIdResult")
+	public String findIdResult() {
+		return "member/findIdResult";
+	}
+
+	@GetMapping("findPwd")
+	public String searchPwd(HttpServletRequest request, Model model,memberDTO findDto) {
+		return "member/findPwd";
+	}
+
+
 	//관리자 - 회원목록
 	@GetMapping("memberList")
 	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 

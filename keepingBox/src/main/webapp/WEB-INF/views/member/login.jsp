@@ -34,8 +34,8 @@
                     <div class="save-find">
                         <input type="checkbox" name="autoLogin" class="check-box">아이디 저장
                         <ul class="find">
-                            <li><a href="#">아이디찾기</a></li>
-                            <li><a href="#">비밀번호찾기</a></li>
+                            <li><a href="${contextPath }/member/findId">아이디찾기</a></li>
+                            <li><a href="${contextPath }/member/findPwd">비밀번호찾기</a></li>
                         </ul>
                     </div>
 

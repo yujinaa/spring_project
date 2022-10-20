@@ -25,6 +25,8 @@ public interface memberMapper {
 	
 	//회원정보수정
 	public int modifySave(memberDTO dto);
+	public memberDTO findMemberId(memberDTO findDto);
+		
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

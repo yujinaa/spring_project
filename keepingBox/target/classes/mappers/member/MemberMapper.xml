@@ -58,6 +58,12 @@
 		buser_id=#{id}
 	</update>
 
+	<!-- 아이디찾기 -->
+	<select id="findMemberId" resultMap="member">
+		select * from box_member
+		where buser_name=#{name} and buser_email=#{email}
+	</select>
+
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">
 		<!-- select buser_id AS id, buser_pwd AS pwd, buser_name AS name ,buser_phone 

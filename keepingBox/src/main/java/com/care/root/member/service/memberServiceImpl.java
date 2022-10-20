@@ -131,6 +131,12 @@ public class memberServiceImpl implements memberService{
 	}
 	return result;
 }
+	//아이디찾기
+	public memberDTO findMemberId(memberDTO findDto) {
+		  return memberMapper.findMemberId(findDto);
+	}
+	
+	
 
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
