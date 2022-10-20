@@ -194,13 +194,13 @@ public class memberController implements memberLoginSession{
 		return "redirect:myInfoModify";
 	}
 
-	//아이디찾기
+	//아이디찾기페이지연결
 	@GetMapping("findId")
 	public String findId() {
 		System.out.println("아이디찾기페이지 연결");
 		return "member/findId";
 	}
-	
+	//아이디찾기
 	@PostMapping("findIdCheck")
 	public String searchId(HttpServletRequest request, Model model,memberDTO dto,
 			@RequestParam String name, 
@@ -214,6 +214,7 @@ public class memberController implements memberLoginSession{
 
 		} catch (Exception e) {
 			model.addAttribute("msg", "오류가 발생되었습니다.");
+			e.printStackTrace();
 		}
 		return "member/findIdResult";
 	}
@@ -222,15 +223,47 @@ public class memberController implements memberLoginSession{
 		return "member/findIdResult";
 	}
 
+	//비번찾기페이지연결
 	@GetMapping("findPwd")
 	public String searchPwd(HttpServletRequest request, Model model,memberDTO findDto) {
 		return "member/findPwd";
 	}
+	//비번찾기
 	@PostMapping("findPwdCheck")
-	public String findPwd() {
+	public String findPwdCheck(HttpServletRequest request, Model model,
+			@RequestParam String id, @RequestParam String name,@RequestParam String email, 
+			memberDTO dto) {
+		try {
+			dto.setId(id);
+			dto.setName(name);
+			dto.setEmail(email);
+			int id = ms.pwdCheck(dto);
+
+			if(id == 0) {
+				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
+				return "member/findPwdCheck";
+			}
+
+			String newPwd = RandomStringUtils.randomAlphanumeric(10);
+			String enpassword = encryptPassword(newPwd);
+			dto.setPwd(enpassword);
+
+			ms.passwordUpdate(dto);
+
+			model.addAttribute("newPwd", newPwd);
+
+		} catch (Exception e) {
+			model.addAttribute("msg", "오류가 발생되었습니다.");
+			e.printStackTrace();
+		}
+
+
 		return "member/findPwdCheck";
 	}
-
+	@GetMapping("findPwdResult")
+	public String findPwResult() {
+		return "member/findPwdResult";
+	}
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")
