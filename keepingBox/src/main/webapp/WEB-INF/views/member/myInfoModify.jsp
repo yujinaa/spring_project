@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/myInfoModify.css">
 </head>
-  <c:import url="../include/header.jsp"/>
+<c:import url="../include/header.jsp" />
 <main id="container">
 	<div class="modify">
 		<h2>회원정보수정</h2>
@@ -30,12 +30,17 @@
 		</div>
 	</div>
 </main>
-  <c:import url="../include/footer.jsp"/>
+<c:import url="../include/footer.jsp" />
 <script type="text/javascript">
 		$("#save-btn").on("click", function(e) {
-			alert("정보가 수정되었습니다.");
+			if (confirm("정보를 수정하시겠습니까?")) {
+				alert('수정되었습니다.');
+				return true;
+			} else {
+				alert('정보를 수정할 수 없습니다.');
+				return false;
 			}
 		});
-	</script>
+</script>	
 </body>
 </html>
