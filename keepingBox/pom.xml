@@ -175,6 +175,12 @@
 			<artifactId>javax.mail</artifactId>
 			<version>1.5.3</version>
 		</dependency>
+		<!-- 랜덤 문자열 생성 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

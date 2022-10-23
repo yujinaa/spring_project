@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -245,8 +246,8 @@ public class memberController implements memberLoginSession{
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-			String enpassword = encryptPassword(newPwd);
-			dto.setPwd(enpassword);
+//			String enpassword = encryptPassword(newPwd);
+//			dto.setPwd(enpassword);
 
 			ms.pwdUpdate(dto);
 
