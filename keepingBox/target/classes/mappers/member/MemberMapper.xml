@@ -64,6 +64,28 @@
 		where buser_name=#{name} and buser_email=#{email}
 	</select>
 
+	<!-- 비번찾기 -->
+	<select id="pwdCheck" resultMap="member" resultType="Integer">
+		select
+		count(*) from box_member
+		where buser_id = #{id} andbuser_name = #{name}
+		and
+		buser_email = #{email}
+	</select>
+
+	<update id="pwUpdate">
+		update box_member
+		set
+		buser_pwd = #{pwd}
+		where
+		buser_id = #{id}
+		buser_name =
+		#{name}
+		and
+		buser_email = #{email}
+	</update>
+
+
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">
 		<!-- select buser_id AS id, buser_pwd AS pwd, buser_name AS name ,buser_phone 

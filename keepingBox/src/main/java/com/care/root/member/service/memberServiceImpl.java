@@ -135,8 +135,14 @@ public class memberServiceImpl implements memberService{
 	public memberDTO findMemberId(memberDTO dto) {
 		  return memberMapper.findMemberId(dto);
 	}
-	
-	
+	//비번찾기
+	public int pwdCheck(memberDTO dto) {
+		return memberMapper.pwdCheck(dto);
+	}
+	public void pwdUpdate(memberDTO dto) {
+	    memberMapper.pwdUpdate(dto);
+	}
+	    
 
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {

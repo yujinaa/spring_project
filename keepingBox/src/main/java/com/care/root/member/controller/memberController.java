@@ -237,9 +237,9 @@ public class memberController implements memberLoginSession{
 			dto.setId(id);
 			dto.setName(name);
 			dto.setEmail(email);
-			int id = ms.pwdCheck(dto);
+			int search = ms.pwdCheck(dto);
 
-			if(id == 0) {
+			if(search == 0) {
 				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
 				return "member/findPwdCheck";
 			}
@@ -248,7 +248,7 @@ public class memberController implements memberLoginSession{
 			String enpassword = encryptPassword(newPwd);
 			dto.setPwd(enpassword);
 
-			ms.passwordUpdate(dto);
+			ms.pwdUpdate(dto);
 
 			model.addAttribute("newPwd", newPwd);
 
