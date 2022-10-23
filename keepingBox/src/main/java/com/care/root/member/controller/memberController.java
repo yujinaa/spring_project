@@ -257,9 +257,7 @@ public class memberController implements memberLoginSession{
 			model.addAttribute("msg", "오류가 발생되었습니다.");
 			e.printStackTrace();
 		}
-
-
-		return "member/findPwdCheck";
+		return "member/findPwdResult";
 	}
 	@GetMapping("findPwdResult")
 	public String findPwResult() {

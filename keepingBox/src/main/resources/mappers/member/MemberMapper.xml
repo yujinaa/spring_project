@@ -73,16 +73,12 @@
 		buser_email = #{email}
 	</select>
 
-	<update id="pwUpdate">
+	<update id="pwdUpdate">
 		update box_member
 		set
 		buser_pwd = #{pwd}
 		where
-		buser_id = #{id}
-		buser_name =
-		#{name}
-		and
-		buser_email = #{email}
+		buser_id = #{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
 
 
@@ -121,5 +117,4 @@
 		select count(*) from
 		box_member where buser_id like '%'||#{userId}||'%'
 	</select>
-
 </mapper>
