@@ -264,6 +264,11 @@ public class memberController implements memberLoginSession{
 	public String findPwResult() {
 		return "member/findPwdResult";
 	}
+	//회원탈퇴하기
+	@GetMapping("deleteMember")
+	public String deleteMember() {
+		return "member/deleteMember";
+	}
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")
