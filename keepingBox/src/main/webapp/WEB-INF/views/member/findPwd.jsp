@@ -13,7 +13,7 @@
 <body>
 <h1>비밀번호찾기</h1>
 	<form id="createForm" action="${contextPath }/member/findPwdCheck" method="post">
-		<input type="hidden" id="me_id_yn" name="id" value="N">
+		
 		<div class="form-group">
 			<input type="text" class="form-control form-control-user" id="me_id"
 				name="id" placeholder="아이디">

@@ -11,12 +11,10 @@
 </head>
 <body>
 	<div class="text-center">
-				<p class="mb-4">${newPwd}</p>
+				회원님 임시 비밀번호는 <p class="mb-4">${newPwd}</p>
 	</div>
 	<hr>
-	<div class="text-center">
-		<a class="small" href="${contextPath }/member/findPwd">비밀번호 찾기</a>
-	</div>
+	
 	<div class="text-center">
 		<a class="small" href="${contextPath }/member/login">이미 계정이 있으신가요?
 			로그인하기</a>

@@ -226,7 +226,7 @@ public class memberController implements memberLoginSession{
 
 	//비번찾기페이지연결
 	@GetMapping("findPwd")
-	public String searchPwd(HttpServletRequest request, Model model,memberDTO findDto) {
+	public String searchPwd() {
 		return "member/findPwd";
 	}
 	//비번찾기
@@ -248,6 +248,7 @@ public class memberController implements memberLoginSession{
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
 //			String enpassword = encryptPassword(newPwd);
 //			dto.setPwd(enpassword);
+			dto.setPwd(newPwd);
 
 			ms.pwdUpdate(dto);
 

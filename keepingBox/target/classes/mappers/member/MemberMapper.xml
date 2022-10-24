@@ -65,10 +65,11 @@
 	</select>
 
 	<!-- 비번찾기 -->
-	<select id="pwdCheck" resultMap="member" resultType="Integer">
+	<select id="pwdCheck" resultType="Integer">
 		select
 		count(*) from box_member
-		where buser_id = #{id} andbuser_name = #{name}
+		where buser_id = #{id} and buser_name =
+		#{name}
 		and
 		buser_email = #{email}
 	</select>
@@ -78,7 +79,8 @@
 		set
 		buser_pwd = #{pwd}
 		where
-		buser_id = #{id} and buser_name = #{name} and buser_email = #{email}
+		buser_id =
+		#{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
 
 
