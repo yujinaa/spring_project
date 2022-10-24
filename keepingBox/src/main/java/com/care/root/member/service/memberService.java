@@ -30,6 +30,7 @@ public interface memberService{
 	public memberDTO findMemberId(memberDTO dto);
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
+	public void deleteMemberCheck(memberDTO dto) throws Exception;
 	 
 	
 	//관리자- 회원목록

@@ -30,6 +30,8 @@ public interface memberMapper {
 	//비번찾기
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
+	//회원탈퇴
+	public void deleteMemberCheck(memberDTO dto) throws Exception;
 		
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);

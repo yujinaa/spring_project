@@ -71,7 +71,8 @@
 		where buser_id = #{id} and buser_name =
 		#{name}
 		and
-		buser_email = #{email}
+		buser_email =
+		#{email}
 	</select>
 
 	<update id="pwdUpdate">
@@ -82,7 +83,9 @@
 		buser_id =
 		#{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
-
+	<delete id="deleteMemberCheck">
+		delete from box_member where buser_id = #{id} and buser_pwd = #{pwd} 
+	</delete>
 
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">

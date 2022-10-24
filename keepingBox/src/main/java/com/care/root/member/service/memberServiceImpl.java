@@ -146,6 +146,9 @@ public class memberServiceImpl implements memberService{
 		dto.setPwd(newUpdatePwd); 
 	    memberMapper.pwdUpdate(dto);
 	}
+	public void deleteMemberCheck(memberDTO dto) throws Exception{
+		memberMapper.deleteMemberCheck(dto);
+	}
 	    
 
 	//회원목록,페이징

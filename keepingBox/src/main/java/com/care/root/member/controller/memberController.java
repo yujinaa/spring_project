@@ -264,10 +264,27 @@ public class memberController implements memberLoginSession{
 	public String findPwResult() {
 		return "member/findPwdResult";
 	}
-	//회원탈퇴하기
+	//회원탈퇴페이지
 	@GetMapping("deleteMember")
 	public String deleteMember() {
 		return "member/deleteMember";
+	}
+	//회원탈퇴
+	@PostMapping("deleteMemberCheck")
+	public String deleteMemberCheck(memberDTO dto, HttpSession session, RedirectAttributes rs) throws Exception {
+		System.out.println("회원탈퇴");
+		memberDTO deleteDto = (memberDTO)session.getAttribute(LOGIN);
+		String oldPwd = deleteDto.getPhone();
+		String inputPwd = dto.getPwd();
+		if(oldPwd.equals(inputPwd)) {
+			ms.deleteMemberCheck(dto);
+			rs.addFlashAttribute("result", "deleteSuccess");
+			session.invalidate();
+			return "redirect:/index";
+		}else {
+			rs.addFlashAttribute("result","deleteFalse");
+			return "redirect:member/deleteMember";
+		}
 	}
 
 	//관리자 - 회원목록
