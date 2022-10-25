@@ -13,11 +13,22 @@
 <body>
 	<h1>회원탈퇴 페이지</h1>
 	<div>
-		<input type="hidden"
-			value="${member.id}" name="id" /> 
-			<input type="text"
-			name="pwd" placeholder="비밀번호">
-		<button type="submit" id="deleteBtn" >회원탈퇴</button>
+		<form action="${contextPath}/member/deleteMemberCheck" method="post">
+			<input type="text" value="${successLoginUser}" name="id" /> <input
+				type="text" name="pwd" placeholder="비밀번호">
+			<button type="submit" id="deleteBtn">회원탈퇴</button>
+		</form>
 	</div>
+	<script type="text/javascript">
+		$("#deleteBtn").on("click", function(e) {
+			if (confirm("정말 탈퇴?")) {
+				alert('탈퇴성공');
+				return true;
+			} else {
+				alert('탈퇴실패');
+				return false;
+			}
+		});
+</script>
 </body>
 </html>

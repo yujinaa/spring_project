@@ -246,8 +246,8 @@ public class memberController implements memberLoginSession{
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-//			String enpassword = encryptPassword(newPwd);
-//			dto.setPwd(enpassword);
+			//			String enpassword = encryptPassword(newPwd);
+			//			dto.setPwd(enpassword);
 			dto.setPwd(newPwd);
 
 			ms.pwdUpdate(dto);
@@ -272,17 +272,16 @@ public class memberController implements memberLoginSession{
 	//회원탈퇴
 	@PostMapping("deleteMemberCheck")
 	public String deleteMemberCheck(memberDTO dto, HttpSession session){
-		System.out.println("회원탈퇴");
-		memberDTO deleteDto = (memberDTO)session.getAttribute("member");
-		String oldPwd = deleteDto.getPwd();
+		System.out.println("탈퇴아이디:" + LOGIN);
+		memberDTO member = (memberDTO)session.getAttribute("successLoginUser");
+		String oldPwd = member.getPwd();
 		String inputPwd = dto.getPwd();
-		if(oldPwd.equals(inputPwd)) {
-			ms.deleteMemberCheck(dto);
-			session.invalidate();
-			return "redirect:/index";
-		}else {
+		if(!(oldPwd.equals(inputPwd))) {
 			return "redirect:deleteMember";
 		}
+		ms.deleteMemberCheck(dto);
+		session.invalidate();
+		return "redirect:/index";
 	}
 
 	//관리자 - 회원목록
