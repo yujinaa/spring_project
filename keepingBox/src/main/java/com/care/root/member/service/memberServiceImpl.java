@@ -153,7 +153,10 @@ public class memberServiceImpl implements memberService{
 			e.printStackTrace();
 		}
 	}
-	    
+//	public boolean check(String id, String pwd) {
+//		return memberMapper.check(id,pwd);
+//	}
+//	    
 
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {

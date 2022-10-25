@@ -1,6 +1,7 @@
 package com.care.root.mybatis.member;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -32,7 +33,9 @@ public interface memberMapper {
 	public void pwdUpdate(memberDTO dto);
 	//회원탈퇴
 	public void deleteMemberCheck(memberDTO dto);
-		
+//	public void deleteMemberCheck(String delId);
+//	public boolean check(String id, String pwd);
+	
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

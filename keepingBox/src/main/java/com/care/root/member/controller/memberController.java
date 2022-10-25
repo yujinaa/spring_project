@@ -270,11 +270,24 @@ public class memberController implements memberLoginSession{
 		return "member/deleteMember";
 	}
 	//회원탈퇴
+//	@PostMapping("deleteMemberCheck")
+//	public String deleteMemberCheck(memberDTO dto, HttpSession session,RedirectAttributes rs){
+//		memberDTO member = (memberDTO)session.getAttribute(LOGIN);
+////		String delteId = (String) session.getAttribute("member");
+//		String oldPwd = member.getPwd();
+//		String inputPwd = dto.getPwd();
+//		if(!(oldPwd.equals(inputPwd))) {
+//			  rs.addFlashAttribute("msg", false);
+//			return "redirect:deleteMember";
+//		}
+//		ms.deleteMemberCheck(dto);
+//		session.invalidate();
+//		return "redirect:/index";
+//	}
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(memberDTO dto, HttpSession session){
-		System.out.println("탈퇴아이디:" + LOGIN);
-		memberDTO member = (memberDTO)session.getAttribute("successLoginUser");
-		String oldPwd = member.getPwd();
+	public String deleteMemberCheck(@RequestParam String pwd, Model model, HttpSession session, memberDTO dto){
+		String id = (String)session.getAttribute(LOGIN);
+		String oldPwd = dto.getPwd();
 		String inputPwd = dto.getPwd();
 		if(!(oldPwd.equals(inputPwd))) {
 			return "redirect:deleteMember";
