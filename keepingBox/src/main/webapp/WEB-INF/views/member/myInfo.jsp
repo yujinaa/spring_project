@@ -41,9 +41,6 @@
 			</div>
 		</div>
 	</main>
-
-	<input type="button" value="메인으로" class="btn"
-		onclick="location.href='${contextPath }/index'">
 	<c:import url="../include/footer.jsp" />
 </body>
 </html>

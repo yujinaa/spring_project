@@ -271,19 +271,17 @@ public class memberController implements memberLoginSession{
 	}
 	//회원탈퇴
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(memberDTO dto, HttpSession session, RedirectAttributes rs) throws Exception {
+	public String deleteMemberCheck(memberDTO dto, HttpSession session){
 		System.out.println("회원탈퇴");
-		memberDTO deleteDto = (memberDTO)session.getAttribute(LOGIN);
-		String oldPwd = deleteDto.getPhone();
+		memberDTO deleteDto = (memberDTO)session.getAttribute("member");
+		String oldPwd = deleteDto.getPwd();
 		String inputPwd = dto.getPwd();
 		if(oldPwd.equals(inputPwd)) {
 			ms.deleteMemberCheck(dto);
-			rs.addFlashAttribute("result", "deleteSuccess");
 			session.invalidate();
 			return "redirect:/index";
 		}else {
-			rs.addFlashAttribute("result","deleteFalse");
-			return "redirect:member/deleteMember";
+			return "redirect:deleteMember";
 		}
 	}
 

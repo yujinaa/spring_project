@@ -146,8 +146,12 @@ public class memberServiceImpl implements memberService{
 		dto.setPwd(newUpdatePwd); 
 	    memberMapper.pwdUpdate(dto);
 	}
-	public void deleteMemberCheck(memberDTO dto) throws Exception{
-		memberMapper.deleteMemberCheck(dto);
+	public void deleteMemberCheck(memberDTO dto){
+		try {
+			memberMapper.deleteMemberCheck(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	    
 

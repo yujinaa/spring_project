@@ -1,9 +1,5 @@
 package com.care.root.booking.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.care.root.board.dto.boardDTO;
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.booking.service.bookingService;
 import com.care.root.member.common.memberLoginSession;
-import com.care.root.member.dto.memberDTO;
 
 @Controller
 @RequestMapping("booking")

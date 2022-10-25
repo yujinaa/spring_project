@@ -28,91 +28,70 @@ body, a {
 }
 
 header {
-	width: 100%;
-	height: 80px;
-	background: #ffffff;
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 10000;
-	box-shadow: 0px 10px 20px -15px rgb(210, 210, 210);
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    position: fixed; top: 0; right: 0;
+    z-index: 10000;
+    box-shadow: 0px 10px 20px -15px rgb(210, 210, 210);
 }
-
 .head-wrap {
-	width: 80%;
-	height: 80px;
-	margin: 0 auto;
-	position: relative;
-	display: flex;
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
 }
-
 h1 {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
-
 h1 img {
-	width: 6.5rem;
+    width: 6.5rem;
 }
-
 nav {
-	position: absolute;
-	top: 1.5rem;
-	right: 0;
-	display: flex;
+    position: absolute; right: 0;
+    width: 50%;
+    text-align: center;
 }
-
-nav ul {
-	display: flex;
-	align-items: center;
-}
-
 nav ul li {
-	padding: 0 3rem;
+    width: 33.33%;
+    height: 80px;
+    line-height: 80px;
+    float: left;
 }
-
 nav ul li a {
-	color: #3D3B3B;
+    color: #3D3B3B;
+    display: block;
 }
-
 nav li a:hover {
-	color: #3781E3;
-	font-weight: bold;
+    color: #3781E3;
+    font-weight: bold;
 }
-
 /* 마이페이지 창 */
 main {
-	margin-top: 12rem;
-	height: 100vh;
+    margin-top: 13rem;
+    height: 100vh;
 }
-
-.mypage-box {
-	margin: 0 auto;
-	width: 420px;
-	height: 500px;
+.mypage {
+    position: relative;
 }
-
-.mypage-box h2 {
-	margin-bottom: 4rem;
-	color: #3781e3;
-	font-size: 1.8rem;
-	text-align: center;
+.mypage-sub {
+    display: none;
 }
-
-.mypage-box label {
-	display: block;
-	margin-bottom: 0.5rem;
-	font-size: 0.9rem;
+.mypage-sub li {
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    background: #fafafa;
 }
-
-.mypage-box input {
-	width: 100%;
-	height: 40px;
-	margin-bottom: 1rem;
-	outline: none;
-	border: 1px solid #afafaf;
-	font-size: 0.7rem;
-	padding-left: 0.7rem;
+.mypage-sub li a {
+    display: block;
+}
+.mypage:hover ul {
+    display: block;
 }
 
 #modify-btn {
@@ -130,46 +109,57 @@ main {
 }
 /* footer 부분 */
 footer {
-    width: 100%;
-    height: 40vh;
-    background: #494B57;
-    margin-top: 13rem;
+	width: 100%;
+	height: 40vh;
+	background: #494B57;
+	margin-top: 13rem;
 }
+
 footer div {
-    width: 80%;
-    height: 40vh;
-    margin: 0 auto;
+	width: 80%;
+	height: 40vh;
+	margin: 0 auto;
 }
+
 footer ul {
-    margin-top: 4rem;
+	margin-top: 4rem;
 }
+
 footer span {
-    font-size: 1.5rem;
-    color: #AFAFAF;
+	font-size: 1.5rem;
+	color: #AFAFAF;
 }
+
 footer li, footer a {
-    color: #AFAFAF;
+	color: #AFAFAF;
 }
+
 .footer-left {
-    float: left;
+	float: left;
 }
+
 .footer-left li {
-    font-size: 0.8rem;
+	font-size: 0.8rem;
 }
+
 .footer-left li:nth-child(2) {
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
+
 .footer-left li:not(:nth-child(2)) {
-    margin-top: 0.3rem;
+	margin-top: 0.3rem;
 }
+
 .footer-right {
-    float: right;
+	float: right;
 }
+
 .footer-right li:first-child {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
+	font-size: 1.3rem;
+	font-weight: bold;
+	margin-bottom: 0.3rem;
 }
+
 .footer-right li:last-child {
-    font-size: 1rem;
+	font-size: 1rem;
 }
