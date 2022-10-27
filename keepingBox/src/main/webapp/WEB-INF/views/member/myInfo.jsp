@@ -36,7 +36,7 @@
 					<a href="${contextPath }/booking/bookingInfo">예약현황 확인하기</a>
 					<button type="button" id="modify-btn" 
 					onclick="location.href='${contextPath }/member/myInfoModify?id=${info.id }'">수정하기 &gt;</button>
-					<button type="button" onclick="location.href='${contextPath }/member/deleteMember'">회원탈퇴하기</button>
+					<button type="button" onclick="location.href='${contextPath }/member/deleteMember?id=${info.id}'">회원탈퇴하기</button>
 				</form>
 			</div>
 		</div>

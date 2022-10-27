@@ -269,24 +269,22 @@ public class memberController implements memberLoginSession{
 		@PostMapping("deleteMemberCheck")
 		public String deleteMemberCheck(memberDTO dto, HttpSession session){
 			memberDTO user = (memberDTO)session.getAttribute(LOGIN);
+//			String id = (String) session.getAttribute("member");
 			String oldPwd = user.getPwd();
 			String inputPwd = dto.getPwd();
-			//			String delId = (String) session.getAttribute("member");
-//			if(!(oldPwd.equals(inputPwd))) {
-//				return "redirect:deleteMember";
-//			} 
-//			ms.deleteMemberCheck(dto);
-//			session.invalidate();
-//			return "redirect:/index";
-			if(oldPwd.equals(inputPwd)) {
-				ms.deleteMemberCheck(dto);
-				session.invalidate();
-				return "redirect:/index";
-			} else {
+			if(!(oldPwd.equals(inputPwd))) {
 				return "redirect:member/deleteMember";
+			} 
+			ms.deleteMemberCheck(dto);
+			session.invalidate();
+			return "redirect:/index";
+//			if(oldPwd.equals(inputPwd)) {
+//				ms.deleteMemberCheck(dto);
+//				session.invalidate();
+//				return "redirect:/index";
+//			} else {
+//				return "redirect:member/deleteMember";
 			}
-		}
-		
 
 //	@PostMapping("deleteMemberCheck")
 //		public String deleteMemberCheck(memberDTO dto, HttpSession session,@RequestParam String pwd){
