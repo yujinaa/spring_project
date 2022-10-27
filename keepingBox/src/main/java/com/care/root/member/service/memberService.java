@@ -2,6 +2,8 @@ package com.care.root.member.service;
 
 import java.sql.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.ui.Model;
 
 import com.care.root.board.dto.noticeDTO;
@@ -33,7 +35,7 @@ public interface memberService{
 	public void deleteMemberCheck(memberDTO dto);
 //	public void deleteMemberCheck(String delId);
 //	public boolean check(String id, String pwd);
-	
+//	public int deleteMemberCheck(String pwd, HttpSession session);
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);

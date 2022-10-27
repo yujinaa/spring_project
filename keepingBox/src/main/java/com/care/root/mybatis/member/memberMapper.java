@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
@@ -34,8 +35,7 @@ public interface memberMapper {
 	//회원탈퇴
 	public void deleteMemberCheck(memberDTO dto);
 //	public void deleteMemberCheck(String delId);
-//	public boolean check(String id, String pwd);
-	
+//	public memberDTO deleteMemberCheck(HttpSession session);
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

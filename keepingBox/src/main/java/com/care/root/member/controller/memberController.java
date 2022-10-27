@@ -3,6 +3,7 @@ package com.care.root.member.controller;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -12,11 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.common.memberLoginSession;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
@@ -270,69 +266,89 @@ public class memberController implements memberLoginSession{
 		return "member/deleteMember";
 	}
 	//회원탈퇴
+		@PostMapping("deleteMemberCheck")
+		public String deleteMemberCheck(memberDTO dto, HttpSession session){
+			memberDTO user = (memberDTO)session.getAttribute(LOGIN);
+			String oldPwd = user.getPwd();
+			String inputPwd = dto.getPwd();
+			//			String delId = (String) session.getAttribute("member");
+//			if(!(oldPwd.equals(inputPwd))) {
+//				return "redirect:deleteMember";
+//			} 
+//			ms.deleteMemberCheck(dto);
+//			session.invalidate();
+//			return "redirect:/index";
+			if(oldPwd.equals(inputPwd)) {
+				ms.deleteMemberCheck(dto);
+				session.invalidate();
+				return "redirect:/index";
+			} else {
+				return "redirect:member/deleteMember";
+			}
+		}
+		
+
 //	@PostMapping("deleteMemberCheck")
-//	public String deleteMemberCheck(memberDTO dto, HttpSession session,RedirectAttributes rs){
-//		memberDTO member = (memberDTO)session.getAttribute(LOGIN);
-////		String delteId = (String) session.getAttribute("member");
-//		String oldPwd = member.getPwd();
-//		String inputPwd = dto.getPwd();
-//		if(!(oldPwd.equals(inputPwd))) {
-//			  rs.addFlashAttribute("msg", false);
-//			return "redirect:deleteMember";
-//		}
-//		ms.deleteMemberCheck(dto);
-//		session.invalidate();
-//		return "redirect:/index";
+//		public String deleteMemberCheck(memberDTO dto, HttpSession session,@RequestParam String pwd){
+////			memberDTO member = (memberDTO)session.getAttribute(LOGIN);
+//int result = ms.deleteMemberCheck(pwd,session);
+//if(result==0) {
+//	return "redirect:/index";
+//}else {
+//	return "member/deleteMember";
+//}
 //	}
-	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(@RequestParam String pwd, Model model, HttpSession session, memberDTO dto){
-		String id = (String)session.getAttribute(LOGIN);
-		String oldPwd = dto.getPwd();
-		String inputPwd = dto.getPwd();
-		if(!(oldPwd.equals(inputPwd))) {
-			return "redirect:deleteMember";
-		}
-		ms.deleteMemberCheck(dto);
-		session.invalidate();
-		return "redirect:/index";
+//	@PostMapping("deleteMemberCheck")
+//	public String deleteMemberCheck(@RequestParam String pwd, Model model, HttpSession session, memberDTO dto){
+//		String id = ((memberDTO)(session.getAttribute("id"))).getId();
+//		// 비밀번호 체크
+//		boolean result = ms.checkPwd(id, pwd);
+//		if(result){ // 비밀번호가 맞다면 삭제 처리
+//			ms.delete(id);
+//			if (result) {
+//				session.invalidate(); //탈퇴시 로그아웃 처리
+//			}
+//			return "redirect:/index";
+//		} else { // 비밀번호가 일치하지 않는다면
+//			return "member/deleteMember";
+//		}
+//	}
+//관리자 - 회원목록
+@GetMapping("memberList")
+public String memberList(Model model,@RequestParam(value="id", required=false) String id, 
+		HttpSession session,@RequestParam(required = false, defaultValue = "1" ) int num) {
+	if(id != null) {
+		ms.searchId(model, id, num);
+	}else {
+		ms.memberInfoList(model,num);
 	}
+	return "member/memberList";
+}
+//관리자 - 회원상세정보
+@GetMapping("memberListDetail")
+public String memberDetail(@RequestParam String id, Model model) {
+	ms.detailInfo(model, id);
+	return "member/memberListDetail";
+}
 
-	//관리자 - 회원목록
-	@GetMapping("memberList")
-	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 
-			HttpSession session,@RequestParam(required = false, defaultValue = "1" ) int num) {
-		if(id != null) {
-			ms.searchId(model, id, num);
-		}else {
-			ms.memberInfoList(model,num);
-		}
-		return "member/memberList";
-	}
-	//관리자 - 회원상세정보
-	@GetMapping("memberListDetail")
-	public String memberDetail(@RequestParam String id, Model model) {
-		ms.detailInfo(model, id);
-		return "member/memberListDetail";
-	}
-
-	//관리자 -회원삭제
-	@GetMapping("detailInfoDel")
-	public String detailInfoDel(memberDTO dto, RedirectAttributes rs){
-		ms.detailInfoDel(dto.getId());
-		rs.addFlashAttribute("result","detailInfoDelsuccess");
-		return "redirect:memberList";
-	}
+//관리자 -회원삭제
+@GetMapping("detailInfoDel")
+public String detailInfoDel(memberDTO dto, RedirectAttributes rs){
+	ms.detailInfoDel(dto.getId());
+	rs.addFlashAttribute("result","detailInfoDelsuccess");
+	return "redirect:memberList";
+}
 
 
-	//		AccountContext ac = (AccountContext) authentication.getPrincipal();
-	//	    model.addAttribute("info", ac.getUsername());
-	//	@GetMapping("myInfo")
-	//		public String myInfo(Principal principal, ModelMap modelMap){
-	//	        String loginId = principal.getName();
-	//	        memberDTO dto = ms.getUserSessionId(loginId);
-	//	        modelMap.addAttribute("info", dto);
-	//	        return "member/myInfo";
-	//	}
+//		AccountContext ac = (AccountContext) authentication.getPrincipal();
+//	    model.addAttribute("info", ac.getUsername());
+//	@GetMapping("myInfo")
+//		public String myInfo(Principal principal, ModelMap modelMap){
+//	        String loginId = principal.getName();
+//	        memberDTO dto = ms.getUserSessionId(loginId);
+//	        modelMap.addAttribute("info", dto);
+//	        return "member/myInfo";
+//	}
 
 
 

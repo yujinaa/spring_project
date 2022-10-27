@@ -88,7 +88,7 @@ public class memberServiceImpl implements memberService{
 	//		
 	//		return vo;
 	//	}
-	
+
 	//회원정보조회
 	public memberDTO memberInfo(String id){
 		memberDTO dto = null;
@@ -103,37 +103,37 @@ public class memberServiceImpl implements memberService{
 	//	public memberDTO memberInfo(String id){
 	//			return memberMapper.memberInfo(id);
 	//	}
-	
+
 	//회원정보수정
 	public void updateMember(String id, Model model) {
 		model.addAttribute("modifyInfo", memberMapper.memberInfo(id) );
 	}
 	//회원수정저장
 	public int modifySave(memberDTO dto) {
-		
-//		try {
-//			memberMapper.modifySave(dto);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-	
-	System.out.println("비번 변경 전 : " + dto.getPwd());
-	String modifyPwd = pwEncoder.encode(dto.getPwd());
-	System.out.println("비번 변경 후 : " + modifyPwd);
-	dto.setPwd(modifyPwd); 
 
-	int result = 0;          
-	try { //동일 아이디로 가입시 오류나는 것을 예외로 처리
-		result = memberMapper.modifySave(dto);
-	} catch (Exception e) {
-		e.printStackTrace();
+		//		try {
+		//			memberMapper.modifySave(dto);
+		//		} catch (Exception e) {
+		//			e.printStackTrace();
+		//		}
+		//	}
+
+		System.out.println("비번 변경 전 : " + dto.getPwd());
+		String modifyPwd = pwEncoder.encode(dto.getPwd());
+		System.out.println("비번 변경 후 : " + modifyPwd);
+		dto.setPwd(modifyPwd); 
+
+		int result = 0;          
+		try { //동일 아이디로 가입시 오류나는 것을 예외로 처리
+			result = memberMapper.modifySave(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
-	return result;
-}
 	//아이디찾기
 	public memberDTO findMemberId(memberDTO dto) {
-		  return memberMapper.findMemberId(dto);
+		return memberMapper.findMemberId(dto);
 	}
 	//비번찾기
 	public int pwdCheck(memberDTO dto) {
@@ -144,19 +144,33 @@ public class memberServiceImpl implements memberService{
 		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
 		System.out.println("비번 변경 후 : " + newUpdatePwd);
 		dto.setPwd(newUpdatePwd); 
-	    memberMapper.pwdUpdate(dto);
+		memberMapper.pwdUpdate(dto);
 	}
 	public void deleteMemberCheck(memberDTO dto){
+//		String oldPwd = dto.getPwd();
 		try {
+//			if(pwEncoder.matches(oldPwd, dto.getPwd())){
 			memberMapper.deleteMemberCheck(dto);
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-//	public boolean check(String id, String pwd) {
-//		return memberMapper.check(id,pwd);
-//	}
-//	    
+
+
+	//		public boolean check(String id, String pwd) {
+	//			return memberMapper.check(id,pwd);
+	//		}
+	//		}    
+	//	public int deleteMemberCheck(HttpSession session, String pwd) {
+	//		memberDTO dto= memberMapper.deleteMemberCheck(session);
+	//		if(dto != null) {
+	//			if(pwd.equals(dto.getPwd())) {
+	//				return 0;
+	//			}
+	//		}
+	//return 1;
+	//	}
 
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {

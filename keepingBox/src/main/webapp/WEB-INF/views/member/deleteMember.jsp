@@ -14,24 +14,22 @@
 	<h1>회원탈퇴 페이지</h1>
 	<div>
 		<form action="${contextPath}/member/deleteMemberCheck" method="post"
-			autocomplete="off">
+			autocomplete="off" >
 			<input type="text" value="${successLoginUser}" name="id" /> <input
-				type="text" name="pwd" placeholder="비밀번호">
+				type="password" name="pwd" id="delPwd" placeholder="비밀번호">
 			<button type="submit" id="deleteBtn">회원탈퇴</button>
 		</form>
 	</div>
-	<c:if test="${msg == false }">
-		<p>입력한 비밀번호가 잘 못 되었습니다.</p>
-	</c:if>
 	<script type="text/javascript">
 		$("#deleteBtn").on("click", function(e) {
 			if (confirm("정말 탈퇴?")) {
 				alert('탈퇴성공');
-				return true;
-			} else {
+				return true;					
+				}else{
 				alert('탈퇴실패');
-				return false;
-			}
+				return false;					
+				}
+				}
 		});
 	</script>
 </body>
