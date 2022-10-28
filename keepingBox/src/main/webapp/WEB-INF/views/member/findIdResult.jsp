@@ -7,28 +7,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../resources/css/findIdResult.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="text-center">
-		<h1 class="h4 text-gray-900 mb-2">회원님의 아이디를 확인해 주세요</h1>
-		<br> <br>
-		<c:choose>
-			<c:when test="${empty findId}">
-				<p class="mb-4">조회결과가 없습니다.</p>
-			</c:when>
-			<c:otherwise>
-				<p class="mb-4">${findId.id}</p>
-			</c:otherwise>
-		</c:choose>
-	</div>
-	<hr>
-	<div class="text-center">
-		<a class="small" href="${contextPath }/member/findPwd">비밀번호 찾기</a>
-	</div>
-	<div class="text-center">
-		<a class="small" href="${contextPath }/member/login">이미 계정이 있으신가요?
-			로그인하기</a>
-	</div>
+<c:import url="../include/header.jsp" />
+	<main id="container">
+		<div class="find-box">
+			<p class="title">회원님의 아이디를 확인해 주세요</p>
+			<div class="result-box">
+				<c:choose>
+					<c:when test="${empty findId}">
+						<p class="inquiry">조회결과가 없습니다.</p>
+					</c:when>
+					<c:otherwise>
+						<p>${findId.id}</p>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<div class="login-pwd">
+				<ul class="join-login cf">
+					<li><a href="${contextPath }/member/login">로그인하기</a></li>
+					<li><a href="${contextPath }/member/findPwd">비밀번호찾기</a></li>
+				</ul>
+			</div>
+		</div>
+	</main>
+	<c:import url="../include/footer.jsp" />
 </body>
 </html>

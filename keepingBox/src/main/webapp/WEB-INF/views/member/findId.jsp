@@ -8,30 +8,36 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
+ <link rel="stylesheet" href="../resources/css/findId.css">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>아이디찾기</h1>
-	<form id="createForm" action="${contextPath }/member/findIdCheck" method="post">
-		<div class="form-group">
-			<input type="text" class="form-control form-control-user"
-				id="me_name" name="name" placeholder="이름">
+	<c:import url="../include/header.jsp" />
+	<main id="container">
+		<div class="find-box">
+			<h2>아이디 찾기</h2>
+			<div>
+				<form id="findForm" action="${contextPath }/member/findIdCheck"
+					method="post">
+					<div class="form-group">
+						<input type="text" name="name" id="name" placeholder="이름">
+					</div>
+					<div class="form-group">
+						<input type="email" name="email" id="email" placeholder="이메일">
+					</div>
+					<button type="submit" id="id-find"
+						onclick="findSubmit(); return false;">아이디 찾기</button>
+					<div>
+						<ul class="join-login">
+							<li><a href="${contextPath }/member/register_form">회원가입하기</a></li>
+							<li><a href="${contextPath }/member/login">로그인하기</a></li>
+						</ul>
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="form-group">
-			<input type="email" class="form-control form-control-user"
-				id="me_tel" name="email" placeholder="이메일">
-		</div>
-		<button type="submit" onclick="fnSubmit(); return false;"
-			class="btn btn-primary btn-user btn-block">아이디 찾기</button>
-		<hr>
-		<div class="text-center">
-			<a href="${contextPath }/member/register_form">회원가입하기</a>
-		</div>
-		<div class="text-center">
-			<a href="${contextPath }/member/login">로그인하기</a>
-		</div>
-
-	</form>
+	</main>
+	<c:import url="../include/footer.jsp" />
 	<script src="../resources/js/findId.js"></script>
 </body>
 </html>

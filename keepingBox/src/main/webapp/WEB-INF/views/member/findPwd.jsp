@@ -8,35 +8,40 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../resources/css/findPwd.css">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>비밀번호찾기</h1>
-	<form id="createForm" action="${contextPath }/member/findPwdCheck" method="post">
-		
-		<div class="form-group">
-			<input type="text" class="form-control form-control-user" id="me_id"
-				name="id" placeholder="아이디">
+	<c:import url="../include/header.jsp" />
+	<main id="container">
+		<div class="find-box">
+			<h2>비밀번호 찾기</h2>
+			<div>
+				<form id="findForm" action="${contextPath }/member/findPwdCheck"
+					method="post">
+					<input type="hidden" id="id" name="id" value="N">
+					<div class="form-group">
+						<input type="text" id="id" name="id" placeholder="아이디">
+					</div>
+					<div class="form-group">
+						<input type="text" id="name" name="name" placeholder="이름">
+					</div>
+					<div class="form-group">
+						<input type="email" id="email" name="email" placeholder="이메일">
+					</div>
+					<button type="submit" id="pwd-find"
+						onclick="findPwdSubmit(); return false;">비밀번호 찾기</button>
+					<div>
+						<ul class="join-login">
+							<li><a href="${contextPath }/member/register_form">회원가입하기</a></li>
+							<li><a href="${contextPath }/member/login">로그인하기</a></li>
+						</ul>
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="form-group">
-			<input type="text" class="form-control form-control-user"
-				id="me_name" name="name" placeholder="이름">
-		</div>
-		<div class="form-group">
-			<input type="email" class="form-control form-control-user"
-				id="me_email" name="email" placeholder="이메일">
-		</div>
-		<button type="submit" onclick="fnSubmit(); return false;"
-			class="btn btn-primary btn-user btn-block">비밀번호 찾기</button>
-		<hr>
-		<div class="text-center">
-			<a class="small" href="${contextPath }/member/register_form">회원가입하기</a>
-		</div>
-		<div class="text-center">
-			<a class="small" href="${contextPath }/member/login">이미 계정이
-				있으신가요? 로그인하기</a>
-		</div>
-	</form>
+	</main>
+	<c:import url="../include/footer.jsp" />
 	<script src="../resources/js/findPwd.js"></script>
 </body>
 </html>

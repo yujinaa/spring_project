@@ -269,6 +269,7 @@ public class memberController implements memberLoginSession{
 		@PostMapping("deleteMemberCheck")
 		public String deleteMemberCheck(memberDTO dto, HttpSession session){
 			memberDTO user = (memberDTO)session.getAttribute(LOGIN);
+			System.out.println(user.getClass());
 //			String id = (String) session.getAttribute("member");
 			String oldPwd = user.getPwd();
 			String inputPwd = dto.getPwd();

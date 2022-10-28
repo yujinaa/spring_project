@@ -7,17 +7,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../resources/css/findPwdResult.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="text-center">
-				회원님 임시 비밀번호는 <p class="mb-4">${newPwd}</p>
-	</div>
-	<hr>
-	
-	<div class="text-center">
-		<a class="small" href="${contextPath }/member/login">이미 계정이 있으신가요?
-			로그인하기</a>
-	</div>
+	<c:import url="../include/header.jsp" />
+	<main id="container">
+		<div class="find-box">
+			<p class="title">회원님의 임시 비밀번호 입니다</p>
+			<div class="result-box">
+				<p>${newPwd}</p>
+			</div>
+			<div class="login-pwd">
+				<ul class="join-login cf">
+					<li><a href="${contextPath }/member/login">로그인하기</a></li>
+				</ul>
+			</div>
+		</div>
+	</main>
+	<c:import url="../include/footer.jsp" />
 </body>
 </html>

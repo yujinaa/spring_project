@@ -29,7 +29,6 @@
 				alert('탈퇴실패');
 				return false;					
 				}
-				}
 		});
 	</script>
 </body>
