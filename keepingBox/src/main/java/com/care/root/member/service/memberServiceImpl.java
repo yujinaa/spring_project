@@ -146,16 +146,39 @@ public class memberServiceImpl implements memberService{
 		dto.setPwd(newUpdatePwd); 
 		memberMapper.pwdUpdate(dto);
 	}
-	public void deleteMemberCheck(memberDTO dto){
-//		String oldPwd = dto.getPwd();
-		try {
-//			if(pwEncoder.matches(oldPwd, dto.getPwd())){
-			memberMapper.deleteMemberCheck(dto);
-//			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+	//	public boolean pwdCheck(String id, String pwd) {
+	//		// 회원 정보 수정 및 삭제를 위한 비밀번호 체크
+	//		boolean result = false;
+	//		Map<String, String> map = new HashMap<String, String>();
+	//		map.put("delId", id);
+	//		map.put("pwd", pwd);
+	//		int count = memberMapper.pwdCheck(id, pwd);
+	//	}
+	public void deleteMemberCheck(memberDTO dto) {
+		//회원탈퇴를 잘 수행하는 지 dao의 deleteSecession 메서드로 go
+		memberMapper.deleteMemberCheck(dto);
 	}
+//	public int delCheck(memberDTO dto, String inputPwd) {
+//		try {
+//			if(pwEncoder.matches(inputPwd, dto.getPwd())) {
+//			memberMapper.delCheck(dto);
+//			return 0;
+//		}}catch (Exception e) {
+//						e.printStackTrace();
+//		}
+//		return 1;
+//	}
+	//	public void deleteMemberCheck(memberDTO dto){
+	////		String oldPwd = dto.getPwd();
+	//		try {
+	////			if(pwEncoder.matches(oldPwd, dto.getPwd())){
+	//			memberMapper.deleteMemberCheck(dto);
+	////			}
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//		}
+	//	}
 
 
 	//		public boolean check(String id, String pwd) {

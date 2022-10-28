@@ -1,9 +1,9 @@
-const pwdCheck = document.getElementById("pwd");
+const pwdCheck = document.getElementById("email");
 const withdrawalBtn = document.getElementById("withdrawal-btn");
 
 withdrawalBtn.addEventListener("click", function() {
     if(pwdCheck.value == null || pwdCheck.value === "") {
-        alert("비밀번호를 입력해 주세요");
+        alert("이메일을 입력해 주세요");
         pwdCheck.focus();
         return false;
     } else {

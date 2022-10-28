@@ -34,8 +34,10 @@ public interface memberMapper {
 	public void pwdUpdate(memberDTO dto);
 	//회원탈퇴
 	public void deleteMemberCheck(memberDTO dto);
+//	public int delCheck(memberDTO dto);
 //	public void deleteMemberCheck(String delId);
-//	public memberDTO deleteMemberCheck(HttpSession session);
+//	public boolean pwdCheck(String id, String pwd);
+	public void deleteMemberCheck(String pwd);
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();

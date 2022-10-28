@@ -20,10 +20,13 @@
 				<form id="withdrawalForm"
 					action="${contextPath }/member/deleteMemberCheck" method="post">
 					<div class="form-group">
-						<input type="text" value="${successLoginUser}" name="id" /> <input
-							type="password" name="pwd" id="pwd" placeholder="비밀번호">
+						
+						
+						<input type="text" value="${successLoginUser}" name="id" /> 
+						
+						<input type="text" name="email" id="pwd" placeholder="이메일">
 					</div>
-					<button type="button" id="withdrawal-btn">탈퇴하기</button>
+					<button type="submit" id="withdrawal-btn">탈퇴하기</button>
 				</form>
 			</div>
 		</div>
