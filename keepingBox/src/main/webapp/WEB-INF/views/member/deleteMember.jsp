@@ -8,28 +8,27 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../resources/css/deleteMember.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>회원탈퇴 페이지</h1>
-	<div>
-		<form action="${contextPath}/member/deleteMemberCheck" method="post"
-			autocomplete="off" >
-			<input type="text" value="${successLoginUser}" name="id" /> <input
-				type="password" name="pwd" id="delPwd" placeholder="비밀번호">
-			<button type="submit" id="deleteBtn">회원탈퇴</button>
-		</form>
-	</div>
-	<script type="text/javascript">
-		$("#deleteBtn").on("click", function(e) {
-			if (confirm("정말 탈퇴?")) {
-				alert('탈퇴성공');
-				return true;					
-				}else{
-				alert('탈퇴실패');
-				return false;					
-				}
-		});
-	</script>
+	<c:import url="../include/header.jsp" />
+	<main id="container">
+		<div class="withdrawal-box">
+			<h2>회원탈퇴</h2>
+			<div>
+				<form id="withdrawalForm"
+					action="${contextPath }/member/deleteMemberCheck" method="post">
+					<div class="form-group">
+						<input type="text" value="${successLoginUser}" name="id" /> <input
+							type="password" name="pwd" id="pwd" placeholder="비밀번호">
+					</div>
+					<button type="button" id="withdrawal-btn">탈퇴하기</button>
+				</form>
+			</div>
+		</div>
+	</main>
+	<c:import url="../include/footer.jsp" />
+	<script src="../resources/js/deleteMember.js"></script>
 </body>
 </html>

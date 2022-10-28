@@ -19,7 +19,7 @@
 	font-weight: bold;
 }
 
-body {
+body, a {
 	color: #3D3B3B;
 }
 
@@ -57,119 +57,92 @@ h1 img {
 
 nav {
 	position: absolute;
-	top: 1.5rem;
 	right: 0;
-	display: flex;
-}
-
-nav ul {
-	display: flex;
-	align-items: center;
+	width: 50%;
+	text-align: center;
 }
 
 nav ul li {
-	padding: 0 3rem;
+	width: 33.33%;
+	height: 80px;
+	line-height: 80px;
+	float: left;
 }
 
 nav ul li a {
 	color: #3D3B3B;
+	display: block;
 }
 
 nav li a:hover {
 	color: #3781E3;
 	font-weight: bold;
 }
-/* 로그인 창 */
-main {
-	margin-top: 13rem;
+
+.mypage {
+	position: relative;
 }
 
-.login-box {
-	margin: 0 auto;
-	width: 400px;
-	padding: 80px 40px;
+.mypage-sub {
+	display: none;
+}
+
+.mypage-sub li {
+	display: block;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	margin: 0;
 	background: #fafafa;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	border-radius: 10px;
 }
 
-.login-box h2 {
-	margin: 0 0 30px;
-	color: #3781E3;
+.mypage-sub li a {
+	display: block;
+}
+
+.mypage:hover ul {
+	display: block;
+}
+/* 아이디 찾기 창 */
+main {
+	margin-top: 12rem;
+	height: 100vh;
+}
+
+.withdrawal-box {
+	margin: 0 auto;
+	width: 320px;
+	height: 500px;
+}
+
+.withdrawal-box h2 {
+	margin-bottom: 4rem;
+	color: #3781e3;
 	font-size: 1.8rem;
 	text-align: center;
 }
 
-.user-box {
-	position: relative;
-}
-
-.user-box input {
+.form-group input {
 	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #3D3B3B;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #AFAFAF;
+	height: 40px;
+	font-size: 0.9rem;
+	border: 1px solid #afafaf;
+	margin-bottom: 1rem;
+	padding-left: 0.7rem;
 	outline: none;
-	background: transparent;
 }
 
-.user-box label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #afafaf;
-	pointer-events: none;
-	transition: .5s;
-}
-
-.user-margin {
-	margin-bottom: 15px !important;
-}
-
-input:focus ~ label, input:valid ~ label {
-	top: -20px;
-	left: 0;
-	color: #3781E3;
-	font-size: 12px;
-}
-
-.save-find {
-	font-size: 0.85rem;
-}
-
-.find {
-	float: right;
-}
-
-.find li {
-	display: inline-block;
-	margin-left: 0.7rem;
-}
-
-button {
-	width: 320px;
-	height: 45px;
-	margin: 1.5rem 0 0.5rem;
-	background: #3781E3;
+#withdrawal-btn {
+	width: 100%;
+	height: 50px;
+	background: #3781e3;
 	color: #fafafa;
-	cursor: pointer;
+	font-size: 1.1rem;
 	border: none;
-	font-size: 1rem;
-	font-weight: bold;
-	border-radius: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 2rem 0 0.9rem 0;
 }
-
-.member-join {
-	font-size: 0.8rem;
-	text-align: center;
-	margin-top: 0.5rem;
-}
-
 /* footer 부분 */
 footer {
 	width: 100%;
