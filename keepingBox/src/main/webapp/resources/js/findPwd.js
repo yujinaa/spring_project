@@ -1,12 +1,12 @@
 let path = "${pageContext.request.contextPath }";
-let email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-const formElement = document.querySelector("form");
-const userId = document.getElementById("id");
-const userName = document.getElementById("name");
-const userEmail = document.getElementById("email");
 
 function findPwdSubmit() {
+let email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+let formElement = document.querySelector("form");
+let userId = document.getElementById("id");
+let userName = document.getElementById("name");
+let userEmail = document.getElementById("email");
     if(userId.value == null || userId.value === "") {
         alert('아이디를 입력해 주세요.');
         userId.focus();

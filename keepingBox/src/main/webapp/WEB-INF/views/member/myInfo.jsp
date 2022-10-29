@@ -32,8 +32,6 @@
 					<input type="tel" name="phone" id="phone" value="${info.phone }" readonly> 
 					<label for="email">이메일</label> <input type="email" name="email"
 						value="${info.email }" id="email" readonly>
-					<label for="booking">예약정보</label>
-					<a href="${contextPath }/booking/bookingInfo">예약현황 확인하기</a>
 					<button type="button" id="modify-btn" 
 					onclick="location.href='${contextPath }/member/myInfoModify?id=${info.id }'">수정하기 &gt;</button>
 					<button type="button" onclick="location.href='${contextPath }/member/deleteMember'">회원탈퇴하기</button>

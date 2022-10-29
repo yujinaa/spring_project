@@ -1,6 +1,5 @@
 package com.care.root.member.controller;
 
-import java.io.Console;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,8 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -29,9 +26,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.care.root.member.common.memberLoginSession;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.member.service.memberService;
-
-import jdk.internal.org.jline.utils.Log;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("member")
@@ -241,7 +235,7 @@ public class memberController implements memberLoginSession{
 
 			if(search == 0) {
 				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
-				return "member/findPwdCheck";
+//				return "member/findPwd";
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
@@ -298,7 +292,7 @@ public class memberController implements memberLoginSession{
 	//		return "redirect:/index";
 	//	}
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto, Model model){
+	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto){
 		if(email.equals(dto.getEmail())) {
 			ms.deleteMemberCheck(dto);
 			session.invalidate();
