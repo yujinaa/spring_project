@@ -1,5 +1,9 @@
 package com.care.root.booking.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +33,22 @@ public class bookingController implements memberLoginSession{
 		//bookingDto.setUserId(mDto.getId());
 		//		String userId = (String)session.getAttribute(LOGIN);
 		//		bookingDto.setUserId(userId);;
-		
+		// 날짜 가져오기
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar calendar = Calendar.getInstance();
+		Date dateObj = calendar.getTime();
+		String bookDate = df.format(dateObj);
+		System.out.println(bookDate);
+
 		bs.bookingDo(bookingDto);
 		return "redirect:bookingInfo";
 	}
-//	@GetMapping("bookingCheck")
-//	public String bookingCheck(@RequestParam int bookingId,Model model)throws Exception {
-//		System.out.println("확인페이지");
-//		bs.bookChkList(bookingId,model);
-//		return "booking/bookingCheck";
-//	}
+	//	@GetMapping("bookingCheck")
+	//	public String bookingCheck(@RequestParam int bookingId,Model model)throws Exception {
+	//		System.out.println("확인페이지");
+	//		bs.bookChkList(bookingId,model);
+	//		return "booking/bookingCheck";
+	//	}
 
 
 	//예약내역

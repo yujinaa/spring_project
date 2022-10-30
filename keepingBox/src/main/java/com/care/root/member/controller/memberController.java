@@ -260,35 +260,7 @@ public class memberController implements memberLoginSession{
 	public String deleteMember() {
 		return "member/deleteMember";
 	}
-	//회원탈퇴
-	//	@PostMapping("deleteMemberCheck")
-	//	public String deleteMembeCheck(@RequestParam String pwd, Model model, HttpSession  session) {
-	//		String delId = ((memberDTO)session.getAttribute("delId")).getId();
-	//		//비번체크
-	//		boolean result = ms.pwdCheck(delId,pwd);
-	//		if(result) {
-	//			ms.deleteMemberCheck(delId);
-	//			if(result) {
-	//				session.invalidate();
-	//			}
-	//		return "redirect:/index";
-	//	}else {
-	//		return "member/deleteMember";
-	//	}
-
-	//}
-
-	//	@PostMapping("deleteMemberCheck")
-	//	public String deleteMemberCheck(String pwd, HttpSession session){
-	//		String id = (String) session.getAttribute("id");
-	//		memberDTO dto = ms.getUserSessionId(id);
-	//		if(!(pwd.equals(dto.getPwd()))) {
-	//			return "redirect:member/deleteMember";
-	//		} 
-	//		ms.deleteMemberCheck(id);
-	//		session.invalidate();
-	//		return "redirect:/index";
-	//	}
+	
 	@PostMapping("deleteMemberCheck")
 	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto){
 		if(email.equals(dto.getEmail())) {
@@ -299,27 +271,7 @@ public class memberController implements memberLoginSession{
 			return "redirect:deleteMember";
 		}
 	}
-	//	@ResponseBody
-	//	@PostMapping("delCheck")
-	//	public int delCheck(memberDTO dto){
-	//		int result = ms.delCheck(dto);
-	//		return result;
-	//	}
-	//	@PostMapping("deleteMemberCheck")
-	//	public String deleteMemberCheck(@RequestParam String pwd, Model model, HttpSession session, memberDTO dto){
-	//		String id = ((memberDTO)(session.getAttribute("id"))).getId();
-	//		// 비밀번호 체크
-	//		boolean result = ms.checkPwd(id, pwd);
-	//		if(result){ // 비밀번호가 맞다면 삭제 처리
-	//			ms.delete(id);
-	//			if (result) {
-	//				session.invalidate(); //탈퇴시 로그아웃 처리
-	//			}
-	//			return "redirect:/index";
-	//		} else { // 비밀번호가 일치하지 않는다면
-	//			return "member/deleteMember";
-	//		}
-	//	}
+
 	//관리자 - 회원목록
 	@GetMapping("memberList")
 	public String memberList(Model model,@RequestParam(value="id", required=false) String id, 

@@ -24,11 +24,6 @@
 				<input type="hidden" value="${booking.bookingId  }"
 					readonly="readonly">
 			</div>
-			<!-- 
-			<c:if test="${successLoginUser == userBookingCheck.userId  }">
-			</c:if>
-			
-			 -->
 			<div>
 				<table class="booking-check">
 					<c:choose>
