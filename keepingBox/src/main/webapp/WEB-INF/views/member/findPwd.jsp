@@ -17,7 +17,7 @@
 		<div class="find-box">
 			<h2>비밀번호 찾기</h2>
 			<div>
-				<form id="findForm" action="${contextPath }/member/findPwdCheck"
+				<form id="findForm" action="${contextPath }/member/findPwdResult"
 					method="post">
 					<input type="hidden" id="id" name="id" value="N">
 					<div class="form-group">
@@ -30,7 +30,7 @@
 						<input type="email" id="email" name="email" placeholder="이메일">
 					</div>
 					<button type="submit" id="pwd-find"
-						onclick="findPwdSubmit(); return false;">비밀번호 찾기</button>
+						>비밀번호 찾기</button>
 					<div>
 						<ul class="join-login">
 							<li><a href="${contextPath }/member/register_form">회원가입하기</a></li>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -31,7 +32,6 @@ import com.care.root.member.service.memberService;
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
-
 	//로그인클릭
 	@GetMapping("login")
 	public String login() {
@@ -223,7 +223,7 @@ public class memberController implements memberLoginSession{
 		return "member/findPwd";
 	}
 	//비번찾기
-	@PostMapping("findPwdCheck")
+	@PostMapping("findPwdResult")
 	public String findPwdCheck(HttpServletRequest request, Model model,
 			@RequestParam String id, @RequestParam String name,@RequestParam String email, 
 			memberDTO dto) {
@@ -235,16 +235,14 @@ public class memberController implements memberLoginSession{
 
 			if(search == 0) {
 				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
-//				return "member/findPwd";
+				//				return "member/findPwd";
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
 			//			String enpassword = encryptPassword(newPwd);
 			//			dto.setPwd(enpassword);
 			dto.setPwd(newPwd);
-
 			ms.pwdUpdate(dto);
-
 			model.addAttribute("newPwd", newPwd);
 
 		} catch (Exception e) {
@@ -301,12 +299,12 @@ public class memberController implements memberLoginSession{
 			return "redirect:deleteMember";
 		}
 	}
-//	@ResponseBody
-//	@PostMapping("delCheck")
-//	public int delCheck(memberDTO dto){
-//		int result = ms.delCheck(dto);
-//		return result;
-//	}
+	//	@ResponseBody
+	//	@PostMapping("delCheck")
+	//	public int delCheck(memberDTO dto){
+	//		int result = ms.delCheck(dto);
+	//		return result;
+	//	}
 	//	@PostMapping("deleteMemberCheck")
 	//	public String deleteMemberCheck(@RequestParam String pwd, Model model, HttpSession session, memberDTO dto){
 	//		String id = ((memberDTO)(session.getAttribute("id"))).getId();
