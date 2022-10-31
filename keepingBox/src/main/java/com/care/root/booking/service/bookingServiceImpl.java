@@ -2,10 +2,7 @@ package com.care.root.booking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
 import com.care.root.booking.dto.bookingDTO;
-import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.booking.bookingMapper;
 
 @Service
@@ -18,18 +15,18 @@ public class bookingServiceImpl implements bookingService{
 			e.printStackTrace();
 		}
 	}
-//	public void bookChkList(int bookingId, Model model){
-//		model.addAttribute("bookList",bMapper.bookChkList(bookingId));
-//	}
+	//	public void bookChkList(int bookingId, Model model){
+	//		model.addAttribute("bookList",bMapper.bookChkList(bookingId));
+	//	}
 
 	//예약정보
 	public bookingDTO bookingInfo(String userId){
 		bookingDTO dto = null;
-		try {
-			dto = bMapper.bookingInfo(userId);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+				try {
+					dto = bMapper.bookingInfo(userId);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		return dto;
 	}
 

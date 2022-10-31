@@ -1,5 +1,6 @@
 package com.care.root.booking.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class bookingDTO {
@@ -32,18 +33,8 @@ public void setUserId(String userId) {
 	this.userId = userId;
 }
 
-public String getBookDateS() {
-	return bookDateS;
-}
-public void setBookDateS(String bookDateS) {
-	this.bookDateS = bookDateS;
-}
-public String getBookDateE() {
-	return bookDateE;
-}
-public void setBookDateE(String bookDateE) {
-	this.bookDateE = bookDateE;
-}
+
+
 public String getName() {
 	return name;
 }
@@ -53,8 +44,23 @@ public void setName(String name) {
 public String getSize() {
 	return size;
 }
+
+public String getBookDateS() {
+	return bookDateS;
+}
+
+public String getBookDateE() {
+	return bookDateE;
+}
 public void setSize(String size) {
 	this.size = size;
+}
+public void setBookDateS(String bookDateS) {
+	this.bookDateS = bookDateS;
+}
+
+public void setBookDateE(String bookDateE) {
+	this.bookDateE = bookDateE;
 }
 public String getPrice() {
 	return price;

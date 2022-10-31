@@ -33,13 +33,6 @@ public class bookingController implements memberLoginSession{
 		//bookingDto.setUserId(mDto.getId());
 		//		String userId = (String)session.getAttribute(LOGIN);
 		//		bookingDto.setUserId(userId);;
-		// 날짜 가져오기
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		Calendar calendar = Calendar.getInstance();
-		Date dateObj = calendar.getTime();
-		String bookDate = df.format(dateObj);
-		System.out.println(bookDate);
-
 		bs.bookingDo(bookingDto);
 		return "redirect:bookingInfo";
 	}
