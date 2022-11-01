@@ -55,27 +55,15 @@
 					</c:choose>
 				</table>
 				<c:if test="${booking.bookingId !=null }">
-					<button type="button" id="delete-btn"
+					<button type="button" id="cancel-btn"
 						onclick="location.href='${contextPath }/booking/bookDelete?bookingId=${booking.bookingId }'">취소하기</button>
 				</c:if>
-				<button type="button" id="List-btn"
-					onClick="location.href='${contextPath}/index'">메인으로</button>
+				<button type="button" id="main-btn"
+					onClick="location.href='${contextPath}/index'">메인으로 돌아가기</button>
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript">
-		$("#delete-btn").on("click", function(e) {
-			if (confirm("예약을 취소하시겠습니까?")) {
-				alert('예약이 취소되었습니다.');
-				return true;
-			} else {
-				alert('예약을 취소할 수 없습니다.');
-				return false;
-			}
-		});
-		
-		
-	</script>
+		<script src="../resources/js/bookingInfo.js"></script>
 </body>
 <c:import url="../include/footer.jsp" />
 </html>

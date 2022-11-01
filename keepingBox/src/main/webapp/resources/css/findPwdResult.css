@@ -78,56 +78,57 @@ nav li a:hover {
 .mypage:hover ul {
     display: block;
 }
-/* 비밀번호 찾기 결과 창 */
 main {
-	margin-top: 12rem;
-	height: 100vh;
+  margin-top: 12rem;
+  height: 100vh;
 }
-
 .find-box {
-	margin: 0 auto;
-	width: 320px;
-	height: 500px;
+  margin: 0 auto;
+  width: 320px;
+  height: 500px;
 }
-
 .title {
-	margin-bottom: 4rem;
-	color: #3781e3;
-	font-size: 1.3rem;
-	font-weight: bold;
-	text-align: center;
+  margin-bottom: 4rem;
+  color: #3781e3;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
 }
-
-.result-box {
-	width: 100%;
-	height: 8rem;
-	border: 1px solid #afafaf;
-	padding: 1rem;
+/* .result-box {
+  width: 100%;
+  height: 8rem;
+  border: 1px solid #f5f5f5;
+  padding: 1rem;
+} */
+.announce {
+  color: #afafaf;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+.color2 {
+  color: red;
 }
 
 .login-pwd {
-	margin-top: 3rem;
+  margin-top: 3rem;
 }
-
 .join-login {
-	display: block;
-	margin-top: 0.5rem;
+  display: block;
+  margin-top: 0.5rem;
 }
-
 .join-login li {
-	display: inline-block;
-	width: 100%;
-	height: 45px;
-	line-height: 45px;
-	text-align: center;
-	border-radius: 5px;
-	background: #3781e3;
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 5px;
+  background: #3781e3;
 }
-
 .join-login li a {
-	display: block;
-	height: 100%;
-	color: #fff;
+  display: block;
+  height: 100%;
+  color: #fff;
 }
 /* footer 부분 */
 footer {

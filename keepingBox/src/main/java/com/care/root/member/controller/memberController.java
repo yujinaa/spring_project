@@ -235,7 +235,7 @@ public class memberController implements memberLoginSession{
 
 			if(search == 0) {
 				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
-				//				return "member/findPwd";
+//					return "member/findPwd";
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);

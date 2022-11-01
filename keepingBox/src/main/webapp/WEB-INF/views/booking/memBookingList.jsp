@@ -45,7 +45,7 @@
 								<tr>
 									<td>${list.bookingId }</td>
 									<th><a
-										href="${contextPath }/member/memBookListDetail?userId=${list.userId}">${list.userId }</a></th>
+										href="${contextPath }/booking/memBookListDetail?userId=${list.userId}">${list.userId }</a></th>
 									<td>${list.name }</td>
 									<td>${list.bookDateS }</td>
 									<td>${list.city }</td>
@@ -57,7 +57,7 @@
 					</table>
 					<div align="center">
 						<c:forEach var="num" begin="1" end="${repeat }">
-							<a href="memBookList?num=${num }">[${num }]</a>
+							<a href="memBookingList?num=${num }">[${num }]</a>
 						</c:forEach>
 					</div>
 				</div>

@@ -64,7 +64,7 @@ public class bookingController implements memberLoginSession{
 
 	//관리자 - 예약목록
 	@GetMapping("memBookingList")
-	public String memBookingList(Model model,@RequestParam(value="userId", required=false) String userId, 
+	public String memBookingList(Model model,@RequestParam(value="id", required=false) String id, 
 			HttpSession session,@RequestParam(required = false, defaultValue = "1" ) int num) {
 			bs.memBookList(model,num);
 		return "booking/memBookingList";
