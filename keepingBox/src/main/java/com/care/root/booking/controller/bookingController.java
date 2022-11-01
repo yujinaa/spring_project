@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.booking.service.bookingService;
 import com.care.root.member.common.memberLoginSession;
@@ -58,6 +60,14 @@ public class bookingController implements memberLoginSession{
 	public String bookDelete(int bookingId){
 		bs.bookDelete(bookingId);
 		return "redirect:bookingInfo";
+	}
+
+	//관리자 - 예약목록
+	@GetMapping("memBookingList")
+	public String memBookingList(Model model,@RequestParam(value="userId", required=false) String userId, 
+			HttpSession session,@RequestParam(required = false, defaultValue = "1" ) int num) {
+			bs.memBookList(model,num);
+		return "booking/memBookingList";
 	}
 
 

@@ -21,7 +21,7 @@
 		<section class="review">
 			<div class="page-title">
 				<div class="container">
-					<h2>회원목록</h2>
+					<h2>회원예약목록</h2>
 				</div>
 			</div>
 
@@ -31,43 +31,35 @@
 					<table class="board-table">
 						<thead>
 							<tr>
-								<th scope="col" class="th-title">아이디</th>
-								<th scope="col" class="th-writer">이름</th>
-								<th scope="col" class="th-date">연락처</th>
-								<th scope="col" class="th-view">이메일</th>
+								<th scope="col" class="th-title">예약번호</th>
+								<th scope="col" class="th-title">예약아이디</th>
+								<th scope="col" class="th-writer">예약이름</th>
+								<th scope="col" class="th-date">예약날짜</th>
+								<th scope="col" class="th-date">지점</th>
+								<th scope="col" class="th-view">사이즈</th>
+								<th scope="col" class="th-view">요금</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${memberList}" var="list">
+							<c:forEach items="${memBookList}" var="list">
 								<tr>
+									<td>${list.bookingId }</td>
 									<th><a
-										href="${contextPath }/member/memberListDetail?id=${list.id}">${list.id }</a></th>
+										href="${contextPath }/member/memBookListDetail?userId=${list.userId}">${list.userId }</a></th>
 									<td>${list.name }</td>
-									<td>${list.phone }</td>
-									<td>${list.email }</td>
+									<td>${list.bookDateS }</td>
+									<td>${list.city }</td>
+									<td>${list.size }</td>
+									<td>${list.price }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<div align="center">
 						<c:forEach var="num" begin="1" end="${repeat }">
-							<a href="memberList?num=${num }">[${num }]</a>
+							<a href="memBookList?num=${num }">[${num }]</a>
 						</c:forEach>
 					</div>
-
-					<!-- 검색 -->
-					<div class="search" align="center" style="margin-top: 40px;">
-						<form action="${contextPath }/member/memberList" method="get">
-							<input class="inputId" type="text" name="id" value="${param.id }"
-								placeholder="찾을 아이디 입력"> <input class="submitBtn"
-								type="submit" value="아이디 검색">
-						</form>
-					</div>
-					<div>
-						<a href="${contextPath }/booking/memBookingList">예약목록</a>
-					</div>
-
-
 				</div>
 			</div>
 		</section>

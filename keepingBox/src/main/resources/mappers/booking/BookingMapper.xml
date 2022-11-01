@@ -34,7 +34,22 @@
 
 	<!-- 삭제하기 -->
 	<delete id="bookDelete">
-		delete from box_booking where booking_id= #{bookingId}
+		delete from box_booking where booking_id=
+		#{bookingId}
 	</delete>
+
+	<!-- 관리자 회원예약목록 -->
+	<select id="memBookList" resultMap="booking">
+		select B.* from(select rownum rn, A.* from
+		(select * from box_booking
+		order by buser_id desc)A)B where rn between #{s} and
+		#{e}
+
+	</select>
+
+	<select id="selectMemberCount" resultType="Integer">
+		select count(*) from
+		box_booking
+	</select>
 
 </mapper>

@@ -199,3 +199,7 @@ footer li, footer a {
 .footer-right li:last-child {
 	font-size: 1rem;
 }
+.delText{
+	color: red;
+	font-size: 3rem;
+}

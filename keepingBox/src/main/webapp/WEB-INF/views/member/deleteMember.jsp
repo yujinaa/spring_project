@@ -20,7 +20,7 @@
 				<form id="withdrawalForm"
 					action="${contextPath }/member/deleteMemberCheck" method="post">
 					<div class="form-group">
-						<div>*예약 내역이 있는 경우 취소 후 탈퇴 가능합니다.</div>
+						<div id="delText">*예약 내역이 있는 경우 취소 후 탈퇴 가능합니다.</div>
 						<input type="text" value="${successLoginUser}" name="id" /> <input
 							type="text" name="email" id="pwd" placeholder="이메일">
 					</div>
