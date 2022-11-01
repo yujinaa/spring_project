@@ -53,7 +53,7 @@
 					</table>
 					<c:if test="${successLoginUser !='admin01'}">
 						<a href="${contextPath }/board/reviewWrite"><button
-								type="submit" id="review-btn">리뷰쓰기</button></a>
+								type="button" id="review-btn">리뷰쓰기</button></a>
 					</c:if>
 					<div class="paging">
 						<c:forEach var="num" begin="1" end="${repeat }">
