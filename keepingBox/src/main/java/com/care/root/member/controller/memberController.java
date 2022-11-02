@@ -228,9 +228,9 @@ public class memberController implements memberLoginSession{
 			@RequestParam String id, @RequestParam String name,@RequestParam String email, 
 			memberDTO dto) {
 		try {
-			dto.setId(id);
-			dto.setName(name);
-			dto.setEmail(email);
+//			dto.setId(id);
+//			dto.setName(name);
+//			dto.setEmail(email);
 			int search = ms.pwdCheck(dto);
 
 			if(search == 0) {
