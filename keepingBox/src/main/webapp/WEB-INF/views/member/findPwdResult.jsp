@@ -19,7 +19,6 @@
                 <p>${newPwd}</p>
             </div>
             <div class="announce">
-                <p>&#8251;안전을 위해 비밀번호를 변경해 주세요.</p>
                 <p class="color2">&#8251;안전을 위해 비밀번호를 변경해 주세요.</p>
             </div>
             <div class="login-pwd">
