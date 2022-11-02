@@ -34,23 +34,27 @@
 					<input type="text" name="writer" id="writer"
 						value="${successLoginUser  }" readonly> <input type="text"
 						name="title" id="title" placeholder="제목 입력">
-					<textarea name="content" cols="30" rows="10" placeholder="내용 입력"></textarea>
-					<button type="reset" id="cancel-btn">취소</button>
+					<textarea name="reviewContent" id="reviewContent" cols="30"
+						rows="10" placeholder="50자 이상으로 작성해 주세요."></textarea>
+					<button type="button" id="cancel-btn">취소</button>
 					<button type="submit" id="regist-btn">등록하기</button>
 				</div>
 			</form>
 
 		</section>
 	</main>
-<script type="text/javascript">
-$("#regist-btn").on("click", function(e){
-	if("#regist-btn".value===''){
-		alert("내용을 입력해 주세요.");
-	}else{
-		alert('새로운 글이 등록되었습니다.');
-	}
-});
-</script>
+	<!-- 
+	<script type="text/javascript">
+		$("#regist-btn").on("click", function(e) {
+			if ("#regist-btn".value === '') {
+				alert("내용을 입력해 주세요.");
+			} else {
+				alert('새로운 글이 등록되었습니다.');
+			}
+		});
+	</script>
+	 -->
 	<c:import url="../include/footer.jsp" />
+	<script src="../resources/js/reviewWrite.js"></script>
 </body>
 </html>

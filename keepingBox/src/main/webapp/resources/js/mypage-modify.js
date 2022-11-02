@@ -73,5 +73,5 @@ saveBtn.addEventListener("click", function(e) {
     }
 
     alert('회원정보가 수정되었습니다.');
-    location.href = "mypage.html";
+    location.href = "myInfo";
 });
