@@ -36,25 +36,14 @@
 						name="title" id="title" placeholder="제목 입력">
 					<textarea name="content" id="reviewContent" cols="30"
 						rows="10" placeholder="작성해 주세요."></textarea>
-					<button type="button" id="cancel-btn">취소</button>
+					<button type="reset" id="cancel-btn">취소</button>
 					<button type="submit" id="regist-btn">등록하기</button>
 				</div>
 			</form>
 
 		</section>
 	</main>
-	<!-- 
-	<script type="text/javascript">
-		$("#regist-btn").on("click", function(e) {
-			if ("#regist-btn".value === '') {
-				alert("내용을 입력해 주세요.");
-			} else {
-				alert('새로운 글이 등록되었습니다.');
-			}
-		});
-	</script>
-	 -->
 	<c:import url="../include/footer.jsp" />
-	<script src="../resources/js/reviewWrite.js"></script>
+	 <script src="../resources/js/reviewWrite.js"></script>
 </body>
 </html>

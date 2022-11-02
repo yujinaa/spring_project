@@ -43,7 +43,10 @@
 			}
 		});
 </script>	
+
  -->
+
 <script src="../resources/js/mypage-modify.js"></script>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 // 등록하기 (+글자수)
+
 const registBtn = document.getElementById("regist-btn");
 registBtn.addEventListener("click", function(e) {
     e.preventDefault();
@@ -7,12 +8,18 @@ registBtn.addEventListener("click", function(e) {
 		alert("10자 이상 입력해 주세요.");
         content.focus();
         return false;
-    } else {
+   } else {
         if(confirm("후기를 등록하시겠습니까?")) {
             alert("후기가 등록되었습니다.");
-        } else {
-            content.focus();
-            return false;
         } 
     }
 });
+
+//$("#regist-btn").on("click", function(e) {
+		//	if ("#regist-btn".value === '') {
+		//		alert("내용을 입력해 주세요.");
+		//		return false;
+		//	} else {
+		//		alert('새로운 글이 등록되었습니다.');
+		//	}
+	//	});
