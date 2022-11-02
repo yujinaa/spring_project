@@ -131,7 +131,25 @@ table.booking-check td {
     margin: 2rem auto;
     cursor: pointer;
 }
-
+button {
+  height: 45px;
+  font-size: 1rem;
+  margin: 2rem auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: #3781e3;
+  color: #fff;
+}
+#cancel-btn {
+  width: 8rem;
+}
+#main-btn {
+  float: right;
+  width: 11rem;
+}
 /* footer 부분 */
 footer {
     width: 100%;
