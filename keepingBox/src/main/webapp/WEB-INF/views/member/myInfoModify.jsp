@@ -24,13 +24,14 @@
 				<input type="text" name="name" id="name"> <label for="phone">휴대폰
 					번호 (-없이)</label> <input type="tel" name="phone" id="phone"> <label
 					for="email">이메일</label> <input type="email" name="email" id="email">
-				<button type="submit" onclick="save();" id="save-btn">변경 내용
+				<button type="submit" id="save-btn">변경 내용
 					저장</button>
 			</form>
 		</div>
 	</div>
 </main>
 <c:import url="../include/footer.jsp" />
+<!-- 
 <script type="text/javascript">
 		$("#save-btn").on("click", function(e) {
 			if (confirm("정보를 수정하시겠습니까?")) {
@@ -42,5 +43,7 @@
 			}
 		});
 </script>	
+ -->
+<script src="../resources/js/mypage-modify.js"></script>
 </body>
 </html>
