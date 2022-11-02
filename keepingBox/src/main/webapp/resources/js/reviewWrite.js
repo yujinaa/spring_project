@@ -13,6 +13,7 @@ registBtn.addEventListener("click", function(e) {
             alert("후기가 등록되었습니다.");
         } 
     }
+return true;
 });
 
 //$("#regist-btn").on("click", function(e) {
