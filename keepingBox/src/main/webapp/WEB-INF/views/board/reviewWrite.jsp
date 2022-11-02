@@ -34,8 +34,8 @@
 					<input type="text" name="writer" id="writer"
 						value="${successLoginUser  }" readonly> <input type="text"
 						name="title" id="title" placeholder="제목 입력">
-					<textarea name="reviewContent" id="reviewContent" cols="30"
-						rows="10" placeholder="50자 이상으로 작성해 주세요."></textarea>
+					<textarea name="content" id="reviewContent" cols="30"
+						rows="10" placeholder="작성해 주세요."></textarea>
 					<button type="button" id="cancel-btn">취소</button>
 					<button type="submit" id="regist-btn">등록하기</button>
 				</div>
