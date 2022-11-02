@@ -30,7 +30,8 @@ String userId = (String) session.getAttribute("userId");
 				<li>내 주변 짐 보관 서비스</li>
 				<li>하루 단위로 언제든지 당신의 짐을 보관할 수 있는<br>맞춤형 서비스입니다
 				</li>
-				<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li>
+				<c:if test="${successLoginUser !='admin01'}">
+				<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li></c:if>
 			</ul>
 		</div>
 		<!-- 이용안내 부분 -->
