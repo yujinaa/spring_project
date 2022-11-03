@@ -21,7 +21,7 @@
 					method="post">
 					<input type="hidden" id="id" name="id" value="N">
 					<div class="form-group">
-						<input type="text" id="id" name="id" placeholder="아이디">
+						<input type="text" id="user-id" name="id" placeholder="아이디">
 					</div>
 					<div class="form-group">
 						<input type="text" id="name" name="name" placeholder="이름">

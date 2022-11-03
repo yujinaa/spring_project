@@ -3,7 +3,7 @@ let path = "${pageContext.request.contextPath }";
 function findPwdSubmit(e) {
     e.preventDefault();
     const formElement = document.querySelector("form");
-    const userId = document.getElementById("id");
+    const userId = document.getElementById("user-id");
     const userName = document.getElementById("name");
     const userEmail = document.getElementById("email");
 

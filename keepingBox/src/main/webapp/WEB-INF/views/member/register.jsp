@@ -68,8 +68,6 @@ $.ajax({
 					<label for="phone">휴대폰 번호 (-없이)</label> <input type="tel" name="phone" id="phone"> 
 					<label for="email">이메일</label> <input type="email" name="email"
 						id="email" placeholder="example@gmail.com">
-					<button type="button" class="chk-btn">전송하기</button>
-
 					<button type="submit" onclick="register();" id="join-btn">회원가입</button>
 					<!-- 나중에 type="submit"으로 해보기 -->
 				</form>
