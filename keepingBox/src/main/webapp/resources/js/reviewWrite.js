@@ -17,16 +17,21 @@
 
 //});
 
-$("#regist-btn").on("click", function(e) {
-	if ("#regist-btn".value === '') {
-		alert("내용을 입력해 주세요.");
-			return false;
-			} else {
-				if(content.value.length < 10) {
-		alert("10자 이상 입력해 주세요.");
+//$("#regist-btn").on("click", function(e) {
+		//	if ("#regist-btn".value === '') {
+		//		alert("내용을 입력해 주세요.");
+		//		return false;
+		//	} else {
+		//		alert('새로운 글이 등록되었습니다.');
+		//	}
+	//	});
+	const content = document.getElementById("reviewContent");
+	$("#regist-btn").on("click", function() {
+    if(content.value.length < 10) {
+        alert("10자 이상 입력해 주세요.");
         content.focus();
-      return false;
-			}
-			alert('새로운 글이 등록되었습니다.');
-			}
-	});
+        return false;
+    }else{
+	alert('새로운 글이 등록되었습니다.');
+}
+});
