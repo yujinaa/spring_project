@@ -57,26 +57,25 @@ h1 img {
 
 nav {
 	position: absolute;
-	top: 1.5rem;
 	right: 0;
-	display: flex;
-}
-
-nav ul {
-	display: flex;
-	align-items: center;
+	width: 50%;
+	text-align: center;
 }
 
 nav ul li {
-	padding: 0 3rem;
+	width: 33.33%;
+	height: 80px;
+	line-height: 80px;
+	float: left;
 }
 
 nav ul li a {
-	color: #3D3B3B;
+	color: #3d3b3b;
+	display: block;
 }
 
 nav li a:hover {
-	color: #3781E3;
+	color: #3781e3;
 	font-weight: bold;
 }
 /* 로그인 창 */
