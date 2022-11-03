@@ -31,7 +31,7 @@
 	</div>
 </main>
 <c:import url="../include/footer.jsp" />
-<!-- 
+ 
 <script type="text/javascript">
 		$("#save-btn").on("click", function(e) {
 			if (confirm("정보를 수정하시겠습니까?")) {
@@ -44,9 +44,9 @@
 		});
 </script>	
 
- -->
-
+<!-- 
 <script src="../resources/js/mypage-modify.js"></script>
+ -->
 
 </body>
 </html>
