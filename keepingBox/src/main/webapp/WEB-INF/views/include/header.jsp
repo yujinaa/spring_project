@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
 	<header>
 		<div class="head-wrap">
 			<h1>
@@ -35,7 +35,7 @@
 									<li><a href="${contextPath }/board/notice">공지사항</a></li>
 									<li><a href="${contextPath }/booking/bookingInfo">예약확인</a></li>
 									<li><a href="${contextPath }/member/myInfo">회원정보</a></li>
-									<li><a href="${contextPath }/member/logout">로그아웃</a></li>
+									<li id="log-out"><a href="${contextPath }/member/logout">로그아웃</a></li>
 								</ul></li>
 						</c:when>
 						<c:otherwise>
@@ -46,6 +46,14 @@
 			</nav>
 		</div>
 	</header>
-
+	<script type="text/javascript">
+		$("#log-out").on("click", function() {
+			if (confirm("로그아웃 하시겠습니까?")) {
+				alert("로그아웃 되었습니다. 다시 로그인 해 주세요.");
+			} else {
+				return false;
+			}
+		});
+	</script>
 </body>
 </html>
