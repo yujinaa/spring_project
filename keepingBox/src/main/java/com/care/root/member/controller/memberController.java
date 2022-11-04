@@ -32,6 +32,8 @@ import com.care.root.member.service.memberService;
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
+	BCryptPasswordEncoder pwEncoder; //암호화
+	
 	//로그인클릭
 	@GetMapping("login")
 	public String login() {
@@ -239,18 +241,21 @@ public class memberController implements memberLoginSession{
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-			//			String enpassword = encryptPassword(newPwd);
-			//			dto.setPwd(enpassword);
+//			String enpassword = pwEncoder(newPwd);
+//			dto.setPwd(enpassword);
 			dto.setPwd(newPwd);
 			ms.pwdUpdate(dto);
 			model.addAttribute("newPwd", newPwd);
 
 		} catch (Exception e) {
-			model.addAttribute("msg", "오류가 발생되었습니다.");
 			e.printStackTrace();
+			model.addAttribute("msg", "오류가 발생되었습니다.");
 		}
 		return "member/findPwdResult";
 	}
+//	private String pwEncoder(String newPwd) {
+//		return null;
+//	}
 	@GetMapping("findPwdResult")
 	public String findPwResult() {
 		return "member/findPwdResult";

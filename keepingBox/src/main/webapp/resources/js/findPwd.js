@@ -1,4 +1,6 @@
 let path = "${pageContext.request.contextPath }";
+const pwdFind = document.getElementById("pwd-find");
+pwdFind.addEventListener("click", findPwdSubmit);
 
 function findPwdSubmit(e) {
     e.preventDefault();
@@ -36,6 +38,3 @@ function findPwdSubmit(e) {
         return false;
     }
 }
-
-const pwdFind = document.getElementById("pwd-find");
-pwdFind.addEventListener("click", findPwdSubmit);

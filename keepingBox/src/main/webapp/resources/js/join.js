@@ -81,6 +81,10 @@ function register() {
         alert('올바른 이메일 형식이 아닙니다.');
         return false;
     }
-
+	 if(confirm("회원가입 하시겠습니까?")) {
     alert('회원가입이 완료되었습니다.');
+        } else {
+            alert("회원가입을 할 수 없습니다.");
+            return false;
+        } 
 }
