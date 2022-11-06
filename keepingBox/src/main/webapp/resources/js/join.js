@@ -1,4 +1,5 @@
-function register() {
+function register(e) {
+e.preventDefault();
     // ----------------- 유효성검사 정규식 -----------------
     let RegExp = /^[a-zA-Z0-9]{4,12}$/; // id, pwd
     let n_RegExp = /^[가-힣]{2,15}$/; //이름
@@ -32,6 +33,7 @@ function register() {
     }
     if(!RegExp.test(pwd.value)) {
         alert('비밀번호는 4~12자의 영문 대소문자와 숫자로만 입력해 주세요.');
+        pwd.focus();
         return false;
     }
 

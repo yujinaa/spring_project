@@ -69,7 +69,7 @@
 
 	<!-- 공지사항 목록 -->
 	<select id="noticeList" resultMap="notice">
-		select * from box_notice
+		select * from box_notice order by notice_num desc 
 	</select>
 
 	<!-- 글쓰기 등록 -->
