@@ -61,16 +61,5 @@
 	</main>
 	<script src="../resources/js/booking.js"></script>
 	<c:import url="../include/footer.jsp" />	 
-	<script type="text/javascript">
-		$("#next-btn").on("click", function(e) {
-			if (confirm("예약하시겠습니까?")) {
-				alert('예약되었습니다.');
-				return true;
-			} else {
-				alert('예약에 실패했습니다.');
-				return false;
-			}
-		});
-	</script>
 </body>
 </html>
