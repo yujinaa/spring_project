@@ -32,7 +32,7 @@
                         <label for="pwd">비밀번호</label>
                     </div>
                     <div class="save-find">
-                        <input type="checkbox" name="autoLogin" class="check-box">아이디 저장
+                        <input type="checkbox" name="autoLogin" class="check-box">로그인 유지
                         <ul class="find">
                             <li><a href="${contextPath }/member/findId">아이디찾기</a></li>
                             <li><a href="${contextPath }/member/findPwd">비밀번호찾기</a></li>
