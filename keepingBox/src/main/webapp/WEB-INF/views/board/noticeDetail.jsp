@@ -21,7 +21,7 @@
 		<section class="review-write">
 			<div class="page-title">
 				<div class="container">
-					<h2>이용후기</h2>
+					<h2>공지사항</h2>
 				</div>
 			</div>
 			<div class="review-space cf">
