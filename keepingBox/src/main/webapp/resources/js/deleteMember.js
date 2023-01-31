@@ -12,7 +12,6 @@ withdrawalBtn.addEventListener("click", function() {
             return true;
         } else {
         alert("탈퇴할 수 없습니다");
-            pwdCheck.focus();
             return false;
         }    
     }
