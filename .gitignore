@@ -1,9 +1,10 @@
 /.metadata/
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
+/metadata
 
 ### Eclipse ###
-.metadata
+./metadata
 bin/
 tmp/
 *.tmp
