@@ -13,7 +13,7 @@
 	<!-- layer popup content -->
 	<div class="layerPopup" id="layer_popup" style="visibility: visible;">
 		<div class="layerBox">
-			<h4 class="title">KeepingBox 공지사항</h4>
+			<h4 class="title">공지사항</h4>
 			<div class="contBox">
 				<div class="cont">
 					<h3>SALE</h3>
@@ -24,15 +24,15 @@
 				<button>자세히보기</button>
 			</div>
 			<div class="footer">
-			<form name="pop_form">
-				<div id="check">
-					<input type="checkbox" name="chkbox" value="checkbox" id='chkbox'>
-					<label for="chkbox">&nbsp&nbsp오늘 하루동안 보지 않기</label>
-				</div>
-				<div id="close">
-					<a href="javascript:closePop();">닫기</a>
-				</div>
-			</form>
+				<form name="pop_form">
+					<div id="check">
+						<input type="checkbox" value="checkbox" id='chkbox'> <label
+							for="chkbox">&nbsp&nbsp오늘 하루동안 보지 않기</label>
+					</div>
+					<div id="close">
+						<a href="javascript:closePop();">닫기</a>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

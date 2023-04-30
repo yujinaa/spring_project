@@ -1,8 +1,6 @@
 @charset "EUC-KR";
 
-font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
-	HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica,
-	Arial, sans-serif ; .layerPopup img {
+.layerPopup img {
 	margin-bottom: 20px;
 }
 
@@ -67,7 +65,7 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 
 .layerPopup #close {
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 400;
 	width: 40px;
 	height: 30px;
 	color: black;
@@ -92,7 +90,6 @@ font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic,
 	font-size: 45px;
 	font-weight:bold;
 }
-
 .cont h5{
 	text-decoration: underline;
 }
