@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/root/resources/css/main-after-login.css">
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="/root/resources/css/popup.css">
 <body>
 <%
 String userId = (String) session.getAttribute("userId");
@@ -141,6 +142,8 @@ String userId = (String) session.getAttribute("userId");
 		</section>
 	</main>
 <c:import url="include/footer.jsp"/>
+<c:import url="popup/popup.jsp"/>
 <script src="/root/resources/js/main.js"></script>
+<script src="/root/resources/js/popup.js"></script>
 </body>
 </html>
