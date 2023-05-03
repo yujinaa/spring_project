@@ -61,6 +61,13 @@ public class bookingController implements memberLoginSession{
 		bs.bookDelete(bookingId);
 		return "redirect:bookingInfo";
 	}
+	
+	//결제
+	@GetMapping("payment")
+	public String pay() {
+		return "booking/payment";
+		
+	}
 
 	//관리자 - 예약목록
 	@GetMapping("memBookingList")

@@ -34,9 +34,9 @@ nextBtn.addEventListener("click", () => {
     alert("위 항목들을 선택해 주세요.");
     return false;
   }else if(confirm("예약하시겠습니까?")) {
-    alert("예약되었습니다.");
+   alert("예약되었습니다.");
   } else {
-    alert('예약에 실패했습니다.');
+    alert('예약을 취소합니다.');
 	return false;
   }
 });

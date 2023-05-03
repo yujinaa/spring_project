@@ -90,3 +90,24 @@ e.preventDefault();
             return false;
         } 
 }
+/*
+메일 인증
+*/
+function mailAuth(){	
+		$.ajax({
+      type : "POST",
+      url : "confirm",
+      data : "email",
+      
+      success : function(data){
+         alert("해당 이메일로 인증번호 발송이 완료되었습니다. \n 확인부탁드립니다.")
+         console.log("data : "+data);
+      },
+      error:function(error){
+      if(email.val =""){
+      	alert("이메일을 입력해 주세요")
+    }else
+        alert("이메일을 다시 입력해 주세요")
+    }
+   })
+	}

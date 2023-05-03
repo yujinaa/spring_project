@@ -7,6 +7,7 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
 	<main id="container">
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
+			<div style="color: red">*결제하기 버튼을 클릭해 예약을 완료해 주세요.</div>
 			<div>
 				<input type="hidden" value="${booking.bookingId  }"
 					readonly="readonly">
@@ -60,6 +62,12 @@
 				</c:if>
 				<button type="button" id="main-btn"
 					onClick="location.href='${contextPath}/index'">메인으로 돌아가기</button>
+			</div>
+			<div>
+				<c:if test="${booking.bookingId !=null }">
+				<button type="button" id="pay-btn"
+					onClick="requestPay()">결제하기</button>
+				</c:if>
 			</div>
 		</div>
 	</main>
