@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
@@ -15,14 +15,14 @@
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/root/resources/css/popup.css">
 <body>
-<%
-String userId = (String) session.getAttribute("userId");
-%>
+	<%
+	String userId = (String) session.getAttribute("userId");
+	%>
 	<div class="skip">
 		<a href="#container">본문 바로 가기</a>
 	</div>
 
-<c:import url="include/header.jsp"/>
+	<c:import url="include/header.jsp" />
 
 	<main id="container">
 		<div class="banner">
@@ -32,7 +32,8 @@ String userId = (String) session.getAttribute("userId");
 				<li>하루 단위로 언제든지 당신의 짐을 보관할 수 있는<br>맞춤형 서비스입니다
 				</li>
 				<c:if test="${successLoginUser !='admin01'}">
-				<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li></c:if>
+					<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li>
+				</c:if>
 			</ul>
 		</div>
 		<!-- 이용안내 부분 -->
@@ -49,14 +50,16 @@ String userId = (String) session.getAttribute("userId");
 					<i class="xi-play"></i>
 					<li class="step2 ani ani-up">
 						<ul class="steps">
-							<li><img src="/root/resources/img/calendar.png" alt="calendar"></li>
+							<li><img src="/root/resources/img/calendar.png"
+								alt="calendar"></li>
 							<li>사이즈, 장소, 날짜 선택</li>
 						</ul>
 					</li>
 					<i class="xi-play"></i>
 					<li class="step3 ani ani-up">
 						<ul class="steps">
-							<li><img src="/root/resources/img/check-mark.png" alt="checkmark"></li>
+							<li><img src="/root/resources/img/check-mark.png"
+								alt="checkmark"></li>
 							<li>결제 후 예약 완료</li>
 						</ul>
 					</li>
@@ -139,11 +142,38 @@ String userId = (String) session.getAttribute("userId");
 					<li>031-345-6789</li>
 				</ul>
 			</div>
+
+			<div>
+				키핑박스는 서울과 경기에 셀프스토리지 시설을 운영하고 있습니다.<br> 이용에 가장 편리한 지점을 확인하세요.
+			</div>
+
+			<div class="menu-wrap ">
+				<div class="location">
+					<div>
+						<ul class="menu-lists">
+							<li class="menu-item " id="mapBtn1"><a href=""
+								class="robotobold" data-sid="113727"> 서울 광화문 </a></li>
+							<li class="menu-item " id="mapBtn2"><a href=""
+								class="robotobold" data-sid="20307"> 분당 판교 </a></li>
+							<li class="menu-item " id="mapBtn3"><a href=""
+								class="robotobold" data-sid="12036"> 부천 소사 </a></li>
+						</ul>
+					</div>
+					<div>
+						<script type="text/javascript"
+							src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+						<div id="map"></div>
+
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
-<c:import url="include/footer.jsp"/>
-<c:import url="popup/popup.jsp"/>
-<script src="/root/resources/js/main.js"></script>
-<script src="/root/resources/js/popup.js"></script>
+	<c:import url="include/footer.jsp" />
+	<c:import url="popup/popup.jsp" />
+	<script src="/root/resources/js/mapAPI.js"></script>
+	<script src="/root/resources/js/main.js"></script>
+	<script src="/root/resources/js/popup.js"></script>
+
 </body>
 </html>
