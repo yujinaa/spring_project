@@ -111,7 +111,8 @@ $('#auth_btn').click(function() {
 				checkInput.attr('disabled', false);
 				code = data;
 				alert('인증번호가 전송되었습니다.')
-			}
+			},
+			
 		}
 );
 	/*

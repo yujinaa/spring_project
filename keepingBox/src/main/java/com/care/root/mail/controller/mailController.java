@@ -56,7 +56,7 @@ public class mailController {
 		int checkNum = random.nextInt(888888) + 111111;
 		System.out.println("인증번호 :"+ checkNum);
 
-		String setFrom = "micho4790@gmail.com";
+		String setFrom = "@gmail.com";
 		String toMail = email;
 		String title = "회원가입 인증 이메일 입니다.";
 		String content = 
