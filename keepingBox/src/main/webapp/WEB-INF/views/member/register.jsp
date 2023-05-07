@@ -70,7 +70,7 @@
 						for="email">이메일</label> <input type="email" name="email"
 						id="email" placeholder="example@gmail.com">
 					<button type="button" id="auth_btn" class="chk-btn"
-						onclick="mailAuth()">인증하기</button>
+						>인증하기</button>
 					<input class="mail-check-input" placeholder="인증번호 6자리를 입력해주세요"
 						disabled="disabled" maxlength="6">
 					<button type="submit" onclick="register();" id="join-btn">회원가입</button>

@@ -181,6 +181,11 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 			<version>2.7.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
 		<!-- 랜덤 문자열 생성 -->
 		<dependency>
