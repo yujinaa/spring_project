@@ -31,8 +31,8 @@ import com.care.root.mail.service.mailServiceImpl;
 public class mailController {
 //	@Autowired
 //	private mailService ms;
-	@Autowired 
-	private JavaMailSender mailSender;
+	@Autowired  //의존성 주입을 사용
+	private JavaMailSender mailSender;//JavaMailSender 객체 타입인 mailSender 변수를 선언
 
 
 	//	@GetMapping("auth_check")
@@ -48,14 +48,18 @@ public class mailController {
 	@RequestMapping(value = "member/mailCheck", method =  RequestMethod.GET )	
 	//	@GetMapping(value="member/mailCheck",produces = "application/json; charset=utf8")
 	@ResponseBody
-	public String mailCheck(String email) throws Exception{
+	public String mailCheck(String email) throws Exception{ //반환값이 있기에 메서드 타입도 String
 		System.out.println("이메일 데이터 전송 확인");  
-		System.out.println("인증번호 : " + email);  
-
+		System.out.println("인증 이메일 : " + email);  
+		
+		
+		//인증번호 랜덤생성
 		Random random = new Random();
 		int checkNum = random.nextInt(888888) + 111111;
 		System.out.println("인증번호 :"+ checkNum);
-
+		
+		
+		//이메일 전송 내용
 		String setFrom = "@gmail.com";
 		String toMail = email;
 		String title = "회원가입 인증 이메일 입니다.";
@@ -65,7 +69,7 @@ public class mailController {
 						"인증 번호는 " + checkNum + "입니다." + 
 						"<br>" + 
 						"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
-
+		//이메일 전송 코드
 		try {
 
 			MimeMessage message = mailSender.createMimeMessage();
@@ -79,8 +83,8 @@ public class mailController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		String num = Integer.toString(checkNum);
-		return num;
+		String num = Integer.toString(checkNum); // ajax를 뷰로 반환시 데이터 타입은 String 타입만 가능
+		return num; // String 타입으로 변환 후 반환
 	}
 }
 
@@ -89,7 +93,7 @@ public class mailController {
 //		return ms.joinEmail(email);
 //		int serti = (int)((Math.random()* (99999 - 10000 + 1)) + 10000);
 //
-//		String from = "micho4790@gmail.com";//보내는 이 메일주소
+//		String from = "@gmail.com";//보내는 이 메일주소
 //		String to = email;
 //		String title = "회원가입시 필요한 인증번호 입니다.";
 //		String content = "[인증번호] "+ serti +" 입니다. <br/> 인증번호 확인란에 기입해주십시오.";
@@ -112,7 +116,7 @@ public class mailController {
 //		return num;
 
 //		/* 이메일 보내기 */
-//		String setFrom = "micho4790@gmail.com";
+//		String setFrom = "@gmail.com";
 //		String toMail = email;
 //		String title = "회원가입 인증 이메일 입니다.";
 //		String content = 

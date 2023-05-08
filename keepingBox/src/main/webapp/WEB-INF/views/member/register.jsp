@@ -72,7 +72,8 @@
 					<button type="button" id="auth_btn" class="chk-btn"
 						>인증하기</button>
 					<input class="mail-check-input" placeholder="인증번호 6자리를 입력해주세요"
-						disabled="disabled" maxlength="6">
+						disabled="disabled" maxlength="6"> <!-- 인증번호 버튼을 클릭해야 활성화 -->
+						<div id = "mail-check-input-info"></div> <!-- 인증번호 일치 여부 -->
 					<button type="submit" onclick="register();" id="join-btn">회원가입</button>
 				</form>
 			</div>
