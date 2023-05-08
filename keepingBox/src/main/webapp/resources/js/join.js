@@ -121,9 +121,13 @@ $('#auth_btn').click(function() {
 		if (inputCode == code) {  /*사용자가 입력한 전송코드가 발급된 인증번호와 같다면*/                          // 일치할 경우
 			checkResult.html("인증번호가 일치합니다.");
 			checkResult.attr("class", "correct");
+			$(".mail-check-input").css("border","1.5px solid #3781E3");/*일치할 경우 테두리 색 변경*/
+			$(".mail-check-input").css("color","#3781E3");/*일치할 경우 글자 색 변경*/
 		} else {                                            
 			checkResult.html("인증번호를 다시 확인해주세요.");
 			checkResult.attr("class", "incorrect");
+			$(".mail-check-input").css("border","1.5px solid red");
+			$(".mail-check-input").css("color","red");
 		}
 	});
 
