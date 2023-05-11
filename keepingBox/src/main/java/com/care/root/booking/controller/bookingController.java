@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.booking.service.bookingService;
@@ -44,6 +46,17 @@ public class bookingController implements memberLoginSession{
 	//		bs.bookChkList(bookingId,model);
 	//		return "booking/bookingCheck";
 	//	}
+	
+	//결제하기
+	@GetMapping("bookingPay")
+	@ResponseBody
+	public void bookPay(Long amount) throws Exception{
+		
+		System.out.println("결제 금액 : " + amount);
+		
+		
+	}
+	
 
 
 	//예약내역

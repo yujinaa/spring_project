@@ -1,7 +1,12 @@
-// 예약취소, 메인으로 돌아가기 클릭 시
+/*
+예약취소, 메인으로 돌아가기 클릭 시
+*/
 const cancelBtn = document.getElementById("cancel-btn");
 const mainBtn = document.getElementById("main-btn");
+
 const payBtn = document.getElementById("pay-btn");
+
+
 
 cancelBtn.addEventListener("click", () => {
 	if (confirm("예약을 취소하시겠습니까?")) {
@@ -14,33 +19,27 @@ cancelBtn.addEventListener("click", () => {
 });
 
 
-/*결제*/
-const priceAmount = $('#bookingPrice');
-
-/*
-// const buyerMemberEmail = $('#memberEmail').val();
-// const buyerMemberName = $('#memberName').val();
-// const form = document.getElementById("payment");
-
-console.log(priceAmount);
-  // console.log(buyerMemberName);
-// console.log(buyerMemberEmail);
-
-*/
+	/* 
 var IMP = window.IMP;
-IMP.init("");
+IMP.init("imp44268633");
+
+
 function requestPay() {
-	/* html5_inicis : 이니시스, kakaopay*/
+	html5_inicis : 이니시스, kakaopay
+var bookInfo = '${ price }';
+var bookInfo = $('.intmoney').val();
+	
+
 	IMP.request_pay({
 		pg: 'html5_inicis',
 		pay_method: 'card',
 		merchant_uid: 'merchant_' + new Date().getTime(),
 
 		name: '주문명 : 주문명 설정',
-		amount: 1004,
-		buyer_email: 'booking.email',
-		buyer_name: 'booking.name',
-		buyer_tel: 'info.phone',
+		amount: '<%=price%>',
+		buyer_email: '${ booking.email }',
+		buyer_name: '${ booking.name }',
+		buyer_tel: '${ booking.phone }',
 	}, function(rsp) {
 		console.log(rsp);
 		if (rsp.success) {
@@ -62,8 +61,8 @@ function requestPay() {
 			msg += '에러내용 : ' + rsp.error_msg;
 		}
 		alert(msg);
-		/*
+		
 		document.location.href="index"; 
-		*/
 	});
 }
+		*/

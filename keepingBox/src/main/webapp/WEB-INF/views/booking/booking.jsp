@@ -6,7 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,14 +54,14 @@
 						<option value="6000">중 (30 x 30 x 60(cm) 이내)</option>
 						<option value="7000">대 (50 x 50 x 80(cm) 이내)</option>
 					</select> <label for="intmoney">이용요금</label> <input type="text" name="price"
-						id="intmoney" readonly>
-
+						id="intmoney" class="totalPay" readonly>
+	<button type="button" id="money-btn" >결제</button>
 					<button type="submit" id="next-btn" onclick="insertOpt()">예약하기</button>
 				</form>
 			</div>
 		</div>
 	</main>
 	<script src="../resources/js/booking.js"></script>
-	<c:import url="../include/footer.jsp" />	 
+	<c:import url="../include/footer.jsp" />
 </body>
 </html>
