@@ -21,7 +21,7 @@ cancelBtn.addEventListener("click", () => {
 
 	/* 
 var IMP = window.IMP;
-IMP.init("imp44268633");
+IMP.init("imp42434633");
 
 
 function requestPay() {
