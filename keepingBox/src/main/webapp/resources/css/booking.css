@@ -124,7 +124,7 @@ select , #book-name, #intmoney {
     width: 320px;
     
 }
-#next-btn {
+#money-btn {
     width: 100%;
     height: 50px;
     background: #3781E3;
@@ -132,7 +132,17 @@ select , #book-name, #intmoney {
     font-size: 1.1rem;
     border: none;
     border-radius: 10px;
-    margin-top: 2rem;
+    cursor: pointer;
+}
+#next-btn {
+    width: 100%;
+    height: 50px;
+    background: #c0c0c0;
+    color: #fafafa;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px; 
+    margin-top: 1rem;
     cursor: pointer;
 }
 
