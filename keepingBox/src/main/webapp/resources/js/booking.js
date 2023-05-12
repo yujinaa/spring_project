@@ -47,61 +47,62 @@ var ceDate = $('.end-date').val();
 var cnName = $('#book-name').val();
 var csCity = $('#stringcity').val();
 var csSize = $('#stringsize').val();
+
 $('#money-btn').click(function() {
-		$('#next-btn').attr("disabled", true); /*결제 버튼 눌러야 버튼 활성화 되면서 색상 변경*/
-		$('#next-btn').css("color", "#fafafa");
-		$('#next-btn').css("background", "#3781E3");
-		var IMP = window.IMP;
-		IMP.init("");   /* imp~*/
+	$('#next-btn').attr("disabled", false); /*결제 버튼 눌러야 버튼 활성화 되면서 색상 변경*/
+	$('#next-btn').css("color", "#fafafa");
+	$('#next-btn').css("background", "#3781E3");
+	var IMP = window.IMP;
+	IMP.init("imp");   /* imp~*/
 
-		var bookCity = $('select[name="city"]').val();
-		console.log(bookCity);
+	var bookCity = $('select[name="city"]').val();
+	console.log(bookCity);
 
-		var bookSize = $('select[name="size"]').val();
-		console.log(bookSize);
+	var bookSize = $('select[name="size"]').val();
+	console.log(bookSize);
 
-		var bookMoney = $('input[name="price"]').val();
-		bookMoney = parseInt(bookMoney) * 1000;   /*dto에 String 타입이라 int형으로 형변환해야 제대로 뜸*/
-		console.log(bookMoney);
+	var bookMoney = $('input[name="price"]').val();
+	bookMoney = parseInt(bookMoney) * 1000;   /*dto에 String 타입이라 int형으로 형변환해야 제대로 뜸*/
+	console.log(bookMoney);
 
-		var bookName = $('input[name="name"]').val();
-		console.log(bookName);
-		/* 
-		function requestPay() {
-		html5_inicis : 이니시스, kakaopay
-		*/
+	var bookName = $('input[name="name"]').val();
+	console.log(bookName);
+	/* 
+	function requestPay() {
+	html5_inicis : 이니시스, kakaopay
+	*/
 
-		IMP.request_pay({
-			pg: 'html5_inicis',
-			pay_method: 'card',
-			merchant_uid: 'merchant_' + new Date().getTime(),
+	IMP.request_pay({
+		pg: 'html5_inicis',
+		pay_method: 'card',
+		merchant_uid: 'merchant_' + new Date().getTime(),
 
-			name: '예약 지점명 : ' + bookCity + '점',
-			amount: bookMoney,
-			buyer_email: "",  /*필수 항목이라 "" 로 남겨둠*/
-			buyer_name: bookName,
-		}, function(rsp) {
-			console.log(rsp);
-			if (rsp.success) {
-				var msg = '결제가 완료되었습니다.';
-				console.log("결제성공 " + msg);
+		name: '예약 지점명 : ' + bookCity + '점',
+		amount: 100,
+		buyer_email: "",  /*필수 항목이라 "" 로 남겨둠*/
+		buyer_name: bookName,
+	}, function(rsp) {
+		console.log(rsp);
+		/*
+		 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+	  */
+		if (rsp.success) {
+			var msg = '결제가 완료되었습니다.';
+			console.log("결제성공 ");
 
-				$.ajax({
-					type: "GET",
-					url: "bookingPay" + res.imp_uid,
-					data: {
-						amount: bookMoney,
-						imp_uid: rsp.imp_uid,
-						merchant_uid: rsp.merchant_uid
-					}
-				});
-			} else {
-				var msg = '결제에 실패하였습니다.';
-				msg += '에러내용 : ' + rsp.error_msg;
-			}
-			alert(msg);
-			/*
-			document.location.href="index"; 
-			*/
-		});
+			$.ajax({
+				type: "GET",
+				url: 'bookingPay', /* + rsp.imp_uid*/
+				data: {
+					amount: bookMoney,
+					imp_uid: rsp.imp_uid,
+					merchant_uid: rsp.merchant_uid
+				}
+			});
+		} else {
+			var msg = '결제에 실패하였습니다.';
+			msg += '에러내용 : ' + rsp.error_msg;
+		}
+		alert(msg);
+	});
 });
