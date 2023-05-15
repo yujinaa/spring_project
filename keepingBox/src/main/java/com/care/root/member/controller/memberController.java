@@ -1,5 +1,7 @@
 package com.care.root.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,7 +35,7 @@ import com.care.root.member.service.memberService;
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
 	BCryptPasswordEncoder pwEncoder; //암호화
-	
+
 	//로그인클릭
 	@GetMapping("login")
 	public String login() {
@@ -44,17 +46,22 @@ public class memberController implements memberLoginSession{
 	@PostMapping("user_check")
 	public String userCheck(@RequestParam  String id, @RequestParam  String pwd,
 			@RequestParam(required = false) String autoLogin, //자동로그인
-			RedirectAttributes rs) {  //id, pwd 받아줄것
+			RedirectAttributes rs, HttpServletResponse response) throws IOException {  //id, pwd 받아줄것
 		int result = ms.userCheck(id,pwd); //서비스로 id,pwd넘기기
 		System.out.println("result : " +result); //result확인
 		System.out.println("autoLogin : " + autoLogin);
-
 		//result=0이면 성공(rs로 id, autoLogin넘기기)
 		if(result == 0) {
 			rs.addAttribute("id",id);
 			rs.addAttribute("autoLogin",autoLogin);
 			return "redirect:successCheckLogin"; //바로 로그인성공페이지
 		}else { //로그인 체크 실패시
+			PrintWriter out = response.getWriter(); //js가 아니라 controller에서 HttpServletResponse이용해 바로 alert창 띄우기
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+			out.println("<script> alert('아이디 또는 비밀번호가 틀립니다.');");
+			out.println("history.go(-1); </script>"); //이렇게해야 로그인 페이지로 다시 로드
+			out.close();
 			return "redirect:login"; //다시 로그인페이지로
 		}
 	}
@@ -237,12 +244,12 @@ public class memberController implements memberLoginSession{
 
 			if(search == 0) {
 				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
-//					return "member/findPwd";
+				//					return "member/findPwd";
 			}
 
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-//			String enpassword = pwEncoder(newPwd);
-//			dto.setPwd(enpassword);
+			//			String enpassword = pwEncoder(newPwd);
+			//			dto.setPwd(enpassword);
 			dto.setPwd(newPwd);
 			ms.pwdUpdate(dto);
 			model.addAttribute("newPwd", newPwd);
@@ -253,9 +260,9 @@ public class memberController implements memberLoginSession{
 		}
 		return "member/findPwdResult";
 	}
-//	private String pwEncoder(String newPwd) {
-//		return null;
-//	}
+	//	private String pwEncoder(String newPwd) {
+	//		return null;
+	//	}
 	@GetMapping("findPwdResult")
 	public String findPwResult() {
 		return "member/findPwdResult";
@@ -265,7 +272,7 @@ public class memberController implements memberLoginSession{
 	public String deleteMember() {
 		return "member/deleteMember";
 	}
-	
+
 	@PostMapping("deleteMemberCheck")
 	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto){
 		if(email.equals(dto.getEmail())) {
