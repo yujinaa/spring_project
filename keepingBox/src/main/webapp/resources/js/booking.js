@@ -42,12 +42,6 @@ nextBtn.addEventListener("click", () => {
 	}
 });
 
-var csDate = $('.start-date').val();
-var ceDate = $('.end-date').val();
-var cnName = $('#book-name').val();
-var csCity = $('#stringcity').val();
-var csSize = $('#stringsize').val();
-
 $('#money-btn').click(function() {
 	$('#next-btn').attr("disabled", false); /*결제 버튼 눌러야 버튼 활성화 되면서 색상 변경*/
 	$('#next-btn').css("color", "#fafafa");
@@ -78,7 +72,7 @@ $('#money-btn').click(function() {
 		merchant_uid: 'merchant_' + new Date().getTime(),
 
 		name: '예약 지점명 : ' + bookCity + '점',
-		amount: 100,
+		amount: /*bookMoney*/ 100,
 		buyer_email: "",  /*필수 항목이라 "" 로 남겨둠*/
 		buyer_name: bookName,
 	}, function(rsp) {
