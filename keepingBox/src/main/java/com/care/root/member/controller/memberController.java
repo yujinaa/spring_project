@@ -42,6 +42,12 @@ public class memberController implements memberLoginSession{
 		System.out.println("로그인페이지이동");
 		return "member/login";
 	}
+	@GetMapping("kakaoCallback")
+	public String kakaoLogin() {
+		System.out.println("카카오로그인 페이지이동");
+		return "member/kakaoCallback";
+	}
+	
 	//로그인시 확인
 	@PostMapping("user_check")
 	public String userCheck(@RequestParam  String id, @RequestParam  String pwd,

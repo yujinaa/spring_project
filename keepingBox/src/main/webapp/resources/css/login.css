@@ -86,7 +86,7 @@ main {
 .login-box {
 	margin: 0 auto;
 	width: 400px;
-	padding: 80px 40px;
+	padding: 50px 40px;
 	background: #fafafa;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	border-radius: 10px;
@@ -164,9 +164,14 @@ button {
 }
 
 .member-join {
-	font-size: 0.8rem;
 	text-align: center;
 	margin-top: 0.5rem;
+}
+
+.kakaoBTN img {
+	margin-top: 30px;
+	width: 320px;
+	cursor: pointer;
 }
 
 /* footer 부분 */
