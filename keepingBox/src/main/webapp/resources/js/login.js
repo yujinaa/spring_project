@@ -18,10 +18,13 @@ loginBtn.addEventListener('click', function() {
 });
 
 
-/*카카오 로그인하기*/
+/*
+카카오 로그인하기
 Kakao.init('');
 Kakao.isInitialized();
 
 	Kakao.Auth.authorize({
 		redirectUri: 'http://localhost:8084/member/kakaoCallback'
 	}); 
+
+*/

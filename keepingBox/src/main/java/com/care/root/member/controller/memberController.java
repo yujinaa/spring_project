@@ -42,12 +42,24 @@ public class memberController implements memberLoginSession{
 		System.out.println("로그인페이지이동");
 		return "member/login";
 	}
-	@GetMapping("kakaoCallback")
-	public String kakaoLogin() {
-		System.out.println("카카오로그인 페이지이동");
-		return "member/kakaoCallback";
-	}
 	
+	//카카오 로그인
+	@GetMapping("kakaoCallback")
+	public String kakaoLogin(@RequestParam String code,HttpSession session) {
+		System.out.println("카카오 로그인 성공");
+		System.out.println("코드 : " +code);
+//		String access_Token = kaKaoService.getAccessToken(code);
+//		KakaoDTO userInfo = kaKaoService.getuserinfo(access_Token);
+		
+		
+//		System.out.println("###access_Token#### : " + access_Token);
+//		System.out.println("###nickname#### : " + userInfo.getK_name());
+//		System.out.println("###email#### : " + userInfo.getK_email());
+		return "member/kakaoLogin";
+	}
+        
+
+
 	//로그인시 확인
 	@PostMapping("user_check")
 	public String userCheck(@RequestParam  String id, @RequestParam  String pwd,
