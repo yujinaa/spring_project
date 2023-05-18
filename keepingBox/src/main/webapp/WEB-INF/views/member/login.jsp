@@ -46,7 +46,7 @@
 					</ul>
 					<div class="kakaoBTN">
 						<a
-							href="https://kauth.kakao.com/oauth/authorize?client_id=6cfbb25d1642a05ea21e31ecb13db43c&redirect_uri=http://localhost:8084/root/member/kakaoCallback&response_type=code"><img
+							href=""><img
 							alt="카카오로그인" src="${contextPath }/resources/img/kakaoBtn.png"
 							></a>
 					</div>
