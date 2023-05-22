@@ -17,13 +17,8 @@ public interface memberService{
 	public int idCheck(String id);
 	
 	//회원정보조회
-//	public int memberInfo(Model model, String sessionId);
-//	public memberDTO memberInfo(String id); 
 	public memberDTO memberInfo(String id); 
-	
-//	public void memberInfo(Model model, String id); 
-//	public String memberInfo( String id);
-	
+
 	//회원정보수정
 	//회원정보가져오기
 	public void updateMember(String id, Model model);

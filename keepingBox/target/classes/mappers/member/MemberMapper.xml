@@ -15,6 +15,32 @@
 		<result property="limitTime" column="limit_time" />
 	</resultMap>
 
+	<resultMap id="kakao"
+		type="com.care.root.member.dto.kakaoMemberDTO">
+		<id property="nickname" column="kakao_nickname" />
+		<result property="email" column="kakao_email" />
+	</resultMap>
+	<!-- <insert id="kakaoInsert" parameterType="java.util.HashMap"> insert 
+		into kakao_member(kakao_nickname,kakao_email) values(#{nickname},#{email}) 
+		</insert> -->
+	<insert id="kakaoInsert" parameterType="String">
+		insert into
+		kakao_member(kakao_nickname,kakao_email)
+		values(#{nickname},#{email})
+	</insert>
+
+	<!-- <select id="findKakao" parameterType="java.util.HashMap" resultType="com.care.root.member.dto.kakaoMemberDTO" 
+		> select * from kakao_member where kakao_nickname=#{nickname} and kakao_email=#{email} 
+		</select> -->
+	<select id="findKakao" parameterType="String"
+		resultType="com.care.root.member.dto.kakaoMemberDTO" resultMap="kakao">
+		select * from kakao_member where kakao_nickname=#{nickname}
+		and
+		kakao_email=#{email}
+	</select>
+
+
+
 	<!-- 로그인유지 -->
 	<update id="keepLogin">  <!-- 사용자가 들어온 값이니 기존의 값에서 업데이트 하기 -->
 		update box_member set session_id=#{sessionId}, limit_time=#{limitDate}
@@ -83,18 +109,14 @@
 		buser_id =
 		#{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
-	<delete id="deleteMemberCheck" >
-		delete from box_member where buser_id=#{id}
+	<delete id="deleteMemberCheck">
+		delete from box_member where
+		buser_id=#{id}
 		and
 		buser_email = #{email}
 	</delete>
-<!-- 
-
-	<select id="delCheck" resultType="int">
-		select count(*) from box_member
-		where buser_id = #{id} and buser_pwd = #{pwd}
-	</select>
- -->
+	<!-- <select id="delCheck" resultType="int"> select count(*) from box_member 
+		where buser_id = #{id} and buser_pwd = #{pwd} </select> -->
 
 	<!-- 관리자 회원정보목록 -->
 	<select id="memberInfoList" resultMap="member">

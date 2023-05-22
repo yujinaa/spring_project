@@ -27,13 +27,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.care.root.member.common.memberLoginSession;
+import com.care.root.member.dto.kakaoMemberDTO;
 import com.care.root.member.dto.memberDTO;
+import com.care.root.member.service.kakaoLoginService;
 import com.care.root.member.service.memberService;
 
 @Controller
 @RequestMapping("member")
 public class memberController implements memberLoginSession{
 	@Autowired memberService ms;
+	@Autowired kakaoLoginService kakao;
 	BCryptPasswordEncoder pwEncoder; //암호화
 
 	//로그인클릭
@@ -42,23 +45,89 @@ public class memberController implements memberLoginSession{
 		System.out.println("로그인페이지이동");
 		return "member/login";
 	}
-	
+
 	//카카오 로그인
 	@GetMapping("kakaoCallback")
-	public String kakaoLogin(@RequestParam String code,HttpSession session) {
-		System.out.println("카카오 로그인 성공");
+	public String kakaoLogin(@RequestParam String code,HttpSession session)  throws IOException{
 		System.out.println("코드 : " +code);
-//		String access_Token = kaKaoService.getAccessToken(code);
-//		KakaoDTO userInfo = kaKaoService.getuserinfo(access_Token);
-		
-		
-//		System.out.println("###access_Token#### : " + access_Token);
-//		System.out.println("###nickname#### : " + userInfo.getK_name());
-//		System.out.println("###email#### : " + userInfo.getK_email());
-		return "member/kakaoLogin";
-	}
-        
 
+		String access_Token = kakao.getToken(code);
+		//		HashMap<String, Object> userInfo = kakao.getKakaoUserInfo(access_Token);
+
+		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo(access_Token);
+
+		//    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+		//		if (userInfo.get("email") != null) {
+		//			session.setAttribute("email", userInfo.get("email"));
+		//			session.setAttribute("nickname",  userInfo.get("nickname"));
+		//			session.setAttribute("access_Token", access_Token);
+		//		}
+		//		System.out.println("**access_Token : " + access_Token);
+		//		System.out.println("**nickname : " + userInfo.get("nickname"));
+		//		System.out.println("**email : " + userInfo.get("email"));
+
+		if (userInfo.getEmail() != null) {
+			
+			session.setAttribute("email", userInfo.getEmail());
+			session.setAttribute("nickName", userInfo.getNickName());
+			session.setAttribute("access_Token", access_Token);
+
+			System.out.println("**access_Token : " + access_Token);
+			System.out.println("**nickname : " + userInfo.getNickName());
+			System.out.println("**email : " + userInfo.getEmail());
+			
+//			String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
+			
+
+		}
+		return "index";
+//		return "redirect:login";
+	}
+//	@GetMapping("kakaoLogin")
+//	public String kakaoLogin(@RequestParam String email,
+//			HttpSession session, HttpServletResponse response) { //로그인 사용자라면 쿠키 응답하기
+//		System.out.println("email : " + email);
+//		session.setAttribute(KAKAOLOGIN, email);
+//
+//		return "index";
+//	}
+	
+//	@GetMapping("successKakaoLogin")
+//	public String successKakaoLogin(@RequestParam String email,
+//			HttpSession session) { //로그인 사용자라면 쿠키 응답하기
+//		session.getAttribute(KAKAOLOGIN);
+//		System.out.println("카카오 로그인 성공 email : " +email);
+//		return "index";
+//	}
+//	@GetMapping("successKakaoLogin")
+//	public String successKakaoLogin(HttpSession session, HttpServletResponse response) {	
+//		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo("email");
+//		String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
+//		
+//		if(!email.equals("0")){
+//			session.setAttribute(LOGIN, email);
+//			session.setAttribute(KAKAOLOGIN, email);
+//			//System.out.println("일반 세션명 : " + session.getAttribute(LOGIN));
+//			//System.out.println("카카오 세션명 : " +  session.getAttribute(KAKAOLOGIN));
+//			System.out.println("카카오 로그인성공");
+//			return email;
+//		}
+//		else {
+////			int result = ms.KakaoRegister(userInfo.get("id").toString(), kakao_info.get("email").toString());
+////			if(result == 1) {
+////				if(session.getAttribute( KAKAOLOGIN ) == null) {
+////					session.setAttribute(KAKAOLOGIN, kakao_info.get("email").toString());
+////				}
+////				System.out.println("가입성공 : " + kakao_info.get("email").toString());
+////				return kakao_info.get("email").toString();
+////			}else {
+//				System.out.println("문제발생");
+//				return "login";
+//			}
+//		}
+//		
+//	
+//	
 
 	//로그인시 확인
 	@PostMapping("user_check")
@@ -83,10 +152,13 @@ public class memberController implements memberLoginSession{
 			return "redirect:login"; //다시 로그인페이지로
 		}
 	}
+
+
+
 	//로그인 성공후 메인페이지인 index로 이동
 	@GetMapping("successCheckLogin")
-	public String successCheckLogin(@RequestParam String id, 
-			@RequestParam(required = false) String autoLogin,
+	public String successCheckLogin(@RequestParam String id,
+			@RequestParam(required = false) String autoLogin, 
 			HttpSession session, HttpServletResponse response) { //로그인 사용자라면 쿠키 응답하기
 		System.out.println("id : " + id);
 		System.out.println("autoLogin : " + autoLogin);
@@ -327,18 +399,4 @@ public class memberController implements memberLoginSession{
 		rs.addFlashAttribute("result","detailInfoDelsuccess");
 		return "redirect:memberList";
 	}
-
-
-	//		AccountContext ac = (AccountContext) authentication.getPrincipal();
-	//	    model.addAttribute("info", ac.getUsername());
-	//	@GetMapping("myInfo")
-	//		public String myInfo(Principal principal, ModelMap modelMap){
-	//	        String loginId = principal.getName();
-	//	        memberDTO dto = ms.getUserSessionId(loginId);
-	//	        modelMap.addAttribute("info", dto);
-	//	        return "member/myInfo";
-	//	}
-
-
-
 }

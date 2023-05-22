@@ -1,13 +1,13 @@
 package com.care.root.member.dto;
 
 public class kakaoMemberDTO {
-	private String id;
+	private String nickname;
 	private String email;
-	public String getId() {
-		return id;
+	public String getNickName() {
+		return nickname;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setNickName(String nickName) {
+		this.nickname = nickName;
 	}
 	public String getEmail() {
 		return email;

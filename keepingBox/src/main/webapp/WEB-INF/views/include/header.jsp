@@ -29,7 +29,7 @@
 					</c:choose>
 					<li><a href="${contextPath }/board/review">이용후기</a></li>
 					<c:choose>
-						<c:when test="${successLoginUser !=null}">
+						<c:when test="${successLoginUser !=null || email!=null}">
 							<li class="mypage"><a href="#">마이페이지</a>
 								<ul class="mypage-sub">
 									<li><a href="${contextPath }/board/notice">공지사항</a></li>

@@ -1,11 +1,22 @@
 package com.care.root.member.service;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.Date;
+import java.text.Format;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,14 +25,19 @@ import org.springframework.ui.Model;
 import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.member.memberMapper;
+import com.fasterxml.jackson.core.JsonParser;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 @Service
-public class memberServiceImpl implements memberService{
+public class memberServiceImpl implements memberService {
 	@Autowired memberMapper memberMapper; //매퍼 연결하기
 	BCryptPasswordEncoder pwEncoder; //암호화
 
 	public memberServiceImpl() {
 		pwEncoder = new BCryptPasswordEncoder();
+
 	}
 
 	public int userCheck(String id, String pwd) {
@@ -43,6 +59,8 @@ public class memberServiceImpl implements memberService{
 	public memberDTO getUserSessionId(String sessionId) {
 		return memberMapper.getUserSessionId(sessionId);
 	}
+
+
 	public int register(memberDTO dto) {
 		//비번 암호화하기
 		System.out.println("비번 변경 전 : " + dto.getPwd());
@@ -68,26 +86,7 @@ public class memberServiceImpl implements memberService{
 		return count;
 	}
 
-	//회원정보조회
-	//	public String memberInfo(Model model, String userId){
-	//		model.addAttribute("info", memberMapper.memberInfo(id));
-	////	}
-	//		public memberDTO memberInfo(String id){
-	//			return memberMapper.memberInfo(id);
-	//		}
-	//	@Override
-	//	public MemberVO readMember(String id) {
-	//		System.out.println("S : readMember()실행");
-	//		MemberVO vo = null;
-	//		
-	//		try {
-	//			vo = mdao.readMember(id);
-	//		} catch (Exception e) {
-	//			e.printStackTrace();
-	//		}
-	//		
-	//		return vo;
-	//	}
+
 
 	//회원정보조회
 	public memberDTO memberInfo(String id){
@@ -100,9 +99,6 @@ public class memberServiceImpl implements memberService{
 		return dto;
 	}
 
-	//	public memberDTO memberInfo(String id){
-	//			return memberMapper.memberInfo(id);
-	//	}
 
 	//회원정보수정
 	public void updateMember(String id, Model model) {
@@ -159,16 +155,16 @@ public class memberServiceImpl implements memberService{
 		//회원탈퇴를 잘 수행하는 지 dao의 deleteSecession 메서드로 go
 		memberMapper.deleteMemberCheck(dto);
 	}
-//	public int delCheck(memberDTO dto, String inputPwd) {
-//		try {
-//			if(pwEncoder.matches(inputPwd, dto.getPwd())) {
-//			memberMapper.delCheck(dto);
-//			return 0;
-//		}}catch (Exception e) {
-//						e.printStackTrace();
-//		}
-//		return 1;
-//	}
+	//	public int delCheck(memberDTO dto, String inputPwd) {
+	//		try {
+	//			if(pwEncoder.matches(inputPwd, dto.getPwd())) {
+	//			memberMapper.delCheck(dto);
+	//			return 0;
+	//		}}catch (Exception e) {
+	//						e.printStackTrace();
+	//		}
+	//		return 1;
+	//	}
 	//	public void deleteMemberCheck(memberDTO dto){
 	////		String oldPwd = dto.getPwd();
 	//		try {

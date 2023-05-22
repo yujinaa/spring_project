@@ -11,12 +11,21 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
+import com.care.root.member.dto.kakaoMemberDTO;
 import com.care.root.member.dto.memberDTO;
 
 public interface memberMapper {
 	public memberDTO  userCheck(String id); //dto전달하기
 	public void keepLogin(Map<String, Object>map);
 	public memberDTO getUserSessionId(String sessionId) ;
+	
+//	public void kakaoInsert(HashMap<String, Object>userInfo);
+	public void kakaoInsert(kakaoMemberDTO userInfo);
+//	public  HashMap<String, Object> findKakao(HashMap<String, Object> userInfo);
+	public  kakaoMemberDTO findKakao(kakaoMemberDTO userInfo);
+//	public kakaoMemberDTO KakaoLoginChk(String email);
+
+	
 	public int register(memberDTO dto);
 	public int idCheck(String id);
 
@@ -47,5 +56,5 @@ public interface memberMapper {
 	//검색
 	public ArrayList<memberDTO> searchId(@Param("userId")String userId, @Param("s") int start, @Param("e") int end);
 	public Integer selectSearchIdCount(String userId);
-
+	
 }
