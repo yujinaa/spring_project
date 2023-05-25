@@ -55,6 +55,30 @@
 						<a href="${contextPath }/board/reviewWrite"><button
 								type="button" id="review-btn">리뷰쓰기</button></a>
 					</c:if>
+					<div class="search" align="center" style="margin-top: 40px;">
+						<select name="type" class="type-box">
+							<option value="T"
+								<c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+							<option value="C"
+								<c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+							<option value="W"
+								<c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+							<option value="TC"
+								<c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목
+								+ 내용</option>
+							<option value="TW"
+								<c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목
+								+ 작성자</option>
+							<option value="TCW"
+								<c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목
+								+ 내용 + 작성자</option>
+						</select>
+						<form action="${contextPath }/board/memberList" method="get">
+							<input class="inputId" type="text" name="id" value="${param.id }"
+								placeholder="찾을 아이디 입력"> <input class="submitBtn"
+								type="submit" value="아이디 검색">
+						</form>
+					</div>
 					<div class="paging">
 						<c:forEach var="num" begin="1" end="${repeat }">
 							<a href="review?num=${num }">${num }</a>

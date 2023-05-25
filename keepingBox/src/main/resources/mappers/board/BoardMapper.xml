@@ -69,7 +69,8 @@
 
 	<!-- 공지사항 목록 -->
 	<select id="noticeList" resultMap="notice">
-		select * from box_notice order by notice_num desc 
+		select * from box_notice order
+		by notice_num desc
 	</select>
 
 	<!-- 글쓰기 등록 -->
@@ -93,6 +94,13 @@
 
 	<!-- 삭제하기 -->
 	<delete id="noticeDelete">
-		delete from box_notice where notice_num = #{noticeNum}
+		delete from box_notice where notice_num =
+		#{noticeNum}
 	</delete>
+<!-- 
+	<select id="getReviewList" resultMap="board">
+		select * from box_board 
+
+	</select>
+ -->
 </mapper>

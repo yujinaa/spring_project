@@ -35,6 +35,16 @@
 					<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li>
 				</c:if>
 			</ul>
+			<div class="bestReview">
+				<div class="best">베스트후기</div>
+				<div class="box-div">
+					<div class="box1">
+						첫 번째글
+						<div>후기${dto.content}</div>
+					</div>
+						<div class="box3">${dto.content}</div>
+				</div>
+			</div>
 		</div>
 		<!-- 이용안내 부분 -->
 		<section id="info-use">
@@ -144,16 +154,17 @@
 			</div>
 
 			<div>
-				키핑박스는 서울과 경기에 셀프스토리지 시설을 운영하고 있습니다.<br> 이용에 가장 편리한 지점을 클릭해 위치를 확인하세요.
+				키핑박스는 서울과 경기에 셀프스토리지 시설을 운영하고 있습니다.<br> 이용에 가장 편리한 지점을 클릭해 위치를
+				확인하세요.
 			</div>
 
 			<div class="menu-wrap ">
 				<div class="location">
 					<div>
 						<ul class="menu-lists">
-							<li class="menu-item " id="mapBtn1" ><a href="javascript:;"
+							<li class="menu-item " id="mapBtn1"><a href="javascript:;"
 								class="robotobold" data-sid="113727"> 서울 광화문 </a></li>
-							<li class="menu-item " id="mapBtn2" ><a href="javascript:;"
+							<li class="menu-item " id="mapBtn2"><a href="javascript:;"
 								class="robotobold" data-sid="20307"> 분당 판교 </a></li>
 							<li class="menu-item " id="mapBtn3"><a href="javascript:;"
 								class="robotobold" data-sid="12036"> 부천 소사 </a></li>
@@ -162,9 +173,12 @@
 					<div>
 						<script type="text/javascript"
 							src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
-						<div id="kakaoMap1" style="width: 100%; height: 350px; border: none;"></div>
-						<div id="kakaoMap1" style="width: 100%; height: 350px; border: none;"></div>
-						<div id="kakaoMap1" style="width: 100%; height: 350px; border: none;"></div>
+						<div id="kakaoMap1"
+							style="width: 100%; height: 350px; border: none;"></div>
+						<div id="kakaoMap1"
+							style="width: 100%; height: 350px; border: none;"></div>
+						<div id="kakaoMap1"
+							style="width: 100%; height: 350px; border: none;"></div>
 					</div>
 				</div>
 			</div>

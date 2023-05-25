@@ -20,6 +20,8 @@ public interface boardService {
 	public void getdata(int noticeNum, Model model);
 	public int modifySave(noticeDTO notice);
 	public int noticeDelete(int noticeNum);
+	
+//	public void getReviewList(Model model);
 
 
 

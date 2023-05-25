@@ -16,6 +16,9 @@ public interface boardMapper {
 	public int selectPageCount();
 	public int modify(boardDTO dto);
 	
+	public List<boardDTO> getReviewList();
+
+	
 	//공지사항
 	public List<noticeDTO> noticeList();
 	public void noticeSave(noticeDTO notice) ;
@@ -23,6 +26,8 @@ public interface boardMapper {
 	public int modifySave(noticeDTO notice);
 	public int noticeDelete(int noticeNum);
 
+	
+	
 
 
 

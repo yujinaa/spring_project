@@ -29,9 +29,6 @@
 		values(#{nickname},#{email})
 	</insert>
 
-	<!-- <select id="findKakao" parameterType="java.util.HashMap" resultType="com.care.root.member.dto.kakaoMemberDTO" 
-		> select * from kakao_member where kakao_nickname=#{nickname} and kakao_email=#{email} 
-		</select> -->
 	<select id="findKakao" parameterType="String"
 		resultType="com.care.root.member.dto.kakaoMemberDTO" resultMap="kakao">
 		select * from kakao_member where kakao_nickname=#{nickname}

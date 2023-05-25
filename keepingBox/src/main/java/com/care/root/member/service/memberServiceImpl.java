@@ -107,12 +107,6 @@ public class memberServiceImpl implements memberService {
 	//회원수정저장
 	public int modifySave(memberDTO dto) {
 
-		//		try {
-		//			memberMapper.modifySave(dto);
-		//		} catch (Exception e) {
-		//			e.printStackTrace();
-		//		}
-		//	}
 
 		System.out.println("비번 변경 전 : " + dto.getPwd());
 		String modifyPwd = pwEncoder.encode(dto.getPwd());

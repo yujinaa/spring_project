@@ -111,10 +111,57 @@ nav li a:hover {
 }
 
 .banner img {
-	width: 100%;
+	width: 80%;
 	filter: brightness(60%);
 }
 
+.bestReview {
+	width: 20%;
+	float: right;
+	box-sizing: border-box;
+	border-bottom: 2px solid gray;
+}
+
+.best {
+	border-bottom: 2px solid gray;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+.box-div {
+	margin: 30px;
+}
+
+.box1 {
+	border: 1px solid blue;
+	margin-bottom: 15px;
+	height: 130px;
+	/*
+	border-radius: 0px 88px 64px 92px;
+	*/
+}
+
+.box2 {
+	border: 1px solid blue;
+	margin-bottom: 15px;
+	height: 130px;
+}
+
+.box3 {
+	border: 1px solid blue;
+	height: 130px;
+}
+
+.index-table tr td {
+	display: block;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/*
+#3781E3
+*/
 .banner ul {
 	position: absolute;
 	top: 8rem;
@@ -439,11 +486,13 @@ footer li, footer a {
 	margin-top: 10px;
 	color: white;
 }
-.menu-wrap .menu-lists .menu-item a:hover{
+
+.menu-wrap .menu-lists .menu-item a:hover {
 	background-color: white;
-	color:#3781E3;
+	color: #3781E3;
 	transition: 0.4s;
 }
+
 .location {
 	position: relative;
 	min-height: 1px;
@@ -451,4 +500,3 @@ footer li, footer a {
 	padding-left: 15px;
 	padding-top: 50px;
 }
-

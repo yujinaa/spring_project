@@ -86,4 +86,8 @@ public class boardServiceImpl implements boardService{
 	public int noticeDelete(int noticeNum) {
 		return mapper.noticeDelete(noticeNum);
 	}
+//	public void getReviewList(Model model) {
+//		model.addAttribute("reviewList", mapper.getReviewList() );
+//
+//	}
 }
