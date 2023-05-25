@@ -209,22 +209,25 @@ table {
 
 .search {
 	display: flex;
-	margin-left: 250px;
+	margin-top: 30px;
 }
 
 .type-box {
 	margin-left: 10px;
+	height: 35px;
 }
 
 .inputId {
-	height: 30px;
+	height: 35px;
 }
 
 .submitBtn {
-	height: 30px;
+	height: 35px;
 	background-color: white;
 	color: #3781E3;
 	border-color: #3781E3;
+	border-radius: 3px;
+	cursor: pointer;
 }
 /* footer 부분 */
 footer {
