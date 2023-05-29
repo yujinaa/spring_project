@@ -21,11 +21,9 @@
 		<section class="review">
 			<div class="page-title">
 				<div class="container">
-					<h2>이용후기</h2>
+					<h2>내가 쓴 글</h2>
 				</div>
 			</div>
-
-			<!-- 게시판 리스트 -->
 			<div id="board-list">
 				<div class="container cf">
 					<table class="board-table">
@@ -39,11 +37,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${boardList}" var="dto">
+							<c:forEach items="${myInfo.myPageList}" var="dto" >
 								<tr>
 									<td>${dto.reviewNum }</td>
-									<th><a
-										href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></th>
+									<th>${dto.title }</th>
 									<td>${dto.writer }</td>
 									<td>${dto.regDate }</td>
 									<td>${dto.hitNum }</td>
@@ -51,42 +48,9 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<c:if test="${successLoginUser !='admin01'}">
-						<a href="${contextPath }/board/reviewWrite"><button
-								type="button" id="review-btn">리뷰쓰기</button></a>
-					</c:if>
-					<div class="search" align="center">
-						<form action="${contextPath }/board/review" method="get"
-							id="searchFoam" name="search-form">
-							<table>
-								<tr>
-									<td><select name="type" class="type-box"  >
-											<option value="title" >제목</option>
-											<option value="writer">작성자</option>
-
-											<!-- 
-											<option value="">검색 유형 선택</option>
-								<option value="content">내용</option>
-								<option value="titleCon">제목+내용</option>
-								<option value="titleWri">제목+작성자</option>
-								<option value="TCW">제목+내용+작성자</option>
-								 -->
-									</select></td>
-									<td colspan="2"><input class="inputId" type="text"
-										name="keyword" placeholder="검색어 입력" value="${param.keyword }"></td>
-									<td>
-							 <input class="submitBtn" type="submit" value="검색하기">
-										<!-- 
-										<button class="submitBtn" type="submit">검색하기</button> 
-							 -->
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
 					<div class="paging">
 						<c:forEach var="num" begin="1" end="${repeat }">
-							<a href="review?num=${num }">${num }</a>
+							<a href="myReview?num=${num }">${num }</a>
 						</c:forEach>
 					</div>
 				</div>
@@ -94,6 +58,5 @@
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-	<script src="/root/resources/js/review.js"></script>
 </body>
 </html>

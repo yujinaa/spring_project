@@ -13,6 +13,7 @@
 		<result property="email" column="buser_email" />
 		<result property="sessionId" column="session_id" />
 		<result property="limitTime" column="limit_time" />
+		<collection property="myPageList" resultMap="board"/>  <!-- 내가 쓴 글 때문에 게시판 리스트로 넣기 -->
 	</resultMap>
 
 	<resultMap id="kakao"
@@ -31,7 +32,8 @@
 
 	<select id="findKakao" parameterType="String"
 		resultType="com.care.root.member.dto.kakaoMemberDTO" resultMap="kakao">
-		select * from kakao_member where kakao_nickname=#{nickname}
+		select
+		* from kakao_member where kakao_nickname=#{nickname}
 		and
 		kakao_email=#{email}
 	</select>
@@ -69,9 +71,26 @@
 		select * from box_member where
 		buser_id = #{id}
 	</select>
-	<!-- <select id="memberInfo" resultMap="member"> select buser_id AS id,buser_name 
-		AS name, buser_phone AS phone,buser_email AS email from box_member where 
-		buser_id = #{id} </select> -->
+
+
+	<!-- 내가 쓴 글 -->
+	<select id="getInfo" resultMap="member">
+		select buser_id, buser_name,buser_phone,buser_email,
+		f.list_num, f.title, f.regDate, f.hit, f.writer
+		from box_member u
+		LEFT OUTER JOIN box_board f
+		ON u.buser_id = f.writer
+		where u.buser_id = #{id}
+	</select>
+	
+	<resultMap type="com.care.root.board.dto.boardDTO" id="board">
+		<id property="reviewNum" column="list_num" />
+		<result property="title" column="title" />
+		<result property="regDate" column="regDate" />
+		<result property="hitNum" column="hit" />
+		<result property="writer" column="writer" />
+	</resultMap>
+	
 
 	<!-- 회원정보수정 -->
 	<update id="modifySave">

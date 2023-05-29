@@ -1,5 +1,9 @@
 package com.care.root.board.controller;
 
+import java.awt.List;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.board.dto.boardDTO;
@@ -123,5 +128,51 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","noticeDelsuccess");
 		return "redirect:notice";
 	}
+//	@GetMapping("getSearchList")
+//	public ModelAndView getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword) {
+//		List list = bs.listAll(type,keyword);
+//		
+//		int count = bs.count(type,keyword);
+//		ModelAndView mav = new ModelAndView();
+//		Map<String,Object> map = new HashMap<>();    //넘길 데이터가 많기 때문에 해쉬맵에 저장한 후에 modelandview로 값을 넣고 페이지를 지정
+//
+//		map.put("list", list);                         //map에 list(게시글 목록)을 list라는 이름의 변수로 자료를 저장함.
+//		map.put("count", count);
+//		map.put("type", type);
+//		map.put("keyword", keyword);
+//		mav.addObject("map", map);   
+//		mav.setViewName("board/review");
+//		System.out.println("검색 유형 : " + type);
+//		System.out.println("검색어 : " + keyword);
+//		return mav;
+//	}
+//	@GetMapping("getSearchList")
+//	public List getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword, Model model) {
+//		List list = bs.listAll(type,keyword);
+//		
+//		boardDTO dto = new boardDTO();
+//		dto.setType(type);
+//		dto.setKeyword(keyword);
+//		System.out.println("검색어 : " + keyword);
+//		return bs.getSearchList(dto);
+//	}
+	
+//	@GetMapping("getSearchList")
+//	public String getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword, Model model) {
+//		List searchList = bs.listAll(type,keyword);
+//		model.addAttribute("searchList", searchList);
+//		System.out.println("검색어 : " + keyword);
+//		System.out.println("검색타입 : " + keyword);
+//		return "board/review";
+//	}
+//	@GetMapping("review")
+//	public String selectsearch( @RequestParam("type") String type,
+//			@RequestParam("keyword") String keyword, Model model) throws Exception {
+//		java.util.List<boardDTO> bList = bs.selectsearch(type, keyword);
+//		model.addAttribute("bList", bList);
+//		System.out.println("타입 : " + type);
+//		System.out.println("제목 : " + keyword);
+//		return "board/review";
+//	}
 
 }

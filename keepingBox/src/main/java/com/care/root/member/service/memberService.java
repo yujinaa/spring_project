@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import com.care.root.board.dto.boardDTO;
 import com.care.root.board.dto.noticeDTO;
 import com.care.root.member.dto.memberDTO;
 
@@ -18,7 +19,10 @@ public interface memberService{
 	
 	//회원정보조회
 	public memberDTO memberInfo(String id); 
-
+	
+	//내가 쓴 글
+	public memberDTO getInfo(String id);
+	
 	//회원정보수정
 	//회원정보가져오기
 	public void updateMember(String id, Model model);
@@ -33,7 +37,6 @@ public interface memberService{
 	public void detailInfo(Model model, String id);
 	public void detailInfoDel(String id);
 	public void searchId(Model model, String userId, int num);
-//	public memberDTO userCheck(String id);
 
 
 }

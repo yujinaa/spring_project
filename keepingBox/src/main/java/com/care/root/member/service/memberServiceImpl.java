@@ -1,34 +1,16 @@
 package com.care.root.member.service;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.sql.Date;
-import java.text.Format;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.care.root.board.dto.noticeDTO;
+import com.care.root.board.dto.boardDTO;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.member.memberMapper;
-import com.fasterxml.jackson.core.JsonParser;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 @Service
 public class memberServiceImpl implements memberService {
@@ -98,7 +80,10 @@ public class memberServiceImpl implements memberService {
 		}
 		return dto;
 	}
-
+	//내가 쓴 글
+	public memberDTO getInfo(String id) {
+		return memberMapper.getInfo(id);
+	}
 
 	//회원정보수정
 	public void updateMember(String id, Model model) {

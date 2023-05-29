@@ -1,6 +1,9 @@
 package com.care.root.member.dto;
 
+import java.awt.List;
 import java.sql.Date;
+
+import com.care.root.board.dto.boardDTO;
 
 public class memberDTO {
 	private String id;
@@ -10,6 +13,16 @@ public class memberDTO {
 	private String email;
 	private String sessionId;
 	private Date limitTime;
+	
+	//회원이 작성한 게시글은 여러개 n이라 list 형태로 선언
+	private java.util.List<boardDTO> myPageList;
+	
+	public java.util.List<boardDTO> getMyPageList() {
+		return myPageList;
+	}
+	public void setMyPageList(java.util.List<boardDTO> myPageList) {
+		this.myPageList = myPageList;
+	}
 	public String getSessionId() {
 		return sessionId;
 	}

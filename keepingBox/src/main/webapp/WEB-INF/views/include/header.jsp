@@ -35,6 +35,7 @@
 									<li><a href="${contextPath }/board/notice">공지사항</a></li>
 									<li><a href="${contextPath }/booking/bookingInfo">예약확인</a></li>
 									<li><a href="${contextPath }/member/myInfo">회원정보</a></li>
+									<li><a href="${contextPath }/member/myReview">내가 쓴 글</a></li>
 									<li id="log-out"><a href="${contextPath }/member/logout">로그아웃</a></li>
 								</ul></li>
 						</c:when>

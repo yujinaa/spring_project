@@ -1,8 +1,15 @@
 package com.care.root.board.service;
 
+import java.awt.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.dto.noticeDTO;
@@ -25,6 +32,7 @@ public class boardServiceImpl implements boardService{
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList", mapper.boardList(start,end));
 	}
+	
 	//글저장
 	public void writeSave(boardDTO dto)  {
 		try {
@@ -86,8 +94,51 @@ public class boardServiceImpl implements boardService{
 	public int noticeDelete(int noticeNum) {
 		return mapper.noticeDelete(noticeNum);
 	}
-//	public void getReviewList(Model model) {
-//		model.addAttribute("reviewList", mapper.getReviewList() );
-//
+	//	public void getReviewList(Model model) {
+	//		model.addAttribute("reviewList", mapper.getReviewList() );
+	//
+	//	}
+
+	//검색
+//	public List getSearchList(boardDTO dto) {
+//		return mapper.getSearchList("getSearchList",dto);
+//	}
+	
+//	public List listAll(String type,String keyword) {
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("type", type);
+//		map.put("keyword", keyword);
+//		return mapper.listAll("listAll" ,map);
+//	}
+//	public int count(@RequestParam("type") String type, @RequestParam("keyword")String keyword) {
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("type", type);
+//		map.put("keyword", keyword);
+//		return mapper.count("count", map);
+//		
+//	}
+	
+//	public java.util.List<boardDTO> selectsearch(boardDTO boardDTO) throws Exception {
+//		return mapper.selectsearch(boardDTO);
+//	}
+	public void selectsearch( Model model, String type, String keyword, int num) throws Exception {
+		int pageLetter = 5;
+		int allCount = mapper.selectSearchCount(type, keyword);
+		int repeat = allCount / pageLetter;
+		if(allCount % pageLetter != 0) {
+			repeat += 1;
+		}
+		int end = num * pageLetter;
+		int start = end + 1 - pageLetter;
+
+		model.addAttribute("repeat", repeat);
+		model.addAttribute("boardList", mapper.selectsearch(type,keyword, start, end));
+	}
+//	public java.util.List<boardDTO> selectsearch(String type, String keyword) {
+//		Map<String, String> searchParam = new HashMap<String, String>();
+//		searchParam.put("type", type);
+//		searchParam.put("keyword", keyword);
+//		java.util.List<boardDTO> bList = mapper.selectsearch(searchParam);
+//		return bList;
 //	}
 }

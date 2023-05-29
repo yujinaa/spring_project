@@ -11,9 +11,9 @@
 		<result property="regDate" column="regDate" />
 		<result property="hitNum" column="hit" />
 		<result property="writer" column="writer" />
+		<result property="type" column="type" />
+		<result property="keyword" column="keyword" />
 	</resultMap>
-
-	<!-- <select id="boardList" resultMap="board"> select * from box_board </select> -->
 
 	<!-- 페이징처리로 코드 변경 -->
 	<select id="boardList" resultMap="board">
@@ -22,6 +22,7 @@
 		(select * from box_board order by list_num desc)A)B where
 		rn between #{s} and #{e}
 	</select>
+	
 	<!-- 글쓰기 등록 -->
 	<insert id="writeSave">
 		insert into box_board(list_num,writer,title,content)
@@ -97,10 +98,44 @@
 		delete from box_notice where notice_num =
 		#{noticeNum}
 	</delete>
-<!-- 
-	<select id="getReviewList" resultMap="board">
-		select * from box_board 
 
+	<select id="selectsearch" resultMap="board">
+		select B.* from(select
+		row
+		r,
+		A.* from
+		(select * from box_board where type like
+		'%'||#{keyword}||'%'
+		order by type ASC)A)B where r between #{s} and
+		#{e}
 	</select>
- -->
+
+	<select id="selectSearchCount" resultType="Integer">
+		select count(*)
+		from
+		box_board 
+	</select>
+	
+	<!-- <select id="getReviewList" resultMap="board"> select * from box_board 
+		</select> -->
+	<!-- 검색 -->
+	<!-- <sql id="search"> <choose> <when test="type == 'all'"> where title 
+		like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%' or content 
+		like '%'||#{keyword}||'%' or titleCon like '%'||#{keyword}||'%' or TCW like 
+		'%'||#{keyword}||'%' </when> <otherwise> where ${type} like '%' || #{keyword}||'%' 
+		</otherwise> </choose> </sql> <select id="listAll" resultMap="board"> select 
+		* from box_board order by list_num desc <include refid="search" /> </select> 
+		<select id="count" resultMap="board" resultType="Integer"> select count(*) 
+		from box_board <include refid="search" /> </select> <select id="getSearchList" 
+		resultMap="board" resultType="Integer"> select count(*) from box_board <choose> 
+		<when test="type == 'all'"> where title like '%'||#{keyword}||'%' or writer 
+		like '%'||#{keyword}||'%' or content like '%'||#{keyword}||'%' or titleCon 
+		like '%'||#{keyword}||'%' or TCW like '%'||#{keyword}||'%' </when> <otherwise> 
+		where ${type} like '%' || #{keyword}||'%' </otherwise> </choose> </select> 
+	<select id="selectSearchCount" resultType="Integer"> select count(*) from
+		box_board where ${type} like '%'||#{keyword}||'%' </select>
+	<select id="selectsearch" resultMap="board"> select * from
+		box_board where ${type} like '%'||#{keyword}||'%' between #{s} and #{e}
+	</select>
+		-->
 </mapper>

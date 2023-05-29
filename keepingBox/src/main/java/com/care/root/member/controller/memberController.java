@@ -238,39 +238,19 @@ public class memberController implements memberLoginSession{
 		//		System.out.println("get dto :" +dto);
 		return "member/myInfo";
 	}
-
-	//		@GetMapping("myInfo")
-	//		public String myInfo( Model model, HttpSession session){
-	//			model.addAttribute("info", ms.memberInfo(LOGIN));
-	//			System.out.println("id :" + LOGIN);
-	//			return "member/myInfo";
-	//		}
-
-
-	//	@GetMapping("myInfo")
-	//	public String myInfo(String id, Model model, HttpSession session){
-	//		model.addAttribute("info", ms.memberInfo(id));
-	//		System.out.println("id :" + id);
-	//		return "member/myInfo";
-	//	}
-
-	//	@GetMapping("myInfo")
-	//	public String myInfo(@RequestParam(value="id", required=false)  String id, Model model, HttpSession session){
-	////		  model.addAttribute("info", ms.memberInfo(id));
-	//		  System.out.println("클릭한 아이디 : "+id);
-	//		ms.memberInfo(model,id);
-	//		return "member/myInfo";
-	//	}
-	//	@GetMapping("myInfo")
-	//	public String myInfo(HttpSession session, Model model) {
-	//		String id = (String) session.getAttribute(LOGIN);
-	//		System.out.println("getid :  "+id);
-	//		memberDTO dto = ms.memberInfo(id);
-	//		if (id != null) {
-	//		model.addAttribute("info",dto);
-	//		}
-	//		return "member/myInfo";
-	//      }
+	//내가 쓴 글
+	@GetMapping("myReview")
+	public String myReview(HttpSession session, Model model,@RequestParam(required = false, defaultValue = "1")int num)throws Exception {
+		System.out.println("내가 쓴글 페이지 연결");
+		//세션 객체 안에 있는 ID정보 저장
+		String id = (String) session.getAttribute(LOGIN);
+		System.out.println("getid :  "+id);
+		
+		memberDTO userInfo = ms.getInfo(id);
+		model.addAttribute("myInfo", userInfo);
+		return "member/myReview";
+	}
+	
 	//회원정보수정페이지 연결
 	@GetMapping("myInfoModify")
 	public String myInfoModify(HttpSession session, Model model) {
@@ -373,6 +353,7 @@ public class memberController implements memberLoginSession{
 			return "redirect:deleteMember";
 		}
 	}
+	
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")
