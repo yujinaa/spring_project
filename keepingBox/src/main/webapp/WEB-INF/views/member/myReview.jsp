@@ -37,10 +37,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${myInfo.myPageList}" var="dto" >
+							<c:forEach items="${myInfo.myPageList}" var="dto">
 								<tr>
 									<td>${dto.reviewNum }</td>
-									<th>${dto.title }</th>
+									<td><a href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></td>
 									<td>${dto.writer }</td>
 									<td>${dto.regDate }</td>
 									<td>${dto.hitNum }</td>
