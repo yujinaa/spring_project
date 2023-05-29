@@ -60,8 +60,8 @@
 							id="searchFoam" name="search-form">
 							<table>
 								<tr>
-									<td><select name="type" class="type-box"  >
-											<option value="title" >제목</option>
+									<td><select name="type" class="type-box">
+											<option value="title">제목</option>
 											<option value="writer">작성자</option>
 
 											<!-- 
@@ -74,23 +74,26 @@
 									</select></td>
 									<td colspan="2"><input class="inputId" type="text"
 										name="keyword" placeholder="검색어 입력" value="${param.keyword }"></td>
-									<td>
-							 <input class="submitBtn" type="submit" value="검색하기">
+									<td><input class="submitBtn" type="submit" value="검색하기">
 										<!-- 
 										<button class="submitBtn" type="submit">검색하기</button> 
-							 -->
-									</td>
+							 --></td>
 								</tr>
 							</table>
 						</form>
 					</div>
 					<div class="paging">
-						<c:forEach var="num" begin="1" end="${repeat }">
-							<a href="review?num=${num }">${num }</a>
-						</c:forEach>
+						<div class="page_nation">
+							<a class="arrow pprev" href="#">처음 페이지</a> <a class="arrow prev"
+								href="#"><<</a>
+							<c:forEach var="num" begin="1" end="${repeat }">
+								<a href="review?num=${num }" class="active">${num }</a>
+							</c:forEach>
+							<a class="arrow next" href="#">>></a> <a class="arrow nnext"
+								href="#">끝 페이지</a>
+						</div>
 					</div>
 				</div>
-			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />

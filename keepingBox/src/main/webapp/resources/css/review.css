@@ -200,7 +200,6 @@ table {
 .paging {
 	text-align: center;
 	padding-top: 15px;
-	padding-left: 3rem;
 }
 
 .paging:last-child {
@@ -229,6 +228,59 @@ table {
 	border-radius: 3px;
 	cursor: pointer;
 }
+
+/*페이징 버튼 */
+.page_nation {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.page_nation .none {
+	display: none;
+}
+
+.page_nation a {
+	display: block;
+	margin: 0 3px;
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 15px;
+	color: #999999;
+	text-decoration: none;
+}
+
+.page_nation a.active {
+	background-color: #3781E3;
+	width: 28px;
+	color: white;
+	border-radius: 2px;
+}
+.page_nation a.active:hover{
+	background-color: #c0c0c0;
+	color: #3781E3;
+}
+.page_nation .pprev {
+	margin-right: 15px;
+	color: #3781E3;
+}
+
+.page_nation .prev {
+	color: #3781E3;
+	margin-right: 15px;
+}
+
+.page_nation .next {
+	color: #3781E3;
+	margin-left: 15px;
+}
+
+.page_nation .nnext {
+	color: #3781E3;
+	margin-left: 15px;
+}
+
 /* footer 부분 */
 footer {
 	width: 100%;
