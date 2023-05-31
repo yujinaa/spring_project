@@ -12,7 +12,7 @@ $(".submitBtn").on("click", function(e) {
 	}
 
 	if (!keyword) {
-		alert("키워드를 입력하세요.");
+		alert("검색어를 입력하세요.");
 		return false;
 	}
 	searchFoam.submit();

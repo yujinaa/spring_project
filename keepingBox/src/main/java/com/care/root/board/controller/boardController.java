@@ -33,6 +33,7 @@ public class boardController implements memberLoginSession{
 			bs.selectSearch(model,type,keyword,num);
 			System.out.println("타입 : " + type);
 			System.out.println("제목 : " + keyword);
+			System.out.println("검색 결과 갯수 : " + num);
 		}else {
 			bs.boardList(model,num);
 		}

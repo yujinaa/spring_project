@@ -61,16 +61,9 @@
 							<table>
 								<tr>
 									<td><select name="type" class="type-box">
-											<option value="title">제목</option>
-											<option value="writer">작성자</option>
-
-											<!-- 
-											<option value="all">제목+내용+작성자</option>
 											<option value="">검색 유형 선택</option>
-								<option value="content">내용</option>
-								<option value="titleCon">제목+내용</option>
-								<option value="titleWri">제목+작성자</option>
-								 -->
+											<option value="title" >제목</option>
+											<option value="writer">작성자</option>
 									</select></td>
 									<td colspan="2"><input class="inputId" type="text"
 										name="keyword" placeholder="검색어 입력"></td>
