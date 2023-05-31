@@ -1,5 +1,4 @@
 
-	/*
 
 $(".submitBtn").on("click", function(e) {
 	e.preventDefault();
@@ -16,15 +15,16 @@ $(".submitBtn").on("click", function(e) {
 		alert("키워드를 입력하세요.");
 		return false;
 	}
+	searchFoam.submit();
+});
+	/*
 	location.href = "review?num=1" + "&type=" + type + "&keyword=" + keyword;
 	searchFoam.find($('select[name="size"]')).val(type);
 	search.find("input[name='type']").val(type);
 	search.find("input[name='keyword']").val(keyword);
-	searchFoam.submit();
 
 	console.log(type);
 	console.log(keyword);
-});
 	 */
 
 

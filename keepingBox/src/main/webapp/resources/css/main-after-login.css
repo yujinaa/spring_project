@@ -111,23 +111,11 @@ nav li a:hover {
 }
 
 .banner img {
-	width: 80%;
+	width: 100%;
 	filter: brightness(60%);
 }
 
-.bestReview {
-	width: 20%;
-	float: right;
-	box-sizing: border-box;
-	border-bottom: 2px solid gray;
-}
 
-.best {
-	border-bottom: 2px solid gray;
-	font-size: 30px;
-	font-weight: bold;
-	margin-top: 15px;
-}
 
 .box-div {
 	margin: 30px;

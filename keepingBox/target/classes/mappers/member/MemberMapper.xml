@@ -169,7 +169,7 @@
 		#{e}
 	</select>
 
-	<select id="selectSearchIdCount" resultType="Integer">
+	<select id="selectSearchIdCount" resultType="int">
 		select count(*) from
 		box_member where buser_id like '%'||#{userId}||'%'
 	</select>

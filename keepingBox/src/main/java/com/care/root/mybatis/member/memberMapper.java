@@ -36,10 +36,9 @@ public interface memberMapper {
 	public memberDTO memberInfo(String memberId);
 
 	//내가 쓴글
-	//	public memberDTO myReview(String memberId);
-//	public List<boardDTO> myReviewList(@Param("id")String id,@Param("s") int start, @Param("e") int end);
-//	public memberDTO myReviewList(String memberId);
 	public memberDTO getInfo(String id);
+
+	
 	//회원정보수정
 	public int modifySave(memberDTO dto);
 	//아이디찾기

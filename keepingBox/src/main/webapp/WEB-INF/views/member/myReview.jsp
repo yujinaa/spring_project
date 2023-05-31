@@ -48,11 +48,6 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<div class="paging">
-						<c:forEach var="num" begin="1" end="${repeat }">
-							<a href="myReview?num=${num }">${num }</a>
-						</c:forEach>
-					</div>
 				</div>
 			</div>
 		</section>

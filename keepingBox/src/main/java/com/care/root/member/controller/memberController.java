@@ -56,16 +56,6 @@ public class memberController implements memberLoginSession{
 
 		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo(access_Token);
 
-		//    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
-		//		if (userInfo.get("email") != null) {
-		//			session.setAttribute("email", userInfo.get("email"));
-		//			session.setAttribute("nickname",  userInfo.get("nickname"));
-		//			session.setAttribute("access_Token", access_Token);
-		//		}
-		//		System.out.println("**access_Token : " + access_Token);
-		//		System.out.println("**nickname : " + userInfo.get("nickname"));
-		//		System.out.println("**email : " + userInfo.get("email"));
-
 		if (userInfo.getEmail() != null) {
 			
 			session.setAttribute("email", userInfo.getEmail());
@@ -76,7 +66,6 @@ public class memberController implements memberLoginSession{
 			System.out.println("**nickname : " + userInfo.getNickName());
 			System.out.println("**email : " + userInfo.getEmail());
 			
-//			String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
 			
 
 		}
@@ -240,7 +229,7 @@ public class memberController implements memberLoginSession{
 	}
 	//내가 쓴 글
 	@GetMapping("myReview")
-	public String myReview(HttpSession session, Model model,@RequestParam(required = false, defaultValue = "1")int num)throws Exception {
+	public String myReview(HttpSession session, Model model)throws Exception {
 		System.out.println("내가 쓴글 페이지 연결");
 		//세션 객체 안에 있는 ID정보 저장
 		String id = (String) session.getAttribute(LOGIN);

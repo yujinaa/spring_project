@@ -35,16 +35,7 @@
 					<li><a href="${contextPath }/booking/booking" class="button">예약하기</a></li>
 				</c:if>
 			</ul>
-			<div class="bestReview">
-				<div class="best">베스트후기</div>
-				<div class="box-div">
-					<div class="box1">
-						첫 번째글
-						<div>후기${dto.content}</div>
-					</div>
-						<div class="box3">${dto.content}</div>
-				</div>
-			</div>
+			
 		</div>
 		<!-- 이용안내 부분 -->
 		<section id="info-use">

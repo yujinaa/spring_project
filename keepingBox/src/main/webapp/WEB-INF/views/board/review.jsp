@@ -65,19 +65,17 @@
 											<option value="writer">작성자</option>
 
 											<!-- 
+											<option value="all">제목+내용+작성자</option>
 											<option value="">검색 유형 선택</option>
 								<option value="content">내용</option>
 								<option value="titleCon">제목+내용</option>
 								<option value="titleWri">제목+작성자</option>
-								<option value="TCW">제목+내용+작성자</option>
 								 -->
 									</select></td>
 									<td colspan="2"><input class="inputId" type="text"
-										name="keyword" placeholder="검색어 입력" value="${param.keyword }"></td>
+										name="keyword" placeholder="검색어 입력"></td>
 									<td><input class="submitBtn" type="submit" value="검색하기">
-										<!-- 
-										<button class="submitBtn" type="submit">검색하기</button> 
-							 --></td>
+									</td>
 								</tr>
 							</table>
 						</form>

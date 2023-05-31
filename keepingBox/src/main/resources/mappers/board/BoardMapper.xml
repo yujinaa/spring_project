@@ -22,7 +22,7 @@
 		(select * from box_board order by list_num desc)A)B where
 		rn between #{s} and #{e}
 	</select>
-	
+
 	<!-- 글쓰기 등록 -->
 	<insert id="writeSave">
 		insert into box_board(list_num,writer,title,content)
@@ -99,43 +99,80 @@
 		#{noticeNum}
 	</delete>
 
-	<select id="selectsearch" resultMap="board">
-		select B.* from(select
-		row
-		r,
-		A.* from
-		(select * from box_board where type like
-		'%'||#{keyword}||'%'
-		order by type ASC)A)B where r between #{s} and
-		#{e}
-	</select>
 
-	<select id="selectSearchCount" resultType="Integer">
-		select count(*)
-		from
-		box_board 
+	<!-- 검색 
+	<sql id="search">
+		<choose>
+			<when test="type == 'all'"> where title
+				like '%'||#{keyword}||'%' or writer like
+				'%'||#{keyword}||'%' or content
+				like '%'||#{keyword}||'%' or titleCon
+				like '%'||#{keyword}||'%' or
+				TCW like
+				'%'||#{keyword}||'%' </when>
+			<otherwise> where ${type} like '%' || #{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="listAll" resultMap="board">
+		select
+		* from box_board order by list_num desc
+		<include refid="search" />
 	</select>
-	
-	<!-- <select id="getReviewList" resultMap="board"> select * from box_board 
-		</select> -->
-	<!-- 검색 -->
-	<!-- <sql id="search"> <choose> <when test="type == 'all'"> where title 
-		like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%' or content 
-		like '%'||#{keyword}||'%' or titleCon like '%'||#{keyword}||'%' or TCW like 
-		'%'||#{keyword}||'%' </when> <otherwise> where ${type} like '%' || #{keyword}||'%' 
-		</otherwise> </choose> </sql> <select id="listAll" resultMap="board"> select 
-		* from box_board order by list_num desc <include refid="search" /> </select> 
-		<select id="count" resultMap="board" resultType="Integer"> select count(*) 
-		from box_board <include refid="search" /> </select> <select id="getSearchList" 
-		resultMap="board" resultType="Integer"> select count(*) from box_board <choose> 
-		<when test="type == 'all'"> where title like '%'||#{keyword}||'%' or writer 
-		like '%'||#{keyword}||'%' or content like '%'||#{keyword}||'%' or titleCon 
-		like '%'||#{keyword}||'%' or TCW like '%'||#{keyword}||'%' </when> <otherwise> 
-		where ${type} like '%' || #{keyword}||'%' </otherwise> </choose> </select> 
+	<select id="count" resultMap="board" resultType="Integer">
+		select count(*)
+		from box_board
+		<include refid="search" />
+	</select>
+	<select id="getSearchList" resultMap="board"
+		resultType="Integer">
+		select count(*) from box_board
+		<choose>
+			<when test="type == 'all'"> where title like '%'||#{keyword}||'%' or writer
+				like
+				'%'||#{keyword}||'%' or content like '%'||#{keyword}||'%' or
+				titleCon
+				like '%'||#{keyword}||'%' or TCW like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				where ${type} like '%' || #{keyword}||'%' </otherwise>
+		</choose>
+	</select>
 	<select id="selectSearchCount" resultType="Integer"> select count(*) from
 		box_board where ${type} like '%'||#{keyword}||'%' </select>
-	<select id="selectsearch" resultMap="board"> select * from
-		box_board where ${type} like '%'||#{keyword}||'%' between #{s} and #{e}
+	<select id="selectsearch" resultMap="board"> select * from box_board
+		where ${type} like '%'||#{keyword}||'%'
+		between #{s} and #{e}
 	</select>
-		-->
+-->
+
+	<!-- //검색하기1방법 <select id="listAll" resultMap="board"> select * from box_board 
+		<include refid="search" /> </select> <sql id="search"> <choose> <when test="type 
+		== 'all' "> where content like '%' || #{keyword}||'%' or title like '%'||#{keyword}||'%' 
+		</when> <otherwise> where ${type} like '%'||#{keyword}||'%' </otherwise> 
+		</choose> </sql> -->
+
+	<!-- 검색방법2 <select id="selectSearchList" resultMap="board"> select * from 
+		box_board <choose> <when test="type !=null and type.equals('title')"> and 
+		title like CONCAT('%',#{keyword},'%') </when> <when test="type !=null and 
+		type.equals('writer')"> and writer like CONCAT('%',#{keyword},'%') </when> 
+		</choose> </select> -->
+
+	<!-- 검색방법3 -->
+	<select id="selectSearch" resultMap="board">
+		select B.* from(select
+		rownum rn,
+		A.* from
+		(select * from box_board where
+		${type} like
+		'%'||#{keyword}||'%'
+		order by list_num desc)A)B where rn
+		between #{s}
+		and
+		#{e}
+	</select>
+	<select id="selectSearchCount" resultType="Integer">
+		select count(*) from
+		box_board where ${type} like '%'||#{keyword}||'%'
+	</select>
 </mapper>

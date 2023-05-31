@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,13 +20,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.service.boardService;
+import com.care.root.member.common.memberLoginSession;
+import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.board.boardMapper;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class HomeController implements memberLoginSession{
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -45,15 +48,10 @@ public class HomeController {
 
 		return "home";
 	}
-	@Autowired boardService bs;
 	@GetMapping("index")
-	public String index(Model model,HttpServletRequest request ) {
+	public String index(){
+		
 		System.out.println("컨트롤러 index 실행");
-		//		java.util.List<boardDTO> bestList = service.selectReview(); 
-//		bs.getReviewList(model);
-		boardDTO dto = new boardDTO();
-		request.getParameter("content"); 
-		model.addAttribute("reviewList", dto);
 		return "index";
 	}
 	//	@RequestParam String writer, @RequestParam String content
@@ -66,5 +64,17 @@ public class HomeController {
 	//
 	//		return "index";
 	//	}
+	
+//	@GetMapping("bestList")
+//	public String myReview(HttpSession session, Model model)throws Exception {
+//		System.out.println("내가 쓴글 페이지 연결");
+//		//세션 객체 안에 있는 ID정보 저장
+//		String id = (String) session.getAttribute(LOGIN);
+//		System.out.println("getid :  "+id);
+//		
+//		memberDTO userInfo = ms.getInfo(id);
+//		model.addAttribute("myInfo", userInfo);
+//		return "member/myReview";
+//	}
 
 }
