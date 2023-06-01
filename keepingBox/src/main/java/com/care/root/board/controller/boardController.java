@@ -133,31 +133,7 @@ public class boardController implements memberLoginSession{
 		return "redirect:notice";
 	}
 
-	//검색하기1방법
-	//	@RequestMapping("list.do")    //세부적인 url mapping
-	//	public ModelAndView list(//RequestParam으로 옵션, 키워드, 페이지의 기본값을 각각 설정해준다.
-	//
-	//			@RequestParam String type, //기본 검색 옵션값을 작성자로 한다.
-	//			@RequestParam String keyword //키워드의 기본값을 ""으로 한다.
-	//			)
-	//					throws Exception{
-	//
-	//		//map에 저장하기 위해 list를 만들어서 검색옵션과 키워드를 저장한다.
-	//		java.util.List<boardDTO> list = bs.listAll(type, keyword);
-	//
-	//		ModelAndView mav = new ModelAndView();
-	//		Map<String,Object> map = new HashMap<>();    //넘길 데이터가 많기 때문에 해쉬맵에 저장한 후에 modelandview로 값을 넣고 페이지를 지정
-	//		map.put("list", list);      
-	//		map.put("type", type);
-	//		map.put("keyword", keyword);
-	//		mav.addObject("map", map);                    //modelandview에 map를 저장
-	//
-	//		System.out.println("map : "+map);
-	//		mav.setViewName("board/review");                //자료를 넘길 뷰의 이름
-	//
-	//		return mav;    //게시판 페이지로 이동
-	//
-	//	}
+	
 
 	//검색방법2
 	//	@GetMapping("getSearchList")
@@ -168,24 +144,6 @@ public class boardController implements memberLoginSession{
 	//		dto.setKeyword(keyword);
 	//		System.out.println("검색어 : " + keyword);
 	//		return bs.getSearchList(type,keyword,dto);
-	//	}
-
-	//	@GetMapping("getSearchList")
-	//	public String getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword, Model model) {
-	//		List searchList = bs.listAll(type,keyword);
-	//		model.addAttribute("searchList", searchList);
-	//		System.out.println("검색어 : " + keyword);
-	//		System.out.println("검색타입 : " + keyword);
-	//		return "board/review";
-	//	}
-	//	@GetMapping("review")
-	//	public String selectsearch( @RequestParam("type") String type,
-	//			@RequestParam("keyword") String keyword, Model model) throws Exception {
-	//		java.util.List<boardDTO> bList = bs.selectsearch(type, keyword);
-	//		model.addAttribute("bList", bList);
-	//		System.out.println("타입 : " + type);
-	//		System.out.println("제목 : " + keyword);
-	//		return "board/review";
 	//	}
 
 	//검색방법3

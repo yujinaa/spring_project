@@ -17,40 +17,10 @@ $(".submitBtn").on("click", function(e) {
 	}
 	searchFoam.submit();
 });
-	/*
-	location.href = "review?num=1" + "&type=" + type + "&keyword=" + keyword;
-	searchFoam.find($('select[name="size"]')).val(type);
-	search.find("input[name='type']").val(type);
-	search.find("input[name='keyword']").val(keyword);
 
-	console.log(type);
-	console.log(keyword);
-	 */
+/*내가 쓴글 더보기 */
 
 
-/*
-$(".submitBtn").on("click", function(e) {
-	$.ajax({
-		type: 'GET',
-		url: "review",
-		data: $("form[name=search-form]").serialize(),
-		success: function(result) {
-			//테이블 초기화
-			$('#boardtable > tbody').empty();
-			if (result.length >= 1) {
-				result.forEach(function(item) {
-					str = '<tr>'
-					str += "<td>" + item.idx + "</td>";
-					str += "<td>" + item.writer + "</td>";
-					str += "<td><a href = '/board/detail?idx=" + item.idx + "'>" + item.title + "</a></td>";
-					str += "<td>" + item.date + "</td>";
-					str += "<td>" + item.hit + "</td>";
-					str += "</tr>"
-					$('#boardtable').append(str);
-				})
-			}
-		}
-	})
-}
 
- */
+
+
