@@ -57,7 +57,7 @@ public class memberController implements memberLoginSession{
 		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo(access_Token);
 
 		if (userInfo.getEmail() != null) {
-			
+
 			session.setAttribute("email", userInfo.getEmail());
 			session.setAttribute("nickName", userInfo.getNickName());
 			session.setAttribute("access_Token", access_Token);
@@ -65,58 +65,58 @@ public class memberController implements memberLoginSession{
 			System.out.println("**access_Token : " + access_Token);
 			System.out.println("**nickname : " + userInfo.getNickName());
 			System.out.println("**email : " + userInfo.getEmail());
-			
-			
+
+
 
 		}
 		return "index";
-//		return "redirect:login";
+		//		return "redirect:login";
 	}
-//	@GetMapping("kakaoLogin")
-//	public String kakaoLogin(@RequestParam String email,
-//			HttpSession session, HttpServletResponse response) { //로그인 사용자라면 쿠키 응답하기
-//		System.out.println("email : " + email);
-//		session.setAttribute(KAKAOLOGIN, email);
-//
-//		return "index";
-//	}
-	
-//	@GetMapping("successKakaoLogin")
-//	public String successKakaoLogin(@RequestParam String email,
-//			HttpSession session) { //로그인 사용자라면 쿠키 응답하기
-//		session.getAttribute(KAKAOLOGIN);
-//		System.out.println("카카오 로그인 성공 email : " +email);
-//		return "index";
-//	}
-//	@GetMapping("successKakaoLogin")
-//	public String successKakaoLogin(HttpSession session, HttpServletResponse response) {	
-//		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo("email");
-//		String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
-//		
-//		if(!email.equals("0")){
-//			session.setAttribute(LOGIN, email);
-//			session.setAttribute(KAKAOLOGIN, email);
-//			//System.out.println("일반 세션명 : " + session.getAttribute(LOGIN));
-//			//System.out.println("카카오 세션명 : " +  session.getAttribute(KAKAOLOGIN));
-//			System.out.println("카카오 로그인성공");
-//			return email;
-//		}
-//		else {
-////			int result = ms.KakaoRegister(userInfo.get("id").toString(), kakao_info.get("email").toString());
-////			if(result == 1) {
-////				if(session.getAttribute( KAKAOLOGIN ) == null) {
-////					session.setAttribute(KAKAOLOGIN, kakao_info.get("email").toString());
-////				}
-////				System.out.println("가입성공 : " + kakao_info.get("email").toString());
-////				return kakao_info.get("email").toString();
-////			}else {
-//				System.out.println("문제발생");
-//				return "login";
-//			}
-//		}
-//		
-//	
-//	
+	//	@GetMapping("kakaoLogin")
+	//	public String kakaoLogin(@RequestParam String email,
+	//			HttpSession session, HttpServletResponse response) { //로그인 사용자라면 쿠키 응답하기
+	//		System.out.println("email : " + email);
+	//		session.setAttribute(KAKAOLOGIN, email);
+	//
+	//		return "index";
+	//	}
+
+	//	@GetMapping("successKakaoLogin")
+	//	public String successKakaoLogin(@RequestParam String email,
+	//			HttpSession session) { //로그인 사용자라면 쿠키 응답하기
+	//		session.getAttribute(KAKAOLOGIN);
+	//		System.out.println("카카오 로그인 성공 email : " +email);
+	//		return "index";
+	//	}
+	//	@GetMapping("successKakaoLogin")
+	//	public String successKakaoLogin(HttpSession session, HttpServletResponse response) {	
+	//		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo("email");
+	//		String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
+	//		
+	//		if(!email.equals("0")){
+	//			session.setAttribute(LOGIN, email);
+	//			session.setAttribute(KAKAOLOGIN, email);
+	//			//System.out.println("일반 세션명 : " + session.getAttribute(LOGIN));
+	//			//System.out.println("카카오 세션명 : " +  session.getAttribute(KAKAOLOGIN));
+	//			System.out.println("카카오 로그인성공");
+	//			return email;
+	//		}
+	//		else {
+	////			int result = ms.KakaoRegister(userInfo.get("id").toString(), kakao_info.get("email").toString());
+	////			if(result == 1) {
+	////				if(session.getAttribute( KAKAOLOGIN ) == null) {
+	////					session.setAttribute(KAKAOLOGIN, kakao_info.get("email").toString());
+	////				}
+	////				System.out.println("가입성공 : " + kakao_info.get("email").toString());
+	////				return kakao_info.get("email").toString();
+	////			}else {
+	//				System.out.println("문제발생");
+	//				return "login";
+	//			}
+	//		}
+	//		
+	//	
+	//	
 
 	//로그인시 확인
 	@PostMapping("user_check")
@@ -234,12 +234,12 @@ public class memberController implements memberLoginSession{
 		//세션 객체 안에 있는 ID정보 저장
 		String id = (String) session.getAttribute(LOGIN);
 		System.out.println("getid :  "+id);
-		
+
 		memberDTO userInfo = ms.getInfo(id);
 		model.addAttribute("myInfo", userInfo);
 		return "member/myReview";
 	}
-	
+
 	//회원정보수정페이지 연결
 	@GetMapping("myInfoModify")
 	public String myInfoModify(HttpSession session, Model model) {
@@ -292,8 +292,8 @@ public class memberController implements memberLoginSession{
 	}
 	//비번찾기
 	@PostMapping("findPwdResult")
-	public String findPwdCheck(HttpServletRequest request, Model model,
-			@RequestParam String id, @RequestParam String name,@RequestParam String email, 
+	public String findPwdCheck(HttpServletResponse response, Model model,
+			@RequestParam (required = true, value = "id")String id, @RequestParam(required = true, value = "name") String name,@RequestParam (required = true, value = "email")String email, 
 			memberDTO dto) {
 		try {
 			dto.setId(id);
@@ -302,26 +302,23 @@ public class memberController implements memberLoginSession{
 			int search = ms.pwdCheck(dto);
 
 			if(search == 0) {
-				model.addAttribute("msg", "기입된 정보가 잘못되었습니다. 다시 입력해주세요.");
-				//					return "member/findPwd";
+				PrintWriter out = response.getWriter(); //js가 아니라 controller에서 HttpServletResponse이용해 바로 alert창 띄우기
+				response.setCharacterEncoding("utf-8");
+				response.setContentType("text/html; charset=utf-8");
+				out.println("<script> alert('저장된 정보가 없습니다. 다시 입력해주세요.');");
+				out.println("history.go(-1); </script>"); //이렇게해야 페이지로 다시 로드
+				out.close();
+				return "member/findPwd";
 			}
-
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-			//			String enpassword = pwEncoder(newPwd);
-			//			dto.setPwd(enpassword);
 			dto.setPwd(newPwd);
 			ms.pwdUpdate(dto);
 			model.addAttribute("newPwd", newPwd);
-
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute("msg", "오류가 발생되었습니다.");
 		}
 		return "member/findPwdResult";
 	}
-	//	private String pwEncoder(String newPwd) {
-	//		return null;
-	//	}
 	@GetMapping("findPwdResult")
 	public String findPwResult() {
 		return "member/findPwdResult";
@@ -342,7 +339,7 @@ public class memberController implements memberLoginSession{
 			return "redirect:deleteMember";
 		}
 	}
-	
+
 
 	//관리자 - 회원목록
 	@GetMapping("memberList")

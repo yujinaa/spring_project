@@ -99,6 +99,12 @@ $('#auth_btn').click(function() {
 	var email = $('#email').val();  /*입력한 이메일*/
 	console.log('완성된 이메일 : ' + email); /* 이메일 오는지 확인*/
 	var checkInput = $('.mail-check-input') /* 인증번호 입력 */
+	
+	if (email.value == '') {
+		alert('이메일을 입력해 주세요.');
+		email.focus();
+		return false;
+	}
 
 	$.ajax({
 		type: 'GET',

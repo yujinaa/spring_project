@@ -27,19 +27,9 @@ public interface boardService {
 	public int modifySave(noticeDTO notice);
 	public int noticeDelete(int noticeNum);
 
-	//검색하기1방법
-//	public java.util.List<boardDTO> listAll(String type, String keyword);
-
-	//검색방법2
-//	public java.util.List<boardDTO> getSearchList(String type, String keyword,boardDTO dto);
-	
-	//검색방법3
-//	public java.util.List<boardDTO> selectSearch(Model model,boardDTO dto,int num) throws Exception;
-	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
-//	public java.util.List<boardDTO> selectSearch(String type, String keyword, Model model, int num);
-	
 	//검색
-//	public List getSearchList(boardDTO dto);
+	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
+	
 	
 //	public void listAll( String type, String keyword,int num)throws Exception;
 //	public int count(String type, String keyword);

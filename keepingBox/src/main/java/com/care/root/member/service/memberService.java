@@ -29,6 +29,8 @@ public interface memberService{
 	public int modifySave(memberDTO dto);
 	//아이디찾기
 	public memberDTO findMemberId(memberDTO dto);
+	
+	//비번찾기
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
 	public void deleteMemberCheck(memberDTO dto);
