@@ -7,12 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>알림창 페이지</title>
+<title>alert페이지</title>
 </head>
 <body>
-	<script>
-		alert('${msg}');
-		location.href = '<c:out value="${contextPath }"/>${url}';
+	<script type="text/javascript">
+		var msg = "<c:out value='${msg}'/>";
+		var url = "<c:out value='${url}'/>";
+		alert(msg);
+		location.href = url;
 	</script>
 </body>
 </html>

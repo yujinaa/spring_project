@@ -31,8 +31,7 @@
 					<div class="form-group">
 						<input type="email" id="email" name="email" placeholder="이메일">
 					</div>
-					<button type="submit" id="pwd-find"
-						>비밀번호 찾기</button>
+					<button type="submit" id="pwd-find">비밀번호 찾기</button>
 					<div>
 						<ul class="join-login">
 							<li><a href="${contextPath }/member/register_form">회원가입하기</a></li>

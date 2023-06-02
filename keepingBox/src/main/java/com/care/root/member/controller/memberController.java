@@ -297,7 +297,7 @@ public class memberController implements memberLoginSession{
 	}
 	//비번찾기
 	@PostMapping("findPwdResult")
-	public String findPwdCheck(HttpServletResponse response, Model model,
+	public String findPwdCheck(HttpServletRequest request, Model model,
 			@RequestParam (required = true, value = "id")String id, @RequestParam(required = true, value = "name") String name,@RequestParam (required = true, value = "email")String email, 
 			memberDTO dto) throws IOException {
 		try {
@@ -309,16 +309,12 @@ public class memberController implements memberLoginSession{
 			int search = ms.pwdCheck(dto);
 
 			if(search == 0) {
-				//				String newPwd = RandomStringUtils.randomAlphanumeric(10);
-				//				dto.setPwd(newPwd);
-				//				ms.pwdUpdate(dto);
-				//				model.addAttribute("newPwd", newPwd);
-				//				out.println("<script>location.href='member/findPwdResult';</script>");
-				return "redirect:findPwd";
-				//				return "redirect:findPwd";
+				request.setAttribute("msg", "가입된 정보가 없습니다. 다시 입력해주세요.");
+				request.setAttribute("url", "findPwd");
+				return "alert";
 			}
-			
-			
+
+
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
 			String enpassword = pwEncoder.encode(newPwd); //발급된 임시 비밀번호 암호화시켜 db저장
 			dto.setPwd(enpassword );
