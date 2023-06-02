@@ -39,6 +39,11 @@ public class memberController implements memberLoginSession{
 	@Autowired kakaoLoginService kakao;
 	BCryptPasswordEncoder pwEncoder; //암호화
 
+	public memberController() {
+		pwEncoder = new BCryptPasswordEncoder();
+
+	}
+
 	//로그인클릭
 	@GetMapping("login")
 	public String login() {
@@ -294,26 +299,32 @@ public class memberController implements memberLoginSession{
 	@PostMapping("findPwdResult")
 	public String findPwdCheck(HttpServletResponse response, Model model,
 			@RequestParam (required = true, value = "id")String id, @RequestParam(required = true, value = "name") String name,@RequestParam (required = true, value = "email")String email, 
-			memberDTO dto) {
+			memberDTO dto) throws IOException {
 		try {
+
 			dto.setId(id);
 			dto.setName(name);
 			dto.setEmail(email);
+
 			int search = ms.pwdCheck(dto);
 
 			if(search == 0) {
-				PrintWriter out = response.getWriter(); //js가 아니라 controller에서 HttpServletResponse이용해 바로 alert창 띄우기
-				response.setCharacterEncoding("utf-8");
-				response.setContentType("text/html; charset=utf-8");
-				out.println("<script> alert('저장된 정보가 없습니다. 다시 입력해주세요.');");
-				out.println("history.go(-1); </script>"); //이렇게해야 페이지로 다시 로드
-				out.close();
-				return "member/findPwd";
+				//				String newPwd = RandomStringUtils.randomAlphanumeric(10);
+				//				dto.setPwd(newPwd);
+				//				ms.pwdUpdate(dto);
+				//				model.addAttribute("newPwd", newPwd);
+				//				out.println("<script>location.href='member/findPwdResult';</script>");
+				return "redirect:findPwd";
+				//				return "redirect:findPwd";
 			}
+			
+			
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
-			dto.setPwd(newPwd);
+			String enpassword = pwEncoder.encode(newPwd); //발급된 임시 비밀번호 암호화시켜 db저장
+			dto.setPwd(enpassword );
 			ms.pwdUpdate(dto);
 			model.addAttribute("newPwd", newPwd);
+			System.out.println("새로운 비번 발급 : " + enpassword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

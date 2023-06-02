@@ -116,9 +116,9 @@ public class memberServiceImpl implements memberService {
 	}
 	public void pwdUpdate(memberDTO dto) {
 		System.out.println("비번 변경 전 : " + dto.getPwd());
-		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
-		System.out.println("비번 변경 후 : " + newUpdatePwd);
-		dto.setPwd(newUpdatePwd); 
+//		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
+//		System.out.println("비번 변경 후 : " + newUpdatePwd);
+//		dto.setPwd(newUpdatePwd); 
 		memberMapper.pwdUpdate(dto);
 	}
 

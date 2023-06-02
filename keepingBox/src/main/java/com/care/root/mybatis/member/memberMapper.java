@@ -46,7 +46,7 @@ public interface memberMapper {
 	//비번찾기
 	public int pwdCheck(memberDTO dto);
 	//	public void pwdUpdate(memberDTO dto);
-	public int pwdUpdate(memberDTO dto);
+	public void pwdUpdate(memberDTO dto);
 	//회원탈퇴
 	public void deleteMemberCheck(memberDTO dto);
 	//	public int delCheck(memberDTO dto);

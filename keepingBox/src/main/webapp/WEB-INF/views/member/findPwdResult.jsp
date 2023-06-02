@@ -13,11 +13,7 @@
 <body>
 	<c:import url="../include/header.jsp" />
 	<main id="container">
-		<c:if test="${check == 1}">
-			<label>일치하는 정보가 존재하지 않습니다.</label>
-		</c:if>
 		<div class="find-box">
-			<c:if test="${check == 0 }">
 				<p class="title">회원님의 임시 비밀번호 입니다</p>
 				<div class="result-box">
 					<p>${newPwd}</p>
@@ -25,7 +21,6 @@
 				<div class="announce">
 					<p class="color2">&#8251;안전을 위해 비밀번호를 변경해 주세요.</p>
 				</div>
-			</c:if>
 			<div class="login-pwd">
 				<ul class="join-login cf">
 					<li><a href="${contextPath }/member/login">로그인</a></li>
