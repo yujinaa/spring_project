@@ -19,7 +19,6 @@ public class memberServiceImpl implements memberService {
 
 	public memberServiceImpl() {
 		pwEncoder = new BCryptPasswordEncoder();
-
 	}
 
 	public int userCheck(String id, String pwd) {

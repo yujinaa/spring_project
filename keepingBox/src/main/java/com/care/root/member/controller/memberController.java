@@ -313,8 +313,6 @@ public class memberController implements memberLoginSession{
 				request.setAttribute("url", "findPwd");
 				return "alert";
 			}
-
-
 			String newPwd = RandomStringUtils.randomAlphanumeric(10);
 			String enpassword = pwEncoder.encode(newPwd); //발급된 임시 비밀번호 암호화시켜 db저장
 			dto.setPwd(enpassword );
@@ -335,7 +333,6 @@ public class memberController implements memberLoginSession{
 	public String deleteMember() {
 		return "member/deleteMember";
 	}
-
 	@PostMapping("deleteMemberCheck")
 	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto){
 		if(email.equals(dto.getEmail())) {
