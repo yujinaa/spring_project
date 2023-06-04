@@ -23,9 +23,6 @@
  					-->
 					<label for="id">아이디</label> 
 					<input type="text" name="id" id="id" value="${info.id }" readonly> 
-					<label for="pwd">비밀번호</label>
-					<input type="password" name="pwd" id="pwd" value="${info.pwd }"
-						class="user-margin" readonly> 
 					<label for="name">이름</label> 
 					<input type="text" value="${info.name }" name="name" id="name" readonly> 
 					<label for="phone">휴대폰 번호 (-없이)</label> 

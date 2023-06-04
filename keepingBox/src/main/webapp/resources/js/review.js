@@ -18,7 +18,6 @@ $(".submitBtn").on("click", function(e) {
 	searchFoam.submit();
 });
 
-/*내가 쓴글 더보기 */
 
 
 

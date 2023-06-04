@@ -125,6 +125,7 @@ main {
 .modify label {
 	display: block;
 	margin-bottom: 0.5rem;
+	    margin-top: 0.5rem;
 	font-size: 0.9rem;
 }
 
@@ -136,6 +137,11 @@ main {
 	border: 1px solid #afafaf;
 	font-size: 0.7rem;
 	padding-left: 0.7rem;
+}
+#pwdchk-info{
+	color: #3781e3;
+	margin-top: -14px;
+	font-size: 13px;
 }
 
 #save-btn {
