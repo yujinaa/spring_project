@@ -133,28 +133,4 @@ public class boardController implements memberLoginSession{
 		return "redirect:notice";
 	}
 
-	
-
-	//검색방법2
-	//	@GetMapping("getSearchList")
-	//	public java.util.List<boardDTO> getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword) throws Exception{
-	//
-	//		boardDTO dto = new boardDTO();
-	//		dto.setType(type);
-	//		dto.setKeyword(keyword);
-	//		System.out.println("검색어 : " + keyword);
-	//		return bs.getSearchList(type,keyword,dto);
-	//	}
-
-	//검색방법3
-	//	@GetMapping("search")
-	//		public String selectSearch( @RequestParam("type") String type,
-	//				@RequestParam("keyword") String keyword, Model model) throws Exception {
-	//			java.util.List<boardDTO> bList = bs.selectSearch(type, keyword);
-	//			model.addAttribute("bList", bList);
-	//			System.out.println("타입 : " + type);
-	//			System.out.println("제목 : " + keyword);
-	//			return "board/review";
-	//		}
-
 }
