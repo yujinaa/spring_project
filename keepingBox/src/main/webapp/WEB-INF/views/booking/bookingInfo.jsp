@@ -23,7 +23,6 @@
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
 			<c:if test="${booking.bookingId !=null }">
-				<div style="color: red">*결제하기 버튼을 클릭해 예약을 완료해 주세요.</div>
 			</c:if>
 			<div>
 				<input type="hidden" value="${booking.bookingId  }"
@@ -42,7 +41,7 @@
 							</tr>
 							<tr>
 								<th scope="row">예약날짜</th>
-								<td>${booking.bookDateS }</td>
+								<td>${booking.bookDateS}</td>
 							</tr>
 							<tr>
 								<th scope="row">지점명</th>

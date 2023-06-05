@@ -2,6 +2,8 @@ package com.care.root.board.dto;
 
 import java.text.SimpleDateFormat;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class boardDTO {
 	private int reviewNum;
 	private String title;
@@ -9,10 +11,10 @@ public class boardDTO {
 	private String regDate;
 	private int hitNum;
 	private String writer;
-	
+
 	private String keyword; // 검색 키워드
 	private String type; // 검색 타입
-	
+
 	public String getKeyword() {
 		return keyword;
 	}
@@ -50,7 +52,7 @@ public class boardDTO {
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		this.regDate = format.format(regDate);
 	}
-	
+
 	public int getHitNum() {
 		return hitNum;
 	}

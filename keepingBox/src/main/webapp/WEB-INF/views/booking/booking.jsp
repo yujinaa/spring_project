@@ -50,7 +50,7 @@
 					</select> <label for="stringsize">사이즈</label> <select name="size"
 						id="stringsize" onchange="checkPrice()">
 						<option value="0">선택하세요</option>
-						<option value="5000">소 ( 20 x 20 x 45(cm) 이내 )</option>
+						<option value="5000" >소 ( 20 x 20 x 45(cm) 이내 )</option>
 						<option value="6000">중 (30 x 30 x 60(cm) 이내)</option>
 						<option value="7000">대 (50 x 50 x 80(cm) 이내)</option>
 					</select> <label for="intmoney">이용요금</label> <input type="text" name="price"

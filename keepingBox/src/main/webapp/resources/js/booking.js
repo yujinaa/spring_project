@@ -46,7 +46,7 @@ $('#money-btn').click(function() {
 	$('#next-btn').attr("disabled", false); /*결제 버튼 눌러야 버튼 활성화 되면서 색상 변경*/
 	$('#next-btn').css("color", "#fafafa");
 	$('#next-btn').css("background", "#3781E3");
-	
+
 	var IMP = window.IMP;
 	IMP.init("imp");   /* imp~*/
 
