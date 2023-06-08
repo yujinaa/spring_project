@@ -1,16 +1,19 @@
 package com.care.root.mybatis.booking;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.ui.Model;
 
+import com.care.root.board.dto.boardDTO;
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.member.dto.memberDTO;
 
 public interface bookingMapper {
 	public void bookingDo(bookingDTO bookingDto );
-	//	public List<bookingDTO> bookChkList();
-	//	public bookingDTO bookChkList(int bookingId);
 	public bookingDTO bookingInfo(String userId);
 	public int bookDelete(int bookingId);
 

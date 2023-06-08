@@ -24,7 +24,24 @@
 					<h2>이용후기</h2>
 				</div>
 			</div>
-
+			<div class="search" align="center">
+				<form action="${contextPath }/board/review" method="get"
+					id="searchFoam" name="search-form">
+					<table>
+						<tr>
+							<td><select name="type" class="type-box">
+									<option value="">검색 유형 선택</option>
+									<option value="title">제목</option>
+									<option value="writer">작성자</option>
+							</select></td>
+							<td colspan="2"><input class="inputId" type="text"
+								name="keyword" placeholder="검색어 입력"></td>
+							<td><input class="submitBtn" type="submit" value="검색하기">
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
 			<!-- 게시판 리스트 -->
 			<div id="board-list">
 				<div class="container cf">
@@ -55,24 +72,7 @@
 						<a href="${contextPath }/board/reviewWrite"><button
 								type="button" id="review-btn">리뷰쓰기</button></a>
 					</c:if>
-					<div class="search" align="center">
-						<form action="${contextPath }/board/review" method="get"
-							id="searchFoam" name="search-form">
-							<table>
-								<tr>
-									<td><select name="type" class="type-box">
-											<option value="">검색 유형 선택</option>
-											<option value="title" >제목</option>
-											<option value="writer">작성자</option>
-									</select></td>
-									<td colspan="2"><input class="inputId" type="text"
-										name="keyword" placeholder="검색어 입력"></td>
-									<td><input class="submitBtn" type="submit" value="검색하기">
-									</td>
-								</tr>
-							</table>
-						</form>
-					</div>
+
 					<div class="paging">
 						<div class="page_nation">
 							<a class="arrow pprev" href="#">처음 페이지</a> <a class="arrow prev"

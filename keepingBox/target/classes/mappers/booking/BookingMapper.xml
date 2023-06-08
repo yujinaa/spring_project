@@ -26,10 +26,10 @@
 	</insert>
 
 	<!-- 예약정보 -->
-	<select id="bookingInfo" resultMap="booking">
+	<select id="bookingInfo" resultMap="booking" >
 		select * from box_booking
 		where
-		buser_id=#{userId}
+		buser_id=#{userId }
 	</select>
 
 	<!-- 삭제하기 -->

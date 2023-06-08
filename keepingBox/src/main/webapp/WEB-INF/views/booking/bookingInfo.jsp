@@ -22,11 +22,8 @@
 	<main id="container">
 		<div class="booking-box">
 			<h2>나의 예약정보</h2>
-			<c:if test="${booking.bookingId !=null }">
-			</c:if>
 			<div>
-				<input type="hidden" value="${booking.bookingId  }"
-					readonly="readonly">
+				<input type="hidden" value="${booking.userId  }" readonly="readonly">
 			</div>
 			<div>
 				<table class="booking-check">
@@ -35,26 +32,28 @@
   								예약 정보가 없습니다.
   						</c:when>
 						<c:otherwise>
-							<tr>
-								<th scope="row">예약자</th>
-								<td>${booking.name }</td>
-							</tr>
-							<tr>
-								<th scope="row">예약날짜</th>
-								<td>${booking.bookDateS}</td>
-							</tr>
-							<tr>
-								<th scope="row">지점명</th>
-								<td>${booking.city }</td>
-							</tr>
-							<tr>
-								<th scope="row">사이즈</th>
-								<td>${booking.size }</td>
-							</tr>
-							<tr>
-								<th scope="row">이용요금</th>
-								<td>${booking.price }</td>
-							</tr>
+						<tbody >
+								<tr>
+									<th scope="row">예약자</th>
+									<td>${booking.name }</td>
+								</tr>
+								<tr>
+									<th scope="row">예약날짜</th>
+									<td>${booking.bookDateS}</td>
+								</tr>
+								<tr>
+									<th scope="row">지점명</th>
+									<td>${booking.city }</td>
+								</tr>
+								<tr>
+									<th scope="row">사이즈</th>
+									<td>${booking.size }</td>
+								</tr>
+								<tr>
+									<th scope="row">이용요금</th>
+									<td>${booking.price }</td>
+								</tr>
+								</tbody>
 						</c:otherwise>
 					</c:choose>
 				</table>
@@ -67,9 +66,6 @@
 			</div>
 			<div>
 				<c:if test="${booking.bookingId !=null }">
-				<!-- 
-					<button type="button" id="" onClick="requestPay()">결제하기</button>
-				 -->
 				</c:if>
 			</div>
 		</div>

@@ -1,6 +1,11 @@
 package com.care.root.booking.controller;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.booking.service.bookingService;
@@ -30,11 +36,8 @@ public class bookingController implements memberLoginSession{
 	//예약하기
 	@PostMapping("bookingDo")
 	public String bookingDo( HttpSession session, bookingDTO bookingDto) {
-		//memberDTO mDto = (memberDTO)session.getAttribute(LOGIN);
-		//bookingDto.setUserId(mDto.getId());
-		//		String userId = (String)session.getAttribute(LOGIN);
-		//		bookingDto.setUserId(userId);;
 		bs.bookingDo(bookingDto);
+		System.out.println("예약성공");
 		return "redirect:bookingInfo";
 	}
 
@@ -48,14 +51,30 @@ public class bookingController implements memberLoginSession{
 		System.out.println("imp_uid : " + imp_uid);
 		System.out.println("merchant_uid : " + merchant_uid);
 	}
-	//예약내역
+	//예약내역 원래코드
+	//	@GetMapping("bookingInfo")
+	//	public String bookingCheck(HttpSession session, Model model){
+	//		String userId = (String) session.getAttribute(LOGIN);
+	//		System.out.println("getid :  "+userId);
+	//		try {
+	//			model.addAttribute("booking", bs.bookingInfo(userId));
+	////			bs.bookingInfo(userId);
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//		}
+	//		return "booking/bookingInfo";
+	//	}
+
 	@GetMapping("bookingInfo")
-	public String bookingCheck(HttpSession session, Model model)throws Exception {
+	public String bookingCheck(HttpSession session,Model model)throws Exception {
 		String userId = (String) session.getAttribute(LOGIN);
 		System.out.println("getid :  "+userId);
-		model.addAttribute("booking", bs.bookingInfo(userId));
+		bookingDTO memUserId=bs.bookingInfo(userId);
+		model.addAttribute("booking", memUserId);
 		return "booking/bookingInfo";
 	}
+
+
 
 	//예약삭제
 	@GetMapping("bookDelete")

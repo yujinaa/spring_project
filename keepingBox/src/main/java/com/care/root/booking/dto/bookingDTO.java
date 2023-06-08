@@ -10,7 +10,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class bookingDTO {
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private int bookingId;
 	private String userId;
 	private Date bookDateS;

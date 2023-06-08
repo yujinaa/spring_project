@@ -95,25 +95,7 @@ public class boardServiceImpl implements boardService{
 	public int noticeDelete(int noticeNum) {
 		return mapper.noticeDelete(noticeNum);
 	}
-	//	public void getReviewList(Model model) {
-	//		model.addAttribute("reviewList", mapper.getReviewList() );
-	//
-	//	}
 
-	//검색하기1방법
-	//	public java.util.List<boardDTO> listAll(String type,String keyword){
-	//		return mapper.listAll(type, keyword);
-	//	}
-
-	//검색방법2
-//	public java.util.List<boardDTO> getSearchList(String type,String keyword,boardDTO dto) {
-//		return mapper.getSearchList("getSearchList",dto,type,keyword);
-//	}
-	
-	//검색방법3
-//	public java.util.List<boardDTO> selectSearch(boardDTO dto) throws Exception{
-//		return mapper.selectSearch(dto);
-//	}
 	public void selectSearch(Model model, String type, String keyword,int num)throws Exception{
 		int pageLetter = 5;
 		int allCount = mapper.selectSearchCount(type,keyword);

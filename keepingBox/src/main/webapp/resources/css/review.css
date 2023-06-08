@@ -207,8 +207,10 @@ table {
 }
 
 .search {
-	display: flex;
-	margin-top: 30px;
+	margin-top: -25px;
+	margin-bottom: 10px;
+	float: right;
+	margin-right: 152px;
 }
 
 .type-box {
@@ -285,8 +287,8 @@ table {
 .more {
 	width: 10%;
 	margin: auto;
-	margin-top: 40px; 
-	line-height : 40px;
+	margin-top: 40px;
+	line-height: 40px;
 	color: #3781E3;
 	background: ghostwhite;
 	font-size: 18px;
