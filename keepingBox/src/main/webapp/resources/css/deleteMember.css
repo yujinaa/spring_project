@@ -108,7 +108,11 @@ main {
 	margin-top: 12rem;
 	height: 100vh;
 }
-
+.withdrawal-box label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
 .withdrawal-box {
 	margin: 0 auto;
 	width: 320px;
@@ -127,7 +131,9 @@ main {
 	height: 40px;
 	font-size: 0.9rem;
 	border: 1px solid #afafaf;
-	margin-bottom: 1rem;
+	border-right-style: none;
+    border-block-start-style: none;
+	margin-bottom: 1.5rem;
 	padding-left: 0.7rem;
 	outline: none;
 }
@@ -139,9 +145,11 @@ main {
 	color: #fafafa;
 	font-size: 1.1rem;
 	border: none;
-	border-radius: 5px;
+	border-radius: 4px;
 	cursor: pointer;
-	margin: 2rem 0 0.9rem 0;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
 }
 /* footer 부분 */
 footer {
@@ -201,6 +209,6 @@ footer li, footer a {
 }
 #delText{
 	color: red;
-	font-size: 0.8rem;
+	font-size: 0.99rem;
 	margin-bottom: 1rem;
 }

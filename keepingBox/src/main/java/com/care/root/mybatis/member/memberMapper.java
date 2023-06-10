@@ -52,12 +52,12 @@ public interface memberMapper {
 	//	public int delCheck(memberDTO dto);
 	//	public void deleteMemberCheck(String delId);
 	//	public boolean pwdCheck(String id, String pwd);
-	public void deleteMemberCheck(String pwd);
+//	public void deleteMemberCheck(String pwd);
 	//관리자 - 회원목록
 	public ArrayList<memberDTO> memberInfoList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();
 	//관리자-회원삭제
-	public void detailInfoDel(String id);
+	public int detailInfoDel(String id);
 	//검색
 	public ArrayList<memberDTO> searchId(@Param("userId")String userId, @Param("s") int start, @Param("e") int end);
 	public Integer selectSearchIdCount(String userId);

@@ -25,7 +25,7 @@
 					<input type="text" name="id" id="id" value="${info.id }" readonly> 
 					<label for="name">이름</label> 
 					<input type="text" value="${info.name }" name="name" id="name" readonly> 
-					<label for="phone">휴대폰 번호 (-없이)</label> 
+					<label for="phone">휴대폰 번호</label> 
 					<input type="tel" name="phone" id="phone" value="${info.phone }" readonly> 
 					<label for="email">이메일</label> <input type="email" name="email"
 						value="${info.email }" id="email" readonly>

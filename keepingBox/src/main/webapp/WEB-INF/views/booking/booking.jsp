@@ -50,14 +50,17 @@
 					</select> <label for="stringsize">사이즈</label> <select name="size"
 						id="stringsize" onchange="checkPrice()">
 						<option value="0">선택하세요</option>
-						<option value="5000" >소 ( 20 x 20 x 45(cm) 이내 )</option>
+						<option value="5000">소 ( 20 x 20 x 45(cm) 이내 )</option>
 						<option value="6000">중 (30 x 30 x 60(cm) 이내)</option>
 						<option value="7000">대 (50 x 50 x 80(cm) 이내)</option>
 					</select> <label for="intmoney">이용요금</label> <input type="text" name="price"
 						id="intmoney" class="totalPay" readonly>
-						<div style="color: red; font-size: 15px;">*결제 후 예약이 완료됩니다.</div>
-					<button type="button" id="money-btn">결제하기</button>
-					<button type="submit" id="next-btn" onclick="insertOpt()" disabled="disabled">예약하기</button>
+					<div style="color: red; font-size: 15px;">*결제 후 예약이 완료됩니다.</div>
+					<div class="btn-div">
+						<button type="button" id="money-btn">결제하기</button>
+						<button type="submit" id="next-btn" onclick="insertOpt()"
+							disabled="disabled">예약하기</button>
+					</div>
 				</form>
 			</div>
 		</div>

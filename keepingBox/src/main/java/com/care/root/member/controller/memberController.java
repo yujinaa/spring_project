@@ -135,7 +135,7 @@ public class memberController implements memberLoginSession{
 		if(result == 0) {
 			rs.addAttribute("id",id);
 			rs.addAttribute("autoLogin",autoLogin);
-			return "redirect:successCheckLogin"; //바로 로그인성공페이지
+			return "redirect:successCheckLogin"; //+바로 로그인성공페이지
 		}else { //로그인 체크 실패시
 			PrintWriter out = response.getWriter(); //js가 아니라 controller에서 HttpServletResponse이용해 바로 alert창 띄우기
 			response.setCharacterEncoding("utf-8");
@@ -146,7 +146,6 @@ public class memberController implements memberLoginSession{
 			return "redirect:login"; //다시 로그인페이지로
 		}
 	}
-
 
 
 	//로그인 성공후 메인페이지인 index로 이동
@@ -301,13 +300,11 @@ public class memberController implements memberLoginSession{
 			@RequestParam (required = true, value = "id")String id, @RequestParam(required = true, value = "name") String name,@RequestParam (required = true, value = "email")String email, 
 			memberDTO dto) throws IOException {
 		try {
-
 			dto.setId(id);
 			dto.setName(name);
 			dto.setEmail(email);
 
 			int search = ms.pwdCheck(dto);
-
 			if(search == 0) {
 				request.setAttribute("msg", "가입된 정보가 없습니다. 다시 입력해주세요.");
 				request.setAttribute("url", "findPwd");
@@ -328,18 +325,24 @@ public class memberController implements memberLoginSession{
 	public String findPwResult() {
 		return "member/findPwdResult";
 	}
-	//회원탈퇴페이지
+	//회원탈퇴
 	@GetMapping("deleteMember")
 	public String deleteMember() {
 		return "member/deleteMember";
 	}
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(String email, HttpSession session, memberDTO dto){
-		if(email.equals(dto.getEmail())) {
+	public String deleteMemberCheck(memberDTO dto, HttpSession session,RedirectAttributes ra){
+		memberDTO delMem = (memberDTO)session.getAttribute(LOGIN);
+		String inputPwd = delMem.getPwd();
+		String pwdCheck = dto.getPwd();
+		
+		if(inputPwd.equals(pwdCheck)) {
 			ms.deleteMemberCheck(dto);
+			ra.addFlashAttribute("result", "removeOK");
 			session.invalidate();
 			return "redirect:/index";
 		} else {
+			ra.addFlashAttribute("result", "removeFalse");
 			return "redirect:deleteMember";
 		}
 	}

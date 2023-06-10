@@ -26,36 +26,41 @@
 			</div>
 			<div id="board-list">
 				<div class="container cf">
-						<table class="board-table">
-							<thead>
+					<table class="board-table">
+						<thead>
+							<tr>
+								<th scope="col" class="th-num">번호</th>
+								<th scope="col" class="th-title">제목</th>
+								<th scope="col" class="th-writer">글쓴이</th>
+								<th scope="col" class="th-date">작성날짜</th>
+								<th scope="col" class="th-view">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:if test="${empty myInfo.myPageList }">
+								<div style="font-size: 17px; font-weight: bold;">작성글이 없습니다.</div>
+							</c:if>
+							<c:forEach items="${myInfo.myPageList}" var="dto">
 								<tr>
-									<th scope="col" class="th-num">번호</th>
-									<th scope="col" class="th-title">제목</th>
-									<th scope="col" class="th-writer">글쓴이</th>
-									<th scope="col" class="th-date">작성날짜</th>
-									<th scope="col" class="th-view">조회수</th>
+									<td>${dto.reviewNum }</td>
+									<td><a
+										href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></td>
+									<td>${dto.writer }</td>
+									<td>${dto.regDate }</td>
+									<td>${dto.hitNum }</td>
 								</tr>
-							</thead>
-							<tbody >
-								<c:forEach items="${myInfo.myPageList}" var="dto">
-									<tr>
-										<td>${dto.reviewNum }</td>
-										<td><a
-											href="${contextPath }/board/reviewDetail?reviewNum=${dto.reviewNum}">${dto.title }</a></td>
-										<td>${dto.writer }</td>
-										<td>${dto.regDate }</td>
-										<td>${dto.hitNum }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+							</c:forEach>
+						</tbody>
+					</table>
+					<c:if test="${not empty myInfo.myPageList}">
 						<button type="button" id="moreView-btn" class="more">더보기</button>
-					</div>
+					</c:if>
 				</div>
+			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-	
+
 	<!-- 게시글 더보기 버튼 -->
 	<script type="text/javascript">
 		$(function() {
@@ -65,7 +70,7 @@
 				e.preventDefault();
 				$("tr:hidden").slice(0, 4).show(); // 클릭시 리스트 갯수 지저정
 				if ($("tr:hidden").length == 0) { // 컨텐츠 남아있는지 확인
-					$("#moreView-btn").hide();  //더이상의 리스트가 없다면 버튼 사라짐
+					$("#moreView-btn").hide(); //더이상의 리스트가 없다면 버튼 사라짐
 				}
 			});
 		});
