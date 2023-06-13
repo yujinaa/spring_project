@@ -29,7 +29,7 @@
 						 -->
 						<label for="delete-pwd">비밀번호</label> <input type="password"
 							name="pwd" id="delete-pwd" placeholder="비밀번호"> <input
-							type="password" name="delPwdChk" id="delete-pwd-check"
+							type="password" name="pwdCheck" id="delete-pwd-check"
 							placeholder="비밀번호 확인">
 					</div>
 					<button type="button" id="withdrawal-btn">탈퇴하기</button>

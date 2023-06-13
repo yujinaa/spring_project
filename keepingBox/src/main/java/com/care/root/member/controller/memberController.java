@@ -334,16 +334,15 @@ public class memberController implements memberLoginSession{
 		return "member/deleteMember";
 	}
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("id") String id, @RequestParam("pwd") String pwd, memberDTO dto ,HttpSession session , Model model) {
+	public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("id") String id, memberDTO dto ,HttpSession session ) {
 		//		String d = (String)session.getAttribute(LOGIN)
 		//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
 		//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
 		//				String userId =(String)session.getAttribute(LOGIN);
-
-
-		int result = ms.deleteMemberCheck(id,pwd); 
+	
+		
+		int result = ms.deleteMemberCheck(id); 
 		if(result==1) {
-			//			ms.deleteMemberCheck(dto);
 			ra.addFlashAttribute("msg", "success");
 			session.removeAttribute(LOGIN);
 			session.invalidate(); //탈퇴시 로그아웃 처리

@@ -79,5 +79,5 @@ public interface memberMapper {
 //	public void deleteMemberCheck(memberDTO dto);
 //	public int checkPwd(String pwd, String id);
 //	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
-	public int deleteMemberCheck(@Param("id") String id, @Param("pwd")String pwd);
+	public int deleteMemberCheck(String id);
 }

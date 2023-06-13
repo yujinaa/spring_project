@@ -131,7 +131,7 @@
 	</update>
 	<delete id="deleteMemberCheck" >
 		delete from box_member where
-		buser_id=#{id} and buser_pwd = #{pwd}
+		buser_id=#{id} 
 		
 	</delete>
 	<select id="checkPwd" resultType="Integer" > 

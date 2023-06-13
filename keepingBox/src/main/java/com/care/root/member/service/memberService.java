@@ -55,6 +55,6 @@ public interface memberService{
 //	public void deleteMemberCheck(memberDTO dto);
 //	public int checkPwd(String pwd, String id);
 //	public int checkPwd(String id, String pwd);
-	public int deleteMemberCheck(String id, String pwd);
+	public int deleteMemberCheck(String id);
 
 }
