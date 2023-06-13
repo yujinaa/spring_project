@@ -334,15 +334,16 @@ public class memberController implements memberLoginSession{
 		return "member/deleteMember";
 	}
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("id") String id,  memberDTO dto ,HttpSession session , Model model) {
+	public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("id") String id, @RequestParam("pwd") String pwd, memberDTO dto ,HttpSession session , Model model) {
 		//		String d = (String)session.getAttribute(LOGIN)
 		//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
 		//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
-//				String userId =(String)session.getAttribute(LOGIN);
+		//				String userId =(String)session.getAttribute(LOGIN);
 
-		int result = ms.deleteMemberCheck(id); 
+
+		int result = ms.deleteMemberCheck(id,pwd); 
 		if(result==1) {
-//			ms.deleteMemberCheck(dto);
+			//			ms.deleteMemberCheck(dto);
 			ra.addFlashAttribute("msg", "success");
 			session.removeAttribute(LOGIN);
 			session.invalidate(); //탈퇴시 로그아웃 처리
@@ -352,8 +353,8 @@ public class memberController implements memberLoginSession{
 			return "redirect:deleteMember";
 		}
 	}
-	
-	
+
+
 
 	//	@PostMapping("deleteMemberCheck")
 	//	public String deleteMemberCheck( memberDTO dto,HttpSession session , Model model)throws Exception {
@@ -380,33 +381,33 @@ public class memberController implements memberLoginSession{
 	//			return "redirect:deleteMember";
 	//		}
 	//	}
-//	@PostMapping("deleteMemberCheck")
-//	public String deleteMemberCheck(  memberDTO dto ,HttpSession session , Model model) {
-//		//		String d = (String)session.getAttribute(LOGIN)
-//		//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
-//		//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
-//				String id =(String)session.getAttribute(LOGIN);
-//
-//		int result = ms.checkPwd(id,dto.getPwd()); 
-//		if(result==1) {
-//			ms.deleteMemberCheck(dto);
-//
-//			String object = (String) session.getAttribute(LOGIN);
-//
-//			if(object != id) {
-//				session.removeAttribute(LOGIN);
-//				session.invalidate(); //탈퇴시 로그아웃 처리
-//			}
-//			return "redirect:/index";
-//		}else {
-//
-//			return "redirect:deleteMember";
-//		}
-//	}
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(  memberDTO dto ,HttpSession session , Model model) {
+	//		//		String d = (String)session.getAttribute(LOGIN)
+	//		//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
+	//		//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
+	//				String id =(String)session.getAttribute(LOGIN);
+	//
+	//		int result = ms.checkPwd(id,dto.getPwd()); 
+	//		if(result==1) {
+	//			ms.deleteMemberCheck(dto);
+	//
+	//			String object = (String) session.getAttribute(LOGIN);
+	//
+	//			if(object != id) {
+	//				session.removeAttribute(LOGIN);
+	//				session.invalidate(); //탈퇴시 로그아웃 처리
+	//			}
+	//			return "redirect:/index";
+	//		}else {
+	//
+	//			return "redirect:deleteMember";
+	//		}
+	//	}
 
-//			@PostMapping("deleteMemberCheck")
-//			public String deleteMemberCheck(RedirectAttributes rttr,memberDTO dto, HttpSession session )throws Exception {
-		
+	//			@PostMapping("deleteMemberCheck")
+	//			public String deleteMemberCheck(RedirectAttributes rttr,memberDTO dto, HttpSession session )throws Exception {
+
 	//	//		String delId = (String) session.getAttribute(LOGIN);
 	//	//		System.out.println("delmem :" +id);
 	//			String id =((memberDTO)(session.getAttribute(LOGIN))).getId();

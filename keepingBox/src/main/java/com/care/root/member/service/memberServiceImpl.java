@@ -164,8 +164,8 @@ public class memberServiceImpl implements memberService {
 //		return memberMapper.checkPwd(pwd,id);
 //	}
 	
-	public int deleteMemberCheck(String id){
-		return memberMapper.deleteMemberCheck(id);
+	public int deleteMemberCheck(String id,String pwd){
+		return memberMapper.deleteMemberCheck(id,pwd);
 	}
 //	public boolean checkPwd(String id, String pwd) {
 //		return memberMapper.checkPwd(id,pwd);

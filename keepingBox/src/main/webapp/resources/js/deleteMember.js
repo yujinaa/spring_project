@@ -29,7 +29,7 @@ withdrawalBtn.addEventListener("click", (e) => {
 	}
 
 	if (confirm("회원 탈퇴시 더 이상 서비스를 이용할 수 없습니다. 진행하시겠습니까?")) {
-		alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
+		//alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
 	} else {
 		alert("탈퇴할 수 없습니다");
 		return false;
@@ -50,12 +50,6 @@ $("#delete-pwd-check").on('input', function(e) {
 	}
 });
 
-var result = "${msg}";
-if (result === "success") {
-	alert('성공적으로 탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.');
-} else if (result === 'fail') {
-	alert('탈퇴할 수 없습니다. 확인해 주세요.')
-}
 
 
 
