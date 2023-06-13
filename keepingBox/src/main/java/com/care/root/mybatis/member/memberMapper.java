@@ -48,7 +48,7 @@ public interface memberMapper {
 	//	public void pwdUpdate(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
 	//회원탈퇴
-	public void deleteMemberCheck(memberDTO dto);
+//	public void deleteMemberCheck(memberDTO dto) throws Exception;
 	//	public int delCheck(memberDTO dto);
 	//	public void deleteMemberCheck(String delId);
 	//	public boolean pwdCheck(String id, String pwd);
@@ -61,5 +61,23 @@ public interface memberMapper {
 	//검색
 	public ArrayList<memberDTO> searchId(@Param("userId")String userId, @Param("s") int start, @Param("e") int end);
 	public Integer selectSearchIdCount(String userId);
-
+//	public boolean checkPwd(String delId, String pwd);
+//	public void deleteMemberCheck(String id);
+//	public memberDTO deleteMemberCheck(String id);
+//	public void deleteMemberCheck(@Param("id")String id,@Param("pwd")String pwd);
+//	public void deleteMemberCheck(String id);
+//	public int deleteMemberCheck(String id);
+//	public boolean checkPwd(String id, String pwd);
+//	public int deleteMemberCheck(@Param("id") String id, memberDTO member);
+//	public int checkPwd(String id, String pwd,Map<String, String> map);
+//	public void deleteMemberCheck(String id);
+//	public int checkPwd(@Param("id") String id, Map<String, String> map);
+//	public void deleteMemberCheck(@Param("id") String id);
+//	public boolean checkPwd(@Param("id") String id, @Param("pwd")String pwd,Map<Object, Object> map);
+//	public int checkPwd(String string, Map<Object, Object> map);
+//	public String checkPwd(String pwd, HttpSession session);
+//	public void deleteMemberCheck(memberDTO dto);
+//	public int checkPwd(String pwd, String id);
+//	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
+	public int deleteMemberCheck(String id);
 }

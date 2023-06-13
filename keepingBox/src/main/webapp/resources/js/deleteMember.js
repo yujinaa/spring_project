@@ -17,16 +17,17 @@ withdrawalBtn.addEventListener("click", (e) => {
 		pwd.focus();
 		return false;
 	}
-
 	if (pwdChk.value === "") {
 		alert('비밀번호를 입력해 주세요.');
 		pwdChk.focus();
 		return false;
 	}
+
 	if (pwd.value !== pwdChk.value) { // 비밀번호와 비밀번호 확인이 동일한지
 		alert('비밀번호가 다릅니다. 다시 확인해 주세요.');
 		return false;
 	}
+
 	if (confirm("회원 탈퇴시 더 이상 서비스를 이용할 수 없습니다. 진행하시겠습니까?")) {
 		alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
 	} else {
@@ -35,6 +36,8 @@ withdrawalBtn.addEventListener("click", (e) => {
 	}
 	withdrawalForm.submit();
 });
+
+
 
 //탈퇴시 비밀번호 확인 input 실시간 감지
 $("#delete-pwd-check").on('input', function(e) {
@@ -46,6 +49,15 @@ $("#delete-pwd-check").on('input', function(e) {
 		alert("비밀번호가 일치합니다.");
 	}
 });
+
+var result = "${msg}";
+if (result === "success") {
+	alert('성공적으로 탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.');
+} else if (result === 'fail') {
+	alert('탈퇴할 수 없습니다. 확인해 주세요.')
+}
+
+
 
 /*
 	const email = document.getElementById('delete-email');
@@ -62,7 +74,7 @@ $("#delete-pwd-check").on('input', function(e) {
 	else if (confirm("회원 탈퇴시 더 이상 서비스를 이용할 수 없습니다. 진행하시겠습니까?")) {
 		alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
 	} else {
-		alert("탈퇴할 수 없습니다");
+		alert("탈퇴를 취소합니다.");
 		return false;
 	}
 */

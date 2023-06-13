@@ -2,6 +2,7 @@ package com.care.root.member.service;
 
 import java.sql.Date;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -33,12 +34,27 @@ public interface memberService{
 	//비번찾기
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
-	public void deleteMemberCheck(memberDTO dto);
+//	public void deleteMemberCheck(memberDTO dto)throws Exception;
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);
 	public void detailInfoDel(String id);
 	public void searchId(Model model, String userId, int num);
-
+	
+	
+//	public void deleteMemberCheck(String id);
+//	public boolean checkPwd(String id, String pwd);
+//	public Object viewMember(String delId);
+//	public void deleteMemberCheck(memberDTO dto) throws Exception;
+//	public int deleteMemberCheck(memberDTO user);
+//	public void deleteMemberCheck(String id);
+//	public void deleteMemberCheck(memberDTO dto);
+//	public void checkPwd(String id, String pwd);
+//	public void deleteMemberCheck(memberDTO dto) throws Exception;
+//	public boolean checkPwd(String id, String pwd);
+//	public void deleteMemberCheck(memberDTO dto);
+//	public int checkPwd(String pwd, String id);
+//	public int checkPwd(String id, String pwd);
+	public int deleteMemberCheck(String id);
 
 }

@@ -1,7 +1,11 @@
 package com.care.root.member.service;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -115,9 +119,9 @@ public class memberServiceImpl implements memberService {
 	}
 	public void pwdUpdate(memberDTO dto) {
 		System.out.println("비번 변경 전 : " + dto.getPwd());
-//		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
-//		System.out.println("비번 변경 후 : " + newUpdatePwd);
-//		dto.setPwd(newUpdatePwd); 
+		//		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
+		//		System.out.println("비번 변경 후 : " + newUpdatePwd);
+		//		dto.setPwd(newUpdatePwd); 
 		memberMapper.pwdUpdate(dto);
 	}
 
@@ -129,10 +133,61 @@ public class memberServiceImpl implements memberService {
 	//		map.put("pwd", pwd);
 	//		int count = memberMapper.pwdCheck(id, pwd);
 	//	}
-	public void deleteMemberCheck(memberDTO dto) {
-		//회원탈퇴를 잘 수행하는 지 dao의 deleteSecession 메서드로 go
-		memberMapper.deleteMemberCheck(dto);
+	//	public int deleteMemberCheck(memberDTO user){
+	//		//회원탈퇴를 잘 수행하는 지 dao의 deleteSecession 메서드로 go
+	//		return memberMapper.deleteMemberCheck(user);
+	//	}
+
+//		public boolean checkPwd(String id, String pwd) {
+//			boolean result = false;
+//			Map<String, String> map = new HashMap<String, String>();
+//			map.put("id", id);
+//			map.put("pwd", pwd);
+//			int count = memberMapper.checkPwd("checkPwd",map);
+//			if(count==1)result = true;
+//			return result;
+//		}
+	
+//	public boolean checkPwd(String id, String pwd) {
+//		boolean result = false;
+//		Map<Object,Object> map = new HashMap<Object,Object>();
+//		map.put("id", id);
+//		map.put("pwd", pwd);
+//		int count = memberMapper.checkPwd("checkPwd",map);
+//		if(count==1)result = true;
+//		return result;
+//	}
+//		public void deleteMemberCheck(memberDTO dto) throws Exception {
+//			memberMapper.deleteMemberCheck(dto);
+//		}
+//	public int checkPwd(String pwd,String id) {
+//		return memberMapper.checkPwd(pwd,id);
+//	}
+	
+	public int deleteMemberCheck(String id){
+		return memberMapper.deleteMemberCheck(id);
 	}
+//	public boolean checkPwd(String id, String pwd) {
+//		return memberMapper.checkPwd(id,pwd);
+//	}
+
+//	public boolean deleteMemberCheck(String id,memberDTO member, HttpServletResponse response) throws Exception {
+//		response.setContentType("text/html;charset=utf-8");
+//		PrintWriter out = response.getWriter();
+//		if(memberMapper.deleteMemberCheck(id,member)!= 1) {
+//			out.println("<script>");
+//			out.println("alert('회원탈퇴 실패');");
+//			out.println("history.go(-1);");
+//			out.println("</script>");
+//			out.close();
+//			return false;
+//		}else {
+//			return true;
+//		}
+//
+//	}
+
+
 	//	public int delCheck(memberDTO dto, String inputPwd) {
 	//		try {
 	//			if(pwEncoder.matches(inputPwd, dto.getPwd())) {
