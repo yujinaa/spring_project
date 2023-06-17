@@ -1,3 +1,8 @@
+let path = "${pageContext.request.contextPath }";
+const doJoin = document.getElementById("join-btn");
+doJoin.addEventListener("click", register);
+const JoinformElement = document.querySelector("form");
+
 function register(e) {
 	e.preventDefault();
 	// ----------------- 유효성검사 정규식 -----------------
@@ -38,7 +43,7 @@ function register(e) {
 	}
 
 	if (pwdChk.value === "") {
-		alert('비밀번호를 입력해 주세요.');
+		alert('비밀번호 재확인을 위해 다시 입력해 주세요.');
 		pwdChk.focus();
 		return false;
 	}
@@ -85,6 +90,7 @@ function register(e) {
 		return false;
 	}
 	if (confirm("회원가입 하시겠습니까?")) {
+		JoinformElement.submit();
 		alert('회원가입이 완료되었습니다.');
 	} else {
 		alert("회원가입을 할 수 없습니다.");
