@@ -129,20 +129,29 @@ main {
 	width: 50%;
 	margin: 0 auto;
 }
-
+label{
+	font-size: 13px;
+}
 input, textarea {
 	display: block;
 	border: 1px solid #afafaf;
 	outline: none;
+	border-radius: 3px;
 }
 
 input {
 	margin-bottom: 1rem;
 	height: 40px;
+	
+}
+#writer{
+	width: 50%;	
+	background: ghostwhite;
 }
 
+
 #title {
-	width: 25rem;
+	width: 100%;
 	padding-left: 0.5rem;
 }
 

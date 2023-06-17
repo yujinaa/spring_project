@@ -31,9 +31,13 @@
 
 			<form action="${contextPath}/board/writeSave" method="post">
 				<div class="review-space cf">
+				<label for="writer">작성자</label>
 					<input type="text" name="writer" id="writer"
-						value="${successLoginUser  }" readonly> <input type="text"
+						value="${successLoginUser  }" readonly> 
+				<label for="title">제목</label>	
+					<input type="text"
 						name="title" id="title" placeholder="제목 입력">
+				<label for="content">내용</label>		
 					<textarea name="content" id="reviewContent" cols="30"
 						rows="10" placeholder="작성해 주세요."></textarea>
 					<button type="reset" id="cancel-btn">취소</button>

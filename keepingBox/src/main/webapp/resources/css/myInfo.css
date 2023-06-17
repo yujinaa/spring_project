@@ -126,6 +126,7 @@ main {
 	border: 1px solid #afafaf;
 	font-size: 0.7rem;
 	padding-left: 0.7rem;
+	border-radius: 4px;
 }
 
 button {
