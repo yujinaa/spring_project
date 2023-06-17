@@ -79,5 +79,24 @@ public interface memberMapper {
 //	public void deleteMemberCheck(memberDTO dto);
 //	public int checkPwd(String pwd, String id);
 //	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
+	
+	//성공코드
 	public int deleteMemberCheck(String id);
+//	public int deleteMemberCheck(@Param("pwd")String pwd, @Param("id") String id);
+//	public int deleteMemberCheck(@Param("id") String id);
+	
+//	public void deleteMemberCheck(String id);
+//	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
+//	public boolean checkPwd(String id, String pwd);
+//	public void deleteMemberCheck(String pwd);
+//	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
+//	public void deleteMemberCheck(String id);
+//	public void deleteMemberCheck(String id);
+//	public int checkPwd(memberDTO member)throws Exception;
+//	public void deleteMemberCheck(String id);
+//	public int checkPwd(String pwd, String id);
+//	public int checkPwd(String id,String pwd, Map<String, String> map);
+//	public int checkPwd(String id,String pwd);
+//	public int checkPwd(@Param("id") String id, Map<Object, Object> map);
+//	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
 }

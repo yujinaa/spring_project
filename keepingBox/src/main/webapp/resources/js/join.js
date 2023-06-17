@@ -51,6 +51,7 @@ function register(e) {
 		return false;
 	}
 
+
 	// ----------------- name 유효성검사 -----------------
 	if (name.value === "") {
 		alert('이름을 입력해 주세요.');
@@ -99,7 +100,7 @@ $('#auth_btn').click(function() {
 	var email = $('#email').val();  /*입력한 이메일*/
 	console.log('완성된 이메일 : ' + email); /* 이메일 오는지 확인*/
 	var checkInput = $('.mail-check-input') /* 인증번호 입력 */
-	
+
 	if (email.value == '') {
 		alert('이메일을 입력해 주세요.');
 		email.focus();
@@ -120,20 +121,20 @@ $('#auth_btn').click(function() {
 	);
 
 	/* 인증번호 비교 */
-	$('.mail-check-input').on('input',function() {
+	$('.mail-check-input').on('input', function() {
 		var inputCode = $(".mail-check-input").val();   /*사용자가 입력한 전송 번호*/
 		var checkResult = $("#mail-check-input-info");  /* 비교 결과 */
-		
+
 		if (inputCode == code) {  /*사용자가 입력한 전송코드가 발급된 인증번호와 같다면*/                          // 일치할 경우
 			checkResult.html("인증번호가 일치합니다.");
 			checkResult.attr("class", "correct");
-			$(".mail-check-input").css("border","1.5px solid #3781E3");/*일치할 경우 테두리 색 변경*/
-			$(".mail-check-input").css("color","#3781E3");/*일치할 경우 글자 색 변경*/
-		} else {                                            
+			$(".mail-check-input").css("border", "1.5px solid #3781E3");/*일치할 경우 테두리 색 변경*/
+			$(".mail-check-input").css("color", "#3781E3");/*일치할 경우 글자 색 변경*/
+		} else {
 			checkResult.html("인증번호를 다시 확인해주세요.");
 			checkResult.attr("class", "incorrect");
-			$(".mail-check-input").css("border","1.5px solid red");
-			$(".mail-check-input").css("color","red");
+			$(".mail-check-input").css("border", "1.5px solid red");
+			$(".mail-check-input").css("color", "red");
 		}
 	});
 
@@ -159,3 +160,13 @@ $('#auth_btn').click(function() {
 	});
 	*/
 })
+
+$("#pwdchk").on('input', function(e) {
+	e.preventDefault();
+	var inPwd = $("#pwd").val();
+	var chkPwd = $("#pwdchk").val();/* 비교 결과 */
+	if (inPwd == chkPwd) {
+		chkPwd = inPwd;
+		alert("비밀번호가 일치합니다.");
+	}
+});

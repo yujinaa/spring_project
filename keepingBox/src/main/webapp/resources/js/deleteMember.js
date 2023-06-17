@@ -17,16 +17,16 @@ withdrawalBtn.addEventListener("click", (e) => {
 		pwd.focus();
 		return false;
 	}
-	if (pwdChk.value === "") {
-		alert('비밀번호를 입력해 주세요.');
-		pwdChk.focus();
-		return false;
-	}
+//	if (pwdChk.value === "") {
+//		alert('비밀번호를 입력해 주세요.');
+//		pwdChk.focus();
+//		return false;
+//	}
 
-	if (pwd.value !== pwdChk.value) { // 비밀번호와 비밀번호 확인이 동일한지
-		alert('비밀번호가 다릅니다. 다시 확인해 주세요.');
-		return false;
-	}
+//	if (pwd.value !== pwdChk.value) { // 비밀번호와 비밀번호 확인이 동일한지
+//		alert('비밀번호가 다릅니다. 다시 확인해 주세요.');
+//		return false;
+//	}
 
 	if (confirm("회원 탈퇴시 더 이상 서비스를 이용할 수 없습니다. 진행하시겠습니까?")) {
 		//alert("탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");

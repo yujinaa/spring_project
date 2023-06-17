@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.care.root.board.dto.boardDTO;
 import com.care.root.member.dto.memberDTO;
@@ -118,7 +119,7 @@ public class memberServiceImpl implements memberService {
 		return memberMapper.pwdCheck(dto);
 	}
 	public void pwdUpdate(memberDTO dto) {
-		System.out.println("비번 변경 전 : " + dto.getPwd());
+//		System.out.println("비번 변경 전 : " + dto.getPwd());
 		//		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
 		//		System.out.println("비번 변경 후 : " + newUpdatePwd);
 		//		dto.setPwd(newUpdatePwd); 
@@ -148,25 +149,28 @@ public class memberServiceImpl implements memberService {
 //			return result;
 //		}
 	
-//	public boolean checkPwd(String id, String pwd) {
-//		boolean result = false;
-//		Map<Object,Object> map = new HashMap<Object,Object>();
-//		map.put("id", id);
-//		map.put("pwd", pwd);
-//		int count = memberMapper.checkPwd("checkPwd",map);
-//		if(count==1)result = true;
-//		return result;
-//	}
-//		public void deleteMemberCheck(memberDTO dto) throws Exception {
-//			memberMapper.deleteMemberCheck(dto);
+////	public boolean checkPwd(String id, String pwd) {
+////		boolean result = false;
+////		Map<Object,Object> map = new HashMap<Object,Object>();
+////		map.put("id", id);
+////		map.put("pwd", pwd);
+////		int count = memberMapper.checkPwd("checkPwd",map);
+////		if(count==1)result = true;
+////		return result;
+////	}
+//	
+		public int deleteMemberCheck(String id){
+			return memberMapper.deleteMemberCheck(id);
+		}
+//		public int checkPwd(String pwd, String id) {
+//			return	memberMapper.checkPwd(id,pwd);
 //		}
-//	public int checkPwd(String pwd,String id) {
-//		return memberMapper.checkPwd(pwd,id);
+	//성공코드
+//	public int deleteMemberCheck(String id){
+//		return memberMapper.deleteMemberCheck(id);
 //	}
 	
-	public int deleteMemberCheck(String id){
-		return memberMapper.deleteMemberCheck(id);
-	}
+	
 //	public boolean checkPwd(String id, String pwd) {
 //		return memberMapper.checkPwd(id,pwd);
 //	}
@@ -266,4 +270,15 @@ public class memberServiceImpl implements memberService {
 
 		model.addAttribute("memberList", memberMapper.searchId(userId, start, end));
 	}
+
+
+	
+
+	
+
+
+
+	
+
+
 }

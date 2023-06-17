@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -132,7 +133,7 @@ public class memberController implements memberLoginSession{
 			@RequestParam(required = false) String autoLogin, //자동로그인
 			RedirectAttributes rs, HttpServletResponse response) throws IOException {  //id, pwd 받아줄것
 		int result = ms.userCheck(id,pwd); //서비스로 id,pwd넘기기
-		System.out.println("result : " +result); //result확인
+//		System.out.println("result : " +result); //result확인
 		System.out.println("autoLogin : " + autoLogin);
 		//result=0이면 성공(rs로 id, autoLogin넘기기)
 		if(result == 0) {
@@ -318,7 +319,7 @@ public class memberController implements memberLoginSession{
 			dto.setPwd(enpassword );
 			ms.pwdUpdate(dto);
 			model.addAttribute("newPwd", newPwd);
-			System.out.println("새로운 비번 발급 : " + enpassword);
+			//			System.out.println("새로운 비번 발급 : " + enpassword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -333,32 +334,228 @@ public class memberController implements memberLoginSession{
 	public String deleteMember() {
 		return "member/deleteMember";
 	}
+
+	//성공코드
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("id") String id, memberDTO dto ,HttpSession session ) {
-		//		String d = (String)session.getAttribute(LOGIN)
-		//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
-		//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
-		//				String userId =(String)session.getAttribute(LOGIN);
-	
-		
+	public String deleteMemberCheck( HttpServletRequest request,RedirectAttributes ra,HttpSession session ,HttpServletResponse response) throws IOException {
+//		String msg = (String) request.getAttribute("msg");
+//		if(msg==null)
+//			msg="";
+
+		String id = (String)session.getAttribute(LOGIN);
+
 		int result = ms.deleteMemberCheck(id); 
 		if(result==1) {
-			ra.addFlashAttribute("msg", "success");
+			ms.deleteMemberCheck(id); 
+
+			request.setAttribute("msg", "성공적으로 탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
+			request.setAttribute("url", "/root/index");
 			session.removeAttribute(LOGIN);
 			session.invalidate(); //탈퇴시 로그아웃 처리
-			return "redirect:/index";
+			return "alert";
 		}else {
-			ra.addFlashAttribute("msg", "fail");
-			return "redirect:deleteMember";
+			request.setAttribute("msg", "탈퇴할 수 없습니다. 회원 정보를 다시 확인해 주세요.");
+			return "alert";
 		}
 	}
-
-
+	//		@PostMapping("deleteMemberCheck")
+	//		public String deleteMemberCheck(RedirectAttributes ra,@RequestParam("pwd") String pwd,@RequestParam("id") String id,HttpSession session ) {
+	//			//		String d = (String)session.getAttribute(LOGIN)
+	//			//		String id =((memberDTO)(session.getAttribute(LOGIN))).getId();
+	//			//		String id =String.valueOf((memberDTO)(session.getAttribute(LOGIN)));
+	//			//				String userId =(String)session.getAttribute(LOGIN);
+	//			 memberDTO member = (memberDTO)session.getAttribute(LOGIN); 
+	//			 boolean result = ms.deleteMemberCheck(member.getId(), pwd);
+	//	//		int result = ms.checkPwd(id,pwd); 
+	//			if(result) {
+	//	//			ms.deleteMemberCheck(id);
+	//				ra.addFlashAttribute("msg", "success");
+	//				session.removeAttribute(LOGIN);
+	//				session.invalidate(); //탈퇴시 로그아웃 처리
+	//				return "redirect:/index";
+	//			}else {
+	//				ra.addFlashAttribute("msg", "fail");
+	//				return "redirect:deleteMember";
+	//			}
+	//		}
 
 	//	@PostMapping("deleteMemberCheck")
-	//	public String deleteMemberCheck( memberDTO dto,HttpSession session , Model model)throws Exception {
+	//	public String deleteMemberCheck(memberDTO dto, Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session ){
+	//		String msg = (String) request.getAttribute("msg");
+	//		if(msg==null)
+	//			msg="";
 	//
+	//
+	//		String id = (String)session.getAttribute(LOGIN);
+	////		memberDTO member = (memberDTO)session.getAttribute(LOGIN);
+	//		//		String pwd = pwEncoder.encode(request.getParameter("pwd"));
+	//		//		memberDTO member = ms.getInfo(id); //id 못불러옴 null값
+	////				memberDTO member = ((memberService) dto).getInfo(LOGIN);
+	//		memberDTO member = ms.memberInfo(id); //해당 비번 잘 가져옴,,,,
+	////		memberDTO member = (memberDTO)ms.memberInfo((String)session.getAttribute(LOGIN));
+	////		memberDTO member =  (memberDTO)(ms.memberInfo(id));
+	////		memberDTO member =  (ms.memberInfo((String)session.getAttribute(LOGIN)));
+	//		System.out.println("memId :" + member);
+	////		String pwd = request.getParameter("pwd");
+	//		String pwd = dto.getPwd(); //저장된 비번
+	//		String pwdchk =member.getPwd();//입력한 비번
+	//		System.out.println("pwd :" +pwd);
+	//		System.out.println("memPwd :" +pwdchk);
+	//		//		System.out.println("pwdchk :" +pwdchk);
+	//
+	//		int result = ms.checkPwd(id,pwd);
+	//		if(result==0) {
+	//			ra.addFlashAttribute("msg", "fail");
+	//			System.out.println("탈퇴 실패");
+	//			return "redirect:deleteMember";
+	//		}else {
+	//			if(pwEncoder.matches(pwd, pwdchk)) {
+	////			if(pwdchk.equals(pwd)) {
+	////			if(BCrypt.checkpw(pwd, member.getPwd())) {
+	////				if(BCrypt.checkpw(pwd, pwdchk)) {
+	//				ms.deleteMemberCheck(id);
+	//				ra.addFlashAttribute("msg", "success");
+	//				session.removeAttribute(LOGIN);
+	//				session.invalidate(); //탈퇴시 로그아웃 처리
+	//				System.out.println("탈퇴 성공");
+	//			}
+	//			return "redirect:/index";
+	//		}
+	//	}
+	//
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(@ModelAttribute memberDTO member, Model model, RedirectAttributes ra, HttpServletResponse response,HttpServletRequest request,HttpSession session ) throws Exception{
+	//		String msg = (String) request.getAttribute("msg");
+	//		if(msg==null)
+	//			msg="";
 	//		
+	////		String id = (String)session.getAttribute(LOGIN);
+	//		PrintWriter out = response.getWriter();
+	//		response.setContentType("text/html;charset=utf-8");
+	//		if(ms.checkPwd(member)) {
+	////			ms.deleteMemberCheck(id);
+	//			out.println("<script>");
+	//			out.println("alert('회원탈퇴 성공');");
+	//			out.println("history.go(-1);");
+	//			out.println("</script>");
+	//			out.close();
+	//			session.removeAttribute(LOGIN);
+	//			session.invalidate(); //탈퇴시 로그아웃 처리
+	//			return "redirect:/index";
+	//	}else {
+	//		ra.addFlashAttribute("msg", "fail");
+	//					System.out.println("탈퇴 실패");
+	//		return "redirect:deleteMember";
+	//	}
+	//		
+	//	}
+
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(HttpServletResponse response, memberDTO dto, Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session ){
+	//		String msg = (String) request.getAttribute("msg");
+	//		if(msg==null)
+	//			msg="";
+	//
+	//
+	//		String id = (String)session.getAttribute(LOGIN);
+	//		String pwd = pwEncoder.encode(request.getParameter("pwd"));
+	////		String pwd = (request.getParameter("pwd"));
+	//		String pwdchk = dto.getPwd();
+	//		System.out.println("memId :" +id);
+	//		System.out.println("pwd :" +pwd);
+	//		System.out.println("pwdchk :" +pwdchk);
+	//
+	//		int result = ms.checkPwd(id,pwd);
+	//		if(result>0) {
+	////			if(pwEncoder.matches(pwd, pwdchk)) {
+	//							if(pwdchk.equals(pwd)) {
+	//				//			if(BCrypt.checkpw(pwd, member.getPwd())) {
+	////								if(BCrypt.checkpw(pwd, pwdchk)) {
+	//				ms.deleteMemberCheck(id);
+	//				ra.addFlashAttribute("msg", "success");
+	//				session.removeAttribute(LOGIN);
+	//				session.invalidate(); 
+	//				System.out.println("탈퇴 성공");
+	//		}else {
+	//			ra.addFlashAttribute("msg", "fail");
+	//			System.out.println("탈퇴 실패");
+	//			return "redirect:deleteMember";
+	//			}
+	//		}
+	//		return "redirect:/index";
+	//	}
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(HttpServletResponse response,@ModelAttribute memberDTO member, Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session ){
+	//		String msg = (String) request.getAttribute("msg");
+	//		if(msg==null)
+	//			msg="";
+	//
+	//
+	//		String id = (String)session.getAttribute(LOGIN);
+	//
+	//		if(ms.checkPwd(member)) {
+	//			ra.addFlashAttribute("msg", "success");
+	//			session.removeAttribute(LOGIN);
+	//			session.invalidate(); //탈퇴시 로그아웃 처리
+	//			System.out.println("탈퇴 성공");
+	//		}else {
+	//			ra.addFlashAttribute("msg", "fail");
+	//			System.out.println("탈퇴 실패");
+	//			return "redirect:deleteMember";
+	//			}
+	//		return "redirect:/index";
+	//		}
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(String pwd, Model model, RedirectAttributes ra, HttpServletRequest request,HttpSession session ){
+	//		String msg = (String) request.getAttribute("msg");
+	//		if(msg==null)
+	//			msg="";
+	//
+	//		String id = (String)session.getAttribute(LOGIN);
+	//		memberDTO member = ms.getUserSessionId(id);
+	//		//		String pwd = request.getParameter("pwd");
+	//
+	//		boolean pwdchk = BCrypt.checkpw(pwd, member.getPwd());
+	//		System.out.println("pwd :" +pwd);
+	//
+	//		if(pwdchk==true) {
+	////			org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
+	////			headers.add("Context-Type", "text/html;charset=UTF-8");
+	//			ms.deleteMemberCheck(id);
+	//			ra.addFlashAttribute("msg", "success");
+	//			session.removeAttribute(LOGIN);
+	//			session.invalidate(); //탈퇴시 로그아웃 처리
+	//			return "redirect:/index";
+	////			return new ResponseEntity<String>(HttpStatus.OK);
+	//		}else {
+	//			ra.addFlashAttribute("msg", "fail");
+	//			return "redirect:deleteMember";
+	////			return new ResponseEntity<String>(HttpStatus.OK);
+	//		}
+	//	}
+	//	@PostMapping("deleteMemberCheck")
+	//	public String deleteMemberCheck(Model model, memberDTO dto, RedirectAttributes ra,HttpServletRequest request,HttpSession session ){
+	//
+	////		memberDTO member = (memberDTO)session.getAttribute(LOGIN);
+	//		String id = (String)session.getAttribute(LOGIN);
+	////		String newPwd =member.getPwd();
+	//		String pwd = request.getParameter("pwd");
+	//		//		String pwdchk = pwEncoder.encode(pwd);
+	//		System.out.println("pwd :" +pwd);
+	//		//		System.out.println("pwdchk :" +pwdchk);
+	//
+	//		int result = ms.pwdCheck(id,pwd);
+	//		if(result==1) {
+	//				ms.deleteMemberCheck(id);
+	//				ra.addFlashAttribute("msg", "success");
+	//				session.removeAttribute(LOGIN);
+	//				session.invalidate(); //탈퇴시 로그아웃 처리
+	//			}else {
+	//				ra.addFlashAttribute("msg", "fail");
+	//				model.addAttribute("info", ms.memberInfo((String)session.getAttribute(LOGIN)));
+	//				return "redirect:deleteMember";
+	//			}
+	//		return "redirect:/index";
 	//	}
 	//	@PostMapping("deleteMemberCheck")
 	//	public String deleteMemberCheck(  @RequestParam String id,@RequestParam String pwd,HttpSession session , Model model)throws Exception {

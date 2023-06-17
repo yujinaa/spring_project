@@ -17,44 +17,60 @@ public interface memberService{
 	public memberDTO getUserSessionId(String sessionId);
 	public int register(memberDTO dto);
 	public int idCheck(String id);
-	
+
 	//회원정보조회
 	public memberDTO memberInfo(String id); 
-	
+
 	//내가 쓴 글
 	public memberDTO getInfo(String id);
-	
+
 	//회원정보수정
 	//회원정보가져오기
 	public void updateMember(String id, Model model);
 	public int modifySave(memberDTO dto);
 	//아이디찾기
 	public memberDTO findMemberId(memberDTO dto);
-	
+
 	//비번찾기
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
-//	public void deleteMemberCheck(memberDTO dto)throws Exception;
+	//	public void deleteMemberCheck(memberDTO dto)throws Exception;
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);
 	public void detailInfo(Model model, String id);
 	public void detailInfoDel(String id);
 	public void searchId(Model model, String userId, int num);
-	
-	
-//	public void deleteMemberCheck(String id);
-//	public boolean checkPwd(String id, String pwd);
-//	public Object viewMember(String delId);
-//	public void deleteMemberCheck(memberDTO dto) throws Exception;
-//	public int deleteMemberCheck(memberDTO user);
-//	public void deleteMemberCheck(String id);
-//	public void deleteMemberCheck(memberDTO dto);
-//	public void checkPwd(String id, String pwd);
-//	public void deleteMemberCheck(memberDTO dto) throws Exception;
-//	public boolean checkPwd(String id, String pwd);
-//	public void deleteMemberCheck(memberDTO dto);
-//	public int checkPwd(String pwd, String id);
-//	public int checkPwd(String id, String pwd);
+
+
+	//	public void deleteMemberCheck(String id);
+	//	public boolean checkPwd(String id, String pwd);
+	//	public Object viewMember(String delId);
+	//	public void deleteMemberCheck(memberDTO dto) throws Exception;
+	//	public int deleteMemberCheck(memberDTO user);
+	//	public void deleteMemberCheck(String id);
+	//	public void deleteMemberCheck(memberDTO dto);
+	//	public void checkPwd(String id, String pwd);
+	//	public void deleteMemberCheck(memberDTO dto) throws Exception;
+	//	public boolean checkPwd(String id, String pwd);
+	//	public void deleteMemberCheck(memberDTO dto);
+	//	public int checkPwd(String pwd, String id);
+	//	public int checkPwd(String id, String pwd);
+
+	//성공코드
+//	public int deleteMemberCheck(String id);
+	//	public void deleteMemberCheck(String id);
+	//	public int checkPwd(String id, String pwd);
+	//	public boolean deleteMemberCheck(String id, String pwd);
+	//	public Integer pwdCheck(String pwd, String id);
+	//	public void deleteMemberCheck(String id);
+	//	public int deleteMemberCheck(String id, String pwd);
+	//	public int checkPwd(String id, String pwd);
+	//	public int checkPwd(memberDTO member);
+	//	public void deleteMemberCheck(String id);
+	//	public boolean checkPwd(memberDTO member);
+	//	public void deleteMemberCheck(String id);
+	//	public boolean checkPwd(memberDTO member) throws Exception;
+	//	public int checkPwd(String id, String pwd);
 	public int deleteMemberCheck(String id);
 
 }
