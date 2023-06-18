@@ -27,16 +27,18 @@
 			<div class="review-space cf">
 				<div id="review-form">
 					<div class="num-writer">
-						<label for="">글번호</label> <input type="text" name="reviewNum"
+						<label for="reviewNum">글번호</label> <input type="text"
+							id="reviewNum" name="reviewNum"
 							value="${detailReview.reviewNum  }" readonly> <label
-							for="">작성자</label> <input type="text" name="writer"
-							value="${detailReview.writer  }" readonly>
+							for="writer">작성자</label> <input type="text" name="writer"
+							id="writer" value="${detailReview.writer  }" readonly>
 					</div>
 					<div class="title-content">
-						<label for="">제목</label> <input type="text" name="title"
-							value="${detailReview.title }" readonly> <label for="">내용</label>
-						<textarea id="" name="content" readonly="readonly" cols="30"
-							rows="10">${detailReview.content }</textarea>
+						<label for="title">제목</label> <input type="text" id="title"
+							name="title" value="${detailReview.title }" readonly> <label
+							for="content">내용</label>
+						<textarea id="content" name="content" readonly="readonly"
+							cols="30" rows="10">${detailReview.content }</textarea>
 					</div>
 					<button type="button" id="List-btn"
 						onClick="location.href='${contextPath}/board/review'">목록</button>
@@ -54,31 +56,8 @@
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-	<script type="text/javascript">
-		$("#delete_btn").on("click", function(e) {
-			alert('삭제하시겠습니까?');
-		});
-	</script>
-	<!-- 
 	
-	<script>
-		$(document).ready(function() {
-
-			let result = '<c:out value="${result}"/>';
-			checkAlert(result);
-			function checkAlert(result) {
-				if (result === '') {
-					return;
-				}
-				if (result === "savesuccess") {
-					alert("등록이 완료되었습니다.");
-				}
-				if (result === "delsuccess") {
-					alert("삭제가 완료되었습니다.");
-				}
-			}
-		});
-	</script>
-	 -->
+	 <script src="../resources/js/reviewDetail.js"></script>
+	 
 </body>
 </html>

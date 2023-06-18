@@ -21,7 +21,7 @@
 		<section class="review-write">
 			<div class="page-title">
 				<div class="container">
-					<h2>이용후기</h2>
+					<h2>수정하기</h2>
 				</div>
 			</div>
 			<div class="review-space cf">
@@ -42,7 +42,7 @@
 							onClick="location.href='${contextPath}/board/review'">목록</button>
 						<!-- 본인 작성글에서만 수정,삭제하기 버튼 뜨고 본인 글이 아니라면 댓글작성만 뜨기 -->
 						<c:if test="${successLoginUser == detailReview.writer  }">
-							<input type="submit" id="modify_btn" value="수정">
+							<input type="submit" id="modify_btn" value="수정하기">
 							<input type="submit" id="delete_btn" value="삭제">
 						</c:if>
 					</form>
