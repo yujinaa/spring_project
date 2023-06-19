@@ -58,6 +58,9 @@ public class boardController implements memberLoginSession{
 	@GetMapping("reviewDetail")
 	public String reviewDetail(@RequestParam int reviewNum, Model model) {
 		bs.reviewDetail(reviewNum, model);
+//		bs.prevNext(reviewNum, model);
+//		System.out.println("prevNum" + prevNum);
+//		System.out.println("nextNum" + nextNum);
 		return "board/reviewDetail";
 	}
 	//삭제
@@ -80,6 +83,10 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify success");
 		return "redirect:review";
 	}
+	
+	
+	
+	
 
 	//공지사항 부분
 	//공지사항 목록

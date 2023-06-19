@@ -29,6 +29,11 @@ public interface boardService {
 
 	//검색
 	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
+//	public void prevNext(int reviewNum, Model model);
+//	public void prevNext(int reviewNum, Model model);
+	
+	//이전글 다음글
+//	public void prevNext(int reviewNum, Model model);
 	
 	
 //	public void listAll( String type, String keyword,int num)throws Exception;

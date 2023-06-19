@@ -11,10 +11,40 @@ public class boardDTO {
 	private String regDate;
 	private int hitNum;
 	private String writer;
+	
+	private int prevNum; //이전글의 글번호
+	private int nextNum; //다음글의 글번호
+	
+	private String prevTitle;
+	private String nextTitle;
 
+	public String getPrevTitle() {
+		return prevTitle;
+	}
+	public void setPrevTitle(String prevTitle) {
+		this.prevTitle = prevTitle;
+	}
+	public String getNextTitle() {
+		return nextTitle;
+	}
+	public void setNextTitle(String nextTitle) {
+		this.nextTitle = nextTitle;
+	}
 	private String keyword; // 검색 키워드
 	private String type; // 검색 타입
 
+	public int getPrevNum() {
+		return prevNum;
+	}
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+	public int getNextNum() {
+		return nextNum;
+	}
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
+	}
 	public String getKeyword() {
 		return keyword;
 	}

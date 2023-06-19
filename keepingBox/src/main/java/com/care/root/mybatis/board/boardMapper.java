@@ -17,6 +17,7 @@ public interface boardMapper {
 	public List<boardDTO> boardList(@Param("s") int start, @Param("e") int end);//2개이상 값 넘기기위해 param사용
 	public void writeSave(boardDTO dto) ;
 	public boardDTO reviewDetail(int reviewNum);
+	public boardDTO prevNext(int reviewNum);
 	public void hitNum(int reviewNum);
 	public int delete(int reviewNum);
 	public int selectPageCount();
@@ -40,6 +41,12 @@ public interface boardMapper {
 //	public List<boardDTO> selectSearch(boardDTO dto) throws Exception;
 	public ArrayList<boardDTO> selectSearch(@Param("type")String type,@Param("keyword")String keyword,@Param("s") int start, @Param("e") int end)throws Exception;
 	public int selectSearchCount(@Param("type")String type,@Param("keyword")String keyword);
+//	public int prevNext(int reviewNum);
+//	public int nextNum(int reviewNum);
+//	public int prevNextNum(int reviewNum);
+//	public int prevNext(int reviewNum);
+//	public boardDTO prevNext(@Param("reviewNum") int reviewNum);
+//	public boardDTO prevNext(int reviewNum);
 
 	//검색
 	//	public java.awt.List getSearchList(String string, boardDTO dto);

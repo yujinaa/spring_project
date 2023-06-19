@@ -49,15 +49,46 @@
 							<button type="button" id="delete_btn"
 								onclick="location.href='${contextPath }/board/delete?reviewNum=${detailReview.reviewNum }'">삭제</button>
 						</c:when>
+					</c:choose>
+				</div>
+			</div>
+			<div class="preNext">
+				<div>
+					<span>이전글</span>
+					<c:choose>
+						<c:when test="${prevNext.prevNum ==0}">
+							<span style="color: gray;">이전글이 없습니다.</span>
+						</c:when>
+						<c:otherwise>
+							<span class="prevTitle"><a
+								href="${contextPath }/board/reviewDetail?reviewNum=${prevNext.prevNum}">${prevNext.prevTitle}</a></span>
+						</c:otherwise>
+					</c:choose>
 
+
+					<!-- 
+					 <c:if test="${dto.prevNum ne 0 }">
+					</c:if>
+					 -->
+				</div>
+				<hr>
+				<div>
+					<span>다음글</span>
+					<c:choose>
+						<c:when test="${prevNext.nextNum ==0}">
+							<span style="color: gray;">다음글이 없습니다.</span>
+						</c:when>
+						<c:otherwise>
+							<span class="nextTitle"><a
+								href="${contextPath }/board/reviewDetail?reviewNum=${prevNext.nextNum}">${prevNext.nextTitle}</a></span>
+						</c:otherwise>
 					</c:choose>
 				</div>
 			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
-	
-	 <script src="../resources/js/reviewDetail.js"></script>
-	 
+	<script src="../resources/js/reviewDetail.js"></script>
+
 </body>
 </html>

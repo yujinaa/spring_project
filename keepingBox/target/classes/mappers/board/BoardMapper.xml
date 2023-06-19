@@ -58,6 +58,16 @@
 		where list_num=#{reviewNum}
 	</update>
 
+
+	<select id="prevNext" resultMap="board" resultType="Integer">
+		select * from (select list_num, title,
+		LAG(list_num, 1,0) OVER(ORDER BY list_num ) prevNum,
+		LAG(title, 1, '이전글이 없습니다') OVER(ORDER BY list_num ) prevTitle,
+
+		lead(list_num,1,0) over (order by list_num )nextNum,
+		lead(title,1,'다음글이 없습니다') over (order by list_num ) nextTitle
+		from box_board )where list_num=#{reviewNum} order by list_num
+	</select>
 	<!-- 공지사항 -->
 	<resultMap type="com.care.root.board.dto.noticeDTO"
 		id="notice">
@@ -118,7 +128,8 @@
 		resultMap="board"> select * from box_board where ${type} like '%'||#{keyword}||'%' 
 		between #{s} and #{e} </select> -->
 
-	<!-- //검색하기1방법 <select id="listAll" resultMap="board"> select * from box_board 
+	<!--
+	 //검색하기1방법 <select id="listAll" resultMap="board"> select * from box_board 
 		<include refid="search" /> </select> <sql id="search"> <choose> <when test="type 
 		== 'all' "> where content like '%' || #{keyword}||'%' or title like '%'||#{keyword}||'%' 
 		</when> <otherwise> where ${type} like '%'||#{keyword}||'%' </otherwise> 
@@ -143,9 +154,13 @@
 		and
 		#{e}
 	</select>
-	
+
 	<select id="selectSearchCount" resultType="Integer">
 		select count(*) from
-		box_board where ${type} like '%'||#{keyword}||'%' 
+		box_board where ${type} like '%'||#{keyword}||'%'
 	</select>
+
+	<!-- 이전글 <select id=""> select * from box_board where list_num = reviewNum 
+		-1 </select> -->
+
 </mapper>

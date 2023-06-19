@@ -206,7 +206,19 @@ textarea {
 	background: #3781e3;
 	color: #fafafa;
 }
-
+.preNext{
+	width: 50%;
+    margin: 0 auto;
+}
+.prevTitle a{
+	color:  #3781e3;
+	
+}
+.nextTitle a{
+	color:  #3781e3;
+	
+}
+ 
 /* footer 부분 */
 footer {
 	width: 100%;
