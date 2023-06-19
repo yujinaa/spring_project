@@ -44,18 +44,11 @@ public class boardServiceImpl implements boardService{
 	}	
 	//글 상세보기
 	public void reviewDetail(int reviewNum, Model model) {
-//		int prevNext = mapper.prevNext(reviewNum);
-//		int next = mapper.nextNum(reviewNum);
 		
 		model.addAttribute("detailReview", mapper.reviewDetail(reviewNum) );
 		model.addAttribute("prevNext",mapper.prevNext(reviewNum));
 		hitNum(reviewNum);
 	}
-//	@Override
-//	public void prevNext(int reviewNum, Model model) {
-//		// TODO Auto-generated method stub
-//		model.addAttribute("prevNext",mapper.prevNext(reviewNum));
-//	}
 
 	//조회수증가
 	private void hitNum(int reviewNum) {

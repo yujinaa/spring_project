@@ -80,7 +80,6 @@ public interface memberMapper {
 //	public int checkPwd(String pwd, String id);
 //	public int checkPwd(@Param("pwd")String pwd, @Param("id") String id);
 	
-	//성공코드
 	public int deleteMemberCheck(String id);
 //	public int deleteMemberCheck(@Param("pwd")String pwd, @Param("id") String id);
 //	public int deleteMemberCheck(@Param("id") String id);

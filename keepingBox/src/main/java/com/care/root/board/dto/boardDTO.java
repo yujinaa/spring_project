@@ -15,8 +15,8 @@ public class boardDTO {
 	private int prevNum; //이전글의 글번호
 	private int nextNum; //다음글의 글번호
 	
-	private String prevTitle;
-	private String nextTitle;
+	private String prevTitle; //이전글의 제목
+	private String nextTitle; //다음글의 제목
 
 	public String getPrevTitle() {
 		return prevTitle;

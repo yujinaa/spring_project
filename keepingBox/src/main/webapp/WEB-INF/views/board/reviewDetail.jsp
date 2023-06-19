@@ -54,6 +54,7 @@
 			</div>
 			<div class="preNext">
 				<div>
+				<hr>
 					<span>이전글</span>
 					<c:choose>
 						<c:when test="${prevNext.prevNum ==0}">
@@ -64,12 +65,6 @@
 								href="${contextPath }/board/reviewDetail?reviewNum=${prevNext.prevNum}">${prevNext.prevTitle}</a></span>
 						</c:otherwise>
 					</c:choose>
-
-
-					<!-- 
-					 <c:if test="${dto.prevNum ne 0 }">
-					</c:if>
-					 -->
 				</div>
 				<hr>
 				<div>
@@ -83,6 +78,7 @@
 								href="${contextPath }/board/reviewDetail?reviewNum=${prevNext.nextNum}">${prevNext.nextTitle}</a></span>
 						</c:otherwise>
 					</c:choose>
+					<hr>
 				</div>
 			</div>
 		</section>

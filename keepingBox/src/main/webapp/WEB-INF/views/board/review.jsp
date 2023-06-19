@@ -70,7 +70,7 @@
 					</table>
 					<c:if test="${successLoginUser !='admin01'}">
 						<a href="${contextPath }/board/reviewWrite"><button
-								type="button" id="review-btn">리뷰쓰기</button></a>
+								type="button" id="review-btn">리뷰 작성</button></a>
 					</c:if>
 
 					<div class="paging">

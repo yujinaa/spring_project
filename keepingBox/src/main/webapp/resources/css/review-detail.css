@@ -141,7 +141,6 @@ main {
 	width: 100%;
 	border: none;
 	outline: none;
-	color: #afafaf;
 	margin-bottom: 1rem;
 	background: #fafafa;
 	height: 2rem;
@@ -175,7 +174,7 @@ textarea {
 	font-size: 0.85rem;
 	border: none;
 	border-radius: 5px;
-	margin: 2rem 0 0 0.5rem;
+	margin: 1rem 0 0 0.5rem;
 	cursor: pointer;
 	float: right;
 	background: #3781e3;
@@ -188,7 +187,7 @@ textarea {
 	font-size: 0.85rem;
 	border: none;
 	border-radius: 5px;
-	margin-top: 2rem;
+	margin-top: 1rem;
 	cursor: pointer;
 	float: right;
 	background: #3781e3;
@@ -201,24 +200,35 @@ textarea {
 	font-size: 0.85rem;
 	border: none;
 	border-radius: 5px;
-	margin-top: 2rem;
+	margin-top: 1rem;
 	cursor: pointer;
 	background: #3781e3;
 	color: #fafafa;
 }
-.preNext{
+
+.preNext {
 	width: 50%;
-    margin: 0 auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-size: 15px;
 }
-.prevTitle a{
-	color:  #3781e3;
-	
+
+hr {
+	border-color :#fafafa;
 }
-.nextTitle a{
-	color:  #3781e3;
-	
+
+span{
+	margin-right: 5px;
 }
- 
+
+.prevTitle a {
+	color: #3781e3;
+}
+
+.nextTitle a {
+	color: #3781e3;
+}
+
 /* footer 부분 */
 footer {
 	width: 100%;

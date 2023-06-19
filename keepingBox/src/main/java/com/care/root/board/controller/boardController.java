@@ -58,9 +58,6 @@ public class boardController implements memberLoginSession{
 	@GetMapping("reviewDetail")
 	public String reviewDetail(@RequestParam int reviewNum, Model model) {
 		bs.reviewDetail(reviewNum, model);
-//		bs.prevNext(reviewNum, model);
-//		System.out.println("prevNum" + prevNum);
-//		System.out.println("nextNum" + nextNum);
 		return "board/reviewDetail";
 	}
 	//삭제
