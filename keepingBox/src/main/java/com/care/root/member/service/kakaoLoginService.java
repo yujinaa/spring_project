@@ -77,11 +77,8 @@ public class kakaoLoginService implements kakaoService{
 	}
 
 	//	카카오 사용자 정보 가져와서 db저장
-	//		public HashMap<String, Object> getKakaoUserInfo (String access_Token){
 	public kakaoMemberDTO getKakaoUserInfo (String access_Token){
 
-		//    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
-//		HashMap<String, Object> userInfo = new HashMap<>();
 		kakaoMemberDTO userInfo = new kakaoMemberDTO();
 		String reqURL = "https://kapi.kakao.com/v2/user/me";
 		try {
@@ -114,16 +111,12 @@ public class kakaoLoginService implements kakaoService{
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 			String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
-//			userInfo.put("nickname", nickname);
-//			userInfo.put("email", email);
-			
 			userInfo.setNickName(nickname);
 			userInfo.setEmail(email);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		HashMap<String, Object> result = memberMapper.findKakao(userInfo);
 		kakaoMemberDTO result = memberMapper.findKakao(userInfo);
 		System.out.println("저장값 : " + result);
 
@@ -140,32 +133,4 @@ public class kakaoLoginService implements kakaoService{
 		}
 
 	}
-	
-//	public String KakaoLoginChk(String nickname, String email) {
-//		//System.out.println("서비스 : " + id);
-//		//System.out.println("서비스 : " + email);
-//		
-//		kakaoMemberDTO dto = memberMapper.KakaoLoginChk(email);
-//		
-//		if(dto != null) {
-//			return dto.getEmail();
-//		}else {
-//			return "0";
-//		}
-//		
-//	}
-
-	// 정보 저장
-	//	public void kakaoinsert(HashMap<String, Object> userInfo) {
-	//		memberMapper.kakaoInsert("kakaoMember",userInfo);
-	//	}
-
-	// 정보 확인
-	//	public kakaoMemberDTO findkakao(HashMap<String, Object> userInfo) {
-	//		System.out.println("RN:"+userInfo.get("nickname"));
-	//		System.out.println("RE:"+userInfo.get("email"));
-	//
-	//
-	//		return sqlSession.selectOne(MAPPER+".kakao", userInfo);
 }
-

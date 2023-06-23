@@ -61,12 +61,9 @@ public class memberController implements memberLoginSession{
 		System.out.println("코드 : " +code);
 
 		String access_Token = kakao.getToken(code);
-		//		HashMap<String, Object> userInfo = kakao.getKakaoUserInfo(access_Token);
-
 		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo(access_Token);
 
 		if (userInfo.getEmail() != null) {
-
 			session.setAttribute("email", userInfo.getEmail());
 			session.setAttribute("nickName", userInfo.getNickName());
 			session.setAttribute("access_Token", access_Token);
@@ -74,21 +71,9 @@ public class memberController implements memberLoginSession{
 			System.out.println("**access_Token : " + access_Token);
 			System.out.println("**nickname : " + userInfo.getNickName());
 			System.out.println("**email : " + userInfo.getEmail());
-
-
-
 		}
 		return "index";
-		//		return "redirect:login";
 	}
-	//	@GetMapping("kakaoLogin")
-	//	public String kakaoLogin(@RequestParam String email,
-	//			HttpSession session, HttpServletResponse response) { //로그인 사용자라면 쿠키 응답하기
-	//		System.out.println("email : " + email);
-	//		session.setAttribute(KAKAOLOGIN, email);
-	//
-	//		return "index";
-	//	}
 
 	//	@GetMapping("successKakaoLogin")
 	//	public String successKakaoLogin(@RequestParam String email,

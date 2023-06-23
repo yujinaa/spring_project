@@ -22,11 +22,11 @@ public interface memberMapper {
 	public void keepLogin(Map<String, Object>map);
 	public memberDTO getUserSessionId(String sessionId) ;
 
-	//	public void kakaoInsert(HashMap<String, Object>userInfo);
+	//카카오 회원정보 저장
 	public void kakaoInsert(kakaoMemberDTO userInfo);
-	//	public  HashMap<String, Object> findKakao(HashMap<String, Object> userInfo);
+	
+	//카카오 회원정보 가져오기
 	public  kakaoMemberDTO findKakao(kakaoMemberDTO userInfo);
-	//	public kakaoMemberDTO KakaoLoginChk(String email);
 
 
 	public int register(memberDTO dto);

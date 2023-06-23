@@ -128,6 +128,7 @@ main {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	margin-bottom: 5px;
 }
 
 .board-table {
@@ -216,6 +217,7 @@ table {
 .type-box {
 	margin-left: 10px;
 	height: 35px;
+	margin-right: 5px;
 }
 
 .inputId {
