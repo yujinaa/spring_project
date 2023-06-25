@@ -19,6 +19,7 @@
 			</h1>
 			<nav>
 				<ul>
+				<li><a href="${contextPath }/board/notice">공지사항</a></li>
 					<c:choose>
 						<c:when test="${successLoginUser =='admin01'}">
 							<li><a href="${contextPath }/member/memberList">회원목록</a></li>
@@ -32,7 +33,6 @@
 						<c:when test="${successLoginUser !=null || email!=null}">
 							<li class="mypage"><a href="#">마이페이지</a>
 								<ul class="mypage-sub">
-									<li><a href="${contextPath }/board/notice">공지사항</a></li>
 									<li><a href="${contextPath }/booking/bookingInfo">예약확인</a></li>
 									<li><a href="${contextPath }/member/myInfo">회원정보</a></li>
 									<li><a href="${contextPath }/member/myReview">내가 쓴 글</a></li>

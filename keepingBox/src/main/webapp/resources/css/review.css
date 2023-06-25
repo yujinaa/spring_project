@@ -63,7 +63,7 @@ nav {
 }
 
 nav ul li {
-	width: 33.33%;
+	width: 24.33%;
 	height: 80px;
 	line-height: 80px;
 	float: left;
@@ -174,7 +174,10 @@ table {
 }
 
 .board-table a {
+/*
 	color: #3D3B3B;
+*/
+	color: #3781E3;
 	display: inline-block;
 	line-height: 1.4;
 	word-break: break-all;

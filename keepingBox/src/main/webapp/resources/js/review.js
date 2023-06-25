@@ -14,6 +14,7 @@ $(".submitBtn").on("click", function(e) {
 		alert("검색어를 입력하세요.");
 		return false;
 	}
+	
 	searchFoam.submit();
 });
 

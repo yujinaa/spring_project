@@ -28,12 +28,11 @@ public class boardController implements memberLoginSession{
 
 	//이용후기 게시판 목록
 	@GetMapping("review")
-	public String review(Model model,@RequestParam(value="type", required=false) String type,@RequestParam(value="keyword", required=false) String keyword,HttpSession session,@RequestParam(required = false, defaultValue = "1")int num)throws Exception { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기) {
+	public String review(Model model,@RequestParam(value="type", required=false) String type,@RequestParam(value="keyword", required=false) String keyword,@RequestParam(required = false, defaultValue = "1")int num)throws Exception { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기) {
 		if(type != null  && keyword !=null) {
 			bs.selectSearch(model,type,keyword,num);
-			System.out.println("타입 : " + type);
-			System.out.println("제목 : " + keyword);
-			System.out.println("검색 결과 갯수 : " + num);
+//			System.out.println("타입 : " + type);
+//			System.out.println("제목 : " + keyword);
 		}else {
 			bs.boardList(model,num);
 		}

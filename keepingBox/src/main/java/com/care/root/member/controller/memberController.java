@@ -196,6 +196,8 @@ public class memberController implements memberLoginSession{
 		}
 		return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
 	}
+	
+	//회원가입시 중복 아이디 확인
 	@PostMapping(value="idCheck",produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Map<Object, Object> idCheck(@RequestBody String id){

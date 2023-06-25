@@ -36,10 +36,10 @@
 						value="${successLoginUser  }" readonly> 
 				<label for="title">제목</label>	
 					<input type="text"
-						name="title" id="title" placeholder="제목 입력">
+						name="title" id="title" placeholder="제목을 작성해 주세요.">
 				<label for="content">내용</label>		
 					<textarea name="content" id="reviewContent" cols="30"
-						rows="10" placeholder="작성해 주세요."></textarea>
+						rows="10" placeholder="글을 작성해 주세요."></textarea>
 					<button type="reset" id="cancel-btn">취소</button>
 					<button type="submit" id="regist-btn">등록하기</button>
 				</div>
