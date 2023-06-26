@@ -117,7 +117,7 @@ public class memberServiceImpl implements memberService {
 		return memberMapper.pwdCheck(dto);
 	}
 	public void pwdUpdate(memberDTO dto) {
-//		System.out.println("비번 변경 전 : " + dto.getPwd());
+		//		System.out.println("비번 변경 전 : " + dto.getPwd());
 		//		String newUpdatePwd = pwEncoder.encode(dto.getPwd());
 		//		System.out.println("비번 변경 후 : " + newUpdatePwd);
 		//		dto.setPwd(newUpdatePwd); 
@@ -137,57 +137,69 @@ public class memberServiceImpl implements memberService {
 	//		return memberMapper.deleteMemberCheck(user);
 	//	}
 
-//		public boolean checkPwd(String id, String pwd) {
-//			boolean result = false;
-//			Map<String, String> map = new HashMap<String, String>();
-//			map.put("id", id);
-//			map.put("pwd", pwd);
-//			int count = memberMapper.checkPwd("checkPwd",map);
-//			if(count==1)result = true;
-//			return result;
+	//		public boolean checkPwd(String id, String pwd) {
+	//			boolean result = false;
+	//			Map<String, String> map = new HashMap<String, String>();
+	//			map.put("id", id);
+	//			map.put("pwd", pwd);
+	//			int count = memberMapper.checkPwd("checkPwd",map);
+	//			if(count==1)result = true;
+	//			return result;
+	//		}
+
+	////	public boolean checkPwd(String id, String pwd) {
+	////		boolean result = false;
+	////		Map<Object,Object> map = new HashMap<Object,Object>();
+	////		map.put("id", id);
+	////		map.put("pwd", pwd);
+	////		int count = memberMapper.checkPwd("checkPwd",map);
+	////		if(count==1)result = true;
+	////		return result;
+	////	}
+	//	
+//	public int deleteMemberCheck(String id, String pwd){
+//		memberDTO member =  memberMapper.deleteMemberCheck(id);
+//		if(member !=null) {//dto가 있다면
+//			if(pwEncoder.matches(pwd, member.getPwd())) { //사용자값, dto에 있는 값 비교하기
+//				return 1;//성공
+//			}
 //		}
-	
-////	public boolean checkPwd(String id, String pwd) {
-////		boolean result = false;
-////		Map<Object,Object> map = new HashMap<Object,Object>();
-////		map.put("id", id);
-////		map.put("pwd", pwd);
-////		int count = memberMapper.checkPwd("checkPwd",map);
-////		if(count==1)result = true;
-////		return result;
-////	}
-//	
+//		return 0;//실패하면 1반환
+//	}
+	//		public int deleteMemberCheck(String id,String pwd){
+	//			memberDTO dto =  memberMapper.deleteMemberCheck(id);
+	//				if(pwEncoder.matches(pwd, dto.getPwd())) { //사용자값, dto에 있는 값 비교하기
+	//					return 1;
+	//				}
+	//			return 0;
+	//			}
+//			public int checkPwd(String pwd, String id) {
+//				return	memberMapper.checkPwd(id,pwd);
+//			}
 		public int deleteMemberCheck(String id){
 			return memberMapper.deleteMemberCheck(id);
 		}
-//		public int checkPwd(String pwd, String id) {
-//			return	memberMapper.checkPwd(id,pwd);
-//		}
-	//성공코드
-//	public int deleteMemberCheck(String id){
-//		return memberMapper.deleteMemberCheck(id);
-//	}
-	
-	
-//	public boolean checkPwd(String id, String pwd) {
-//		return memberMapper.checkPwd(id,pwd);
-//	}
 
-//	public boolean deleteMemberCheck(String id,memberDTO member, HttpServletResponse response) throws Exception {
-//		response.setContentType("text/html;charset=utf-8");
-//		PrintWriter out = response.getWriter();
-//		if(memberMapper.deleteMemberCheck(id,member)!= 1) {
-//			out.println("<script>");
-//			out.println("alert('회원탈퇴 실패');");
-//			out.println("history.go(-1);");
-//			out.println("</script>");
-//			out.close();
-//			return false;
-//		}else {
-//			return true;
-//		}
-//
-//	}
+
+	//	public boolean checkPwd(String id, String pwd) {
+	//		return memberMapper.checkPwd(id,pwd);
+	//	}
+
+	//	public boolean deleteMemberCheck(String id,memberDTO member, HttpServletResponse response) throws Exception {
+	//		response.setContentType("text/html;charset=utf-8");
+	//		PrintWriter out = response.getWriter();
+	//		if(memberMapper.deleteMemberCheck(id,member)!= 1) {
+	//			out.println("<script>");
+	//			out.println("alert('회원탈퇴 실패');");
+	//			out.println("history.go(-1);");
+	//			out.println("</script>");
+	//			out.close();
+	//			return false;
+	//		}else {
+	//			return true;
+	//		}
+	//
+	//	}
 
 
 	//	public int delCheck(memberDTO dto, String inputPwd) {
@@ -270,13 +282,13 @@ public class memberServiceImpl implements memberService {
 	}
 
 
-	
-
-	
 
 
 
-	
+
+
+
+
 
 
 }

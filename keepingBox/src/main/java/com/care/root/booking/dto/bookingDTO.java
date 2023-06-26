@@ -18,6 +18,8 @@ public class bookingDTO {
 	private String city;
 	private String size;
 	private String price;
+	
+	
 	public String getCity() {
 		return city;
 	}

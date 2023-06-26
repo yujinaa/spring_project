@@ -35,7 +35,9 @@ public interface memberService{
 	public int pwdCheck(memberDTO dto);
 	public void pwdUpdate(memberDTO dto);
 	//탈퇴
+//	public int deleteMemberCheck(String id);
 	public int deleteMemberCheck(String id);
+//	public int deleteMemberCheck(String id,String pwd);
 	
 	//관리자- 회원목록
 	public void memberInfoList(Model model,int num);

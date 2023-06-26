@@ -297,7 +297,7 @@ public class memberController implements memberLoginSession{
 
 			int search = ms.pwdCheck(dto);
 			if(search == 0) {
-				request.setAttribute("msg", "가입된 정보가 없습니다. 다시 입력해주세요.");
+				request.setAttribute("msg", "해당 정보가 없습니다. 다시 입력해주세요.");
 				request.setAttribute("url", "findPwd");
 				return "alert";
 			}
@@ -322,9 +322,8 @@ public class memberController implements memberLoginSession{
 		return "member/deleteMember";
 	}
 
-	//성공코드
 	@PostMapping("deleteMemberCheck")
-	public String deleteMemberCheck( HttpServletRequest request,RedirectAttributes ra,HttpSession session ,HttpServletResponse response) throws IOException {
+	public String deleteMemberCheck(  @RequestParam  String pwd,memberDTO member, HttpServletRequest request,RedirectAttributes ra,HttpSession session ,HttpServletResponse response) throws IOException {
 //		String msg = (String) request.getAttribute("msg");
 //		if(msg==null)
 //			msg="";
@@ -333,8 +332,6 @@ public class memberController implements memberLoginSession{
 
 		int result = ms.deleteMemberCheck(id); 
 		if(result==1) {
-			ms.deleteMemberCheck(id); 
-
 			request.setAttribute("msg", "성공적으로 탈퇴되었습니다. 그동안 이용해 주셔서 감사합니다.");
 			request.setAttribute("url", "/root/index");
 			session.removeAttribute(LOGIN);
@@ -342,6 +339,7 @@ public class memberController implements memberLoginSession{
 			return "alert";
 		}else {
 			request.setAttribute("msg", "탈퇴할 수 없습니다. 회원 정보를 다시 확인해 주세요.");
+			request.setAttribute("url", "deleteMember");
 			return "alert";
 		}
 	}

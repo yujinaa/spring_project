@@ -130,7 +130,7 @@
 		#{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
 	
-	<delete id="deleteMemberCheck"  >
+	<delete id="deleteMemberCheck" >
 		delete from box_member where
 		buser_id=#{id} 
 		
