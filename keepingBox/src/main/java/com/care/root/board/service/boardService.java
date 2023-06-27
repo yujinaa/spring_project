@@ -30,7 +30,4 @@ public interface boardService {
 	//검색
 	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
 	
-
-
-
 }
