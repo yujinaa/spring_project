@@ -80,9 +80,6 @@ public class boardController implements memberLoginSession{
 		return "redirect:review";
 	}
 	
-	
-	
-	
 
 	//공지사항 부분
 	//공지사항 목록

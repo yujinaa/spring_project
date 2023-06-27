@@ -42,9 +42,8 @@ public class boardServiceImpl implements boardService{
 			e.printStackTrace();
 		}
 	}	
-	//글 상세보기
+	//글 상세보기 + 이전글/다음글
 	public void reviewDetail(int reviewNum, Model model) {
-		
 		model.addAttribute("detailReview", mapper.reviewDetail(reviewNum) );
 		model.addAttribute("prevNext",mapper.prevNext(reviewNum));
 		hitNum(reviewNum);

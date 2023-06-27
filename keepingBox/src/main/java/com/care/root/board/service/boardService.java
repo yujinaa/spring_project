@@ -30,17 +30,6 @@ public interface boardService {
 	//검색
 	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
 	
-	//이전글 다음글
-//	public void prevNext(int reviewNum, Model model);
-	
-	
-//	public void listAll( String type, String keyword,int num)throws Exception;
-//	public int count(String type, String keyword);
-	
-//	public java.util.List<boardDTO> selectsearch(boardDTO boardDTO) throws Exception;
-//	public void selectsearch(boardDTO boardDTO, Model model, String keyword,String type, int num) throws Exception;
-//	public void selectsearch(Model model, String type,String keyword, int num) throws Exception;
-//	public java.util.List<boardDTO> selectsearch(String type, String keyword); 
 
 
 
