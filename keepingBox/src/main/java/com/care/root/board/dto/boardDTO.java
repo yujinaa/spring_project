@@ -11,6 +11,8 @@ public class boardDTO {
 	private String regDate;
 	private int hitNum;
 	private String writer;
+	private String keyword; // 검색 키워드
+	private String type; // 검색 타입
 	
 	private int prevNum; //이전글의 글번호
 	private int nextNum; //다음글의 글번호
@@ -30,8 +32,6 @@ public class boardDTO {
 	public void setNextTitle(String nextTitle) {
 		this.nextTitle = nextTitle;
 	}
-	private String keyword; // 검색 키워드
-	private String type; // 검색 타입
 
 	public int getPrevNum() {
 		return prevNum;

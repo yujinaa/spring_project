@@ -97,7 +97,7 @@ public class boardServiceImpl implements boardService{
 	public int noticeDelete(int noticeNum) {
 		return mapper.noticeDelete(noticeNum);
 	}
-
+	//검색
 	public void selectSearch(Model model, String type, String keyword,int num)throws Exception{
 		int pageLetter = 5;
 		int allCount = mapper.selectSearchCount(type,keyword);
@@ -111,4 +111,5 @@ public class boardServiceImpl implements boardService{
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList", mapper.selectSearch(type,keyword, start, end));
 	}
+
 }

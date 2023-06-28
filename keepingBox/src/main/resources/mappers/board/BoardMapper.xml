@@ -60,13 +60,16 @@
 
 
 	<select id="prevNext" resultMap="board" resultType="Integer">
-		select * from (select list_num, title,
-		LAG(list_num, 1,0) OVER(ORDER BY list_num ) prevNum,
+		select * from
+		(select list_num, title,
+		LAG(list_num, 1,0) OVER(ORDER BY list_num )
+		prevNum,
 		LAG(title, 1, '이전글이 없습니다') OVER(ORDER BY list_num ) prevTitle,
 
 		lead(list_num,1,0) over (order by list_num )nextNum,
 		lead(title,1,'다음글이 없습니다') over (order by list_num ) nextTitle
-		from box_board )where list_num=#{reviewNum} order by list_num
+		from
+		box_board )where list_num=#{reviewNum} order by list_num
 	</select>
 	<!-- 공지사항 -->
 	<resultMap type="com.care.root.board.dto.noticeDTO"
