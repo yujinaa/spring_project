@@ -8,7 +8,6 @@ public interface bookingService {
 	public void bookingDo(bookingDTO bookingDto );
 
 	//예약정보
-	//	public void bookChkList(int bookingId,Model model); 
 	public bookingDTO bookingInfo(String userId);
 
 	//삭제
@@ -16,10 +15,6 @@ public interface bookingService {
 
 	//관리자- 예약리스트
 	public void memBookList(Model model,int num);
-
-
-
-
 
 
 

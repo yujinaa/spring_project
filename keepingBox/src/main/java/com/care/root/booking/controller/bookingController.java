@@ -1,12 +1,6 @@
 package com.care.root.booking.controller;
 
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.care.root.booking.dto.bookingDTO;
 import com.care.root.booking.service.bookingService;
@@ -52,19 +45,6 @@ public class bookingController implements memberLoginSession{
 		System.out.println("imp_uid : " + imp_uid);
 		System.out.println("merchant_uid : " + merchant_uid);
 	}
-	//예약내역 원래코드
-	//	@GetMapping("bookingInfo")
-	//	public String bookingCheck(HttpSession session, Model model){
-	//		String userId = (String) session.getAttribute(LOGIN);
-	//		System.out.println("getid :  "+userId);
-	//		try {
-	//			model.addAttribute("booking", bs.bookingInfo(userId));
-	////			bs.bookingInfo(userId);
-	//		} catch (Exception e) {
-	//			e.printStackTrace();
-	//		}
-	//		return "booking/bookingInfo";
-	//	}
 
 	@GetMapping("bookingInfo")
 	public String bookingCheck(HttpSession session,Model model)throws Exception {
@@ -74,7 +54,6 @@ public class bookingController implements memberLoginSession{
 		model.addAttribute("booking", memUserId);
 		return "booking/bookingInfo";
 	}
-
 
 
 	//예약삭제

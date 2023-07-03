@@ -1,13 +1,6 @@
 package com.care.root.booking.dto;
 
-import java.security.Timestamp;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-
 
 public class bookingDTO {
 	private int bookingId;
@@ -62,16 +55,6 @@ public class bookingDTO {
 	public void setSize(String size) {
 		this.size = size;
 	}
-//		public void setBookDateS(java.sql.Timestamp bookDateS) {
-//			SimpleDateFormat fo = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//			this.bookDateS = fo.format(bookDateS);
-//		}
-
-
-	//	public void setBookDateE(java.sql.Timestamp bookDateE) {
-	//		SimpleDateFormat fo = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-	//		this.bookDateE = fo.format(bookDateE);
-	//	}
 	public String getPrice() {
 		return price;
 	}
@@ -84,5 +67,4 @@ public class bookingDTO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
 }
