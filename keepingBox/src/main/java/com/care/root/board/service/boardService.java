@@ -1,14 +1,10 @@
 package com.care.root.board.service;
 
-import java.awt.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.dto.noticeDTO;
-import com.care.root.member.dto.memberDTO;
 
 public interface boardService {
 	public void boardList(Model model,int num);

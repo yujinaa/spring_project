@@ -19,7 +19,7 @@
 			</h1>
 			<nav>
 				<ul>
-				<li><a href="${contextPath }/board/notice">공지사항</a></li>
+					<li><a href="${contextPath }/board/notice">공지사항</a></li>
 					<c:choose>
 						<c:when test="${successLoginUser =='admin01'}">
 							<li><a href="${contextPath }/member/memberList">회원목록</a></li>

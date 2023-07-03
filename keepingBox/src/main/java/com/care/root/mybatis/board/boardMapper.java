@@ -2,16 +2,9 @@ package com.care.root.mybatis.board;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Param;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.dto.noticeDTO;
-import com.care.root.member.dto.memberDTO;
 
 public interface boardMapper {
 	public List<boardDTO> boardList(@Param("s") int start, @Param("e") int end);//2개이상 값 넘기기위해 param사용

@@ -48,7 +48,6 @@
 							<li>회원가입/로그인</li>
 						</ul>
 					</li>
-					<i class="xi-play"></i>
 					<li class="step2 ani ani-up">
 						<ul class="steps">
 							<li><img src="/root/resources/img/calendar.png"
@@ -56,7 +55,6 @@
 							<li>사이즈, 장소, 날짜 선택</li>
 						</ul>
 					</li>
-					<i class="xi-play"></i>
 					<li class="step3 ani ani-up">
 						<ul class="steps">
 							<li><img src="/root/resources/img/check-mark.png"

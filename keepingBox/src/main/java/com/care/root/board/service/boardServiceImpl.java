@@ -1,21 +1,11 @@
 package com.care.root.board.service;
 
-import java.awt.List;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.care.root.board.dto.boardDTO;
 import com.care.root.board.dto.noticeDTO;
-import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.board.boardMapper;
-
 
 @Service
 public class boardServiceImpl implements boardService{

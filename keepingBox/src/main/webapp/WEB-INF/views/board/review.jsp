@@ -30,17 +30,13 @@
 					<table>
 						<tr>
 							<td><select name="type" class="type-box">
-									<option value=""
-										<c:out value='${type == null? "selected": ""}'/>>검색
-										유형 선택</option>
-									<option value="title"
-										<c:out value='${type eq "title"?"selected": "" }'/>>제목</option>
-									<option value="writer"
-										<c:out value='${type eq "writer"?"selected": "" }'/>>작성자</option>
+									<option value="">검색 유형 선택</option>
+									<option value="title">제목</option>
+									<option value="writer">작성자</option>
 							</select></td>
 							<td colspan="2"><input class="inputId" type="text"
-								name="keyword" placeholder="검색어 입력" value="${keyword}"></td>
-							<td><input class="submitBtn" type="submit" value="검색하기">
+								name="keyword" placeholder="검색어 입력"></td>
+							<td><input class="submitBtn" type="submit" value="검색">
 							</td>
 						</tr>
 					</table>
@@ -89,6 +85,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />
