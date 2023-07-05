@@ -54,27 +54,5 @@ public class HomeController implements memberLoginSession{
 		System.out.println("컨트롤러 index 실행");
 		return "index";
 	}
-	//	@RequestParam String writer, @RequestParam String content
-	//	@GetMapping("index")
-	//	public String getbestReview(Model model) {
-	//
-	//		model.addAttribute("best1",mapper.getBestReview());
-	////		model.addAttribute("best2",bs.bestReview2(memberId));
-	////		model.addAttribute("best3",bs.bestReview3(memberId));
-	//
-	//		return "index";
-	//	}
-	
-//	@GetMapping("bestList")
-//	public String myReview(HttpSession session, Model model)throws Exception {
-//		System.out.println("내가 쓴글 페이지 연결");
-//		//세션 객체 안에 있는 ID정보 저장
-//		String id = (String) session.getAttribute(LOGIN);
-//		System.out.println("getid :  "+id);
-//		
-//		memberDTO userInfo = ms.getInfo(id);
-//		model.addAttribute("myInfo", userInfo);
-//		return "member/myReview";
-//	}
 
 }
