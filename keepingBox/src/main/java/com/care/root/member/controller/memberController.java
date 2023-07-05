@@ -75,43 +75,6 @@ public class memberController implements memberLoginSession{
 		return "index";
 	}
 
-	//	@GetMapping("successKakaoLogin")
-	//	public String successKakaoLogin(@RequestParam String email,
-	//			HttpSession session) { //로그인 사용자라면 쿠키 응답하기
-	//		session.getAttribute(KAKAOLOGIN);
-	//		System.out.println("카카오 로그인 성공 email : " +email);
-	//		return "index";
-	//	}
-	//	@GetMapping("successKakaoLogin")
-	//	public String successKakaoLogin(HttpSession session, HttpServletResponse response) {	
-	//		kakaoMemberDTO userInfo = kakao.getKakaoUserInfo("email");
-	//		String email = kakao.KakaoLoginChk(userInfo.getNickName().toString(), userInfo.getEmail().toString());
-	//		
-	//		if(!email.equals("0")){
-	//			session.setAttribute(LOGIN, email);
-	//			session.setAttribute(KAKAOLOGIN, email);
-	//			//System.out.println("일반 세션명 : " + session.getAttribute(LOGIN));
-	//			//System.out.println("카카오 세션명 : " +  session.getAttribute(KAKAOLOGIN));
-	//			System.out.println("카카오 로그인성공");
-	//			return email;
-	//		}
-	//		else {
-	////			int result = ms.KakaoRegister(userInfo.get("id").toString(), kakao_info.get("email").toString());
-	////			if(result == 1) {
-	////				if(session.getAttribute( KAKAOLOGIN ) == null) {
-	////					session.setAttribute(KAKAOLOGIN, kakao_info.get("email").toString());
-	////				}
-	////				System.out.println("가입성공 : " + kakao_info.get("email").toString());
-	////				return kakao_info.get("email").toString();
-	////			}else {
-	//				System.out.println("문제발생");
-	//				return "login";
-	//			}
-	//		}
-	//		
-	//	
-	//	
-
 	//로그인시 확인
 	@PostMapping("user_check")
 	public String userCheck(@RequestParam  String id, @RequestParam  String pwd,
