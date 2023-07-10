@@ -1,8 +1,6 @@
 package com.care.root.member.dto;
 
-import java.awt.List;
 import java.sql.Date;
-
 import com.care.root.board.dto.boardDTO;
 
 public class memberDTO {

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public interface mailServiceImpl {
 	// 메일 내용 작성 
-    MimeMessage creatMessage(String to) throws MessagingException, UnsupportedEncodingException;
+//    MimeMessage creatMessage(String to) throws MessagingException, UnsupportedEncodingException;
 
     // 랜덤 인증코드 생성
-    String createKey();
+//    String createKey();
     
     // 메일 발송
-    String sendSimpleMessage(String to) throws Exception;
+//    String sendSimpleMessage(String to) throws Exception;
 
 }

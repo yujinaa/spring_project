@@ -143,28 +143,6 @@ $('#auth_btn').click(function() {
 			$(".mail-check-input").css("color", "red");
 		}
 	});
-
-
-	/*
-	
-	$('#auth_btn').click(function() {
-		const email = $('#email').val();
-		console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
-		const checkInput = $('.mail-check-input') // 인증번호 입력 
-		$.ajax({
-		type: 'GET',	
-		url: mailCheck,
-		data : {email : email},
-				success: function(data){
-					alert("인증번호가 발송되었습니다.");
-					email_auth_cd = data;
-				},
-				error: function(data){
-					alert("메일 발송에 실패했습니다.");
-				}
-		}); 
-	});
-	*/
 })
 
 $("#pwdchk").on('input', function(e) {
