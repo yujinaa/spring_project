@@ -1,19 +1,11 @@
 package com.care.root.member.service;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import com.care.root.board.dto.boardDTO;
 import com.care.root.member.dto.memberDTO;
 import com.care.root.mybatis.member.memberMapper;
 
@@ -128,8 +120,6 @@ public class memberServiceImpl implements memberService {
 			return memberMapper.deleteMemberCheck(id);
 		}
 
-
-
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {
 		int pageLetter = 10;
@@ -172,5 +162,4 @@ public class memberServiceImpl implements memberService {
 
 		model.addAttribute("memberList", memberMapper.searchId(userId, start, end));
 	}
-
 }

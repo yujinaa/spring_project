@@ -1,36 +1,17 @@
 package com.care.root.mail.controller;
 
-import java.io.PrintWriter;
 import java.util.Random;
-
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.care.root.mail.service.mailService;
-import com.care.root.mail.service.mailServiceImpl;
-
 @RestController
 public class mailController {
-	//	@Autowired
-	//	private mailService ms;
 	@Autowired  //의존성 주입을 사용
 	private JavaMailSender mailSender;//JavaMailSender 객체 타입인 mailSender 변수를 선언
 
@@ -41,12 +22,10 @@ public class mailController {
 		System.out.println("이메일 데이터 전송 확인");  
 		System.out.println("인증 이메일 : " + email);  
 
-
 		//인증번호 랜덤생성
 		Random random = new Random();
 		int checkNum = random.nextInt(888888) + 111111;
 		System.out.println("인증번호 :"+ checkNum);
-
 
 		//이메일 전송 내용
 		String setFrom = "@gmail.com";
