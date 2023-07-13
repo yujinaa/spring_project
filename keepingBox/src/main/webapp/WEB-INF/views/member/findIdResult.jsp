@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="../include/header.jsp" />
+	<c:import url="../include/header.jsp" />
 	<main id="container">
 		<div class="find-box">
 			<p class="title">회원님의 아이디를 확인해 주세요</p>

@@ -8,7 +8,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta charset="UTF-8">
- <link rel="stylesheet" href="../resources/css/findId.css">
+<link rel="stylesheet" href="../resources/css/findId.css">
 <title>Insert title here</title>
 </head>
 <body>

@@ -45,10 +45,8 @@
 						<li><a href="register_form">회원가입</a></li>
 					</ul>
 					<div class="kakaoBTN">
-						<a
-							href=""><img
-							alt="카카오로그인" src="${contextPath }/resources/img/kakaoBtn.png"
-							></a>
+						<a href=""><img alt="카카오로그인"
+							src="${contextPath }/resources/img/kakaoBtn.png"></a>
 					</div>
 				</form>
 			</div>

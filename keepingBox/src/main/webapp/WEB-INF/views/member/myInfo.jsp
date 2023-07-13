@@ -17,21 +17,18 @@
 			<h2>마이페이지</h2>
 			<div>
 				<form class="cf">
-					<!-- 
-					<c:if test="${not empty param.id }">
-					</c:if>
- 					-->
-					<label for="id">아이디</label> 
-					<input type="text" name="id" id="id" value="${info.id }" readonly> 
-					<label for="name">이름</label> 
-					<input type="text" value="${info.name }" name="name" id="name" readonly> 
-					<label for="phone">휴대폰 번호</label> 
-					<input type="tel" name="phone" id="phone" value="${info.phone }" readonly> 
+					<label for="id">아이디</label> <input type="text" name="id" id="id"
+						value="${info.id }" readonly> <label for="name">이름</label>
+					<input type="text" value="${info.name }" name="name" id="name"
+						readonly> <label for="phone">휴대폰 번호</label> <input
+						type="tel" name="phone" id="phone" value="${info.phone }" readonly>
 					<label for="email">이메일</label> <input type="email" name="email"
 						value="${info.email }" id="email" readonly>
-					<button type="button" id="modify-btn" 
-					onclick="location.href='${contextPath }/member/myInfoModify?id=${info.id }'">수정하기 &gt;</button>
-					<button type="button" onclick="location.href='${contextPath }/member/deleteMember'">회원탈퇴하기</button>
+					<button type="button" id="modify-btn"
+						onclick="location.href='${contextPath }/member/myInfoModify?id=${info.id }'">수정하기
+						&gt;</button>
+					<button type="button"
+						onclick="location.href='${contextPath }/member/deleteMember'">회원탈퇴하기</button>
 				</form>
 			</div>
 		</div>

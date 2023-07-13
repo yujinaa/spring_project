@@ -66,8 +66,6 @@
 					<div>
 						<a href="${contextPath }/booking/memBookingList">예약목록</a>
 					</div>
-
-
 				</div>
 			</div>
 		</section>
