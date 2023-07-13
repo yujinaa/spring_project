@@ -20,5 +20,4 @@ public interface bookingMapper {
 	//관리자 - 회원예약목록
 	public ArrayList<bookingDTO> memBookList(@Param("s") int start, @Param("e") int end);
 	public int selectMemberCount();
-
 }

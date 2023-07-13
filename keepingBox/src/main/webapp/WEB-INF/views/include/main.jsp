@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,8 @@
 	<header>
 		<div class="head-wrap">
 			<h1>
-				<a href="${contextPath }/member/login"><img src="/resources/img/logo.png" alt="logo"></a>
+				<a href="${contextPath }/member/login"><img
+					src="/resources/img/logo.png" alt="logo"></a>
 			</h1>
 			<nav>
 				<ul>
@@ -164,6 +165,6 @@
 			</ul>
 		</div>
 	</footer>
-<script src="/resources/js/main.js"></script>
+	<script src="/resources/js/main.js"></script>
 </body>
 </html>

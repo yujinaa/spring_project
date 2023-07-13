@@ -129,11 +129,11 @@
 		buser_id =
 		#{id} and buser_name = #{name} and buser_email = #{email}
 	</update>
-	
-	<delete id="deleteMemberCheck" >
+
+	<delete id="deleteMemberCheck">
 		delete from box_member where
-		buser_id=#{id} 
-		
+		buser_id=#{id}
+
 	</delete>
 
 	<!-- 관리자 회원정보목록 -->
@@ -154,7 +154,7 @@
 
 	<!-- 회원정보 삭제하기 -->
 	<delete id="detailInfoDel">
-		delete from box_member where buser_id = #{id} 
+		delete from box_member where buser_id = #{id}
 	</delete>
 
 	<!-- 검색 -->

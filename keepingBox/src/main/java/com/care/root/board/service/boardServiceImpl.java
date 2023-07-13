@@ -101,5 +101,4 @@ public class boardServiceImpl implements boardService{
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList", mapper.selectSearch(type,keyword, start, end));
 	}
-
 }

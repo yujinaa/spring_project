@@ -26,8 +26,9 @@
 	</insert>
 
 	<!-- 예약정보 -->
-	<select id="bookingInfo" resultMap="booking" >
-		select * from box_booking
+	<select id="bookingInfo" resultMap="booking">
+		select * from
+		box_booking
 		where
 		buser_id=#{userId }
 	</select>
@@ -40,9 +41,11 @@
 
 	<!-- 관리자 회원예약목록 -->
 	<select id="memBookList" resultMap="booking">
-		select B.* from(select rownum rn, A.* from
+		select B.* from(select rownum
+		rn, A.* from
 		(select * from box_booking
-		order by buser_id desc)A)B where rn between #{s} and
+		order by buser_id desc)A)B where
+		rn between #{s} and
 		#{e}
 
 	</select>

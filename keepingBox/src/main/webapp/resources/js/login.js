@@ -25,6 +25,6 @@ Kakao.isInitialized();
 
 	Kakao.Auth.authorize({
 		redirectUri: 'http://localhost:8084/member/kakaoCallback'
-	}); 
+	});
 
 */

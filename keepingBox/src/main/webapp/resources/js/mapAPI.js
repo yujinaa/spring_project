@@ -58,13 +58,13 @@ mapBtnP.addEventListener("click", () => {
 mapBtnB.addEventListener("click", () => {
 	var mapContainer = document.getElementById('kakaoMap1');
 	mapOption = {
-		center: new kakao.maps.LatLng(37.4716,126.8127),
+		center: new kakao.maps.LatLng(37.4716, 126.8127),
 		level: 3
 	};
 
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 	// 마커가 표시될 위치입니다 
-	var markerPosition = new kakao.maps.LatLng(37.4716,126.8127);
+	var markerPosition = new kakao.maps.LatLng(37.4716, 126.8127);
 
 	// 마커를 생성합니다
 	var marker = new kakao.maps.Marker({
@@ -77,4 +77,3 @@ mapBtnB.addEventListener("click", () => {
 
 
 
-	

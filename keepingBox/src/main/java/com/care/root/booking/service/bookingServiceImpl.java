@@ -19,7 +19,6 @@ public class bookingServiceImpl implements bookingService{
 		}
 	}
 
-
 	public bookingDTO bookingInfo(String userId){
 		return bMapper.bookingInfo(userId);
 	}
@@ -43,5 +42,4 @@ public class bookingServiceImpl implements bookingService{
 
 		model.addAttribute("memBookList", bMapper.memBookList(start, end));
 	}
-
 }

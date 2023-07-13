@@ -13,8 +13,8 @@ public interface boardService {
 	public int delete(int reviewNum);
 	public void getuserData(int reviewNum, Model model);
 	public int modify(boardDTO dto);
-	
-	
+
+
 	//공지사항
 	public void noticeList(Model model);
 	public void noticeSave(noticeDTO notice) ;
@@ -25,5 +25,5 @@ public interface boardService {
 
 	//검색
 	public void selectSearch(Model model,String type, String keyword,int num)throws Exception;
-	
+
 }

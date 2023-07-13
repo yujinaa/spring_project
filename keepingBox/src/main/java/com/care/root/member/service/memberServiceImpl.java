@@ -65,7 +65,6 @@ public class memberServiceImpl implements memberService {
 	}
 
 
-
 	//회원정보조회
 	public memberDTO memberInfo(String id){
 		memberDTO dto = null;
@@ -116,9 +115,9 @@ public class memberServiceImpl implements memberService {
 		memberMapper.pwdUpdate(dto);
 	}
 
-		public int deleteMemberCheck(String id){
-			return memberMapper.deleteMemberCheck(id);
-		}
+	public int deleteMemberCheck(String id){
+		return memberMapper.deleteMemberCheck(id);
+	}
 
 	//회원목록,페이징
 	public void memberInfoList(Model model,int num) {

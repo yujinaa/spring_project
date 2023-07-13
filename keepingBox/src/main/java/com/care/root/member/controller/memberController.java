@@ -81,7 +81,7 @@ public class memberController implements memberLoginSession{
 			@RequestParam(required = false) String autoLogin, //자동로그인
 			RedirectAttributes rs, HttpServletResponse response) throws IOException {  //id, pwd 받아줄것
 		int result = ms.userCheck(id,pwd); //서비스로 id,pwd넘기기
-//		System.out.println("result : " +result); //result확인
+		//		System.out.println("result : " +result); //result확인
 		System.out.println("autoLogin : " + autoLogin);
 		//result=0이면 성공(rs로 id, autoLogin넘기기)
 		if(result == 0) {
@@ -159,7 +159,7 @@ public class memberController implements memberLoginSession{
 		}
 		return "redirect:register_form";//실패하면 다시 회원가입 폼으로 이동
 	}
-	
+
 	//회원가입시 중복 아이디 확인
 	@PostMapping(value="idCheck",produces = "application/json; charset=utf8")
 	@ResponseBody
@@ -287,9 +287,9 @@ public class memberController implements memberLoginSession{
 
 	@PostMapping("deleteMemberCheck")
 	public String deleteMemberCheck(  @RequestParam  String pwd,memberDTO member, HttpServletRequest request,RedirectAttributes ra,HttpSession session ,HttpServletResponse response) throws IOException {
-//		String msg = (String) request.getAttribute("msg");
-//		if(msg==null)
-//			msg="";
+		//		String msg = (String) request.getAttribute("msg");
+		//		if(msg==null)
+		//			msg="";
 
 		String id = (String)session.getAttribute(LOGIN);
 

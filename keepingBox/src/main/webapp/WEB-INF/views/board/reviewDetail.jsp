@@ -54,7 +54,7 @@
 			</div>
 			<div class="preNext">
 				<div>
-				<hr>
+					<hr>
 					<span>이전글</span>
 					<c:choose>
 						<c:when test="${prevNext.prevNum ==0}">

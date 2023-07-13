@@ -48,7 +48,6 @@
 					</form>
 				</div>
 			</div>
-
 		</section>
 	</main>
 	<c:import url="../include/footer.jsp" />

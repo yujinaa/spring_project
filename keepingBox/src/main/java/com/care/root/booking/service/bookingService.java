@@ -15,7 +15,4 @@ public interface bookingService {
 
 	//관리자- 예약리스트
 	public void memBookList(Model model,int num);
-
-
-
 }

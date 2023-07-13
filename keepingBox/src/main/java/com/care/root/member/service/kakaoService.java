@@ -1,5 +1,4 @@
 package com.care.root.member.service;
-import java.util.HashMap;
 
 import com.care.root.member.dto.kakaoMemberDTO;
 

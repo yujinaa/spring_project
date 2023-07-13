@@ -19,13 +19,13 @@ public class mailController {
 	//	@GetMapping(value="member/mailCheck",produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String mailCheck(String email) throws Exception{ //반환값이 있기에 메서드 타입도 String
-		System.out.println("이메일 데이터 전송 확인");  
-		System.out.println("인증 이메일 : " + email);  
+//		System.out.println("이메일 데이터 전송 확인");  
+//		System.out.println("인증 이메일 : " + email);  
 
 		//인증번호 랜덤생성
 		Random random = new Random();
 		int checkNum = random.nextInt(888888) + 111111;
-		System.out.println("인증번호 :"+ checkNum);
+//		System.out.println("인증번호 :"+ checkNum);
 
 		//이메일 전송 내용
 		String setFrom = "@gmail.com";

@@ -131,6 +131,5 @@ public class kakaoLoginService implements kakaoService{
 			return result;
 			//정보가 있으므로 result 를 리턴함
 		}
-
 	}
 }

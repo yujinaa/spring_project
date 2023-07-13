@@ -32,7 +32,7 @@
   								예약 정보가 없습니다.
   						</c:when>
 						<c:otherwise>
-						<tbody >
+							<tbody>
 								<tr>
 									<th scope="row">예약자</th>
 									<td>${booking.name }</td>
@@ -53,7 +53,7 @@
 									<th scope="row">이용요금</th>
 									<td>${booking.price }</td>
 								</tr>
-								</tbody>
+							</tbody>
 						</c:otherwise>
 					</c:choose>
 				</table>

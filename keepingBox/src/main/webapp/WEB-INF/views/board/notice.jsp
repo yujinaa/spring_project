@@ -48,10 +48,10 @@
 							</c:forEach>
 						</tbody>
 					</table>
-						<c:if test="${successLoginUser == 'admin01'}">
-							<a href="${contextPath }/board/noticeWrite"><button
-									type="submit" id="review-btn">작성하기</button></a>
-						</c:if>
+					<c:if test="${successLoginUser == 'admin01'}">
+						<a href="${contextPath }/board/noticeWrite"><button
+								type="submit" id="review-btn">작성하기</button></a>
+					</c:if>
 				</div>
 			</div>
 		</section>

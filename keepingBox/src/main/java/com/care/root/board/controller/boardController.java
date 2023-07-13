@@ -14,7 +14,6 @@ import com.care.root.board.dto.noticeDTO;
 import com.care.root.board.service.boardService;
 import com.care.root.member.common.memberLoginSession;
 
-
 @Controller
 @RequestMapping("board")
 public class boardController implements memberLoginSession{
@@ -25,8 +24,8 @@ public class boardController implements memberLoginSession{
 	public String review(Model model,@RequestParam(value="type", required=false) String type,@RequestParam(value="keyword", required=false) String keyword,@RequestParam(required = false, defaultValue = "1")int num)throws Exception { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기) {
 		if(type != null  && keyword !=null) {
 			bs.selectSearch(model,type,keyword,num);
-//			System.out.println("타입 : " + type);
-//			System.out.println("제목 : " + keyword);
+			//			System.out.println("타입 : " + type);
+			//			System.out.println("제목 : " + keyword);
 		}else {
 			bs.boardList(model,num);
 		}
@@ -73,7 +72,7 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","modify success");
 		return "redirect:review";
 	}
-	
+
 
 	//공지사항 부분
 	//공지사항 목록
@@ -126,5 +125,4 @@ public class boardController implements memberLoginSession{
 		rs.addFlashAttribute("result","noticeDelsuccess");
 		return "redirect:notice";
 	}
-
 }

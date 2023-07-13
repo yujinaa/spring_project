@@ -40,15 +40,15 @@
 
 		</section>
 	</main>
-<script type="text/javascript">
-$("#regist-btn").on("click", function(e){
-	if("#regist-btn".value===''){
-		alert("내용을 입력해 주세요.");
-	}else{
-		alert('새로운 글이 등록되었습니다.');
-	}
-});
-</script>
+	<script type="text/javascript">
+		$("#regist-btn").on("click", function(e) {
+			if ("#regist-btn".value === '') {
+				alert("내용을 입력해 주세요.");
+			} else {
+				alert('새로운 글이 등록되었습니다.');
+			}
+		});
+	</script>
 	<c:import url="../include/footer.jsp" />
 </body>
 </html>

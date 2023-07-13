@@ -24,10 +24,9 @@ public interface memberMapper {
 
 	//카카오 회원정보 저장
 	public void kakaoInsert(kakaoMemberDTO userInfo);
-	
+
 	//카카오 회원정보 가져오기
 	public  kakaoMemberDTO findKakao(kakaoMemberDTO userInfo);
-
 
 	public int register(memberDTO dto);
 	public int idCheck(String id);
@@ -38,7 +37,6 @@ public interface memberMapper {
 	//내가 쓴글
 	public memberDTO getInfo(String id);
 
-	
 	//회원정보수정
 	public int modifySave(memberDTO dto);
 	//아이디찾기
@@ -57,6 +55,4 @@ public interface memberMapper {
 	//검색
 	public ArrayList<memberDTO> searchId(@Param("userId")String userId, @Param("s") int start, @Param("e") int end);
 	public Integer selectSearchIdCount(String userId);
-
-	
 }
