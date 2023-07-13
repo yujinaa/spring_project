@@ -16,6 +16,7 @@
 		<div class="find-box">
 			<p class="title">회원님의 아이디를 확인해 주세요</p>
 			<div class="result-box">
+				<hr>
 				<c:choose>
 					<c:when test="${empty findId}">
 						<p class="inquiry">조회결과가 없습니다.</p>
@@ -24,6 +25,7 @@
 						<p>${findId.id}</p>
 					</c:otherwise>
 				</c:choose>
+				<hr>
 			</div>
 			<div class="login-pwd">
 				<ul class="join-login cf">

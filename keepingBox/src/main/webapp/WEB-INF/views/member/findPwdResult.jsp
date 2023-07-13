@@ -16,7 +16,9 @@
 		<div class="find-box">
 			<p class="title">회원님의 임시 비밀번호 입니다</p>
 			<div class="result-box">
+				<hr>
 				<p>${newPwd}</p>
+				<hr>
 			</div>
 			<div class="announce">
 				<p class="color2">&#8251;안전을 위해 비밀번호를 변경해 주세요.</p>

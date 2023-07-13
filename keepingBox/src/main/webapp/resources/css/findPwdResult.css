@@ -87,6 +87,10 @@ main {
   width: 320px;
   height: 500px;
 }
+.result-box{
+	text-align: center;
+}
+
 .title {
   margin-bottom: 4rem;
   color: #3781e3;
