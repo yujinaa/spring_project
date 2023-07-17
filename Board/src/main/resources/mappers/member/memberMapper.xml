@@ -3,31 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.board.mybatis.member.MemberMapper">
-	<resultMap type="com.care.board.member.dto.memberDTO" id="member"> <!-- 맵핑작업 -->
-		<id property="userId" column="user_id"/>
-		<result property="userPwd" column="user_pwd"/>
-		<result property="userName" column="user_name"/>
-		<result property="userEmail" column="user_email"/>
-		<result property="limitTime" column="limit_time"/>
-		<result property="sessionId" column="session_id"/>
-		
+	<resultMap type="com.care.board.member.dto.memberDTO"
+		id="member"> <!-- 맵핑작업 -->
+		<id property="userId" column="user_id" />
+		<result property="userPwd" column="user_pwd" />
+		<result property="userName" column="user_name" />
+		<result property="userEmail" column="user_email" />
+		<result property="limitTime" column="limit_time" />
+		<result property="sessionId" column="session_id" />
 	</resultMap>
 
 	<select id="userCheck" resultMap="member"> <!-- xml userCheck가 호출되면 여기로 넘어온다 -->
 		select * from talk_board_member where user_id = #{userId}
 	</select>
-	
+
 	<!-- 회원가입 -->
 	<insert id="signUp">
-		insert into talk_board_member(user_id,user_pwd,user_name,user_email) values (#{userId},#{userPwd},#{userName},#{userEmail})
+		insert into
+		talk_board_member(user_id,user_pwd,user_name,user_email) values
+		(#{userId},#{userPwd},#{userName},#{userEmail})
 	</insert>
-	
+
 	<!-- 자동로그인 -->
 	<update id="keepLogin">
 		update talk_board_member set session_id=
 		#{sessionId}, limit_time = #{limitDate} where user_id=#{userId}
-	
 	</update>
-	
-
 </mapper>

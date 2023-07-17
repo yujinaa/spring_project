@@ -1,12 +1,8 @@
 package com.care.board.mybatis.board;
 
-
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.ui.Model;
-
 import com.care.board.board.dto.boardDTO;
 import com.care.board.board.dto.boardReplyDTO;
 

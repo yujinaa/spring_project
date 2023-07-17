@@ -4,14 +4,6 @@ package com.care.board.board.dto;
 import java.sql.Timestamp;
 
 public class boardReplyDTO {
-	/*
-	 replyer varchar(20) not null,
-title varchar(50)not null,--제목도 비어있음 안되기에 꼭 적는다
-reply_content varchar(300),
-reply_group number(10) not null,
-reply_date date default sysdate,
-	 * */
-
 	private String replyer;
 	private String title;
 	private String replyContent;
@@ -48,4 +40,3 @@ reply_date date default sysdate,
 		this.replyDate = replyDate;
 	}
 }
-	

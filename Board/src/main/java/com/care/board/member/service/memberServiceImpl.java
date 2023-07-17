@@ -15,7 +15,7 @@ import com.care.board.mybatis.member.MemberMapper;
 public class memberServiceImpl implements memberService{
 	@Autowired MemberMapper mapper; //빈주입
 	BCryptPasswordEncoder psencoder; //비번 암호화,변경
-	
+
 	public memberServiceImpl(){//객체 생성후 생성자 만들기
 		psencoder = new BCryptPasswordEncoder();
 	}
@@ -27,16 +27,16 @@ public class memberServiceImpl implements memberService{
 				return 0; //로그인 성공
 			}
 		}
-			return 1; //실패
-		}
+		return 1; //실패
+	}
 	public int signUp(memberDTO dto) {
 		//비번 암호화 코드
 		System.out.println("비번 변경전 : " + dto.getUserPwd());
 		String securePwd = psencoder.encode(dto.getUserPwd());
 		System.out.println("비번 변경 후 : " + securePwd);
-		
+
 		dto.setUserPwd(securePwd); //암호 변경
-		
+
 		int result = 0;
 		try {//동일 id로 가입시 프로그램은 계속되도록
 			result = mapper.signUp(dto);			

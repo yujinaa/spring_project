@@ -32,12 +32,10 @@ public class boardReplyController implements loginSessionName {
 		dto.setReplyContent((String)map.get("replyContent"));
 
 		return bs.addReply(dto);
-
 	}
 	//댓글 가져오기
 	@GetMapping(value="replyData/{replyGroup}", produces="application/json;charset=utf-8")
 	public List<boardReplyDTO> replyData(@PathVariable int replyGroup) {
 		return bs.getReplyList(replyGroup);
 	}
-
 }

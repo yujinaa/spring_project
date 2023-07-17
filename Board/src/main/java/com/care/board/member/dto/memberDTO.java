@@ -3,15 +3,13 @@ package com.care.board.member.dto;
 import java.sql.Date;
 
 public class memberDTO {
-
-
 	private String userId;
 	private String userPwd;
 	private String userName;
 	private String userEmail;
 	private Date limitTime;
 	private String sessionId;
-	
+
 	public Date getLimitTime() {
 		return limitTime;
 	}
@@ -49,4 +47,3 @@ public class memberDTO {
 		this.userEmail = userEmail;
 	}
 }	
-	

@@ -1,6 +1,5 @@
 package com.care.board.board.dto;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class boardDTO {

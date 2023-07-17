@@ -15,11 +15,11 @@ public class memberInterceptor extends HandlerInterceptorAdapter implements logi
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+
 		HttpSession session = request.getSession(); //세션 얻어오기
-		
+
 		if(session.getAttribute(LOGIN)==null) {
-//			response.sendRedirect("login"); //세션 없으면 바로 로그인 페이지 띄우기
+			//			response.sendRedirect("login"); //세션 없으면 바로 로그인 페이지 띄우기
 			response.setContentType("text/html; charset = utf-8"); //세션없으면 alert메시지 띄운후 이동
 			PrintWriter out =response.getWriter();
 			out.print("<script>alert('로그인 해주세요'); "

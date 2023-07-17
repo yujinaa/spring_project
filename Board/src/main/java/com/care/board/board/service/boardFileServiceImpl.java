@@ -24,7 +24,7 @@ public class boardFileServiceImpl implements boardFileService{
 		SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddHHmmss-");
 		Calendar calendar = Calendar.getInstance();
 		String sysFileName = 
-			simpl.format(calendar.getTime()) + file.getOriginalFilename();
+				simpl.format(calendar.getTime()) + file.getOriginalFilename();
 		File saveFile = new File(IMAGE_REPO+"/"+sysFileName);
 		try {
 			file.transferTo(saveFile);//해당 위치에 파일 저장
@@ -36,15 +36,15 @@ public class boardFileServiceImpl implements boardFileService{
 	public void deleteImg(String originFileName) {//파일받고
 		File deleteFile = new File(IMAGE_REPO+"/"+originFileName);//해당경로 얻어오고
 		deleteFile.delete();//그 파일 지우기
-}
+	}
 	//alert 메시지는 반복사용할 수 있게 하기
 	public String getMessage(HttpServletRequest request,String msg, String url) {
-		    String message = null;
-		    String path = request.getContextPath();
-		  
-			message = "<script>alert('"+msg+"');";
-			message += "location.href='"+path+ url +"'</script>";
-		  
-		    return message;
-		}
+		String message = null;
+		String path = request.getContextPath();
+
+		message = "<script>alert('"+msg+"');";
+		message += "location.href='"+path+ url +"'</script>";
+
+		return message;
+	}
 }

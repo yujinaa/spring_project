@@ -27,7 +27,7 @@ import com.care.board.commonSession.loginSessionName;
 @RequestMapping("board")
 public class boardController implements loginSessionName{	
 	@Autowired boardService bs;
-	
+
 	//게시판 목록
 	@GetMapping("list")
 	public String board(HttpSession session, Model model, @RequestParam(required = false,defaultValue="1")int num) { //db에 저장된 모든 값 가져오기,값이 없다면 default값으로 1주기
@@ -45,7 +45,7 @@ public class boardController implements loginSessionName{
 	//글저장하기
 	@PostMapping("writeSave")
 	public void writeSave(MultipartHttpServletRequest multi, HttpServletResponse response,   //작성자가 글쓰기 누르면 모든값이 multi에 들어옴,  //out 객체를 만들어 사용자에게 전달
-							HttpServletRequest request) throws IOException{                    //request는 경로 설정
+			HttpServletRequest request) throws IOException{                    //request는 경로 설정
 		System.out.println("read:" +multi.getParameter("writer"));
 		System.out.println("저장하기 실행");
 		String message =bs.writeSave(multi, request);//multi는 사용자 모든정보, request는 세션이나 절대경로
@@ -63,23 +63,23 @@ public class boardController implements loginSessionName{
 	//게시글 조회- 이미지 불러오기
 	@GetMapping("imageView")
 	public void imgView(@RequestParam("imgFile") String imgFile,
-		HttpServletResponse response) throws IOException {
-	    response.addHeader(
-		"Content-disposition","attachment;fileName="+imgFile); //파일을 다운받고, 브라우저로 표현하고, 다운될 파일이름
-	    File file = new File(boardFileService.IMAGE_REPO+"/"+imgFile);
-	    FileInputStream in = new FileInputStream(file);
-	    FileCopyUtils.copy(in, response.getOutputStream());
-	    in.close();
-}
+			HttpServletResponse response) throws IOException {
+		response.addHeader(
+				"Content-disposition","attachment;fileName="+imgFile); //파일을 다운받고, 브라우저로 표현하고, 다운될 파일이름
+		File file = new File(boardFileService.IMAGE_REPO+"/"+imgFile);
+		FileInputStream in = new FileInputStream(file);
+		FileCopyUtils.copy(in, response.getOutputStream());
+		in.close();
+	}
 	//게시글 삭제하기
 	@GetMapping("delete")
 	public void writeDelete(@RequestParam("writeNum") int write_num,
-		@RequestParam("imgFile") String imgFile,
-		HttpServletResponse response, 
-		HttpServletRequest request) throws IOException {
-		
+			@RequestParam("imgFile") String imgFile,
+			HttpServletResponse response, 
+			HttpServletRequest request) throws IOException {
+
 		String message = bs.writeDelete(write_num,imgFile,request);
-		
+
 		PrintWriter out=null;
 		response.setContentType("text/html; charset=utf-8");
 		out = response.getWriter();
@@ -93,13 +93,12 @@ public class boardController implements loginSessionName{
 	}
 	@PostMapping("modify")
 	public void modify(MultipartHttpServletRequest multi,
-	         HttpServletResponse response,
-	         HttpServletRequest request) throws IOException {
-	   String message = bs.modify(multi, request);
-	   PrintWriter out=null;
-	   response.setContentType("text/html; charset=utf-8");
-	   out = response.getWriter();
-	   out.println(message);
-}
-
+			HttpServletResponse response,
+			HttpServletRequest request) throws IOException {
+		String message = bs.modify(multi, request);
+		PrintWriter out=null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+		out.println(message);
+	}
 }

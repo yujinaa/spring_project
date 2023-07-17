@@ -20,7 +20,7 @@ import com.care.board.mybatis.board.BoardMapper;
 @Service
 public class boardServiceImpl implements boardService {
 	@Autowired BoardMapper mapper;
-//	@Autowired boardFileService bfs;
+	//	@Autowired boardFileService bfs;
 	public void boardList(Model model,int num) {
 		//페이징
 		int pageCount = 10; //한 페이지에 10개씩
@@ -31,7 +31,7 @@ public class boardServiceImpl implements boardService {
 		}
 		int end = num * pageCount;
 		int start = end +1 - pageCount;
-		
+
 		model.addAttribute("repeat", repeat);
 		model.addAttribute("boardList", mapper.boardList(start,end));
 	}
@@ -69,16 +69,16 @@ public class boardServiceImpl implements boardService {
 	}
 	//게시글 삭제하기
 	public String writeDelete(int writeNum,String imgFile, HttpServletRequest request) {
-			boardFileService bfs = new boardFileServiceImpl();
-			int result = mapper.delete(writeNum);
-			String message=null;
-			if(result == 1) { //result==1이면 성공으로 이미지 삭제
-				bfs.deleteImg(imgFile); 
-				message = bfs.getMessage(request, "삭제 되었습니다", "/board/list" );
-			}else{
-				message = bfs.getMessage(request, "삭제할 수 없습니다","/board/writeView" );
-			}
-			return message;
+		boardFileService bfs = new boardFileServiceImpl();
+		int result = mapper.delete(writeNum);
+		String message=null;
+		if(result == 1) { //result==1이면 성공으로 이미지 삭제
+			bfs.deleteImg(imgFile); 
+			message = bfs.getMessage(request, "삭제 되었습니다", "/board/list" );
+		}else{
+			message = bfs.getMessage(request, "삭제할 수 없습니다","/board/writeView" );
+		}
+		return message;
 	}
 	//수정을 위한 데이터 불러오기
 	public void getData(int writeNum, Model model) {
@@ -92,25 +92,25 @@ public class boardServiceImpl implements boardService {
 		dto.setTitle(multi.getParameter("title"));
 		dto.setContent(multi.getParameter("content"));
 
-	MultipartFile file = multi.getFile("imgFile");
-	if(file.getSize() != 0 ) {
-		//이미지 변경시 원래 이미지 삭제후 새로운 이미지로 변경하기
-		dto.setImgFile(bfs.saveFile(file));//새로운파일명으로 변경
-		bfs.deleteImg(multi.getParameter("originFileName")); //기존이미지 삭제
-	}else {//이미지 변경없을땐
-		dto.setImgFile(multi.getParameter("originFileName"));//이미지 원본 넣기
-	}
-	int result = mapper.modify(dto);
-	String msg, url;
-	if(result == 1) {
-		msg = "수정되었습니다";
-		url = "/board/list";
-	}else {
-		msg = "수정 중 문제가 발생하였습니다";
-		url = "/board/modify_form";
-	}
-	String message = bfs.getMessage(request, msg, url);
-	return message;
+		MultipartFile file = multi.getFile("imgFile");
+		if(file.getSize() != 0 ) {
+			//이미지 변경시 원래 이미지 삭제후 새로운 이미지로 변경하기
+			dto.setImgFile(bfs.saveFile(file));//새로운파일명으로 변경
+			bfs.deleteImg(multi.getParameter("originFileName")); //기존이미지 삭제
+		}else {//이미지 변경없을땐
+			dto.setImgFile(multi.getParameter("originFileName"));//이미지 원본 넣기
+		}
+		int result = mapper.modify(dto);
+		String msg, url;
+		if(result == 1) {
+			msg = "수정되었습니다";
+			url = "/board/list";
+		}else {
+			msg = "수정 중 문제가 발생하였습니다";
+			url = "/board/modify_form";
+		}
+		String message = bfs.getMessage(request, msg, url);
+		return message;
 	}
 	public String addReply(boardReplyDTO dto) {
 		int result = mapper.addReply(dto);//매퍼로 넘기기
@@ -125,6 +125,5 @@ public class boardServiceImpl implements boardService {
 	public List<boardReplyDTO> getReplyList( int replyGroup){
 		return mapper.getReplyList(replyGroup);
 	}
-
 }
 

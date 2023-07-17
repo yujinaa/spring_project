@@ -20,5 +20,4 @@ public interface boardService {
 	public String modify(MultipartHttpServletRequest multi, HttpServletRequest request);
 	public String addReply(boardReplyDTO dto);
 	public List<boardReplyDTO> getReplyList( int replyGroup);
-
 }
