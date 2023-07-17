@@ -82,30 +82,31 @@
 	height: 40px;
 }
 
-
 .cont {
 	width: 450px;
 	height: 500px;
 	text-align: center;
 	font-size: 45px;
-	font-weight:bold;
+	font-weight: bold;
 }
-.cont h5{
+
+.cont h5 {
 	text-decoration: underline;
 }
-.popupLook button{
-	border:none;
-	background-color:black;
-	color:white;
+
+.popupLook button {
+	border: none;
+	background-color: black;
+	color: white;
 	text-align: center;
 	width: 130px;
 	height: 35px;
 	cursor: pointer;
 	align-items: center;
 	display: block;
-    margin: 35px auto 0;
-    
+	margin: 35px auto 0;
 }
-.footer{
+
+.footer {
 	margin: 45px;
 }

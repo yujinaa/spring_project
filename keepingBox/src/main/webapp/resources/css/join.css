@@ -114,12 +114,14 @@ main {
 	font-size: 0.7rem;
 	padding-left: 0.7rem;
 }
-#email{
-	width:230px;
-}
-#id{
+
+#email {
 	width: 230px;
-} 
+}
+
+#id {
+	width: 230px;
+}
 
 .chk-btn {
 	width: 70px;
@@ -152,11 +154,11 @@ main {
 .incorrect {
 	color: red;
 }
-#mail-check-input-info{
+
+#mail-check-input-info {
 	font-size: 13px;
 	margin-top: -14px;
 }
-
 
 /* footer 부분 */
 footer {

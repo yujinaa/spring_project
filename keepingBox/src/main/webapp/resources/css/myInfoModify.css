@@ -125,7 +125,7 @@ main {
 .modify label {
 	display: block;
 	margin-bottom: 0.5rem;
-	    margin-top: 0.5rem;
+	margin-top: 0.5rem;
 	font-size: 0.9rem;
 }
 
@@ -139,11 +139,12 @@ main {
 	padding-left: 0.7rem;
 	border-radius: 4px;
 }
-.modify input#id{
-	color:#afafaf;
-} 
 
-#pwdchk-info{
+.modify input#id {
+	color: #afafaf;
+}
+
+#pwdchk-info {
 	color: #3781e3;
 	margin-top: -14px;
 	font-size: 13px;

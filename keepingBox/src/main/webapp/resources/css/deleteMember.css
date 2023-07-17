@@ -108,11 +108,13 @@ main {
 	margin-top: 12rem;
 	height: 100vh;
 }
+
 .withdrawal-box label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+	display: block;
+	margin-bottom: 0.5rem;
+	font-size: 0.9rem;
 }
+
 .withdrawal-box {
 	margin: 0 auto;
 	width: 320px;
@@ -206,7 +208,8 @@ footer li, footer a {
 .footer-right li:last-child {
 	font-size: 1rem;
 }
-#delText{
+
+#delText {
 	color: red;
 	font-size: 0.99rem;
 	margin-bottom: 1rem;
